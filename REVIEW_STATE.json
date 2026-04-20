@@ -1,0 +1,13 @@
+{
+  "round": 2,
+  "agent_id": "019d97a6-5119-7061-9335-27dbeab0bc20",
+  "status": "completed",
+  "last_score": 5.0,
+  "last_verdict": "not ready",
+  "pending_experiments": [
+    "placement_baseline_section",
+    "N_sweep",
+    "geometry_or_spacing_sweep"
+  ],
+  "timestamp": "2026-04-17T03:19:30+08:00"
+}

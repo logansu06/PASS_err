@@ -1,0 +1,572 @@
+2026-04-17 03:41:00,241 - INFO - Loaded config / Ready
+2026-04-17 03:41:00,241 - INFO - Solved delta*: d_target=3.010714e+00, root=7.434080e-03, hi=1.339286e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:00,241 - INFO - Solved delta*: d_target=3.021429e+00, root=1.485541e-02, hi=1.875000e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:00,241 - INFO - Solved delta*: d_target=3.021429e+00, root=1.485541e-02, hi=2.410714e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:00,242 - INFO - Solved delta*: d_target=3.032143e+00, root=2.226406e-02, hi=2.410714e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:00,242 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.032143e+00, delta=2.226406e-02
+2026-04-17 03:41:00,242 - INFO - Solved delta*: d_target=3.032143e+00, root=2.226406e-02, hi=2.946429e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:00,242 - INFO - Solved delta*: d_target=3.042857e+00, root=2.966009e-02, hi=5.892857e-02, expansions=1, f(root)=3.819e-14
+2026-04-17 03:41:00,242 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.042857e+00, delta=2.966009e-02
+2026-04-17 03:41:00,242 - INFO - Solved delta*: d_target=3.042857e+00, root=2.966009e-02, hi=3.482143e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:00,242 - INFO - Solved delta*: d_target=3.053571e+00, root=3.704356e-02, hi=6.964286e-02, expansions=1, f(root)=9.059e-14
+2026-04-17 03:41:00,242 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.053571e+00, delta=3.704356e-02
+2026-04-17 03:41:00,242 - INFO - Solved delta*: d_target=3.042857e+00, root=2.966009e-02, hi=4.017857e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:00,242 - INFO - Solved delta*: d_target=3.053571e+00, root=3.704356e-02, hi=4.017857e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:00,242 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.053571e+00, delta=3.704356e-02
+2026-04-17 03:41:00,243 - INFO - Solved delta*: d_target=3.064286e+00, root=4.441455e-02, hi=8.035714e-02, expansions=1, f(root)=1.918e-13
+2026-04-17 03:41:00,243 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.064286e+00, delta=4.441455e-02
+2026-04-17 03:41:00,243 - INFO - Solved delta*: d_target=3.053571e+00, root=3.704356e-02, hi=4.553571e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:00,243 - INFO - Solved delta*: d_target=3.064286e+00, root=4.441455e-02, hi=4.553571e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:00,243 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.064286e+00, delta=4.441455e-02
+2026-04-17 03:41:00,243 - INFO - Solved delta*: d_target=3.075000e+00, root=5.177312e-02, hi=9.107143e-02, expansions=1, f(root)=3.717e-13
+2026-04-17 03:41:00,243 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.075000e+00, delta=5.177312e-02
+2026-04-17 03:41:00,243 - INFO - Solved delta*: d_target=3.064286e+00, root=4.441455e-02, hi=5.089286e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:00,243 - INFO - Solved delta*: d_target=3.075000e+00, root=5.177312e-02, hi=1.017857e-01, expansions=1, f(root)=9.694e-13
+2026-04-17 03:41:00,243 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.075000e+00, delta=5.177312e-02
+2026-04-17 03:41:00,243 - INFO - Solved delta*: d_target=3.085714e+00, root=5.911932e-02, hi=1.017857e-01, expansions=1, f(root)=6.706e-13
+2026-04-17 03:41:00,243 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.085714e+00, delta=5.911932e-02
+2026-04-17 03:41:00,243 - INFO - Delta* spacing check: min_spacing=7.346205e-03, required=5.357143e-03
+2026-04-17 03:41:00,244 - INFO - a_norm at Delta*: 1.000000e+00 (should be ~1)
+2026-04-17 03:41:00,244 - INFO - xi_max=1.459703e+00, xi_mean=1.440000e+00, epsilon_valid=1.835012e-03 m, epsilon_valid_norm=1.712678e-01
+2026-04-17 03:41:00,302 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:00,362 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:00,430 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:00,497 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:00,571 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:00,644 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:00,713 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:00,782 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:00,848 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:00,915 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:00,982 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,058 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,128 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,197 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,266 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,362 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,428 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,493 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,563 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,635 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,714 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,787 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,863 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:01,933 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,004 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,078 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,153 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,229 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,303 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,388 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,459 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,529 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,600 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,674 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,745 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,814 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:02,927 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:03,091 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:03,277 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:03,408 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:03,538 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:05,197 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:05,254 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:05,319 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:05,377 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:05,445 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:05,505 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:05,572 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:05,632 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:05,703 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:05,782 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:06,824 - INFO - Completed stochastic scenario sweep with corr_length=4.00
+2026-04-17 03:41:06,830 - INFO - Nominal optimizer restart 1: success=True gain=1.729945e+00
+2026-04-17 03:41:06,836 - INFO - Nominal optimizer restart 2: success=True gain=1.729945e+00
+2026-04-17 03:41:06,849 - INFO - Nominal optimizer restart 3: success=True gain=1.729945e+00
+2026-04-17 03:41:06,860 - INFO - Nominal optimizer restart 4: success=True gain=5.740414e-01
+2026-04-17 03:41:06,917 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:06,977 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,043 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,133 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,208 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,278 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,347 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,426 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,495 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,567 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,636 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,704 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,773 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,842 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,918 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:07,991 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,071 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,141 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,210 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,280 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,349 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,424 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,494 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,565 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,636 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,705 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,777 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,845 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,913 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:08,991 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,059 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,140 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,206 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,281 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,351 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,423 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,497 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,579 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,666 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,747 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,838 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,915 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:09,991 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:10,069 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:10,152 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:10,234 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:10,316 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:10,395 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:10,477 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:10,561 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:10,648 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:10,743 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:10,825 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:10,904 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:10,984 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:11,067 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:11,147 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:11,247 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:11,334 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:11,421 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:11,499 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:11,587 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:11,692 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:11,775 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:11,860 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:11,942 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:12,020 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:12,101 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:12,188 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:12,269 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:12,354 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:12,444 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:12,533 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:12,613 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:12,690 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:12,767 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:12,846 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:12,926 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,003 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,083 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,167 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,248 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,334 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,431 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,509 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,584 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,663 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,742 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,825 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,903 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:13,984 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:14,061 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:14,141 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:15,778 - INFO - Completed baseline section with 3 placement families
+2026-04-17 03:41:15,778 - INFO - Solved delta*: d_target=3.050000e+00, root=3.458380e-02, hi=6.250000e-02, expansions=0, f(root)=4.308e-14
+2026-04-17 03:41:15,778 - INFO - Solved delta*: d_target=3.100000e+00, root=6.889515e-02, hi=8.750000e-02, expansions=0, f(root)=3.286e-14
+2026-04-17 03:41:15,778 - INFO - Solved delta*: d_target=3.100000e+00, root=6.889515e-02, hi=1.125000e-01, expansions=0, f(root)=9.899e-13
+2026-04-17 03:41:15,779 - INFO - Solved delta*: d_target=3.150000e+00, root=1.029406e-01, hi=1.125000e-01, expansions=0, f(root)=4.885e-15
+2026-04-17 03:41:15,779 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.150000e+00, delta=1.029406e-01
+2026-04-17 03:41:15,779 - INFO - Solved delta*: d_target=3.150000e+00, root=1.029406e-01, hi=1.375000e-01, expansions=0, f(root)=8.655e-13
+2026-04-17 03:41:15,779 - INFO - Solved delta*: d_target=3.200000e+00, root=1.367263e-01, hi=1.375000e-01, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:15,779 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.200000e+00, delta=1.367263e-01
+2026-04-17 03:41:15,779 - INFO - Solved delta*: d_target=3.200000e+00, root=1.367263e-01, hi=1.625000e-01, expansions=0, f(root)=4.690e-13
+2026-04-17 03:41:15,779 - INFO - Solved delta*: d_target=3.250000e+00, root=1.702587e-01, hi=3.250000e-01, expansions=1, f(root)=-4.441e-15
+2026-04-17 03:41:15,779 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.250000e+00, delta=1.702587e-01
+2026-04-17 03:41:15,779 - INFO - Solved delta*: d_target=3.250000e+00, root=1.702587e-01, hi=1.875000e-01, expansions=0, f(root)=1.439e-13
+2026-04-17 03:41:15,780 - INFO - Solved delta*: d_target=3.300000e+00, root=2.035437e-01, hi=3.750000e-01, expansions=1, f(root)=-1.421e-14
+2026-04-17 03:41:15,780 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.300000e+00, delta=2.035437e-01
+2026-04-17 03:41:15,780 - INFO - Solved delta*: d_target=3.250000e+00, root=1.702587e-01, hi=2.125000e-01, expansions=0, f(root)=5.131e-12
+2026-04-17 03:41:15,780 - INFO - Solved delta*: d_target=3.300000e+00, root=2.035437e-01, hi=2.125000e-01, expansions=0, f(root)=1.510e-14
+2026-04-17 03:41:15,780 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.300000e+00, delta=2.035437e-01
+2026-04-17 03:41:15,780 - INFO - Solved delta*: d_target=3.350000e+00, root=2.365872e-01, hi=4.250000e-01, expansions=1, f(root)=-3.775e-14
+2026-04-17 03:41:15,780 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.350000e+00, delta=2.365872e-01
+2026-04-17 03:41:15,780 - INFO - Solved delta*: d_target=3.300000e+00, root=2.035437e-01, hi=2.375000e-01, expansions=0, f(root)=3.029e-12
+2026-04-17 03:41:15,780 - INFO - Solved delta*: d_target=3.350000e+00, root=2.365872e-01, hi=2.375000e-01, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:15,780 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.350000e+00, delta=2.365872e-01
+2026-04-17 03:41:15,780 - INFO - Solved delta*: d_target=3.400000e+00, root=2.693949e-01, hi=4.750000e-01, expansions=1, f(root)=-8.793e-14
+2026-04-17 03:41:15,780 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.400000e+00, delta=2.693949e-01
+2026-04-17 03:41:15,781 - INFO - Delta* spacing check: min_spacing=3.280774e-02, required=2.500000e-02
+2026-04-17 03:41:15,781 - INFO - a_norm at Delta*: 1.000000e+00 (should be ~1)
+2026-04-17 03:41:15,864 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:15,942 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,032 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,109 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,188 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,266 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,347 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,426 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,506 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,596 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,685 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,763 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,839 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,918 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:16,997 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:17,078 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:17,161 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:17,239 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:17,321 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:17,402 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:17,486 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:17,571 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:17,650 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:17,729 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:17,807 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:17,883 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:17,961 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:18,037 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:18,116 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:18,195 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:18,272 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:18,367 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:18,445 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:18,524 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:18,606 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:18,689 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:18,769 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:18,846 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:18,927 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,009 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,089 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,099 - INFO - Solved delta*: d_target=3.010714e+00, root=7.434080e-03, hi=1.339286e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:19,099 - INFO - Solved delta*: d_target=3.021429e+00, root=1.485541e-02, hi=1.875000e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:19,099 - INFO - Solved delta*: d_target=3.021429e+00, root=1.485541e-02, hi=2.410714e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:19,099 - INFO - Solved delta*: d_target=3.032143e+00, root=2.226406e-02, hi=2.410714e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:19,099 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.032143e+00, delta=2.226406e-02
+2026-04-17 03:41:19,099 - INFO - Solved delta*: d_target=3.032143e+00, root=2.226406e-02, hi=2.946429e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:19,099 - INFO - Solved delta*: d_target=3.042857e+00, root=2.966009e-02, hi=5.892857e-02, expansions=1, f(root)=3.819e-14
+2026-04-17 03:41:19,099 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.042857e+00, delta=2.966009e-02
+2026-04-17 03:41:19,099 - INFO - Solved delta*: d_target=3.042857e+00, root=2.966009e-02, hi=3.482143e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:19,100 - INFO - Solved delta*: d_target=3.053571e+00, root=3.704356e-02, hi=6.964286e-02, expansions=1, f(root)=9.059e-14
+2026-04-17 03:41:19,100 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.053571e+00, delta=3.704356e-02
+2026-04-17 03:41:19,100 - INFO - Solved delta*: d_target=3.042857e+00, root=2.966009e-02, hi=4.017857e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:19,100 - INFO - Solved delta*: d_target=3.053571e+00, root=3.704356e-02, hi=4.017857e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:19,100 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.053571e+00, delta=3.704356e-02
+2026-04-17 03:41:19,100 - INFO - Solved delta*: d_target=3.064286e+00, root=4.441455e-02, hi=8.035714e-02, expansions=1, f(root)=1.918e-13
+2026-04-17 03:41:19,100 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.064286e+00, delta=4.441455e-02
+2026-04-17 03:41:19,100 - INFO - Solved delta*: d_target=3.053571e+00, root=3.704356e-02, hi=4.553571e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:19,101 - INFO - Solved delta*: d_target=3.064286e+00, root=4.441455e-02, hi=4.553571e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:19,101 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.064286e+00, delta=4.441455e-02
+2026-04-17 03:41:19,101 - INFO - Solved delta*: d_target=3.075000e+00, root=5.177312e-02, hi=9.107143e-02, expansions=1, f(root)=3.717e-13
+2026-04-17 03:41:19,101 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.075000e+00, delta=5.177312e-02
+2026-04-17 03:41:19,101 - INFO - Solved delta*: d_target=3.064286e+00, root=4.441455e-02, hi=5.089286e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:19,101 - INFO - Solved delta*: d_target=3.075000e+00, root=5.177312e-02, hi=1.017857e-01, expansions=1, f(root)=9.694e-13
+2026-04-17 03:41:19,101 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.075000e+00, delta=5.177312e-02
+2026-04-17 03:41:19,101 - INFO - Solved delta*: d_target=3.085714e+00, root=5.911932e-02, hi=1.017857e-01, expansions=1, f(root)=6.706e-13
+2026-04-17 03:41:19,101 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.085714e+00, delta=5.911932e-02
+2026-04-17 03:41:19,101 - INFO - Delta* spacing check: min_spacing=7.346205e-03, required=5.357143e-03
+2026-04-17 03:41:19,101 - INFO - a_norm at Delta*: 1.000000e+00 (should be ~1)
+2026-04-17 03:41:19,188 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,260 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,340 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,417 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,497 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,578 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,656 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,733 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,809 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,889 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:19,982 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:20,059 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:20,138 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:20,214 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:20,293 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:20,371 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:20,452 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:20,533 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:20,612 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:20,693 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:20,780 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:20,877 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:20,965 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:21,062 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:21,141 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:21,221 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:21,302 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:21,391 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:21,476 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:21,559 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:21,640 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:21,722 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:21,815 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:21,895 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:21,978 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:22,062 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:22,147 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:22,241 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:22,322 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:22,460 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:22,613 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:22,665 - INFO - Solved delta*: d_target=3.005000e+00, root=3.470828e-03, hi=6.250000e-03, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:22,665 - INFO - Solved delta*: d_target=3.010000e+00, root=6.938872e-03, hi=8.750000e-03, expansions=0, f(root)=-4.441e-16
+2026-04-17 03:41:22,665 - INFO - Solved delta*: d_target=3.010000e+00, root=6.938872e-03, hi=1.125000e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:22,665 - INFO - Solved delta*: d_target=3.015000e+00, root=1.040414e-02, hi=1.125000e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:22,665 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.015000e+00, delta=1.040414e-02
+2026-04-17 03:41:22,665 - INFO - Solved delta*: d_target=3.015000e+00, root=1.040414e-02, hi=1.375000e-02, expansions=0, f(root)=-4.441e-16
+2026-04-17 03:41:22,665 - INFO - Solved delta*: d_target=3.020000e+00, root=1.386663e-02, hi=2.750000e-02, expansions=1, f(root)=8.882e-16
+2026-04-17 03:41:22,666 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.020000e+00, delta=1.386663e-02
+2026-04-17 03:41:22,666 - INFO - Solved delta*: d_target=3.020000e+00, root=1.386663e-02, hi=1.625000e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:22,666 - INFO - Solved delta*: d_target=3.025000e+00, root=1.732637e-02, hi=3.250000e-02, expansions=1, f(root)=8.882e-16
+2026-04-17 03:41:22,666 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.025000e+00, delta=1.732637e-02
+2026-04-17 03:41:22,666 - INFO - Solved delta*: d_target=3.020000e+00, root=1.386663e-02, hi=1.875000e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:22,666 - INFO - Solved delta*: d_target=3.025000e+00, root=1.732637e-02, hi=1.875000e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:22,666 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.025000e+00, delta=1.732637e-02
+2026-04-17 03:41:22,666 - INFO - Solved delta*: d_target=3.030000e+00, root=2.078334e-02, hi=3.750000e-02, expansions=1, f(root)=1.776e-15
+2026-04-17 03:41:22,666 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.030000e+00, delta=2.078334e-02
+2026-04-17 03:41:22,666 - INFO - Solved delta*: d_target=3.025000e+00, root=1.732637e-02, hi=2.125000e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:22,666 - INFO - Solved delta*: d_target=3.030000e+00, root=2.078334e-02, hi=2.125000e-02, expansions=0, f(root)=-4.441e-16
+2026-04-17 03:41:22,666 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.030000e+00, delta=2.078334e-02
+2026-04-17 03:41:22,666 - INFO - Solved delta*: d_target=3.035000e+00, root=2.423756e-02, hi=4.250000e-02, expansions=1, f(root)=3.997e-15
+2026-04-17 03:41:22,666 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.035000e+00, delta=2.423756e-02
+2026-04-17 03:41:22,667 - INFO - Solved delta*: d_target=3.030000e+00, root=2.078334e-02, hi=2.375000e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:22,667 - INFO - Solved delta*: d_target=3.035000e+00, root=2.423756e-02, hi=4.750000e-02, expansions=1, f(root)=1.021e-14
+2026-04-17 03:41:22,667 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.035000e+00, delta=2.423756e-02
+2026-04-17 03:41:22,667 - INFO - Solved delta*: d_target=3.040000e+00, root=2.768904e-02, hi=4.750000e-02, expansions=1, f(root)=7.105e-15
+2026-04-17 03:41:22,667 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.040000e+00, delta=2.768904e-02
+2026-04-17 03:41:22,667 - INFO - Delta* spacing check: min_spacing=3.451480e-03, required=2.500000e-03
+2026-04-17 03:41:22,667 - INFO - a_norm at Delta*: 1.000000e+00 (should be ~1)
+2026-04-17 03:41:22,734 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:22,804 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:22,888 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:22,968 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:23,045 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:23,123 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:23,199 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:23,298 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:23,382 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:23,472 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:23,551 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:23,631 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:23,711 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:23,790 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:23,871 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:23,951 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:24,032 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:24,128 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:24,208 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:24,346 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:24,478 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:24,605 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:24,740 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:24,862 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:24,994 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:25,115 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:25,231 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:25,342 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:25,473 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:25,586 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:25,723 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:25,851 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:25,969 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:26,090 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:26,215 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:26,329 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:26,428 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:26,540 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:26,643 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:26,744 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:26,845 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:26,877 - WARNING - Reorder detected in freq sweep at f_c=6.000e+10
+2026-04-17 03:41:27,316 - INFO - Solved delta*: d_target=3.010714e+00, root=7.434080e-03, hi=1.339286e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:27,316 - INFO - Solved delta*: d_target=3.021429e+00, root=1.485541e-02, hi=1.875000e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:27,316 - INFO - Solved delta*: d_target=3.021429e+00, root=1.485541e-02, hi=2.410714e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:27,316 - INFO - Solved delta*: d_target=3.032143e+00, root=2.226406e-02, hi=2.410714e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:27,316 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.032143e+00, delta=2.226406e-02
+2026-04-17 03:41:27,316 - INFO - Solved delta*: d_target=3.032143e+00, root=2.226406e-02, hi=2.946429e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:27,316 - INFO - Solved delta*: d_target=3.042857e+00, root=2.966009e-02, hi=5.892857e-02, expansions=1, f(root)=3.819e-14
+2026-04-17 03:41:27,317 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.042857e+00, delta=2.966009e-02
+2026-04-17 03:41:27,317 - INFO - Solved delta*: d_target=3.042857e+00, root=2.966009e-02, hi=3.482143e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:27,317 - INFO - Solved delta*: d_target=3.053571e+00, root=3.704356e-02, hi=6.964286e-02, expansions=1, f(root)=9.059e-14
+2026-04-17 03:41:27,317 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.053571e+00, delta=3.704356e-02
+2026-04-17 03:41:27,317 - INFO - Solved delta*: d_target=3.042857e+00, root=2.966009e-02, hi=4.017857e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:27,317 - INFO - Solved delta*: d_target=3.053571e+00, root=3.704356e-02, hi=4.017857e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:27,317 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.053571e+00, delta=3.704356e-02
+2026-04-17 03:41:27,317 - INFO - Solved delta*: d_target=3.064286e+00, root=4.441455e-02, hi=8.035714e-02, expansions=1, f(root)=1.918e-13
+2026-04-17 03:41:27,317 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.064286e+00, delta=4.441455e-02
+2026-04-17 03:41:27,317 - INFO - Solved delta*: d_target=3.053571e+00, root=3.704356e-02, hi=4.553571e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:27,317 - INFO - Solved delta*: d_target=3.064286e+00, root=4.441455e-02, hi=4.553571e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:27,317 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.064286e+00, delta=4.441455e-02
+2026-04-17 03:41:27,317 - INFO - Solved delta*: d_target=3.075000e+00, root=5.177312e-02, hi=9.107143e-02, expansions=1, f(root)=3.717e-13
+2026-04-17 03:41:27,317 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.075000e+00, delta=5.177312e-02
+2026-04-17 03:41:27,318 - INFO - Solved delta*: d_target=3.064286e+00, root=4.441455e-02, hi=5.089286e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:27,318 - INFO - Solved delta*: d_target=3.075000e+00, root=5.177312e-02, hi=1.017857e-01, expansions=1, f(root)=9.694e-13
+2026-04-17 03:41:27,318 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.075000e+00, delta=5.177312e-02
+2026-04-17 03:41:27,318 - INFO - Solved delta*: d_target=3.085714e+00, root=5.911932e-02, hi=1.017857e-01, expansions=1, f(root)=6.706e-13
+2026-04-17 03:41:27,318 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.085714e+00, delta=5.911932e-02
+2026-04-17 03:41:27,318 - INFO - Delta* spacing check: min_spacing=7.346205e-03, required=5.357143e-03
+2026-04-17 03:41:27,318 - INFO - a_norm at Delta*: 1.000000e+00 (should be ~1)
+2026-04-17 03:41:27,386 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:27,456 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:27,536 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:27,620 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:27,697 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:27,779 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:27,855 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:27,933 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,020 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,096 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,192 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,276 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,355 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,433 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,512 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,590 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,666 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,743 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,824 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,904 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:28,985 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:29,075 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:29,179 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:29,260 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:29,339 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:29,420 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:29,502 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:29,584 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:29,669 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:29,747 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:29,828 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:29,909 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:29,999 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:30,080 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:30,162 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:30,242 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:30,361 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:30,499 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:30,626 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:30,814 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:30,940 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:30,990 - INFO - Solved delta*: d_target=3.010714e+00, root=6.118883e-03, hi=1.339286e-02, expansions=0, f(root)=-4.441e-16
+2026-04-17 03:41:30,991 - INFO - Solved delta*: d_target=3.021429e+00, root=1.223065e-02, hi=1.875000e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:30,991 - INFO - Solved delta*: d_target=3.032143e+00, root=1.833533e-02, hi=2.410714e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:30,991 - INFO - Solved delta*: d_target=3.042857e+00, root=2.443294e-02, hi=2.946429e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:30,991 - INFO - Solved delta*: d_target=3.042857e+00, root=2.443294e-02, hi=3.482143e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:30,991 - INFO - Solved delta*: d_target=3.053571e+00, root=3.052352e-02, hi=3.482143e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:30,991 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.053571e+00, delta=3.052352e-02
+2026-04-17 03:41:30,991 - INFO - Solved delta*: d_target=3.053571e+00, root=3.052352e-02, hi=4.017857e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:30,991 - INFO - Solved delta*: d_target=3.064286e+00, root=3.660707e-02, hi=4.017857e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:30,991 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.064286e+00, delta=3.660707e-02
+2026-04-17 03:41:30,991 - INFO - Solved delta*: d_target=3.064286e+00, root=3.660707e-02, hi=4.553571e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:30,991 - INFO - Solved delta*: d_target=3.075000e+00, root=4.268364e-02, hi=4.553571e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:30,991 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.075000e+00, delta=4.268364e-02
+2026-04-17 03:41:30,991 - INFO - Solved delta*: d_target=3.075000e+00, root=4.268364e-02, hi=5.089286e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:30,991 - INFO - Solved delta*: d_target=3.085714e+00, root=4.875324e-02, hi=5.089286e-02, expansions=0, f(root)=-4.441e-16
+2026-04-17 03:41:30,992 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.085714e+00, delta=4.875324e-02
+2026-04-17 03:41:30,992 - INFO - Delta* spacing check: min_spacing=6.069599e-03, required=5.357143e-03
+2026-04-17 03:41:30,992 - INFO - a_norm at Delta*: 1.000000e+00 (should be ~1)
+2026-04-17 03:41:31,060 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:31,129 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:31,207 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:31,284 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:31,366 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:31,453 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:31,540 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:31,618 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:31,692 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:31,767 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:31,840 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:31,923 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:31,996 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:32,068 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:32,144 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:32,221 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:32,296 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:32,375 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:32,462 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:32,537 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:32,612 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:32,689 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:32,769 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:32,852 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:32,927 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:33,004 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:33,087 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:33,167 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:33,262 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:33,341 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:33,444 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:33,583 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:33,705 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:33,821 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:33,940 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:34,072 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:34,214 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:34,338 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:34,453 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:34,577 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:34,693 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:34,738 - INFO - Solved delta*: d_target=3.010714e+00, root=5.381638e-03, hi=1.339286e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:34,738 - INFO - Solved delta*: d_target=3.021429e+00, root=1.075843e-02, hi=1.875000e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:34,738 - INFO - Solved delta*: d_target=3.032143e+00, root=1.613040e-02, hi=2.410714e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:34,738 - INFO - Solved delta*: d_target=3.042857e+00, root=2.149755e-02, hi=2.946429e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:34,738 - INFO - Solved delta*: d_target=3.053571e+00, root=2.685989e-02, hi=3.482143e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:34,738 - INFO - Solved delta*: d_target=3.064286e+00, root=3.221745e-02, hi=4.017857e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:34,738 - INFO - Solved delta*: d_target=3.075000e+00, root=3.757023e-02, hi=4.553571e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:34,738 - INFO - Solved delta*: d_target=3.085714e+00, root=4.291824e-02, hi=4.553571e-02, expansions=0, f(root)=4.441e-16
+2026-04-17 03:41:34,738 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.085714e+00, delta=4.291824e-02
+2026-04-17 03:41:34,738 - INFO - Solved delta*: d_target=3.085714e+00, root=4.291824e-02, hi=5.089286e-02, expansions=0, f(root)=0.000e+00
+2026-04-17 03:41:34,738 - INFO - Solved delta*: d_target=3.096429e+00, root=4.826151e-02, hi=5.089286e-02, expansions=0, f(root)=-4.441e-16
+2026-04-17 03:41:34,738 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.096429e+00, delta=4.826151e-02
+2026-04-17 03:41:34,738 - INFO - Solved delta*: d_target=3.107143e+00, root=5.360003e-02, hi=1.017857e-01, expansions=1, f(root)=2.527e-13
+2026-04-17 03:41:34,738 - INFO - Adjusted d_target upward to enforce spacing: new d_target=3.107143e+00, delta=5.360003e-02
+2026-04-17 03:41:34,739 - INFO - Delta* spacing check: min_spacing=5.357556e-03, required=5.357143e-03
+2026-04-17 03:41:34,739 - INFO - a_norm at Delta*: 1.000000e+00 (should be ~1)
+2026-04-17 03:41:34,804 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:34,873 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:34,958 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,038 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,115 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,190 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,267 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,345 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,421 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,501 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,579 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,659 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,751 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,832 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,913 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:35,995 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:36,080 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:36,163 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:36,254 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:36,333 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:36,423 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:36,503 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:36,584 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:36,672 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:36,752 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:36,833 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:36,914 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:37,061 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:37,176 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:37,298 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:37,415 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:37,569 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:37,702 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:37,827 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:37,947 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:38,062 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:38,185 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:38,322 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:38,434 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:38,547 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:38,676 - INFO - Corner enumeration completed: checked=65536
+2026-04-17 03:41:39,143 - INFO - All experiments completed. Results in D:\0.INBOX\PASS_err_codex (2)\PASS_err\results
