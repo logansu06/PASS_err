@@ -1,11 +1,20 @@
 # PASS 位置误差仿真验证
 
+## 目录结构
+- `src/`：仿真与分析代码（入口 `src/main.py`）。
+- `results/`：实验产出（CSV/NPZ/图表/日志），由 `src/main.py` 生成。
+- `fyp_report/`：毕设报告存档（`latex/` 为 LaTeX 工程、编译好的 PDF、毕设版 `PAPER_PLAN.md`、毕设阶段的 `review-stage/` 评审记录）。
+- `docs/`：参考论文 `2501.05657v2.pdf`、`fyp.pdf`、报告模板，以及 `Intro.md`、`THEORY_EXTENSIONS.md`。
+- `review-stage/`：ARIS Workflow 2（`/auto-review-loop`）的输出目录，运行时自动创建（目前不存在）；毕设阶段的旧评审记录已存档到 `fyp_report/review-stage/`。
+- 根目录：`NARRATIVE_REPORT.md`（ICC 2027 论文写作输入）、`findings.md`、`CLAIMS_FROM_RESULTS.md`（ARIS 各技能默认从根目录读取）。
+- `paper/`：留给 `/paper-writing` 生成会议论文，目前不存在。
+
 ## 运行方式
 - 安装依赖：`numpy`, `scipy`, `matplotlib`（Python 3.10+）。
-- 一键运行全部实验并生成结果：在 `PASS_err/` 目录下执行 `python main.py`。
-- 运行日志与全部产出保存在 `results/` 下；随机种子固定为 `20260111`（见 `config.py` 和 `results/config.json`）。
+- 一键运行全部实验并生成结果：在仓库根目录下执行 `python src/main.py`。
+- 运行日志与全部产出保存在 `results/` 下；随机种子固定为 `20260111`（见 `src/config.py` 和 `results/config.json`）。
 
-## 模块与核心接口（公式对应关系见 fyp.pdf 指定章节）
+## 模块与核心接口（代码位于 `src/`，公式对应关系见 `docs/fyp.pdf` 指定章节）
 - `pass_model.py`（见 fyp.pdf 2.2, 2.3）：
   - `distance(d, delta)` 计算 \(R_n(\Delta_n)=\sqrt{d^2+\Delta_n^2}\)。
   - `phase(k0, d, n_eff, delta)` 计算 \(\Phi_n(\Delta_n)=k_0(R_n+n_\text{eff}\Delta_n)\)。
@@ -42,6 +51,6 @@
 - n_eff 扫参：\(n_\text{eff}\) 越大，敏感度 \(\xi_\text{max}\) 越大，worst-case 曲线更陡。
 
 ## 复现与自定义
-- 修改参数：编辑 `config.py`（例如 `epsilon_norm_list`, `mc.samples`, worst-case 网格等），或直接修改 `results/config.json` 中的记录作为参考。
+- 修改参数：编辑 `src/config.py`（例如 `epsilon_norm_list`, `mc.samples`, worst-case 网格等），或直接修改 `results/config.json` 中的记录作为参考。
 - 同一随机种子重复运行，CSV/图数值保持一致（图像元数据除外）。
 - 若求根或枚举超出可接受时间，可调小 `epsilon_norm_list` 长度或提高 `enum_threshold_N` 切换到坐标下降。运行失败时查看 `run_log.txt` 中的清晰报错。 

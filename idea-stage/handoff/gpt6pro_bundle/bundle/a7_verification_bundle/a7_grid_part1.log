@@ -1,0 +1,19 @@
+completed P (-5.0, 2.0) elapsed 0.36
+completed P (-4.0, 2.0) elapsed 0.72
+completed P (-3.0, 2.0) elapsed 1.05
+completed P (-2.0, 2.0) elapsed 1.41
+completed P (-1.0, 2.0) elapsed 1.73
+completed P (0.0, 2.0) elapsed 2.18
+completed P (1.0, 2.0) elapsed 2.47
+completed P (2.0, 2.0) elapsed 2.87
+completed P (3.0, 2.0) elapsed 3.21
+completed P (4.0, 2.0) elapsed 3.5
+completed P (5.0, 2.0) elapsed 3.81
+20 0.03 free positive 8 >5% 6 median 0.06945773543398248
+20 0.03 matched positive 8 >5% 4 median 0.016683433172224538
+20 0.05 free positive 8 >5% 6 median 0.1124607746466062
+20 0.05 matched positive 9 >5% 6 median 0.08886145381381305
+30 0.03 free positive 7 >5% 6 median 0.06339810401826784
+30 0.03 matched positive 8 >5% 6 median 0.06014076502691479
+30 0.05 free positive 7 >5% 5 median 0.011187721403643769
+30 0.05 matched positive 9 >5% 7 median 0.11764258308370712

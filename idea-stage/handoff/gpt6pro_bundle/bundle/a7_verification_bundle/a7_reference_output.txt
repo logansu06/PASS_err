@@ -1,0 +1,4 @@
+S_nom [ 1  6  7  8 16 18 19 20] S_rob [ 3  4  7  8  9 13 14 17] L(S_rob)=53.422  U(S_nom)=42.154  certified gain=+26.7%
+table / exhaustive_nominal / robust_search seconds: 0.0019233850000048847 0.4084493829999971 0.05630999799999614
+xs endpoints, min gap / lambda, eps clearance threshold: [-0.09022775  0.08108442] 0.6822207183822012 0.09111035919110061
+Numpy version: 2.3.5 A_REF: 0.8888587416217251 s2: 0.000888858741621725 valid: True

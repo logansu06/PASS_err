@@ -1,0 +1,211 @@
+\section{Results}
+
+This section presents the numerical evidence in the same order as the claim logic established in Section~2. The goal is not to maximize the number of plots, but to present the minimum figure-and-table set needed to support the final conclusions with conservative wording.
+
+\subsection{Main Bounded-Error Robustness}
+
+The main deterministic robustness result is shown in Fig.~\ref{fig:main_curve}. The plot compares the ideal normalized gain, the deterministic lower bound, the box-best-found adversary, the split-mode construction, the common-bias perturbation, and the Monte Carlo mean under iid box noise. Figure~\ref{fig:xi_distribution} serves as a mechanism cue for interpreting the plot: after centering the $\xi_n$ profile, the sign pattern reverses at the array midpoint, making the split-mode perturbation a natural candidate for maximizing relative phase spread.
+
+The figure is best read as a hierarchy of evidence, not as a set of comparable curves. The ideal line functions only as a normalization reference. The lower bound is the analytically justified object, though its validity is restricted to the first-order region marked on the plot. The box-best-found curve represents the strongest adversarial numerical estimate obtained in this report. The split-mode and common-bias curves act as mechanism probes: they test whether the centered-sensitivity interpretation correctly separates harmful from harmless directions within the same bounded uncertainty set. The Monte Carlo mean indicates how a typical random bounded perturbation compares with deliberately adversarial motion. Reading the plot in this order prevents the deterministic, empirical, and stochastic statements from merging into a single, over-strong claim.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\textwidth]{fig_main.pdf}
+\caption[Main robustness curve]{The main robustness curve for the constructive phase-aligned placement, depicted as design-referenced normalized gain. The vertical line indicates the first-order validity threshold, $\epsilon_{\mathrm{valid}}/\lambda = 0.1713$. Within that region, the lower bound and the box-best-found curve are virtually indistinguishable.}
+\label{fig:main_curve}
+\end{figure}
+
+Several observations stand out from the data. First, the deterministic lower bound is notably tight within the first-order validity region. The stored configuration yields $\epsilon_{\mathrm{valid}}/\lambda = 0.1712677618$, and over that interval the maximum absolute gap between the box-best-found curve and the lower bound is about $3.40 \times 10^{-6}$. This represents the strongest deterministic small-error evidence in the report. It implies that, for the chosen constructive design, the bounded-error degradation is essentially captured by the lower bound up to the reported validity threshold.
+
+Second, the split-mode perturbation follows the box-best-found curve almost exactly in the pre-null regime. At $\epsilon/\lambda = 0.05$, the box-best-found normalized gain is $0.808917$ while the split-mode value is $0.808924$; at $\epsilon/\lambda = 0.10$ the two values are $0.381727$ and $0.381743$; at $\epsilon/\lambda = 0.15$ they become $0.044941$ and $0.044945$. These close matches align with the centered-sensitivity argument of Section~2.3. Before the first null, the dominant harmful pattern is the left–right split, which enlarges the relative phase spread between the two halves of the array.
+
+Third, the common-bias perturbation proves almost harmless across the whole tested range. Even at $\epsilon/\lambda = 0.10$ the common-bias curve stays at $0.999939$, and at $\epsilon/\lambda = 0.15$ it remains $0.999862$. A naive “all error is equally bad” narrative would overlook this behavior, but it follows directly from the phase-variance perspective: a nearly common phase rotation leaves the relative coherence of the weighted sum nearly intact.
+
+Comparing the stochastic mean with the deterministic adversaries at the same error magnitude is also revealing. At $\epsilon/\lambda = 0.10$, the iid Monte Carlo mean remains $0.769808$, well above the box-best-found value of $0.381727$. This gap quantifies how conservative the adversarial viewpoint is for the present design: most random perturbations do not align their signs to maximize the weighted phase spread. The bounded-box analysis is therefore valuable not as a predictor of typical behavior but as a tool for identifying the most harmful structured perturbations that a robust placement must survive.
+
+Since the deterministic adversarial curves overlap visually over most of the range, their relationship is most clearly documented through discrete checkpoints. Table~\ref{tab:box_validation_main} reports the corner-restricted, split-mode, and box-best-found values at the five validation levels used in the dedicated box-validation pass.
+
+
+\begin{table}[H]
+\centering
+\small
+\caption{Main-body box-validation checkpoints for deterministic adversarial patterns, reported as design-referenced normalized gain values.}
+\label{tab:box_validation_main}
+\begin{tabularx}{\textwidth}{>{\centering\arraybackslash}p{0.16\textwidth} >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\toprule
+$\epsilon/\lambda$ & Corner-restricted & Split-mode & Box-best-found \\
+\midrule
+0.02 & 0.9676082 & 0.9676089 & 0.9676082 \\
+0.05 & 0.8089171 & 0.8089240 & 0.8089171 \\
+0.10 & 0.3817270 & 0.3817426 & 0.3817270 \\
+0.15 & 0.0449408 & 0.0449452 & 0.0449408 \\
+0.175 & $1.5787 \times 10^{-4}$ & $1.5790 \times 10^{-4}$ & $1.88 \times 10^{-17}$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The first four rows show that, up to $\epsilon/\lambda = 0.15$, exact corner enumeration already matches the continuous-box best-found value to displayed precision, while split mode differs only in the fifth or sixth decimal place. The last row is different. At $\epsilon/\lambda = 0.175$, just beyond the first-order validity region and near the first-null regime, the local refinement reaches numerical zero while the corner and split-mode candidates remain near $1.58 \times 10^{-4}$. This single row illustrates why precise wording is necessary. It confirms that the pre-null split-mode behavior is highly robust, yet it does not elevate the continuous search to a globally certified worst-case solver.
+
+Appendix~B presents the companion gap table, where the same checkpoints are reported as differences from the box-best-found value. This view is convenient for readers who wish to examine the small pre-null discrepancies without cluttering the main text with a nearly redundant table.
+
+Section~3.1 thus supports two distinct statements, each with a different strength. Inside the first-order validity region, the lower bound essentially characterizes the box-best-found degradation of the chosen constructive design. Prior to the first null but outside the region of rigorous first-order justification, the split-mode curve provides an empirical, near-adversarial account of the observed degradation pattern. Maintaining this separation is essential to the claim discipline of the report.
+
+\subsection{Stochastic Scenario Validation}
+
+The stochastic scenario results are shown in Fig.~\ref{fig:error_scenarios}. Each panel compares the simulated mean normalized gain with the second-order predictor from \eqref{eq:stochastic_predictor}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\textwidth]{fig_error_scenarios.pdf}
+\caption[Stochastic error scenarios]{Stochastic error scenarios and quadratic phase-variance approximations, plotted as design-referenced normalized gain. The same second-order predictor explains iid box noise, common-bias motion, and correlated Gaussian perturbations over the tested range $0 \le \epsilon/\lambda \le 0.10$.}
+\label{fig:error_scenarios}
+\end{figure}
+
+At the representative point $\epsilon/\lambda = 0.10$, the iid uniform mean is $0.769808$, while the predictor gives $0.744161$. The common-bias mean is $0.999979$, and the predictor gives $0.999980$. The correlated Gaussian mean is $0.845762$, and the predictor gives $0.830947$. These pointwise comparisons already show that the theory captures the qualitative ordering correctly: iid independent perturbations are the most damaging among the tested stochastic laws, common-bias perturbations are nearly harmless, and correlated Gaussian errors lie between the two.
+
+At the representative point \(\epsilon/\lambda = 0.10\), the iid uniform mean is \(0.769808\) and the predictor gives \(0.744161\); the common‑bias mean is \(0.999979\) and the predictor gives \(0.999980\); the correlated Gaussian mean is \(0.845762\) and the predictor gives \(0.830947\). These pointwise comparisons already indicate that the theory correctly recovers the qualitative ordering: among the tested stochastic laws, iid independent perturbations are the most damaging, common‑bias perturbations remain nearly harmless, and correlated Gaussian errors fall between the two.
+
+The three panels retain their diagnostic value precisely because they do not collapse onto a single curve. If only the marginal error size mattered, then once the scenarios were matched in scale their mean degradations would appear far more similar. The observed ordering instead confirms that the covariance structure plays a decisive role. The iid model introduces differential phase errors across the entire aperture, the common‑bias model is predominantly common‑mode, and the correlated Gaussian model occupies an intermediate regime. The figure therefore lends comparable support to the covariance interpretation and to the second‑order approximation.
+
+The predictor also exhibits quantitative stability over the whole tested interval. For \(0 \le \epsilon/\lambda \le 0.10\), the mean absolute approximation error is approximately \(5.67 \times 10^{-3}\) for iid uniform noise, \(8.41 \times 10^{-8}\) for common bias, and \(3.39 \times 10^{-3}\) for correlated Gaussian errors. These error levels remain small enough to confirm that, although the weighted phase‑variance predictor is not exact, it succeeds in capturing the stochastic trends observed across the studied covariance structures within the small‑error range examined here.
+
+The same quantitative behavior delineates where the approximation is reliable and where it should be treated with caution. The common‑bias case is nearly exact because the centered phase variance removes almost all of its effect. The iid and correlated cases exhibit somewhat larger gaps, as higher‑order phase terms and amplitude variations become non‑negligible; nevertheless, the predictor preserves the correct scale and rank order. For the purposes of this report, that constitutes the appropriate level of success: the approximation functions as an explanatory tool supported by simulation, not as a substitute for it.
+
+Table~\ref{tab:stochastic_error_summary} condenses the approximation quality into error metrics computed across the full tested range. Placed in the body, this table complements the visual comparison in Fig.~\ref{fig:error_scenarios} by providing a compact experimental summary of how well the predictor maintains accuracy over the entire interval.
+
+
+\begin{table}[H]
+\centering
+\small
+\caption{Approximation-error summary for the stochastic predictor over the tested range $0 \le \epsilon/\lambda \le 0.10$.}
+\label{tab:stochastic_error_summary}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.28\textwidth} >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\toprule
+Scenario & Mean abs. error & Max abs. error & Max-error location \\
+\midrule
+iid uniform & $5.67 \times 10^{-3}$ & $2.56 \times 10^{-2}$ & $\epsilon/\lambda = 0.10$ \\
+Common bias & $8.41 \times 10^{-8}$ & $3.66 \times 10^{-7}$ & $\epsilon/\lambda = 0.08$ \\
+Correlated Gaussian & $3.39 \times 10^{-3}$ & $1.53 \times 10^{-2}$ & $\epsilon/\lambda = 0.095$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The table supports the same qualitative reading as the figure, but with two extra clarifications. First, the common-bias case is not merely visually close to the predictor; it is numerically almost exact over the tested range. Second, the largest discrepancies for the iid and correlated cases occur near the upper end of the tested interval, which is exactly where one would expect higher-order phase effects to become more visible. This is further evidence that the second-order predictor is strongest as a small-error explanatory model rather than as a substitute for direct simulation at larger perturbation levels.
+
+A smaller one-parameter experiment was added to isolate the covariance effect more directly. Instead of increasing the error radius, Fig.~\ref{fig:corr_length_sweep} fixes $\epsilon/\lambda=0.10$ and varies only the normalized correlation length of the Gaussian position-error field. The iid and common-bias references are held at the same error scale, so the curve can be read as a direct transition from differential error toward smoother, more common-mode error.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.84\textwidth]{fig_corr_length_sweep.pdf}
+\caption[Correlation-length sensitivity]{Correlation-length sensitivity at fixed $\epsilon/\lambda=0.10$ for correlated Gaussian position errors. The solid curve shows the Monte Carlo mean normalized gain, the shaded band shows the 5--95\% interval, the dashed curve shows the quadratic predictor, and the horizontal references show iid uniform and common-bias means at the same error scale.}
+\label{fig:corr_length_sweep}
+\end{figure}
+
+The sweep gives a more visual form of the stochastic mechanism. At normalized correlation length $0.25$, the mean normalized gain is $0.7757$, close to the iid reference value $0.7700$. At correlation length $4$, the mean is $0.8456$, matching the correlated-Gaussian scenario used in Fig.~\ref{fig:error_scenarios}. By correlation length $32$, the mean rises to $0.9612$, moving toward the common-bias reference value $0.99998$. The quadratic predictor follows the same monotone trend, which supports the interpretation that smoother error fields cause less centered phase variance across the aperture. This is a sensitivity check for the studied design and error scale, not a general theorem about all PASS layouts.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Representative checkpoints for the deterministic and stochastic robustness story.}
+\label{tab:key_checkpoints}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.42\textwidth} >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\toprule
+Quantity & $\epsilon/\lambda = 0.05$ & $\epsilon/\lambda = 0.10$ & $\epsilon/\lambda = 0.15$ \\
+\midrule
+Box-best-found normalized gain & 0.8089 & 0.3817 & 0.04494 \\
+Split-mode normalized gain & 0.8089 & 0.3817 & 0.04495 \\
+Common-bias normalized gain & 0.99998 & 0.99994 & 0.99986 \\
+Lower-bound normalized gain & 0.8089 & 0.3817 & 0.04494 \\
+iid mean normalized gain & 0.9378 & 0.7698 & --- \\
+Correlated-Gaussian mean normalized gain & 0.9589 & 0.8458 & --- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Placement Baseline Comparison}
+
+The baseline section converts the report from a one-design robustness note into a narrower design-comparison story. Figure~\ref{fig:baseline_box} compares the box-best-found curves of the three same-aperture placements, while Fig.~\ref{fig:baseline_tradeoff} summarizes the nominal-versus-robustness tradeoff.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.84\textwidth]{fig_baseline_box.pdf}
+\caption[Same-aperture robustness baselines]{Same-aperture box-best-found robustness curves in raw array-gain value for the constructive aligned placement, a naive uniform-aperture baseline, and the best-found nominal-gain comparator.}
+\label{fig:baseline_box}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{fig_baseline_tradeoff.pdf}
+\caption[Nominal--robustness tradeoff]{Nominal-gain versus robustness tradeoff across the three same-aperture placements at the reference error level, shown in raw array-gain value. The constructive aligned design is better than the naive uniform baseline, but the best-found nominal-gain comparator dominates both in the current comparison.}
+\label{fig:baseline_tradeoff}
+\end{figure}
+
+Table~\ref{tab:baseline_summary} summarizes the most important checkpoints.
+
+Unlike the normalized perturbation curves in Sections~3.1--3.2, Table~\ref{tab:baseline_summary} reports \emph{raw array-gain values}. This is deliberate: once different placements are compared, a common raw scale is more informative than normalizing each design by its own nominal ideal, because it preserves both nominal-performance differences and robustness differences in one table. In particular, the constructive aligned nominal value $1.7012$ in Table~\ref{tab:baseline_summary} is the raw gain of that placement, whereas the earlier value $a_{\mathrm{ideal}} = 1.7775$ is the alignment-based normalization constant used for the perturbation study around the same reference design.
+
+Making that scale choice explicit matters for interpreting the constructive design fairly. If each placement were normalized by its own ideal reference, a design with weaker nominal coherent addition could still appear deceptively competitive after rescaling. The raw-gain presentation avoids that problem and keeps the baseline section anchored to one physically comparable scale. It also prevents the baseline discussion from sounding inconsistent with the earlier perturbation-focused sections, which necessarily use design-referenced normalization for a different purpose.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Same-aperture baseline summary at $\epsilon/\lambda = 0.10$ using raw array-gain values; the third column is a best-found nominal-gain comparator under the same aperture and spacing constraints.}
+\label{tab:baseline_summary}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.30\textwidth} >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\toprule
+Quantity & Uniform aperture & Constructive aligned & Best-found nominal comparator \\
+\midrule
+Nominal gain & 1.6825 & 1.7012 & 1.7299 \\
+Box-best-found gain & 0.3886 & 0.4435 & 0.4927 \\
+iid mean gain & 1.2998 & 1.3115 & 1.3336 \\
+Common-bias mean gain & 1.6825 & 1.7011 & 1.7299 \\
+Correlated-Gaussian mean gain & 1.4312 & 1.4430 & 1.4651 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The constructive aligned design improves upon the naive uniform-aperture baseline, but the gain is not uniform across metrics. Relative to the uniform baseline, the constructive design improves nominal gain by about $1.11\%$, improves iid mean robustness by about $0.90\%$, and improves box-best-found robustness by about $14.14\%$. This is a meaningful, but narrow, result. It shows that the phase-aligned constructive rule is especially effective against the damaging phase-spread behavior identified by the box-best-found search in the studied aperture-matched setting.
+
+That unequal improvement pattern is itself informative. The constructive rule does not transform the nominal coherent sum dramatically, but it changes the geometry enough to make the most harmful bounded perturbations much less effective than they are for the uniform baseline. In other words, its value is not only that it aligns phases at the operating point, but that it appears to produce a sensitivity profile whose centered spread grows more slowly under adversarial box-feasible motion. This is still an empirical interpretation, yet it is exactly the type of design insight that a longer report should extract from a baseline table rather than leaving implicit.
+
+At the same time, the best-found nominal-gain comparator performs better than the constructive aligned placement on every reported metric in this comparison. It improves nominal gain by about $1.69\%$, box-best-found robustness by about $11.09\%$, and iid mean robustness by about $1.68\%$ relative to the constructive design. The report therefore does \emph{not} conclude that the constructive aligned placement is the best same-aperture design. The correct conclusion is more modest: the constructive aligned rule has a clear advantage over a naive uniform placement, but a stronger nominal-gain baseline can do better in the current tested setup. Since this comparator is still not a robustness-tuned design, the ranking should be read as an empirical result for the tested placements rather than as evidence that nominal-gain maximization always improves robustness.
+
+\subsection{Secondary Sensitivity Sweeps}
+
+The secondary sweeps reinforce the mechanism interpretation without changing the main claim story. In the frequency sweep, a fixed absolute error of \SI{1}{mm} yields a box-best-found normalized gain of approximately $0.9676$ at \SI{6}{GHz}, $0.4411$ at \SI{28}{GHz}, and numerical zero at \SI{60}{GHz}. This follows the factor $k_0$ in both the deterministic lower bound and the phase-variance predictor: the same physical placement error becomes much more damaging as carrier frequency rises. The full frequency curve is kept in Appendix~B because it mainly confirms a familiar scaling law once the phase model is fixed.
+
+The effective-index sweep is more PASS specific and is therefore promoted to the main body in Fig.~\ref{fig:neff_sweep}. Unlike carrier frequency, which rescales the phase error through $k_0$, the effective refractive index changes the guided-wave contribution that distinguishes PASS from a purely free-space movable-antenna model in the first place.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{fig_neff_sweep.pdf}
+\caption[Effective-index sensitivity sweep]{Sweep over the effective refractive index $n_{\mathrm{eff}}$, plotted as design-referenced normalized box-best-found gain. Larger guided-wave phase contribution shifts the sensitivity profile upward and makes the same normalized position error more damaging.}
+\label{fig:neff_sweep}
+\end{figure}
+
+In the $n_{\mathrm{eff}}$ sweep, the box-best-found normalized gain at $\epsilon/\lambda = 0.10$ drops from $0.3817$ when $n_{\mathrm{eff}} = 1.44$ to $0.2061$ when $n_{\mathrm{eff}} = 1.75$, and further to $0.0992$ when $n_{\mathrm{eff}} = 1.99$. This trend is consistent with the sensitivity model, because the whole $\xi_n$ profile is shifted upward by the effective refractive index. Figure~\ref{fig:neff_sweep} therefore plays a different role from the baseline plots in Section~3.3. It is not a design comparison across placements. Instead, it is a mechanism check showing that the same PASS-specific coefficient emphasized in the derivation also controls the observed deterioration trend when the waveguide phase contribution increases.
+
+Table~\ref{tab:sensitivity_checkpoints} provides a compact checkpoint summary for the two sensitivity sweeps. The two blocks should not be compared row by row, because the frequency sweep fixes an absolute error of \SI{1}{mm} while the effective-index sweep fixes a normalized error level $\epsilon/\lambda = 0.10$. Their purpose is simply to make the sweep magnitudes visible in one place without forcing the reader to extract individual values from separate curves.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Checkpoint summary for the secondary sensitivity sweeps.}
+\label{tab:sensitivity_checkpoints}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.24\textwidth} >{\centering\arraybackslash}p{0.22\textwidth} >{\centering\arraybackslash}p{0.24\textwidth} >{\centering\arraybackslash}X}
+\toprule
+Sweep & Setting & Fixed error level & Box-best-found norm. gain \\
+\midrule
+Carrier frequency & \SI{6}{GHz} & \SI{1}{mm} absolute error & 0.9676 \\
+Carrier frequency & \SI{28}{GHz} & \SI{1}{mm} absolute error & 0.4411 \\
+Carrier frequency & \SI{60}{GHz} & \SI{1}{mm} absolute error & Numerical zero \\
+Effective refractive index & $n_{\mathrm{eff}} = 1.44$ & $\epsilon/\lambda = 0.10$ & 0.3817 \\
+Effective refractive index & $n_{\mathrm{eff}} = 1.75$ & $\epsilon/\lambda = 0.10$ & 0.2061 \\
+Effective refractive index & $n_{\mathrm{eff}} = 1.99$ & $\epsilon/\lambda = 0.10$ & 0.0992 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The table below aids the interpretation of Section~3.4. For a fixed absolute placement error, raising the frequency from \SI{6}{GHz} to \SI{28}{GHz} cuts the normalized worst-case gain by more than half; at \SI{60}{GHz} the gain effectively vanishes. Under a fixed normalized error level, increasing $n_{\mathrm{eff}}$ from $1.44$ to $1.99$ reduces the same quantity from $0.3817$ to $0.0992$. These observations do not constitute new theorems, but they solidify the experimental evidence that both $k_0$ and $n_{\mathrm{eff}}$ act as multiplicative stress factors for robustness in the studied PASS configuration.
+
+The purpose of these sweeps is therefore interpretive, not expansionary: they confirm that the same coefficients central to the theory—$k_0$ and $n_{\mathrm{eff}}$—also drive the sensitivity trends when the configuration is perturbed. While this agreement yields no additional theorem, it reinforces the view that the reported mechanisms are rooted in the PASS phase law, rather than in an accidental numerical instance. In the structure of the report, Section~3.4 stress-tests the main robustness argument against physically meaningful parameter variations without extending the claims beyond the geometry under investigation.

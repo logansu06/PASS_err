@@ -1,0 +1,485 @@
+\section{Methods}
+
+The technical contract of this report is defined in this section. We take the inherited PASS system model as a starting point and then introduce three elements: the constructive nominal placement used throughout the study, the bounded and stochastic formulations of position error, and the numerical workflow that generates the evidence discussed later. A central concern is to maintain a clear separation among exact definitions, local approximations, and the best-found numerical procedures.
+
+\subsection{PASS System Model and Constructive Nominal Placement}
+
+\subsubsection{Base PASS Geometry and Channel Model}
+
+The system model adopted in this report is the single-user PASS geometry analyzed in \cite{ouyang2025array}. A dielectric waveguide is aligned with the $x$ axis at height $d$, a single-antenna user is located at $\mathbf{u} = [x_u, 0, 0]^T$, and $N$ pinching antennas are activated on the guide at positions $x_n$, with $N$ even and indices $n \in \{-N/2, \ldots, -1, 1, \ldots, N/2\}$. Following \cite{ouyang2025array}, the position of the $n$th activated pinching antenna is
+
+\begin{equation}
+\bm{\psi}_n = [x_n, 0, d]^T, \qquad
+\Delta_n \triangleq x_n - x_u, \qquad
+R_n(\Delta_n) = \lVert \mathbf{u} - \bm{\psi}_n \rVert = \sqrt{d^2 + \Delta_n^2}.
+\label{eq:geom}
+\end{equation}
+
+The free-space path contributes the usual spherical-wave phase $k_0 R_n(\Delta_n)$ and amplitude factor $1 / R_n(\Delta_n)$. What distinguishes PASS from a purely free-space movable-antenna model is the guided-wave phase accumulated along the dielectric waveguide. If $x_0$ denotes the feed-point coordinate and $n_{\mathrm{eff}}$ is the effective refractive index, then the effective complex channel from the $n$th activated pinching antenna to the user can be written as \cite{ouyang2025array}
+
+\begin{equation}
+h_n(\Delta_n)
+= \frac{\eta^{1/2}}{R_n(\Delta_n)}
+  e^{-j k_0 R_n(\Delta_n)}
+  e^{-j k_0 n_{\mathrm{eff}} (x_n - x_0)},
+\qquad
+k_0 = \frac{2 \pi}{\lambda}.
+\label{eq:channel}
+\end{equation}
+
+The received baseband signal with equal power allocation across the activated antennas is
+
+\begin{equation}
+y = \sqrt{\frac{P}{N}} \sum_n h_n(\Delta_n) s + z,
+\qquad
+z \sim \mathcal{CN}(0,\sigma^2),
+\label{eq:rx}
+\end{equation}
+
+and the base PASS array-gain quantity used throughout this report is
+
+\begin{equation}
+a(\Delta)
+\triangleq \frac{\mathrm{SNR}}{P/\sigma^2}
+= \frac{\eta}{N}
+  \left|
+  \sum_n \frac{e^{-j \Phi_n(\Delta_n)}}{R_n(\Delta_n)}
+  \right|^2,
+\qquad
+\Phi_n(\Delta_n) = k_0 \big(R_n(\Delta_n) + n_{\mathrm{eff}} \Delta_n\big),
+\label{eq:array_gain}
+\end{equation}
+
+after absorbing the feed-point offset into a common reference phase. Equation~\eqref{eq:array_gain} is the key object inherited from \cite{ouyang2025array}. It already makes clear why PASS differs from a standard movable-antenna model: the phase changes with both $R_n(\Delta_n)$ and $n_{\mathrm{eff}}\Delta_n$. Since $n_{\mathrm{eff}} > 1$ in the present setup, small pinching-position errors can produce larger phase changes than those induced by free-space geometry alone.
+
+Equation~\eqref{eq:array_gain} also shows why nominal performance and robustness should not be treated as identical questions. A placement can align the phasors well at the operating point while still being locally sensitive to perturbation if the phase derivatives vary strongly across the aperture. The later baseline section is included partly for that reason: it checks whether a placement that looks attractive at nominal alignment also remains attractive once the same aperture is stressed by position uncertainty.
+
+For manuscript clarity, the report uses two closely related gain quantities. The \emph{raw array-gain value} of a placement is the raw quantity in \eqref{eq:array_gain}, and this is the scale used in the same-aperture baseline comparison. When the question is how one fixed nominal design degrades under perturbation, Sections~2.2--4.2 instead use a design-referenced normalized gain. Let
+
+\begin{equation}
+\phi_n^\star \triangleq \Phi_n(\Delta_n^\star),
+\qquad
+a_{\mathrm{ref}}(\Delta;\Delta^\star)
+\triangleq
+\frac{\eta}{N}
+\left|
+\sum_n \frac{e^{-j(\Phi_n(\Delta_n)-\phi_n^\star)}}{R_n(\Delta_n)}
+\right|^2,
+\label{eq:a_ref}
+\end{equation}
+
+and define
+
+\begin{equation}
+\tilde{a}(\Delta;\Delta^\star)
+\triangleq
+\frac{a_{\mathrm{ref}}(\Delta;\Delta^\star)}{a_{\mathrm{ideal}}(\Delta^\star)},
+\qquad
+a_{\mathrm{ideal}}(\Delta^\star)
+\triangleq
+\frac{\eta}{N}
+\left(
+\sum_n \frac{1}{R_n(\Delta_n^\star)}
+\right)^2.
+\label{eq:a_tilde}
+\end{equation}
+
+By construction, $\tilde{a}(\Delta^\star;\Delta^\star)=1$. The design-referenced normalized gain is plotted in the perturbation-focused results of Sections~3.1--3.2. Section~3.3 then adopts raw array-gain values for cross-placement comparison. To simplify the subsequent perturbation formulas, $\tilde{a}$ is often denoted simply as the \emph{normalized gain} once the reference design $\Delta^\star$ is fixed.
+
+The raw–normalized split is not a notational artifact. It serves two different analytical purposes. When a single placement is perturbed, the relevant question is how much of its coherent-gain potential is preserved; hence the design-referenced normalized gain is the appropriate measure. When comparing different placements, however, design-specific normalization would hide nominal-performance disparities and make a weaker design appear artificially strong after rescaling. For this reason, the report uses $\tilde{a}$ to characterise perturbations and raw array gain for cross-placement comparisons, and explicitly reminds the reader of this distinction wherever figures or tables might be misconstrued.
+
+\subsubsection{Constructive Phase-Aligned Feasible Placement}
+
+The nominal design studied here is not a globally solved optimizer of \eqref{eq:array_gain}. Instead, it is a constructive feasible placement that enforces approximate phasor alignment under the same minimum-spacing constraint used in the numerical study:
+
+\begin{equation}
+|\Delta_n - \Delta_{n'}| \ge \Delta_p \lambda,
+\qquad
+\Delta_{-n} = -\Delta_n.
+\label{eq:spacing_constraint}
+\end{equation}
+
+The phase-alignment idea is inherited from \cite{ouyang2025array}. If all phasors in \eqref{eq:array_gain} share the same phase modulo $2\pi$, then the coherent sum approaches the triangle-inequality envelope. This suggests the alignment condition
+
+\begin{equation}
+\Phi_n(\Delta_n) = C + 2 \pi m_n,
+\qquad
+m_n \in \mathbb{Z},
+\label{eq:phase_alignment}
+\end{equation}
+
+which is equivalent to
+
+\begin{equation}
+R_n(\Delta_n) + n_{\mathrm{eff}} \Delta_n = C' + m_n \lambda,
+\qquad
+C' \triangleq \frac{C}{k_0}.
+\label{eq:phase_alignment_lambda}
+\end{equation}
+
+This condition does not by itself produce a feasible placement, because the integers $m_n$ and the common offset $C'$ must still respect symmetry and minimum spacing. The project therefore adopts the following constructive procedure. First, the positive-side coordinates are initialized on a minimum-spacing grid,
+
+\begin{equation}
+\Delta_n^{(0)} = \frac{\Delta_p \lambda}{2} + (n-1)\Delta_p \lambda,
+\qquad n = 1,\ldots,\frac{N}{2}.
+\label{eq:init_grid}
+\end{equation}
+
+Second, each candidate position is converted into a wavelength-snapped target distance
+
+\begin{equation}
+d_n
+= \lambda
+\left\lceil
+\frac{\sqrt{d^2 + (\Delta_n^{(0)})^2} + n_{\mathrm{eff}}\Delta_n^{(0)}}{\lambda}
+\right\rceil,
+\label{eq:snapped_target}
+\end{equation}
+
+and the aligned coordinate is obtained by solving
+
+\begin{equation}
+\sqrt{d^2 + \Delta_n^2} + n_{\mathrm{eff}}\Delta_n = d_n.
+\label{eq:constructive_scalar}
+\end{equation}
+
+In the numerical study, \eqref{eq:constructive_scalar} is solved by a bracketed one-dimensional root finder, but the same equation also yields the quadratic form
+
+\begin{equation}
+(n_{\mathrm{eff}}^2 - 1)\Delta_n^2 - 2 d_n n_{\mathrm{eff}} \Delta_n + (d_n^2 - d^2) = 0,
+\label{eq:constructive_quadratic}
+\end{equation}
+
+whose physically feasible root is
+
+\begin{equation}
+\Delta_n
+= \frac{d_n n_{\mathrm{eff}} - \sqrt{d_n^2 + d^2(n_{\mathrm{eff}}^2 - 1)}}{n_{\mathrm{eff}}^2 - 1},
+\qquad n_{\mathrm{eff}} \ne 1.
+\label{eq:constructive_root}
+\end{equation}
+
+If the resulting coordinate violates the minimum-spacing constraint with the previously accepted element, the wavelength target is incremented by one more $\lambda$ and the solve is repeated. The negative-side positions are then completed by symmetry. The resulting constructive placement is denoted by $\Delta^\star$.
+
+The integers $m_n$ in \eqref{eq:phase_alignment} can be interpreted as alignment classes separated by full wavelengths of combined free-space and guided-wave path. That interpretation is useful because it turns the design from a black-box coordinate search into a sequence of physically meaningful wavelength choices. The constructive algorithm used here does not claim to explore those choices globally. Instead, it selects the nearest feasible aligned targets compatible with symmetry and minimum spacing, which is exactly the level of design discipline needed for a reproducible robustness study.
+
+The key point is that $\Delta^\star$ is a \emph{constructive phase-aligned feasible placement}. It is designed to make the nominal coherent sum large, but it is not presented as a global optimizer of \eqref{eq:array_gain}. This distinction matters later when robustness is compared with other placements. The report does not rely on a nominal optimality theorem; it relies only on the fact that the chosen constructive design is explicitly generated, reproducible, and exactly the design used by the robustness experiments.
+
+\subsection{Position-Error Model, Phase Sensitivity, and Deterministic Analysis}
+
+Once the nominal design $\Delta^\star$ is fixed, the actual pinching positions are modeled as
+
+\begin{equation}
+\Delta_n = \Delta_n^\star + \delta_n,
+\qquad
+|\delta_n| \le \epsilon.
+\label{eq:error_model}
+\end{equation}
+
+The worst-case bounded-error performance of the chosen design is therefore
+
+\begin{equation}
+a_{\mathrm{wc}}(\Delta^\star,\epsilon)
+= \min_{\lVert \delta \rVert_\infty \le \epsilon} a(\Delta^\star + \delta).
+\label{eq:wc_def}
+\end{equation}
+
+Because the objective is nonconvex and highly oscillatory, \eqref{eq:wc_def} is not solved globally in this report. In the perturbation study, the manuscript reports its design-referenced normalized counterpart
+
+\begin{equation}
+\tilde{a}_{\mathrm{wc}}(\Delta^\star,\epsilon)
+= \min_{\lVert \delta \rVert_\infty \le \epsilon} \tilde{a}(\Delta^\star + \delta;\Delta^\star),
+\label{eq:wc_def_tilde}
+\end{equation}
+
+because the reference design is fixed throughout Sections~3.1--3.2.The numerical analysis evaluates that quantity using a continuous-box adversary labeled \emph{box-best-found}, which combines exhaustive corner enumeration with box-constrained local refinement. Throughout the report we maintain the distinction between \eqref{eq:wc_def} as the raw array-gain definition, \eqref{eq:wc_def_tilde} as its reported normalized version, and the box-best-found solver as an implementation-level detail.
+
+We select the $\ell_\infty$ box model because it supplies a clean, interpretable notion of tolerance: each activated position may deviate independently by at most $\epsilon$. Other uncertainty descriptions are feasible, but this choice forms a natural entry point for actuator or placement tolerances and permits a clear separation of common-mode and differential motion. A coherent drift of all positions represents one distinguished direction within the box; a split perturbation represents another. The bounded-error question pursued here is thus not simply “how large the error can become,'' but “which directions, under the identical tolerance budget, most severely degrade coherence.''
+
+The first analytical quantity needed for robustness is the phase sensitivity at the nominal design. Differentiating the phase in \eqref{eq:array_gain} gives
+
+\begin{equation}
+\Phi_n'(\Delta_n)
+= k_0\left(\frac{\Delta_n}{\sqrt{d^2+\Delta_n^2}} + n_{\mathrm{eff}}\right).
+\label{eq:phase_derivative}
+\end{equation}
+
+Evaluated at the constructive nominal placement, the dimensionless sensitivity is
+
+\begin{equation}
+\xi_n
+\triangleq \frac{\Delta_n^\star}{\sqrt{d^2+(\Delta_n^\star)^2}} + n_{\mathrm{eff}}
+= \sin \theta_n^\star + n_{\mathrm{eff}},
+\label{eq:xi_def}
+\end{equation}
+
+where $\theta_n^\star$ is the nominal angle seen from the user to the $n$th pinching antenna. The local phase error induced by a small position perturbation is then
+
+\begin{equation}
+\Delta \phi_n \approx k_0 \xi_n \delta_n.
+\label{eq:local_phase_error}
+\end{equation}
+
+This simple expression already explains why PASS is more fragile than a free-space-only movable array. In a conventional movable-antenna model, the first-order coefficient is essentially $\sin \theta_n^\star \in (-1,1)$. In PASS, the term is shifted by $n_{\mathrm{eff}}$, so the whole sensitivity range is centered around the refractive index rather than around zero. For the present design,
+
+\begin{equation}
+\xi_n \in [1.4203,\, 1.4597],
+\qquad
+\xi_{\max} = 1.4597.
+\label{eq:xi_range}
+\end{equation}
+
+Since all $\xi_n$ are positive, any common signed shift rotates all phasors by nearly the same amount; an adversarial perturbation that degrades performance must therefore introduce relative phase dispersion rather than merely a global rotation. In the symmetric case considered here, the amplitude-weighted mean sensitivity (defined later) equals $1.44$.
+
+The sensitivity profile encapsulates both the geometric and guided-wave physics in a single local scalar. The term $\sin \theta_n^\star$ encodes the geometric contribution of the user-to-element angle, while the additive $n_{\mathrm{eff}}$ term represents the guided-wave contribution shared by the whole aperture. The narrow range shown in \eqref{eq:xi_range} thus admits a clear interpretation: most of the PASS-specific sensitivity behaves as a common offset, and the small differential variation about that offset is what governs coherent loss. This observation later identifies the centered weighted phase variance—rather than the absolute phase shift alone—as the correct mechanism variable.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{fig_xi_distribution.pdf}
+\caption[Phase-sensitivity profile]{Distribution of the first-order phase sensitivity $\xi_n$ over the constructive aligned placement. The small variation around $n_{\mathrm{eff}} = 1.44$ is the key to both the split-mode mechanism and the near-harmlessness of common-bias motion.}
+\label{fig:xi_distribution}
+\end{figure}
+
+To obtain a deterministic small-error lower bound, define the normalized coherent sum
+
+\begin{equation}
+\rho(\delta)
+\triangleq
+\frac{\sum_n R_n(\Delta_n^\star)^{-1} e^{-j(\Phi_n(\Delta_n^\star+\delta_n)-\Phi_n(\Delta_n^\star))}}
+{\sum_m R_m(\Delta_m^\star)^{-1}}.
+\label{eq:rho_def}
+\end{equation}
+
+If the per-element phase deviation stays within $[-\pi/2,\pi/2]$, then each phasor contributes a nonnegative real projection. A conservative amplitude-aware lower bound follows:
+
+\begin{equation}
+\tilde{a}(\Delta^\star+\delta;\Delta^\star)
+\ge
+\left(
+\frac{\sum_n \frac{1}{\sqrt{d^2 + (|\Delta_n^\star| + \epsilon)^2}}
+\cos(k_0 |\xi_n| \epsilon)}
+{\sum_m \frac{1}{R_m(\Delta_m^\star)}}
+\right)^2.
+\label{eq:lower_bound}
+\end{equation}
+
+The crucial validity condition is
+
+\begin{equation}
+k_0 |\xi_n| \epsilon \le \frac{\pi}{2} \quad \text{for all } n,
+\label{eq:validity_condition}
+\end{equation}
+
+which produces the first-order validity threshold
+
+\begin{equation}
+\epsilon_{\mathrm{valid}}
+= \frac{\pi/2}{k_0 \xi_{\max}},
+\qquad
+\frac{\epsilon_{\mathrm{valid}}}{\lambda}
+= 0.1712677618.
+\label{eq:epsilon_valid}
+\end{equation}
+
+Since all $\xi_n$ are positive, a common signed shift rotates all phasors in nearly the same direction; conversely, a harmful adversarial pattern must introduce \emph{relative} phase spread, not merely a global rotation. In the symmetric case under study, the amplitude-weighted mean sensitivity defined later takes the value $1.44$.
+
+The sensitivity profile also condenses the geometry and waveguide physics into a single local scalar. The $\sin \theta_n^\star$ term captures the geometric contribution from the user-to-element angle, while the additive $n_{\mathrm{eff}}$ accounts for the guided-wave component common to the entire aperture. The narrow spread of $\xi_n$ in \eqref{eq:xi_range} therefore has a direct interpretation: most of the PASS-specific sensitivity acts as a common offset, and the coherent loss depends on the small differential variation around that offset. This observation underlies the later choice of centered weighted phase variance—rather than absolute phase shift—as the relevant mechanism variable.
+
+\subsection{Weighted Phase Variance and Covariance-Based Stochastic Predictor}
+
+The deterministic lower bound is useful but incomplete. It explains small-error degradation within its validity condition, but it does not explain why the box-best-found adversary is harmful or why different stochastic error models behave so differently. For that, the project adopts a weighted phase-variance viewpoint.
+
+Define normalized amplitude weights at the nominal placement by
+
+\begin{equation}
+\alpha_n
+= \frac{R_n(\Delta_n^\star)^{-1}}{\sum_m R_m(\Delta_m^\star)^{-1}},
+\qquad
+\sum_n \alpha_n = 1,
+\label{eq:alpha_def}
+\end{equation}
+
+and the normalized coherent sum
+
+\begin{equation}
+\rho(\delta)
+= \sum_n \alpha_n e^{-j k_0 \xi_n \delta_n}.
+\label{eq:rho_alpha}
+\end{equation}
+
+Expanding the exponential for small phase errors gives
+
+\begin{equation}
+e^{-j k_0 \xi_n \delta_n}
+= 1 - j k_0 \xi_n \delta_n - \frac{1}{2} k_0^2 \xi_n^2 \delta_n^2 + O(\lVert \delta \rVert^3).
+\label{eq:expansion}
+\end{equation}
+
+Let $\mu_\phi = \sum_n \alpha_n k_0 \xi_n \delta_n$. Then, up to second order,
+
+\begin{equation}
+|\rho(\delta)|^2
+\approx
+1
+- \sum_n \alpha_n (k_0 \xi_n \delta_n)^2
++ \left(\sum_n \alpha_n k_0 \xi_n \delta_n\right)^2
+= 1 - \mathrm{Var}_\alpha(k_0 \xi_n \delta_n).
+\label{eq:variance_mechanism}
+\end{equation}
+
+Equation~\eqref{eq:variance_mechanism} is the central mechanism equation of the report. At second order, normalized gain loss is controlled not by a common phase rotation but by the \emph{weighted variance} of the elementwise phase errors. A perturbation that moves every activated pinching position in almost the same effective phase direction produces very little degradation, whereas a perturbation that maximizes the spread of the weighted phase profile collapses the coherent sum.
+
+This immediately motivates the empirical split-mode construction. Let $\bar{\xi}_\alpha = \sum_n \alpha_n \xi_n$. A natural box-feasible candidate that enlarges the centered phase spread is
+
+\begin{equation}
+\delta_n^{\mathrm{split}}
+= \epsilon\, \mathrm{sign}(\xi_n - \bar{\xi}_\alpha).
+\label{eq:split_mode}
+\end{equation}
+
+In the current symmetric geometry, the weighting is symmetric and $\bar{\xi}_\alpha = n_{\mathrm{eff}}$, so
+
+\begin{equation}
+\delta_n^{\mathrm{split}}
+= \epsilon\, \mathrm{sign}(\sin \theta_n^\star)
+= \epsilon\, \mathrm{sign}(\Delta_n^\star),
+\label{eq:split_mode_sym}
+\end{equation}
+
+which is exactly an outward left-right split. This pattern is not claimed to be the exact minimizer of the continuous-box problem. It is only a constructive, interpretable, and box-feasible adversarial candidate. The numerical results later show that it tracks the box-best-found curve almost perfectly before the first null.
+
+The same phase-variance viewpoint also yields a compact stochastic predictor. Let the error vector be zero mean with covariance $\Sigma_\delta = \mathbb{E}[\delta \delta^T]$. Define
+
+\begin{equation}
+M_\alpha = \mathrm{Diag}(\alpha) - \alpha \alpha^T,
+\qquad
+D_\xi = \mathrm{Diag}(\xi).
+\label{eq:matrix_defs}
+\end{equation}
+
+Taking expectation in \eqref{eq:variance_mechanism} leads to
+
+\begin{equation}
+\mathbb{E}\!\left[\tilde{a}(\Delta^\star+\delta;\Delta^\star)\right]
+\approx
+1 - k_0^2 \, \mathrm{tr}\!\left(M_\alpha D_\xi \Sigma_\delta D_\xi\right).
+\label{eq:stochastic_predictor}
+\end{equation}
+
+Equation~\eqref{eq:stochastic_predictor} is valuable because it turns several apparently different perturbation models into one covariance projection problem. Three special cases are used in the experiment section: iid uniform box noise, common-bias motion, and correlated Gaussian errors. The model consequence is that only the component of the error covariance that survives the centered weighting $M_\alpha D_\xi$ can damage coherence significantly.
+
+This covariance view is also what connects the deterministic and stochastic parts of the report. In the deterministic box problem, the harmful perturbation is the one that creates large centered phase spread within the allowed error budget. In the stochastic problem, the harmful law is the one whose covariance injects energy into the same centered differential directions. The two sections therefore use different mathematics, but they are driven by the same physical mechanism.
+
+\subsection{Numerical Setup, Baselines, and Reproducibility Contract}
+
+The experiments in this report are simulation based. No external dataset is used. Instead, the results are generated from deterministic and Monte Carlo evaluation of the PASS model in \eqref{eq:array_gain} under one fixed configuration. The report keeps the numerical workflow explicit because the scientific story depends on separating exact definitions from best-found numerical procedures.
+
+Table~\ref{tab:config} summarizes the exact configuration and notation used in the experiments.
+
+\begin{table}[H]
+\centering
+\caption{Core simulation configuration and notation used throughout the report.}
+\label{tab:config}
+\begin{tabular}{ll}
+\toprule
+Quantity & Value used in this report \\
+\midrule
+Number of activated antennas $N$ & 16 \\
+Height $d$ & \SI{3.0}{m} \\
+Carrier frequency $f_c$ & \SI{28}{GHz} \\
+Wavelength $\lambda$ & \SI{0.0107143}{m} \\
+Effective refractive index $n_{\mathrm{eff}}$ & 1.44 \\
+Minimum spacing factor $\Delta_p$ & $0.5$ \\
+$\xi_{\max}$ & 1.4597 \\
+$\epsilon_{\mathrm{valid}}/\lambda$ & 0.1713 \\
+$a_{\mathrm{ideal}}$ & 1.7775 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The value $a_{\mathrm{ideal}} = 1.7775$ in Table~\ref{tab:config} is the design-referenced normalization constant for the perturbation study around $\Delta^\star$. It should not be confused with the absolute nominal gains reported later in the baseline section, where each placement is evaluated on a common raw-gain scale without the design-specific phase reference in \eqref{eq:a_ref}.
+
+This report concentrates on a single fully specified configuration, rather than distributing the main argument over several partially different settings. The choice is motivated by more than computational convenience: it keeps the evidence chain tight—all main-body figures and tables refer to a single constructive placement, a single $a_{\mathrm{ideal}}$, a single validity threshold, and a single sensitivity profile. Once the behavior of that single configuration is clear, the auxiliary sweeps serve as mechanism checks, not as substitutes for the core argument.
+
+All simulations use the configuration in Table~\ref{tab:config} and examine the same constructive placement along two complementary tracks. The deterministic track handles bounded box errors by exact enumeration of corners and a continuous-box best-found refinement based on box-constrained local search. The stochastic track assesses i.i.d. uniform, common-bias, and correlated Gaussian perturbations, and compares their Monte Carlo averages with the second-order predictor in \eqref{eq:stochastic_predictor}. The implementation employs a deterministic Python workflow: numerical evaluation is vectorized, random seeds are fixed for Monte Carlo sampling, and configuration snapshots are saved for each reported run. Together, the two tracks account for both small-error validity behavior and broader empirical trends.
+
+The numerical campaign is organized as a sequence of reusable passes, rather than as a single opaque batch run. The constructive placement is generated once and stored as the reference geometry; it is then reused unchanged in the bounded-error, stochastic, baseline, and sensitivity studies. This design is methodologically important: when two figures differ, the difference can be attributed to the perturbation model or the comparison task, rather than to an unannounced change in the nominal placement. In a long-form project report, such stability is more valuable than maximizing the number of loosely connected experiments.
+
+Table~\ref{tab:workflow_overview} summarizes the numerical workflow at a level of detail appropriate to the manuscript. The table is included because a reader often needs to understand not only which equations were derived, but also how the evidence was produced—which sweeps are dense, which checkpoints receive extra validation, and which calculations are deterministic rather than Monte Carlo.
+
+
+\begin{table}[H]
+\centering
+\small
+\caption{Numerical workflow used to generate the report's main evidence chain.}
+\label{tab:workflow_overview}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}X}
+\toprule
+Task & Numerical budget & Role in the manuscript \\
+\midrule
+Constructive reference design & One feasible wavelength-snapped placement for the fixed $N=16$ geometry & Provides the common nominal geometry used by all main-body figures and tables. \\
+Main bounded-error curve & $41$ error levels over $0 \le \epsilon/\lambda \le 0.20$ with exact corner search and continuous-box refinement when needed & Supports the main robustness figure and the comparison with the deterministic lower bound. \\
+Bounded-noise reference statistics & $1000$ Monte Carlo samples for each error level in the main bounded-noise curve & Shows how a typical random bounded perturbation compares with deliberately adversarial motion. \\
+Box-validation checkpoints & $5$ dedicated levels $\{0.02, 0.05, 0.10, 0.15, 0.175\}$ & Justifies the use of the term \emph{box-best-found} and highlights the near-null behavior separately from the dense sweep. \\
+Stochastic scenario validation & $21$ error levels over $0 \le \epsilon/\lambda \le 0.10$ and $2000$ samples for each of the three stochastic laws & Tests the covariance-based predictor against iid, common-bias, and correlated perturbations. \\
+Same-aperture baselines & $31$ error levels over $0 \le \epsilon/\lambda \le 0.15$ and four nominal-search restarts for the best-found comparator & Isolates the comparative design question under matched span and spacing constraints. \\
+Secondary sensitivity sweeps & Fixed-absolute-error frequency sweep and three effective-index settings & Checks whether the same mechanism variables $k_0$ and $n_{\mathrm{eff}}$ also govern the observed sensitivity trends. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+From a programming-method point of view, the implementation emphasizes vectorized array-gain evaluation, explicit separation between deterministic search and Monte Carlo sampling, and fixed-seed reproducibility. In the main text, the simulation is presented as a numerical workflow, not a code listing. Consistent with the reporting guidance, the description foregrounds the computational logic, the sampling budgets, and the solver status, rather than a line‑by‑line account of the source. Detailed file‑level information required for reproducibility is deferred to Appendix~C.
+
+The three stochastic models were chosen to span qualitatively distinct physical structures, not for completeness. Independent identically distributed uniform noise models bounded, uncorrelated placement offsets; common‑bias motion captures a shared drift or calibration bias; correlated Gaussian perturbations generate smooth, coupled displacements across the aperture. Having all three allows one to examine not merely whether randomness is harmful, but which covariance structure is harmful. This distinction is necessary if the covariance predictor is to be read as a mechanistic explanation, not simply a fitted curve.
+
+The baseline analysis is deliberately narrow. It does not aim at a universal PASS design problem. Instead, three placements that share the same aperture span are compared: the constructive aligned placement that anchors the main robustness argument; a naïve uniform‑aperture placement formed by linearly spacing the positive‑side coordinates between the fixed endpoints and mirroring them; and a best‑found same‑aperture nominal‑gain comparator that searches interior coordinates under identical span and spacing constraints. Supplementary sweeps over carrier frequency and effective refractive index serve only as sensitivity checks, not as additional core claims.
+
+The same‑aperture restriction is critical. Without matched endpoints and a common spacing rule, a baseline table would confound aperture‑size effects with placement‑design effects, leaving the source of any performance difference opaque. By holding the span and the minimum spacing fixed, the comparison poses a narrower but more defensible question: what constructive alignment buys within essentially the same physical footprint. That is the level of comparative claim the present evidence can support.
+
+
+\subsubsection{Same-Aperture Baseline Construction}
+
+Let $\Delta_{\mathrm{pos}}^\star$ denote the positive-side coordinates of the constructive aligned placement, and let $\Delta_{\min}$ and $\Delta_{\max}$ be its first and last positive-side coordinates. The uniform-aperture baseline fixes the same endpoints and places the remaining positive-side coordinates uniformly between them, after which the negative side is completed by symmetry. The second comparator is a \emph{best-found same-aperture nominal-gain baseline}, defined by
+
+\begin{equation}
+\max_{\Delta_{\mathrm{pos}}} \; a(\mathrm{mirror}(\Delta_{\mathrm{pos}}))
+\label{eq:nominal_baseline_opt}
+\end{equation}
+
+subject to
+
+\begin{equation}
+\Delta_1 = \Delta_{\min},
+\qquad
+\Delta_{N/2} = \Delta_{\max},
+\qquad
+\Delta_{i+1} - \Delta_i \ge \Delta_p \lambda.
+\label{eq:nominal_baseline_constraints}
+\end{equation}
+
+The optimization defined by \eqref{eq:nominal_baseline_opt}–\eqref{eq:nominal_baseline_constraints} is solved via a multi-start L-BFGS-B procedure operating on the interior of the positive orthant, with four restarts~\cite{byrd1995lbfgsb}. The result thus represents the best nominal-gain figure identified under the same aperture and spacing constraints; it is not a certified global optimum of the PASS problem. In contrast to Sections~3.1–3.2, the baseline section reports raw array-gain values so that different element placements can be compared on a common physical scale.
+
+All numerical statements in the report originate from a single, consistent simulation campaign conducted under this protocol. The rounded values displayed in figures and tables are therefore drawn from the same set of stored outputs, ensuring that the wording of every claim can be traced to a common evidence base.
+
+Table~\ref{tab:claim_map} maps the principal claims of the manuscript to the stored numerical artifacts. For a final-year report, such a mapping is instructive because it renders the distinctions among deterministic small-error assertions, empirical observations, and comparative claims explicit before the reader enters the results chapter.
+
+
+\begin{table}[H]
+\centering
+\small
+\caption{Claim-to-evidence map used to keep the manuscript wording aligned with the stored artifacts.}
+\label{tab:claim_map}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.34\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}X}
+\toprule
+Claim or statement type & Primary artifact & Scope used in the manuscript \\
+\midrule
+Tight deterministic lower bound in the first-order validity region & Stored configuration snapshot and main deterministic curve & Bound language restricted to $\epsilon/\lambda \le 0.1713$. \\
+Pre-null split-mode near-adversarial behavior & Main deterministic curve and box-validation checkpoints & Empirical and restricted to the pre-null regime. \\
+Second-order stochastic predictor explains iid, common-bias, and correlated scenarios & Stochastic scenario curve and Monte Carlo summary & Supported only for the studied design over $0 \le \epsilon/\lambda \le 0.10$. \\
+Same-aperture design comparison & Baseline summary table and baseline robustness curves & Narrow comparative statement across the three tested placements only. \\
+Frequency and refractive-index sensitivity sweeps & Secondary sensitivity-sweep curves & Supporting evidence for mechanism interpretation, not a core generality claim. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The methods section therefore fixes the exact meaning of each later result. Deterministic lower-bound statements refer to the first-order validity region associated with \eqref{eq:epsilon_valid}. Empirical statements refer either to the pre-null box-best-found comparison or to the stochastic simulations. Comparative design claims are restricted to the same-aperture baseline section and do not imply broader design optimality.

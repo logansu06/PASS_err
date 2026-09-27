@@ -1,0 +1,53 @@
+\thispagestyle{plain}
+\begin{center}
+\vspace*{0.22\textheight}
+{\LARGE\bfseries Robustness Analysis of Constructive Phase-Aligned PASS Placement Under Bounded Position Errors\par}
+\vspace{1.5em}
+{\large Final Year Project Report\par}
+\vfill
+\end{center}
+
+\clearpage
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+
+Pinching-antenna systems (PASS) provide flexible antenna activation by pinching dielectric particles onto a waveguide, achieving single-user near-field focusing with a large effective aperture. Earlier studies on PASS have focused on nominal placement, rate maximization, antenna activation, and array gain under ideal pinching positions. This report turns to a different set of issues: when the constructive, phase-aligned PASS placement experiences bounded or random position errors, what degradation mechanisms dominate the response, which aspects remain analytically tractable, and which conclusions hold up under numerical verification.
+
+Building on the PASS system model familiar from the array-gain literature, the report reformulates the constructive aligned placement as a feasible wavelength-snapped phase-alignment design that respects inter-element spacing constraints. It then derives a position-dependent phase sensitivity and a deterministic small-error lower bound for the normalized array gain.
+
+For the studied symmetric setting with $N = 16$, $d = \SI{3}{m}$, $f_c = \SI{28}{GHz}$, $n_{\mathrm{eff}} = 1.44$, and $\Delta_p = 0.5\lambda$, the first-order deterministic validity threshold is $\epsilon/\lambda = 0.1713$, and within that region the deterministic lower bound is numerically indistinguishable from the box-best-found degradation curve. At the representative error level $\epsilon/\lambda = 0.10$, the split-mode construction nearly matches the box-best-found degradation while common-bias motion remains almost harmless. The same second-order predictor also tracks the observed mean degradation across iid uniform, common-bias, and correlated Gaussian error models over the tested small-error range $0 \le \epsilon/\lambda \le 0.10$. In the same-aperture baseline comparison studied here, the constructive aligned placement is stronger than a naive uniform-aperture design, but it is still outperformed by a best-found nominal-gain comparator.
+
+The final conclusion is deliberately conservative. The present evidence supports a disciplined robustness characterization for one constructive PASS design in one studied symmetric configuration. It does not support any globally certified continuous-box optimum claim, any theorem that the split-mode pattern is the exact minimizer, or any broad design-optimality statement across PASS placements.
+
+\noindent\textbf{Keywords:} pinching-antenna systems, PASS, position errors, robustness, bounded uncertainty, phase variance, near-field focusing
+
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
+\section*{Acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
+
+\begin{flushright}
+\textit{``Treading upon iron caltrops, I ride without rest, not daring to look back.''}
+\end{flushright}
+
+
+Time has pushed me to this point. Four years, just like that --- neither fast nor slow, like afternoon light: warm if you call it warm, dull if you call it dull. I have stepped into the next season's river. These were four years ruled by reason. The thesis has its models and equations. So here, in this small corner the academy hasn't fully claimed, I want to leave something that isn't.
+
+I'm writing this to \textit{American Football}. It isn't happy, but it's honest --- like \textit{La Haine}, it finds words for the thing that has nowhere else to go. I've been swimming a long time. Standing before knowledge, I feel grain-of-dust small --- which isn't unpleasant. At least it means I can still feel. More often there was struggle and self-doubt: \textit{``Do I love wisdom enough? Do I love humanity enough?''} I asked, and never dared answer yes. I'm grateful that certain people waited on the shore and told me to keep going.
+
+To my parents: what they love is not a child who met expectations, but me --- lazy, headstrong, perpetually threatening to go off-script. No love conditional on grades, only unconditional encouragement. We argued. I spent most of these four years sure I was disappointing them. They loved me anyway. That makes me feel ashamed, and strangely at peace. Thank you for forgiving this version of me, and for always loving it.
+
+To my supervisor: my deepest respect. He brought me into the lab when I was a bewildered sophomore. Young himself, with a pure scholar's exactingness, he guided me the way he might once have guided his younger self --- without ever letting up. That is a genuinely romantic thing. From him I learned not only rigor, but the understanding that this kind of generosity must be passed on.
+
+As for the friends who walked with me: without this particular group of interesting people, how lonely life would be. I want especially to thank Seven Zhang --- same high school, heading somewhere further --- who showed me a road and said: \textit{``you can walk this too''}. My laziness disappointed him often in the last two years. I know. But I believe I'll find that road --- not to prove anything to him, but because it was always mine to take.
+
+Thank you to Yalee, my spiritual guide. She once said: \textit{``once the bone is worn away, it stops hurting''}. Brutal to hear. True to live. My humanity has its limits; I'm lucky she bears with them. And thank you to Matt, hahaer, Rui, bobo \& kk, tz, Zhong BANG, and the many others I can't name here --- each of you, in your own time and way, made it through these four years with me.
+
+Last, I want to thank myself. I know that sounds self-important, but I think it's worth saying. For four years I have been as busy as Sisyphus, and what I was really solving was that oldest problem: \textit{know thyself}. In many late nights I opened myself up with a rational scalpel, and saw my cowardice and evasions clearly. But I also witnessed, sometimes, something quietly strong. I kept asking: \textit{``could I be a little better?''} I know the answer is yes. Because I think I can go further, grow tougher, grow braver --- and walk, with increasing certainty, toward happiness.
+
+Here, at the end of these words, another cycle begins. What we lived through wasn't one act of great courage. It was a long series of ordinary endurances --- every today held up by a yesterday-self who simply didn't quit. And \textit{Keep swimming until the sea turns blue.}

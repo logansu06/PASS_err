@@ -1,0 +1,258 @@
+\section{Detailed Derivations}
+
+This appendix records the detailed derivation chain behind the main text. The goal is not to introduce stronger claims than those used in the body. It is to show clearly how the formulas used in the report arise from the PASS model, and which steps are exact identities, which are local approximations, and which are interpretation-driven constructive choices.
+
+\subsection{Derivation of the Constructive Phase-Alignment Equation}
+
+Start from the inherited array-gain expression
+
+\begin{equation}
+a(\Delta)
+= \frac{\eta}{N}
+\left|
+\sum_n \frac{e^{-j k_0 (R_n(\Delta_n) + n_{\mathrm{eff}}\Delta_n)}}{R_n(\Delta_n)}
+\right|^2,
+\qquad
+R_n(\Delta_n)=\sqrt{d^2+\Delta_n^2}.
+\label{eq:app_array_gain}
+\end{equation}
+
+The coherent-sum envelope satisfies
+
+\begin{equation}
+\left|\sum_n c_n e^{-j\theta_n}\right|
+\le \sum_n |c_n|,
+\label{eq:app_triangle}
+\end{equation}
+
+with equality when all phases are equal modulo $2\pi$. In the present problem $c_n = R_n(\Delta_n)^{-1}$ is real and positive, so a constructive alignment target is
+
+\begin{equation}
+k_0 \big(R_n(\Delta_n)+n_{\mathrm{eff}}\Delta_n\big)
+= C + 2\pi m_n,
+\qquad m_n \in \mathbb{Z}.
+\label{eq:app_alignment}
+\end{equation}
+
+Dividing by $k_0 = 2\pi/\lambda$ gives
+
+\begin{equation}
+R_n(\Delta_n)+n_{\mathrm{eff}}\Delta_n
+= C' + m_n \lambda,
+\qquad
+C'=\frac{C}{k_0}.
+\label{eq:app_alignment_lambda}
+\end{equation}
+
+The report does not optimize jointly over all integers $m_n$. Instead, it uses a constructive feasible scheme in which the wavelength target on the positive side is snapped upward from an initialization grid:
+
+\begin{equation}
+\Delta_n^{(0)}
+= \frac{\Delta_p \lambda}{2} + (n-1)\Delta_p\lambda,
+\qquad n = 1,\ldots,\frac{N}{2}.
+\label{eq:app_init}
+\end{equation}
+
+The snapped target is
+
+\begin{equation}
+d_n
+= \lambda
+\left\lceil
+\frac{\sqrt{d^2+(\Delta_n^{(0)})^2}+n_{\mathrm{eff}}\Delta_n^{(0)}}{\lambda}
+\right\rceil,
+\label{eq:app_dn}
+\end{equation}
+
+and the aligned position then solves
+
+\begin{equation}
+\sqrt{d^2+\Delta_n^2}+n_{\mathrm{eff}}\Delta_n-d_n=0.
+\label{eq:app_scalar}
+\end{equation}
+
+\subsection{Closed-Form Solution of the Scalar Alignment Equation}
+
+Equation~\eqref{eq:app_scalar} can be solved numerically, but it is useful to see its closed form because it reveals the admissible branch structure. Rearranging gives
+
+\begin{equation}
+\sqrt{d^2+\Delta_n^2}=d_n-n_{\mathrm{eff}}\Delta_n.
+\label{eq:app_rearranged}
+\end{equation}
+
+Squaring both sides yields
+
+\begin{equation}
+d^2+\Delta_n^2
+= d_n^2 - 2 d_n n_{\mathrm{eff}}\Delta_n + n_{\mathrm{eff}}^2 \Delta_n^2,
+\label{eq:app_squared}
+\end{equation}
+
+and therefore
+
+\begin{equation}
+(n_{\mathrm{eff}}^2-1)\Delta_n^2
+- 2 d_n n_{\mathrm{eff}}\Delta_n
++ (d_n^2-d^2)=0.
+\label{eq:app_quadratic}
+\end{equation}
+
+For $n_{\mathrm{eff}} \ne 1$, the two algebraic roots are
+
+\begin{equation}
+\Delta_n
+= \frac{d_n n_{\mathrm{eff}} \pm \sqrt{d_n^2 + d^2(n_{\mathrm{eff}}^2-1)}}{n_{\mathrm{eff}}^2-1}.
+\label{eq:app_roots}
+\end{equation}
+
+The positive-side constructive placement uses the smaller root, because the larger root corresponds to a much farther coordinate on the same phase branch. In practice the code uses a bracketed scalar root finder and then verifies the spacing constraint with the previously accepted position. If the spacing is too small, $d_n$ is increased by one more wavelength and the solve is repeated. This means that the constructive algorithm should be understood as a feasible snapping-and-repair procedure, not as a global nominal optimizer.
+
+\subsection{Derivation of the Phase Sensitivity}
+
+The phase of the $n$th term in \eqref{eq:app_array_gain} is
+
+\begin{equation}
+\Phi_n(\Delta_n)=k_0\big(R_n(\Delta_n)+n_{\mathrm{eff}}\Delta_n\big).
+\label{eq:app_phase}
+\end{equation}
+
+Differentiating with respect to $\Delta_n$ gives
+
+\begin{equation}
+\Phi_n'(\Delta_n)
+= k_0 \left(\frac{\partial R_n(\Delta_n)}{\partial \Delta_n}+n_{\mathrm{eff}}\right)
+= k_0\left(\frac{\Delta_n}{\sqrt{d^2+\Delta_n^2}}+n_{\mathrm{eff}}\right).
+\label{eq:app_phase_derivative}
+\end{equation}
+
+Evaluated at the constructive placement,
+
+\begin{equation}
+\xi_n
+\triangleq \frac{1}{k_0}\Phi_n'(\Delta_n^\star)
+= \frac{\Delta_n^\star}{\sqrt{d^2+(\Delta_n^\star)^2}}+n_{\mathrm{eff}}
+= \sin\theta_n^\star+n_{\mathrm{eff}}.
+\label{eq:app_xi}
+\end{equation}
+
+If $\Delta_n = \Delta_n^\star+\delta_n$ and $|\delta_n|$ is small, a first-order Taylor expansion gives
+
+\begin{equation}
+\Phi_n(\Delta_n^\star+\delta_n)
+\approx \Phi_n(\Delta_n^\star)+k_0 \xi_n \delta_n,
+\label{eq:app_taylor}
+\end{equation}
+
+hence the leading phase error is
+
+\begin{equation}
+\Delta\phi_n \approx k_0 \xi_n \delta_n.
+\label{eq:app_phase_error}
+\end{equation}
+
+\subsection{Deterministic Lower Bound Under the First-Order Phase Condition}
+
+Write
+
+\begin{equation}
+w_n^\star = \frac{1}{R_n(\Delta_n^\star)},
+\qquad
+w_n^- = \frac{1}{\sqrt{d^2+(|\Delta_n^\star|+\epsilon)^2}}.
+\label{eq:app_weights}
+\end{equation}
+
+Since $|\delta_n|\le\epsilon$, the perturbed amplitude satisfies
+
+\begin{equation}
+\frac{1}{R_n(\Delta_n^\star+\delta_n)} \ge w_n^-.
+\label{eq:app_ampbound}
+\end{equation}
+
+Using the first-order phase law and the worst-case projection bound,
+
+\begin{equation}
+\Re\left(e^{-j\Delta\phi_n}\right)
+\ge \cos(k_0|\xi_n|\epsilon)
+\quad \text{whenever} \quad
+k_0|\xi_n|\epsilon \le \frac{\pi}{2}.
+\label{eq:app_proj}
+\end{equation}
+
+Now define the perturbed coherent sum
+
+\begin{equation}
+S(\delta)
+= \sum_n \frac{e^{-j(\Phi_n(\Delta_n^\star+\delta_n)-\Phi_n(\Delta_n^\star))}}{R_n(\Delta_n^\star+\delta_n)}.
+\label{eq:app_sum}
+\end{equation}
+
+Because $|S(\delta)| \ge \Re S(\delta)$, we have
+
+\begin{equation}
+|S(\delta)|
+\ge
+\sum_n w_n^- \cos(k_0|\xi_n|\epsilon).
+\label{eq:app_rebound}
+\end{equation}
+
+Dividing by the ideal aligned reference $\sum_n w_n^\star$ and squaring gives the normalized lower bound for the phase-referenced diagnostic used in the main text:
+
+\begin{equation}
+\tilde{a}(\Delta^\star+\delta;\Delta^\star)
+\ge
+\left(
+\frac{\sum_n w_n^- \cos(k_0|\xi_n|\epsilon)}
+{\sum_m w_m^\star}
+\right)^2.
+\label{eq:app_fullbound}
+\end{equation}
+
+\subsection{Derivation of the Weighted Phase-Variance Expansion}
+
+The phase-variance interpretation begins by normalizing the amplitudes:
+
+\begin{equation}
+\alpha_n = \frac{w_n^\star}{\sum_m w_m^\star},
+\qquad
+\sum_n \alpha_n = 1.
+\label{eq:app_alpha}
+\end{equation}
+
+Ignoring higher-order amplitude changes for mechanism interpretation, the normalized coherent sum is approximated by
+
+\begin{equation}
+\rho(\delta)
+= \sum_n \alpha_n e^{-j k_0 \xi_n \delta_n}.
+\label{eq:app_rho}
+\end{equation}
+
+For small phase errors,
+
+\begin{equation}
+e^{-j k_0 \xi_n \delta_n}
+= 1 - j k_0 \xi_n \delta_n - \frac{1}{2}k_0^2\xi_n^2\delta_n^2 + O(\lVert\delta\rVert^3).
+\label{eq:app_expansion}
+\end{equation}
+
+Substituting into \eqref{eq:app_rho} gives
+
+\begin{equation}
+\rho(\delta)
+= 1
+- j\sum_n \alpha_n k_0\xi_n\delta_n
+- \frac{1}{2}\sum_n \alpha_n (k_0\xi_n\delta_n)^2
++ O(\lVert\delta\rVert^3).
+\label{eq:app_rho_expand}
+\end{equation}
+
+Let $\mu_\phi = \sum_n \alpha_n k_0\xi_n\delta_n$. Then, up to second order,
+
+\begin{equation}
+|\rho(\delta)|^2
+\approx
+1 - \sum_n \alpha_n (k_0\xi_n\delta_n)^2 + \mu_\phi^2
+= 1 - \mathrm{Var}_\alpha(k_0\xi_n\delta_n).
+\label{eq:app_variance}
+\end{equation}
+
+This is the local object that unifies the deterministic and stochastic interpretations in the main text.

@@ -1,0 +1,79 @@
+\section{Reproducibility and Artifact Map}
+
+This appendix records the repository files, command entry points, and output artifacts that directly support the manuscript. The aim is not to repeat the methods section, but to leave a clear handoff trail from the report text back to the reproducible simulation artifacts.
+
+\subsection{Project Files Used in the Report}
+
+The report relies on the following repository files:
+
+\begin{itemize}
+\item \texttt{config.py}: fixed experiment configuration and random seed.
+\item \texttt{main.py}: top-level experiment orchestration.
+\item \texttt{design\_delta\_star.py}: constructive aligned placement generation.
+\item \texttt{pass\_model.py}: PASS geometry, phase, and array-gain evaluation.
+\item \texttt{robustness.py}: deterministic lower bound, corner enumeration, and continuous-box best-found search.
+\item \texttt{theory\_extensions.py}: weighted phase-variance mechanism and stochastic covariance predictor.
+\item \texttt{placement\_baselines.py}: uniform-aperture and best-found nominal-comparator baselines.
+\item \texttt{results/config.json}: stored configuration snapshot and software versions.
+\item \texttt{results/data\_main.csv}: main deterministic robustness curve.
+\item \texttt{results/data\_box\_validation.csv}: corner, split-mode, and box-best-found comparison.
+\item \texttt{results/data\_error\_scenarios.csv}: stochastic scenarios and quadratic approximations.
+\item \texttt{results/data\_corr\_length\_sweep.csv}: fixed-error correlation-length sensitivity sweep.
+\item \texttt{results/data\_baseline\_summary.csv}: compact baseline summary.
+\item \texttt{results/data\_baseline\_curves.csv}: full baseline curves.
+\item \texttt{results/data\_freq\_sweep.csv}: frequency sweep.
+\item \texttt{results/data\_neff\_sweep.csv}: effective-index sweep.
+\end{itemize}
+
+\subsection{Execution Contract}
+
+The report is based on the repository's standard experiment command:
+
+\begin{verbatim}
+python main.py
+\end{verbatim}
+
+Running this command from the repository root regenerates the result CSV files and figure assets in \texttt{results/}. The current report uses the fixed random seed \texttt{20260111}, which is stored in both \texttt{config.py} and \texttt{results/config.json}. Because the seed is fixed, the numerical values cited in the report can be reproduced exactly from the current codebase, provided that the same software versions are available.
+
+\subsection{Software Versions Recorded by the Experiment Run}
+
+The stored configuration reports the following package versions:
+
+\begin{itemize}
+\item NumPy \texttt{2.3.5}
+\item SciPy \texttt{1.16.3}
+\item Matplotlib \texttt{3.10.6}
+\end{itemize}
+
+\subsection{Output Artifact Map}
+
+The paper-facing artifact map is as follows:
+
+\begin{itemize}
+\item \texttt{fig\_pass\_system\_model\_corrected.pdf}: analytical PASS system model used in Section~1.
+\item \texttt{fig\_pass\_system\_model\_3d\_clean.pdf}: three-dimensional PASS system-model view used in Section~1.
+\item \texttt{fig\_main.pdf}: main robustness curve used in Section~3.1.
+\item \texttt{fig\_xi\_distribution.pdf}: sensitivity distribution used in Section~2.2.
+\item \texttt{fig\_error\_scenarios.pdf}: stochastic scenario figure used in Section~3.2.
+\item \texttt{fig\_corr\_length\_sweep.pdf}: correlation-length sensitivity figure used in Section~3.2.
+\item \texttt{fig\_baseline\_box.pdf}: same-aperture robustness baseline figure used in Section~3.3.
+\item \texttt{fig\_baseline\_tradeoff.pdf}: nominal-versus-robustness comparison used in Section~3.3.
+\item \texttt{fig\_neff\_sweep.pdf}: effective-index sensitivity figure used in Section~3.4.
+\item \texttt{fig\_freq\_sweep.pdf}: frequency-sensitivity appendix figure discussed alongside Section~3.4.
+\end{itemize}
+
+The system-model figures used in Section~1 and all generated curve figures are copied into the same LaTeX-facing figure folder so that the paper sources remain self-contained.
+
+\subsection{Claim-Discipline Checklist}
+
+To keep the paper-facing narrative synchronized with the actual evidence, the report follows the following wording rules:
+
+\begin{itemize}
+\item The continuous bounded-box search is always described as \emph{box-best-found}.
+\item The constructive placement is described as a \emph{constructive phase-aligned feasible placement}, not as a globally optimal or near-optimal design.
+\item The split-mode pattern is described as an empirical near-adversarial construction in the pre-null regime, not as an exact optimizer.
+\item The stochastic predictor is scoped to the studied design and to the tested range $0 \le \epsilon/\lambda \le 0.10$.
+\item Comparative wording is restricted to the same-aperture baseline section and does not generalize beyond the tested placements.
+\end{itemize}
+
+These rules are not stylistic preferences. They are part of the reproducibility contract of the report, because they ensure that the prose stays aligned with the artifacts that actually justify the conclusions.

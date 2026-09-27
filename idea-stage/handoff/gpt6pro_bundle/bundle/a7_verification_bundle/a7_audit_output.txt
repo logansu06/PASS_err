@@ -1,0 +1,105 @@
+{
+  "original": {
+    "SN": [
+      1,
+      6,
+      7,
+      8,
+      16,
+      18,
+      19,
+      20
+    ],
+    "SR": [
+      3,
+      4,
+      7,
+      8,
+      9,
+      13,
+      14,
+      17
+    ],
+    "LR": 53.422096709096486,
+    "UN_corners": 42.154124945544666
+  },
+  "sec_asymmetric": {
+    "SR": [
+      0,
+      1,
+      4,
+      5,
+      6,
+      11,
+      14,
+      19
+    ],
+    "LR": 56.55933402842349,
+    "UN_refined": 42.154124945544666,
+    "UR_refined": 56.58282852014915,
+    "gain": 0.34172715247885455
+  },
+  "matched": {
+    "family_size": 74613,
+    "SN": [
+      0,
+      3,
+      4,
+      9,
+      13,
+      17,
+      19,
+      23
+    ],
+    "SR": [
+      0,
+      3,
+      4,
+      8,
+      9,
+      13,
+      19,
+      23
+    ],
+    "LR": 54.167583304162946,
+    "UN": 54.06748919641997,
+    "UR": 54.19417145155475,
+    "gain": 0.0018512808571402584
+  },
+  "epsilon_zero": {
+    "nominal": 999.7374695019918,
+    "corrected": 999.7374695019918,
+    "original": 997.4375828028756,
+    "relative_original_loss": 0.002300490648071696
+  },
+  "converse": {
+    "family_exact_endpoint_floor_power": 0.002756353058632649,
+    "minimizing_subset": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      10,
+      14,
+      22
+    ],
+    "additive_floor_power": 0.0027121451267196443,
+    "SN_taylor_floor_power": 0.0011929920647780617,
+    "SN_endpoint_floor_power": 0.002813354757085691,
+    "SN_max_corner_power": 0.016165793497790987
+  },
+  "random_checks": {
+    "count": 100000,
+    "min_SLNR_minus_L": -3.410605131648481e-13
+  },
+  "clearance": {
+    "min_spacing_lambda": 0.6822207183822012,
+    "all_subsets_valid_eps_limit_lambda": 0.09111035919110061,
+    "feasible_at_0p1_lambda": 112251,
+    "SN_valid_at_0p1": false,
+    "SR_valid_at_0p1": false
+  },
+  "grid_relative_power_gap_bound": 4.759662286968336e-06,
+  "coefficient_ratio": 0.9880711575151335
+}

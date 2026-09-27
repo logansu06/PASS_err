@@ -1,0 +1,126 @@
+{
+  "P": [
+    3.0,
+    2.0
+  ],
+  "eps_lambda": 0.05,
+  "snr_db": 30,
+  "H": 48,
+  "witness_enumeration_seconds": 1.594601979999993,
+  "max_endpoint_vertex_identity_error_20_subsets": 2.7755575615628914e-17,
+  "free": {
+    "family_size": 735471,
+    "nominal_subset": [
+      1,
+      6,
+      7,
+      8,
+      16,
+      18,
+      19,
+      20
+    ],
+    "initial_subset": [
+      0,
+      1,
+      4,
+      5,
+      6,
+      11,
+      14,
+      19
+    ],
+    "initial_L": 56.55933402842349,
+    "survivors_initial": 1,
+    "certificate_optimum_subset": [
+      0,
+      1,
+      4,
+      5,
+      6,
+      11,
+      14,
+      19
+    ],
+    "certificate_optimum_L": 56.55933402842349,
+    "global_robust_SLNR_upper": 56.58282852014913,
+    "global_relative_upper_gap": 0.0004153954803256532,
+    "largest_other_layout_U": 56.23845998543495,
+    "strict_global_layout_dominance_margin": 0.3208740429885424,
+    "unpruned_after_search": 1,
+    "certified_gain_over_nominal": 0.34172715247885455,
+    "UN_nominal": 42.154124945544666,
+    "UR_robust": 56.58282852014915,
+    "minimum_endpoint_worst_leakage_power": 0.011857759403851878,
+    "minimum_endpoint_subset": [
+      0,
+      1,
+      4,
+      5,
+      6,
+      11,
+      14,
+      19
+    ],
+    "selected_leakage_upper_power": 0.01186261922994549,
+    "survivor_evaluation_seconds": 0.02864880199996378
+  },
+  "matched": {
+    "family_size": 74613,
+    "nominal_subset": [
+      0,
+      3,
+      4,
+      9,
+      13,
+      17,
+      19,
+      23
+    ],
+    "initial_subset": [
+      0,
+      3,
+      4,
+      8,
+      9,
+      13,
+      19,
+      23
+    ],
+    "initial_L": 54.167583304162946,
+    "survivors_initial": 12,
+    "certificate_optimum_subset": [
+      0,
+      1,
+      4,
+      8,
+      9,
+      12,
+      13,
+      23
+    ],
+    "certificate_optimum_L": 55.57400718499342,
+    "global_robust_SLNR_upper": 55.60399642291999,
+    "global_relative_upper_gap": 0.0005396270567055161,
+    "largest_other_layout_U": 55.52739141429275,
+    "strict_global_layout_dominance_margin": 0.04661577070066869,
+    "unpruned_after_search": 1,
+    "certified_gain_over_nominal": 0.027863657272866327,
+    "UN_nominal": 54.06748919641997,
+    "UR_robust": 55.60399642291999,
+    "minimum_endpoint_worst_leakage_power": 0.012069844135487633,
+    "minimum_endpoint_subset": [
+      0,
+      1,
+      4,
+      8,
+      9,
+      12,
+      13,
+      23
+    ],
+    "selected_leakage_upper_power": 0.012076400370275485,
+    "survivor_evaluation_seconds": 0.010850875000016913
+  },
+  "total_seconds": 1.7843798089999723
+}

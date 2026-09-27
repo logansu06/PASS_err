@@ -1,0 +1,45 @@
+{
+  "pass": true,
+  "port": {
+    "free": {
+      "family_size": 735471,
+      "certificate_optimum_subset": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        11,
+        14,
+        19
+      ],
+      "certificate_optimum_L": 56.55933402842345,
+      "global_robust_SLNR_upper": 56.58282852014913,
+      "largest_other_layout_U": 56.23845998543495,
+      "strict_global_layout_dominance_margin": 0.32087404298849975,
+      "certified_gain_over_nominal": 0.34172715247885255,
+      "minimum_endpoint_worst_leakage_power": 0.011857759403851878,
+      "selected_leakage_upper_power": 0.011862619229945498
+    },
+    "matched": {
+      "family_size": 74613,
+      "certificate_optimum_subset": [
+        0,
+        1,
+        4,
+        8,
+        9,
+        12,
+        13,
+        23
+      ],
+      "certificate_optimum_L": 55.57400718499342,
+      "global_robust_SLNR_upper": 55.60399642291999,
+      "largest_other_layout_U": 55.52739141429275,
+      "strict_global_layout_dominance_margin": 0.04661577070066869,
+      "certified_gain_over_nominal": 0.027863657272866327,
+      "minimum_endpoint_worst_leakage_power": 0.012069844135487633,
+      "selected_leakage_upper_power": 0.012076400370275485
+    }
+  }
+}

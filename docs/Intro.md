@@ -15,15 +15,15 @@
 4. 保存 CSV/NPZ 与图表输出，并记录运行日志。
 
 ## 如何运行
-在 `PASS_err/` 目录下执行：
+在仓库根目录下执行：
 
 ```bash
-python main.py
+python src/main.py
 ```
 
-主要参数在 `PASS_err/config.py` 中配置；固定随机种子确保复现实验。
+主要参数在 `src/config.py` 中配置；固定随机种子确保复现实验。
 
-## 结果文件说明（`PASS_err/results/`）
+## 结果文件说明（`results/`）
 - `data_main.csv`：主实验结果（`eps_norm`、`wc_norm`、MC 统计、下界等）
 - `data_freq_sweep.csv`：载频扫描（`f_c`、`eps_norm/eps_m`、`wc_norm`）
 - `data_neff_sweep.csv`：`n_eff` 扫描（`n_eff`、`eps_norm/eps_m`、`wc_norm`）

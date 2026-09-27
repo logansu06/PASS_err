@@ -1,0 +1,74 @@
+\section{Additional Results and Sensitivity Sweeps}
+
+This appendix collects the numerical tables and secondary curves that support the main text but would interrupt the flow if kept in the core body.
+
+\subsection{Box Validation Gaps}
+
+Section~3.1 now carries the value table needed for the main argument. This appendix retains the companion gap table, which makes the tiny pre-null discrepancies easier to inspect without adding a second nearly redundant checkpoint table to the body.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Box-validation checkpoints for deterministic adversarial patterns, reported as gaps in design-referenced normalized gain relative to the box-best-found value.}
+\label{tab:box_validation_gaps_appendix}
+\begin{tabularx}{\textwidth}{>{\centering\arraybackslash}p{0.20\textwidth} >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\toprule
+$\epsilon/\lambda$ & Corner minus box & Split minus box \\
+\midrule
+0.02 & 0 & $6.69 \times 10^{-7}$ \\
+0.05 & 0 & $6.91 \times 10^{-6}$ \\
+0.10 & 0 & $1.57 \times 10^{-5}$ \\
+0.15 & 0 & $4.42 \times 10^{-6}$ \\
+0.175 & $1.5787 \times 10^{-4}$ & $1.5790 \times 10^{-4}$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+This table makes the report's wording choice transparent. Up to $0.15$, the continuous-box refinement does not improve on the best corner to displayed precision. At $0.175$, it does. This is why the terminology must change from corner-restricted to box-best-found once the continuous search is introduced.
+
+\subsection{Frequency Sweep}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{fig_freq_sweep.pdf}
+\caption[Frequency sensitivity sweep]{Frequency sweep under fixed absolute error levels. Higher carrier frequency makes the same physical pinching-position error much more destructive because the effective phase perturbation scales with $k_0$.}
+\label{fig:freq_sweep_appendix}
+\end{figure}
+
+At a representative absolute error of \SI{1}{mm}, the normalized box-best-found gain is approximately $0.9676$ at \SI{6}{GHz}, $0.4411$ at \SI{28}{GHz}, and numerical zero at \SI{60}{GHz}. The engineering implication is direct: if PASS is pushed toward higher mmWave or sub-THz operation, placement accuracy requirements tighten sharply.
+
+\subsection{Full Baseline Summary}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Expanded same-aperture baseline summary in raw array-gain value: gain-oriented metrics.}
+\label{tab:baseline_gain_appendix}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.30\textwidth} >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\toprule
+Placement & Nominal & Box-best-found & iid mean & Common-bias \\
+\midrule
+Constructive aligned & 1.7012 & 0.4435 & 1.3115 & 1.7011 \\
+Uniform aperture & 1.6825 & 0.3886 & 1.2998 & 1.6825 \\
+Best-found nominal comparator & 1.7299 & 0.4927 & 1.3336 & 1.7299 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Expanded same-aperture baseline summary in raw array-gain value: correlated robustness and auxiliary statistics.}
+\label{tab:baseline_aux_appendix}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.30\textwidth} >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\toprule
+Placement & Corr.-Gauss. & $\xi$ std. & Span (m) \\
+\midrule
+Constructive aligned & 1.4430 & 0.01245 & 0.11824 \\
+Uniform aperture & 1.4312 & 0.01244 & 0.11824 \\
+Best-found nominal comparator & 1.4651 & 0.01250 & 0.11824 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Two observations are worth emphasizing. The first is that the constructive aligned placement is not trivially equivalent to a uniform aperture, even though the aperture span is matched exactly. The second is that the $\xi$ standard deviations of the three placements are numerically close, which suggests that robustness differences are not controlled by scalar spread alone. The detailed phase profile still matters.

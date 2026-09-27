@@ -4,7 +4,7 @@ Instructions for Codex and similar coding agents working in this repository.
 
 ## Scope
 
-This file applies to the entire `PASS_err/` tree.
+This file applies to the entire repository.
 
 ## Repository Purpose
 
@@ -24,25 +24,25 @@ The codebase is closer to a research artifact than an app. Be careful with termi
 - Run the full experiment suite from the repository root with:
 
 ```powershell
-python main.py
+python src/main.py
 ```
 
 - Generated artifacts are written to `results/`.
-- The default random seed is fixed in [config.py](/d:/0.INBOX/PASS_err_codex_ARIS/PASS_err/config.py).
+- The default random seed is fixed in [config.py](src/config.py).
 
 ## Key Files
 
-- [main.py](/d:/0.INBOX/PASS_err_codex_ARIS/PASS_err/main.py): orchestration entry point.
-- [config.py](/d:/0.INBOX/PASS_err_codex_ARIS/PASS_err/config.py): experiment parameters and sweep settings.
-- [design_delta_star.py](/d:/0.INBOX/PASS_err_codex_ARIS/PASS_err/design_delta_star.py): constructive nominal placement design.
-- [pass_model.py](/d:/0.INBOX/PASS_err_codex_ARIS/PASS_err/pass_model.py): core gain and phase model.
-- [robustness.py](/d:/0.INBOX/PASS_err_codex_ARIS/PASS_err/robustness.py): Monte Carlo, corner search, coordinate descent, local search, lower bounds.
-- [placement_baselines.py](/d:/0.INBOX/PASS_err_codex_ARIS/PASS_err/placement_baselines.py): comparative placement families.
-- [theory_extensions.py](/d:/0.INBOX/PASS_err_codex_ARIS/PASS_err/theory_extensions.py): quadratic / covariance / phase-variance analysis helpers.
-- [plotters.py](/d:/0.INBOX/PASS_err_codex_ARIS/PASS_err/plotters.py): figure generation.
-- [CLAIMS_FROM_RESULTS.md](/d:/0.INBOX/PASS_err_codex_ARIS/PASS_err/CLAIMS_FROM_RESULTS.md): current evidence-backed wording.
-- [AUTO_REVIEW.md](/d:/0.INBOX/PASS_err_codex_ARIS/PASS_err/AUTO_REVIEW.md): reviewer feedback and known weaknesses.
-- [README.md](/d:/0.INBOX/PASS_err_codex_ARIS/PASS_err/README.md): project overview and output descriptions.
+- [main.py](src/main.py): orchestration entry point.
+- [config.py](src/config.py): experiment parameters and sweep settings.
+- [design_delta_star.py](src/design_delta_star.py): constructive nominal placement design.
+- [pass_model.py](src/pass_model.py): core gain and phase model.
+- [robustness.py](src/robustness.py): Monte Carlo, corner search, coordinate descent, local search, lower bounds.
+- [placement_baselines.py](src/placement_baselines.py): comparative placement families.
+- [theory_extensions.py](src/theory_extensions.py): quadratic / covariance / phase-variance analysis helpers.
+- [plotters.py](src/plotters.py): figure generation.
+- [CLAIMS_FROM_RESULTS.md](CLAIMS_FROM_RESULTS.md): current evidence-backed wording.
+- [AUTO_REVIEW.md](fyp_report/review-stage/AUTO_REVIEW.md): reviewer feedback and known weaknesses.
+- [README.md](README.md): project overview and output descriptions.
 
 ## Editing Rules
 
@@ -58,7 +58,7 @@ python main.py
 - If you change computation, configuration, plotting, or result-generation logic, rerun:
 
 ```powershell
-python main.py
+python src/main.py
 ```
 
 - If the full run is too expensive for the current task, make the best reasonable validation effort and state clearly what you did not rerun.
@@ -66,7 +66,7 @@ python main.py
 - When results-affecting code changes, update any stale statements in:
   - `README.md`
   - `CLAIMS_FROM_RESULTS.md`
-  - `AUTO_REVIEW.md`
+  - `fyp_report/review-stage/AUTO_REVIEW.md`
   - files under `results/` that are meant to reflect current outputs
 
 ## Claim Discipline
@@ -94,9 +94,9 @@ The repository contains paper-facing summaries. When touching research conclusio
 
 When working on code here, a good default sequence is:
 
-1. inspect `config.py`, `main.py`, and the relevant module;
+1. inspect `src/config.py`, `src/main.py`, and the relevant module;
 2. implement the smallest coherent change;
-3. rerun `python main.py` if outputs may change;
+3. rerun `python src/main.py` if outputs may change;
 4. inspect `results/` and `run_log.txt`;
 5. update claim-facing markdown if the numerical story changed.
 

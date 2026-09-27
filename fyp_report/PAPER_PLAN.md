@@ -2,13 +2,13 @@
 
 **Title**: Robustness Analysis of Constructive Phase-Aligned PASS Placement Under Bounded Position Errors  
 **Format**: Graduation report  
-**Template**: `Final Report Template.docx`  
+**Template**: `docs/Final Report Template.docx`  
 **Date**: 2026-04-19  
 **Template Order Lock**: cover page -> coursework declaration and feedback form -> abstract -> acknowledgements -> table of contents -> main body -> references -> appendices  
 **Template Writing Rules**: each Heading 1 section starts on a new page; `References` starts on a new page; each appendix starts on a new page; no separate list of figures or tables; use numeric square-bracket citations.
 
 **Planning note**: `findings.md` is the latest claim gate for any baseline-comparison language. `CLAIMS_FROM_RESULTS.md` remains the source for the narrower one-design story where no baseline wording is involved.
-**Contribution boundary**: treat `2501.05657v2.pdf` as the foundational PASS array-gain paper and `fyp.pdf` as the project's theory-and-derivation bridge into the robustness problem. The final report must explicitly separate inherited theory from the base paper, project-side derivation/reformulation, and the new robustness evidence produced in this repository.
+**Contribution boundary**: treat `docs/2501.05657v2.pdf` as the foundational PASS array-gain paper and `docs/fyp.pdf` as the project's theory-and-derivation bridge into the robustness problem. The final report must explicitly separate inherited theory from the base paper, project-side derivation/reformulation, and the new robustness evidence produced in this repository.
 
 ## Claims-Evidence Matrix
 
@@ -19,7 +19,7 @@
 | A second-order covariance / phase-variance predictor explains the observed stochastic trends for the studied iid uniform, common-bias, and correlated Gaussian models over the tested small-error range. | `results/data_error_scenarios.csv` at `epsilon/lambda = 0.1`: iid `0.76980750` vs `0.74416072`; common-bias `0.99997949` vs `0.99997959`; correlated Gaussian `0.84576180` vs `0.83094739`. | Supported, scoped | 2.1.4, 2.3.3, 3.1, 4.1 |
 | The constructive aligned placement is more robust than the naive uniform-aperture baseline in the tested same-aperture comparison, especially in box-best-found robustness. | `results/data_baseline_summary.csv` at `epsilon/lambda = 0.10`: nominal `+1.1%`, box-best-found `+14.1%`, iid mean `+0.9%` versus uniform aperture. | Partial, narrow comparative claim only | 2.3.4, 3.3, 4.1 |
 | The constructive aligned placement is not the best same-aperture placement among the tested candidates because the direct nominal optimizer performs better on all reported metrics. | `results/data_baseline_summary.csv` at `epsilon/lambda = 0.10`: direct nominal optimizer beats aligned constructive on nominal, box-best-found, and iid mean; `results/data_baseline_curves.csv` shows the same ordering across the sampled curves. | Supported | 2.3.4, 3.3, 4.1 |
-| The report must not claim an exact continuous-box optimum or any general design optimality. | `AUTO_REVIEW.md`, `CLAIMS_FROM_RESULTS.md`, and `findings.md` all explicitly reject those stronger claims. | Constraint | 1.3, 3.2, 3.4, 4.1 |
+| The report must not claim an exact continuous-box optimum or any general design optimality. | `fyp_report/review-stage/AUTO_REVIEW.md`, `CLAIMS_FROM_RESULTS.md`, and `findings.md` all explicitly reject those stronger claims. | Constraint | 1.3, 3.2, 3.4, 4.1 |
 
 ## Structure
 
@@ -47,7 +47,7 @@
 #### Abstract
 - Purpose: summarize the problem, method, strongest supported findings, and evidence scope in template-compliant form.
 - Claims covered: lower-bound tightness, split-mode/common-bias contrast, stochastic predictor, narrow baseline takeaway.
-- Source material: `findings.md`, `CLAIMS_FROM_RESULTS.md`, `THEORY_EXTENSIONS.md`, `results/data_main.csv`, `results/data_error_scenarios.csv`, `results/data_baseline_summary.csv`.
+- Source material: `findings.md`, `CLAIMS_FROM_RESULTS.md`, `docs/THEORY_EXTENSIONS.md`, `results/data_main.csv`, `results/data_error_scenarios.csv`, `results/data_baseline_summary.csv`.
 - Figures or tables: none.
 - Citations needed: 2-4 core background citations only, all `[VERIFY]`.
 - Target length: 100-250 words, plus one `Keywords:` line.
@@ -73,11 +73,11 @@
 ### 1 Introduction
 - Purpose: define the engineering problem, explain why PASS is sensitive to position errors, state the project scope, and lock the contribution wording before any derivation.
 - Claims covered: the scoped contribution set and the non-claims.
-- Source material: `Intro.md`, `2501.05657v2.pdf`, `fyp.pdf` Section 1, `AUTO_REVIEW.md`, `findings.md`.
+- Source material: `docs/Intro.md`, `docs/2501.05657v2.pdf`, `docs/fyp.pdf` Section 1, `fyp_report/review-stage/AUTO_REVIEW.md`, `findings.md`.
 - Subsection plan:
   - `1.1 Background and motivation`: PASS near-field focusing, why physical pinching-point errors matter, why robustness matters for realizable deployments.
   - `1.2 Relationship to the base paper and this project`: state clearly that the graduation project extends `Array Gain for Pinching-Antenna Systems (PASS)` by moving from nominal array-gain analysis to robustness under bounded and stochastic position errors.
-  - `1.3 Gap and report scope`: explain what the base paper does not cover, what `fyp.pdf` derives for this project, and what the final repository results now support.
+  - `1.3 Gap and report scope`: explain what the base paper does not cover, what `docs/fyp.pdf` derives for this project, and what the final repository results now support.
   - `1.4 Objectives and contribution bullets`: use 3-4 conservative bullets only.
   - `1.5 Report roadmap`: one short paragraph mapping Sections 2-4.
 - Figures or tables needed: `Fig. 1` PASS geometry and report problem setup schematic.
@@ -91,16 +91,16 @@
 ### 2 Body of the Report
 - Purpose: follow the template's research-project variant inside the fixed Heading 1 title `Body of the Report`.
 - Claims covered: all technical claims, but only as evidence presentation, not as discussion-level interpretation.
-- Source material: `fyp.pdf`, `THEORY_EXTENSIONS.md`, `Intro.md`, `results/config.json`, all relevant result CSV files.
+- Source material: `docs/fyp.pdf`, `docs/THEORY_EXTENSIONS.md`, `docs/Intro.md`, `results/config.json`, all relevant result CSV files.
 - Target length: about 50-55% of the body.
 
 #### 2.1 Theory and Problem Formulation
 - Purpose: build the technical model cleanly enough that the later robustness results and limitations are credible.
 - Claims covered: lower-bound mechanism, sensitivity definition, split-mode intuition, quadratic stochastic predictor.
 - Source material:
-  - use `2501.05657v2.pdf` as the source for the base PASS geometry, array-gain model, and constructive alignment context;
-  - use `fyp.pdf` Sections 2-5 as the project-specific bridge that reformulates those ideas toward nominal placement and position-error sensitivity;
-  - use `THEORY_EXTENSIONS.md` to replace the old same-sign upper-bound story with the weighted phase-variance line;
+  - use `docs/2501.05657v2.pdf` as the source for the base PASS geometry, array-gain model, and constructive alignment context;
+  - use `docs/fyp.pdf` Sections 2-5 as the project-specific bridge that reformulates those ideas toward nominal placement and position-error sensitivity;
+  - use `docs/THEORY_EXTENSIONS.md` to replace the old same-sign upper-bound story with the weighted phase-variance line;
   - rewrite any inherited `near-optimal` or `exact worst-case` wording.
 - Subsection plan:
   - `2.1.1 Base PASS model from the literature`
@@ -121,7 +121,7 @@
 #### 2.2 Experimental or Numerical Techniques
 - Purpose: document exactly how the report evaluates robustness, so the results are reproducible and the evidence scope is explicit.
 - Claims covered: none directly; this section sets up trustworthy evidence.
-- Source material: `Intro.md`, `results/config.json`, `run_log.txt`, `AUTO_REVIEW.md`, repository modules listed in `AGENTS.md`.
+- Source material: `docs/Intro.md`, `results/config.json`, `run_log.txt`, `fyp_report/review-stage/AUTO_REVIEW.md`, repository modules listed in `AGENTS.md`.
 - Subsection plan:
   - `2.2.1 Reproducible setup and fixed configuration`
   - `2.2.2 Deterministic bounded-error evaluation: lower bound, split-mode, and box-best-found search`
@@ -173,7 +173,7 @@
 ### 3 Analysis and Discussion
 - Purpose: do the most important work in the report: reason from the evidence to the actual conclusions without overstating what the data shows.
 - Claims covered: all final interpreted claims and all explicit limitations.
-- Source material: `AUTO_REVIEW.md`, `findings.md`, `CLAIMS_FROM_RESULTS.md`, `THEORY_EXTENSIONS.md`, key result tables.
+- Source material: `fyp_report/review-stage/AUTO_REVIEW.md`, `findings.md`, `CLAIMS_FROM_RESULTS.md`, `docs/THEORY_EXTENSIONS.md`, key result tables.
 - Subsection plan:
   - `3.1 Mechanism interpretation`
     - explain why weighted phase variance unifies the split-mode and stochastic stories;
@@ -199,7 +199,7 @@
 ### 4 Conclusions and Further Work
 - Purpose: close the report in the exact template structure while preserving evidence discipline.
 - Claims covered: only the claims already defended in Sections 2 and 3.
-- Source material: claims matrix, `findings.md`, `AUTO_REVIEW.md`.
+- Source material: claims matrix, `findings.md`, `fyp_report/review-stage/AUTO_REVIEW.md`.
 - Subsection plan:
   - `4.1 Conclusions`
     - summarize the supported one-design story and the narrow baseline takeaway;
@@ -218,7 +218,7 @@
 - Purpose: satisfy the template's required post-body reference section.
 - Claims covered: none.
 - Formatting rule: numeric square-bracket citations only.
-- Source handling: verify all bibliographic metadata before drafting; treat `2501.05657v2.pdf` as a mandatory foundational citation; do not carry over placeholder references from `fyp.pdf` unchanged.
+- Source handling: verify all bibliographic metadata before drafting; treat `docs/2501.05657v2.pdf` as a mandatory foundational citation; do not carry over placeholder references from `docs/fyp.pdf` unchanged.
 - Target length: as needed.
 - Reader takeaway: every cited source is traceable without further searching.
 
@@ -243,7 +243,7 @@
 
 | ID | Type | Placement | Description | Data Source | Priority | Word-Editable Note |
 |---|---|---|---|---|---|---|
-| Fig. 1 | Schematic | 1.1 or 2.1.1 | PASS geometry, user location, waveguide path, and aligned-placement pipeline | manual redraw from `fyp.pdf` + current notation | HIGH | build as editable vector diagram for Word |
+| Fig. 1 | Schematic | 1.1 or 2.1.1 | PASS geometry, user location, waveguide path, and aligned-placement pipeline | manual redraw from `docs/fyp.pdf` + current notation | HIGH | build as editable vector diagram for Word |
 | Fig. 2 | Line / stem plot | 2.1.3 | `xi_n` distribution over the constructive placement, highlighting `xi_max` and symmetry structure | `results/fig_xi_distribution.*` or regenerate from design data | MEDIUM | regenerate as vector or high-res editable chart |
 | Fig. 3 | Multi-curve line plot | 2.3.1 | ideal, box-best-found, split-mode, common-bias, lower bound, Monte Carlo mean with uncertainty band versus `epsilon/lambda` | `results/data_main.csv` | HIGH | regenerate so caption and legend remain editable |
 | Fig. 4 | Validation line plot or grouped markers | 2.3.2 | corner-restricted, split-mode, and box-best-found comparison at representative error levels | `results/data_box_validation.csv` | HIGH | editable plot |
@@ -274,26 +274,26 @@
 
 **Citation guardrails**
 - Do not invent bibliographic metadata.
-- When a model, equation, or design insight is inherited from `2501.05657v2.pdf`, cite it explicitly and mark the report's extension point clearly.
-- Do not keep the placeholder `fyp.pdf` references as final references without verification.
+- When a model, equation, or design insight is inherited from `docs/2501.05657v2.pdf`, cite it explicitly and mark the report's extension point clearly.
+- Do not keep the placeholder `docs/fyp.pdf` references as final references without verification.
 - Default to numeric square-bracket citation output to match the template.
 - If a source is only weakly remembered, mark it `[VERIFY]` in the drafting stage.
 
 ## Reviewer Feedback
 
-- `AUTO_REVIEW.md` changes the report strategy: the final document should be a disciplined robustness argument, not a broad venue-style paper claim.
-- The final report should explicitly identify `2501.05657v2.pdf` as the starting point and frame this project as an extension from nominal PASS array-gain analysis to robustness analysis.
+- `fyp_report/review-stage/AUTO_REVIEW.md` changes the report strategy: the final document should be a disciplined robustness argument, not a broad venue-style paper claim.
+- The final report should explicitly identify `docs/2501.05657v2.pdf` as the starting point and frame this project as an extension from nominal PASS array-gain analysis to robustness analysis.
 - The strongest supported story is the lower-bound + split-mode + stochastic-predictor bundle for one constructive design in one studied symmetric setting.
 - The report must use `box-best-found` or `best-found adversary`, never `exact worst-case`.
-- The old same-sign adversarial construction from `fyp.pdf` should be removed from the main claim story or explicitly described as a superseded weak construction.
+- The old same-sign adversarial construction from `docs/fyp.pdf` should be removed from the main claim story or explicitly described as a superseded weak construction.
 - The baseline section should be kept, but written conservatively: constructive aligned beats naive uniform aperture mainly in box-best-found robustness, yet loses to the direct nominal optimizer on all reported metrics.
 - `findings.md` should be treated as the final claim gate for all baseline-comparison wording.
-- No new delegated reviewer pass was run during this planning turn; this section synthesizes `AUTO_REVIEW.md` and `findings.md`.
+- No new delegated reviewer pass was run during this planning turn; this section synthesizes `fyp_report/review-stage/AUTO_REVIEW.md` and `findings.md`.
 
 ## Next Steps
 
 - [ ] Draft `PAPER_FIGURE_PLAN.md` or run the figure workflow to regenerate Word-friendly versions of Figs. 1-7 and Tables 1-3.
 - [ ] Write the report against this plan while preserving the template front matter and Heading 1 page breaks.
 - [ ] Verify bibliography metadata before drafting the Introduction and Related-Work portions.
-- [ ] During drafting, explicitly replace any legacy `near-optimal`, `exact worst-case`, or broad design-optimality wording inherited from `fyp.pdf`.
-- [ ] Compile the final Word manuscript against `Final Report Template.docx`.
+- [ ] During drafting, explicitly replace any legacy `near-optimal`, `exact worst-case`, or broad design-optimality wording inherited from `docs/fyp.pdf`.
+- [ ] Compile the final Word manuscript against `docs/Final Report Template.docx`.

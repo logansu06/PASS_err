@@ -1,0 +1,15 @@
+{
+ "phase": "done",
+ "round": 2,
+ "threadId": "01a0dc09-8626-7381-8ced-5aeb34168c36",
+ "last_score": 7.7,
+ "last_verdict": "REVISE",
+ "status": "completed",
+ "timestamp": "2026-09-26T13:01:08",
+ "overrides": {
+  "reviewer_effort": "ultra (user instruction)",
+  "max_rounds": 3,
+  "reason": "deadline 2026-10-02"
+ },
+ "stop_reason": "Stopped after round 2 of 3: remaining weaknesses are evidence (matched-endpoint principal result) that only the planned experiments can supply; text fixes applied in FINAL_PROPOSAL; user asked to write the experiment plan before running experiments."
+}

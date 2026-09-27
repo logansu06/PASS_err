@@ -1,0 +1,27 @@
+{
+  "args": {
+    "M": 24,
+    "N": 8,
+    "controls": "free,endpoints",
+    "snr": "10,30",
+    "eps": "0,0.03,0.08",
+    "geoms": "3,2;6,1;0,0",
+    "alpha_db": 0.0,
+    "q": 0.0,
+    "K": 1440,
+    "cap": 200000,
+    "seed": 2026,
+    "restarts": 8,
+    "refine_nom": 4,
+    "refine_hat": 8,
+    "workers": 3,
+    "out": "results/repro_a.csv"
+  },
+  "n_cases": 36,
+  "seconds": 14.142044667009031,
+  "numpy": "2.3.0",
+  "scipy": "1.15.3",
+  "python": "3.13.4",
+  "git_commit": "3fa8650316c750c16b723842229b2e77f1a27176",
+  "date": "2026-09-27 13:55:06"
+}

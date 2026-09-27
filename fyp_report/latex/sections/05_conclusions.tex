@@ -1,0 +1,35 @@
+\section{Conclusions}
+
+This report set out to study the robustness of a constructive phase-aligned PASS placement under position uncertainty while preserving claim discipline. Starting from the array-gain model of \cite{ouyang2025array}, it reformulated the nominal design as a feasible wavelength-snapped phase-alignment construction, derived a position-dependent phase sensitivity, established a deterministic lower bound in the small-error regime, and used a weighted phase-variance expansion to explain both deterministic and stochastic degradation behavior.
+
+\subsection{Conclusions}
+
+Four conclusions are supported by the current evidence.
+
+First, for the constructive phase-aligned placement studied here, the deterministic lower bound provides an exceptionally tight characterization of bounded-error degradation inside the first-order small-error validity region. The threshold $\epsilon/\lambda = 0.1713$ is analytically derived from the phase-sensitivity bound, and the maximum gap between the lower bound and the box-best-found curve over that region is only about $3.40 \times 10^{-6}$. This is the strongest and most reliable technical result in the report.
+
+Second, in the studied symmetric setting, the dominant harmful bounded-error pattern before the first null is not a common signed shift. It is an empirical left-right split-mode phase-spread pattern. The split-mode construction derived from the centered-sensitivity profile tracks the box-best-found curve almost perfectly up to $\epsilon/\lambda = 0.15$, while the common-bias perturbation keeps the normalized gain essentially at one over the same range. This gives both an interpretable physical mechanism and a practically useful adversarial surrogate.
+
+Third, the same weighted phase-variance object explains the stochastic scenario study over the tested range $0 \le \epsilon/\lambda \le 0.10$. The second-order covariance-based predictor captures the observed behavior of iid uniform, common-bias, and correlated Gaussian perturbations for the studied constructive design. The predictor does not claim exactness, but it successfully explains why independent perturbations are damaging, common shifts are nearly harmless, and correlated perturbations produce intermediate degradation.
+
+Fourth, the baseline section supports only a narrow comparative design claim. In the tested same-aperture comparison, the constructive aligned placement is more robust than a naive uniform-aperture baseline, with the largest gain appearing in box-best-found robustness. However, the best-found nominal-gain comparator performs better than the constructive aligned design on every reported metric in that comparison. The report therefore does not recommend the constructive placement as the best overall design. It only shows that the constructive rule is materially better than a naive uniform placement in the current setup.
+
+The broader methodological conclusion is equally important. A robustness study in this setting becomes much clearer once one keeps deterministic small-error results, best-found numerical results, empirical mechanism interpretations, and comparative design claims separate. The weighted phase-variance framework is useful precisely because it supports that separation. It yields a lower-bound interpretation in the first-order validity region, an empirical split-mode interpretation before the first null, and a covariance projection for stochastic perturbations, all without forcing the report to overstate what is actually proved.
+
+Considered as an integrated project-report argument, the work amounts to considerably more than a compilation of plots. A single constructive placement strategy is maintained throughout—from model definition and design construction, across deterministic and stochastic perturbation analyses, and into a narrow same-aperture comparison. This continuity matters because it allows the report to delineate precisely which elements are analytical, which are numerical, and which are merely comparative. The outcome is not a universal PASS design theorem but a carefully bounded robustness case study with well-defined limits.
+
+The practical interpretation is relatively straightforward. For the design under examination, the principal challenge lies not in common motion of the full aperture but in differential motion that broadens the centered phase spread. Sensitivity intensifies when the waveguide contribution grows in relative importance or when identical absolute mechanical errors register at higher carrier frequencies. These are the kinds of engineering demands that future PASS implementations would face if constructive alignment is to retain its utility beyond idealized nominal placements.
+
+\subsection{Suggestions for Further Work}
+
+The next phase of this work should broaden the investigation rather than merely add curves of the same class. Four lines of inquiry appear particularly promising.
+
+One direction is to intensify the continuous bounded-box search in the vicinity of the first null. Introducing additional random restarts, employing alternative local solvers, or performing an independent global-search cross-check would help ascertain whether the near-null gap observed between corner patterns and the box-best-found outcome reflects a genuine structural property or a numerical artifact of the present routine.
+
+A second extension would broaden the baseline comparison. Rather than introducing another minor variant of the constructive placement, a more informative next step is a placement-family study that systematically varies antenna count and spacing, and includes at least one design explicitly tuned for robustness. This shifts the focus from a single local design conclusion to a more general investigation of placement strategies.
+
+Third, the stochastic framework warrants testing on a broader set of geometries and covariance structures beyond those considered here. Although the current covariance-based predictor performs adequately for the studied design over a modest error range, it remains to be determined which aspects of the predictor remain stable when the aperture span changes, when $n_{\mathrm{eff}}$ is varied substantially, or when the perturbation field has stronger long-range correlation.
+
+Fourth, the work could be extended toward a more comprehensive PASS robustness framework by incorporating actuation or calibration models. At present the perturbation model treats error fields as exogenous; a more engineering-oriented formulation would link those errors to actual pinching hardware, calibration expense, and potentially to closed-loop correction schemes.
+
+In summary, this report provides a credible and reproducible foundation for PASS robustness analysis. Its contribution lies not in resolving all open questions, but in bringing the project to a point where the next technical steps are clearly defined and well motivated.

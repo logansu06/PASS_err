@@ -1,0 +1,27 @@
+{
+  "args": {
+    "M": 24,
+    "N": 8,
+    "controls": "free,endpoints",
+    "snr": "20,30",
+    "eps": "0,0.05",
+    "geoms": "3,2;0,0;-6,1",
+    "alpha_db": 0.0,
+    "q": 0.0,
+    "K": 1440,
+    "cap": 200000,
+    "seed": 2026,
+    "restarts": 8,
+    "refine_nom": 4,
+    "refine_hat": 8,
+    "workers": 4,
+    "out": "results/smoke_main.csv"
+  },
+  "n_cases": 24,
+  "seconds": 6.569072375015821,
+  "numpy": "2.3.0",
+  "scipy": "1.15.3",
+  "python": "3.13.4",
+  "git_commit": "3fa8650316c750c16b723842229b2e77f1a27176",
+  "date": "2026-09-27 14:01:09"
+}

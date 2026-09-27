@@ -742,7 +742,8 @@ def run_sweep_neff(cfg, logger, results_dir):
 
 def main():
     cfg = config.get_config()
-    results_dir = os.path.join(os.path.dirname(__file__), "results")
+    repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    results_dir = os.path.join(repo_root, "results")
     utils.ensure_dir(results_dir)
     logger = utils.setup_logger(os.path.join(results_dir, "run_log.txt"))
     logger.info("Loaded config / Ready")

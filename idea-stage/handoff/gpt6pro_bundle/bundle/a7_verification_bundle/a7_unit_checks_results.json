@@ -1,0 +1,9 @@
+{
+  "curvature_grid_points": 384384,
+  "max_sampled_abs_z2_over_explicit_H": 0.9999999999844073,
+  "endpoint_vertex_checks": 40,
+  "max_squared_field_discrepancy": 2.6645352591003757e-15,
+  "sector_support_cases": 100,
+  "negative_support_cases": 28,
+  "max_bruteforce_minus_support": 1.3877787807814457e-16
+}
