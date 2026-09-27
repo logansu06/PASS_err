@@ -1,0 +1,22 @@
+{
+  "args": {
+    "M": 24,
+    "N": 8,
+    "controls": "free,endpoints",
+    "snr": "20,30",
+    "eps": "0.03,0.05",
+    "alpha_db": 0.0,
+    "q": 0.0,
+    "seed": 2026,
+    "restarts": 8,
+    "refine": 4,
+    "cap": 200000,
+    "workers": 7,
+    "out": "results/baselines.csv"
+  },
+  "n_cases": 272,
+  "seconds": 113.63616045800154,
+  "numpy": "2.3.0",
+  "python": "3.13.4",
+  "date": "2026-09-27 14:16:33"
+}

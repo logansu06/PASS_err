@@ -1,0 +1,18 @@
+{
+  "args": {
+    "Ms": "16,24,32",
+    "N": 8,
+    "eps": "0.03,0.05",
+    "snr": 30.0,
+    "controls": "free,endpoints",
+    "cap": 200000,
+    "seed": 2026,
+    "workers": 3,
+    "out": "results/scaling.csv"
+  },
+  "n": 72,
+  "seconds": 169.12827154199476,
+  "numpy": "2.3.0",
+  "python": "3.13.4",
+  "date": "2026-09-27 14:21:58"
+}

@@ -1,28 +1,28 @@
 {
-  "date": "2026-09-27 13:52:28",
+  "date": "2026-09-27 14:03:38",
   "numpy": "2.3.0",
   "R002": {
     "n_instances": 120,
     "n_layout_checks": 480,
     "draws": 100256,
     "worst": {
-      "rel_L": 4.1090288136845664e-16,
+      "rel_L": 0.0,
       "rel_GD": 3.7487227379926796e-16,
       "rel_IP": 0.0,
-      "L_over_UH": 1.0000000000000007
+      "L_over_UH": 1.0
     },
     "failures": [],
     "ok": true
   },
-  "R004": {
+  "R004_eps0": {
     "n": 272,
     "same_layout": 272,
     "unique": 272,
-    "worst": 8.882391251755389e-16,
+    "worst": 0.0,
     "failures": [],
     "ok": true
   },
-  "R005": {
+  "R004_K": {
     "n": 60,
     "max_ratio": 1.0000187226242376,
     "sec2_bound": 1.0000190388303845,
@@ -35,7 +35,7 @@
     "max_templates": 48,
     "ok": true
   },
-  "R005_guards": {
+  "R005": {
     "clearance_threshold_over_lambda": 0.09111035919110058,
     "family_sizes": {
       "0.0911": 735471,
@@ -226,6 +226,6 @@
     "unit_checks_match": true,
     "ok": true
   },
-  "seconds": 187.90605658400455,
+  "seconds": 156.60872150000068,
   "all_ok": true
 }

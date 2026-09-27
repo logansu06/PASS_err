@@ -1,0 +1,95 @@
+20/136 groups, 40 cases, 32s
+40/136 groups, 80 cases, 57s
+60/136 groups, 120 cases, 87s
+80/136 groups, 160 cases, 96s
+100/136 groups, 200 cases, 103s
+120/136 groups, 240 cases, 108s
+136/136 groups, 272 cases, 114s
+saved /Users/logansu/Documents/PASS/experiments/a7/results/baselines.csv 272 cases 114s
+20/54 groups done, 20 cases, 19s
+40/54 groups done, 40 cases, 24s
+54/54 groups done, 54 cases, 30s
+saved /Users/logansu/Documents/PASS/experiments/a7/results/limits.csv 54 cases 30s
+20/136 groups done, 40 cases, 39s
+40/136 groups done, 80 cases, 67s
+60/136 groups done, 120 cases, 97s
+80/136 groups done, 160 cases, 105s
+100/136 groups done, 200 cases, 112s
+120/136 groups done, 240 cases, 118s
+136/136 groups done, 272 cases, 123s
+saved /Users/logansu/Documents/PASS/experiments/a7/results/nonideal.csv 272 cases 123s
+M=32 free P=(-6,1) eps=0.03: family 10518300, survivors 30, unique 0, 35.3s
+M=32 free P=(-3,2) eps=0.03: family 10518300, survivors 954, unique 0, 35.3s
+M=32 free P=(-6,1) eps=0.05: family 10518300, survivors 2322, unique 0, 35.3s
+M=32 free P=(-3,2) eps=0.05: family 10518300, survivors 263, unique 0, 34.5s
+M=32 free P=(0,1) eps=0.03: family 10518300, survivors 10518300, unique 0, 36.8s
+M=32 free P=(0,1) eps=0.05: family 10518300, survivors 10518300, unique 0, 36.9s
+M=32 free P=(3,2) eps=0.03: family 10518300, survivors 135, unique 0, 33.3s
+M=32 free P=(3,2) eps=0.05: family 10518300, survivors 238, unique 1, 33.3s
+M=32 free P=(6,1) eps=0.03: family 10518300, survivors 83, unique 1, 33.4s
+M=32 free P=(6,1) eps=0.05: family 10518300, survivors 110, unique 1, 33.4s
+M=32 endpoints P=(-6,1) eps=0.03: family 593775, survivors 7, unique 0, 3.2s
+M=32 free P=(0,4) eps=0.03: family 10518300, survivors 10518183, unique 0, 35.7s
+M=32 free P=(0,4) eps=0.05: family 10518300, survivors 10518300, unique 0, 35.7s
+M=32 endpoints P=(-6,1) eps=0.05: family 593775, survivors 185, unique 0, 2.9s
+M=32 endpoints P=(-3,2) eps=0.03: family 593775, survivors 18, unique 0, 3.1s
+M=32 endpoints P=(-3,2) eps=0.05: family 593775, survivors 64, unique 0, 3.2s
+M=32 endpoints P=(3,2) eps=0.03: family 593775, survivors 9, unique 1, 3.1s
+M=32 endpoints P=(0,1) eps=0.03: family 593775, survivors 593775, unique 0, 5.6s
+M=32 endpoints P=(0,1) eps=0.05: family 593775, survivors 593775, unique 0, 4.9s
+M=32 endpoints P=(3,2) eps=0.05: family 593775, survivors 21, unique 1, 2.9s
+M=32 endpoints P=(6,1) eps=0.03: family 593775, survivors 2, unique 1, 2.9s
+M=32 endpoints P=(6,1) eps=0.05: family 593775, survivors 5, unique 1, 2.9s
+M=24 free P=(-6,1) eps=0.03: family 735471, survivors 3, unique 0, 1.8s
+M=24 free P=(-6,1) eps=0.05: family 735471, survivors 345, unique 0, 1.7s
+M=32 endpoints P=(0,4) eps=0.03: family 593775, survivors 593775, unique 0, 5.8s
+M=32 endpoints P=(0,4) eps=0.05: family 593775, survivors 593775, unique 0, 6.0s
+M=24 free P=(-3,2) eps=0.03: family 735471, survivors 22, unique 1, 1.7s
+M=24 free P=(-3,2) eps=0.05: family 735471, survivors 701, unique 0, 1.9s
+M=24 free P=(3,2) eps=0.03: family 735471, survivors 13, unique 1, 1.8s
+M=24 free P=(3,2) eps=0.05: family 735471, survivors 82, unique 1, 1.6s
+M=24 free P=(0,1) eps=0.03: family 735471, survivors 735471, unique 0, 4.5s
+M=24 free P=(0,1) eps=0.05: family 735471, survivors 735471, unique 0, 4.5s
+M=24 free P=(6,1) eps=0.03: family 735471, survivors 208, unique 1, 1.7s
+M=24 free P=(6,1) eps=0.05: family 735471, survivors 171, unique 0, 1.8s
+M=24 endpoints P=(-6,1) eps=0.03: family 74613, survivors 9, unique 0, 0.3s
+M=24 endpoints P=(-6,1) eps=0.05: family 74613, survivors 111, unique 0, 0.3s
+M=24 endpoints P=(-3,2) eps=0.03: family 74613, survivors 2, unique 0, 0.3s
+M=24 endpoints P=(-3,2) eps=0.05: family 74613, survivors 27, unique 0, 0.3s
+M=24 free P=(0,4) eps=0.03: family 735471, survivors 735471, unique 0, 4.2s
+M=24 endpoints P=(0,1) eps=0.03: family 74613, survivors 74613, unique 0, 1.2s
+M=24 endpoints P=(3,2) eps=0.03: family 74613, survivors 1, unique 1, 0.3s
+M=24 endpoints P=(3,2) eps=0.05: family 74613, survivors 1, unique 1, 0.3s
+M=24 endpoints P=(6,1) eps=0.03: family 74613, survivors 14, unique 1, 0.4s
+M=24 endpoints P=(0,1) eps=0.05: family 74613, survivors 74613, unique 0, 1.3s
+M=24 free P=(0,4) eps=0.05: family 735471, survivors 735471, unique 0, 4.0s
+M=24 endpoints P=(6,1) eps=0.05: family 74613, survivors 14, unique 1, 0.3s
+M=16 free P=(-6,1) eps=0.03: family 12870, survivors 6, unique 1, 0.0s
+M=16 free P=(-6,1) eps=0.05: family 12870, survivors 12, unique 0, 0.1s
+M=16 free P=(-3,2) eps=0.03: family 12870, survivors 8, unique 0, 0.1s
+M=16 free P=(-3,2) eps=0.05: family 12870, survivors 25, unique 0, 0.1s
+M=16 free P=(0,1) eps=0.03: family 12870, survivors 12870, unique 0, 0.2s
+M=16 free P=(0,1) eps=0.05: family 12870, survivors 12870, unique 0, 0.2s
+M=16 free P=(3,2) eps=0.03: family 12870, survivors 1, unique 1, 0.1s
+M=16 free P=(3,2) eps=0.05: family 12870, survivors 1, unique 1, 0.1s
+M=16 free P=(6,1) eps=0.03: family 12870, survivors 5, unique 1, 0.1s
+M=16 free P=(6,1) eps=0.05: family 12870, survivors 6, unique 1, 0.0s
+M=24 endpoints P=(0,4) eps=0.03: family 74613, survivors 74613, unique 0, 1.2s
+M=16 free P=(0,4) eps=0.03: family 12870, survivors 12870, unique 0, 0.2s
+M=24 endpoints P=(0,4) eps=0.05: family 74613, survivors 74613, unique 0, 1.2s
+M=16 endpoints P=(-6,1) eps=0.03: family 3003, survivors 1, unique 1, 0.0s
+M=16 endpoints P=(-6,1) eps=0.05: family 3003, survivors 7, unique 0, 0.0s
+M=16 endpoints P=(-3,2) eps=0.03: family 3003, survivors 4, unique 1, 0.1s
+M=16 endpoints P=(-3,2) eps=0.05: family 3003, survivors 4, unique 0, 0.1s
+M=16 free P=(0,4) eps=0.05: family 12870, survivors 12870, unique 0, 0.2s
+M=16 endpoints P=(0,1) eps=0.03: family 3003, survivors 3003, unique 0, 0.1s
+M=16 endpoints P=(3,2) eps=0.03: family 3003, survivors 1, unique 1, 0.0s
+M=16 endpoints P=(3,2) eps=0.05: family 3003, survivors 1, unique 1, 0.0s
+M=16 endpoints P=(6,1) eps=0.03: family 3003, survivors 3, unique 1, 0.0s
+M=16 endpoints P=(0,1) eps=0.05: family 3003, survivors 3003, unique 0, 0.1s
+M=16 endpoints P=(6,1) eps=0.05: family 3003, survivors 2, unique 1, 0.0s
+M=16 endpoints P=(0,4) eps=0.03: family 3003, survivors 3003, unique 0, 0.1s
+M=16 endpoints P=(0,4) eps=0.05: family 3003, survivors 3003, unique 0, 0.1s
+saved /Users/logansu/Documents/PASS/experiments/a7/results/scaling.csv 72 rows 169s
+M2M3_DONE
+exit=0

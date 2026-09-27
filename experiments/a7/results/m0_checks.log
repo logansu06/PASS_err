@@ -1,0 +1,9 @@
+R002 PASS {'n_instances': 120, 'n_layout_checks': 480, 'draws': 100256, 'worst': {'rel_L': 0.0, 'rel_GD': 3.7487227379926796e-16, 'rel_IP': 0.0, 'L_over_UH': 1.0}, 'ok': True}
+R004_eps0 PASS {'n': 272, 'same_layout': 272, 'unique': 272, 'worst': 0.0, 'ok': True}
+R004_K PASS {'n': 60, 'max_ratio': 1.0000187226242376, 'sec2_bound': 1.0000190388303845, 'ok': True}
+R003 PASS {'n_layouts': 1600, 'max_rel_diff': np.float64(1.0198908877528155e-15), 'max_templates': 48, 'ok': True}
+R005 PASS {'clearance_threshold_over_lambda': np.float64(0.09111035919110058), 'family_sizes': {0.0911: 735471, 0.0912: 660858, 0.095: 369018, 0.1: 112251}, 'full': 735471, 'eps_beta_over_lambda': 0.17037839619567535, 'beta_raises_above': True, 'beta_ok_below': True, 'misaligned_raises': True, 'ok': True}
+R006 PASS {'n_rows': 36, 'ok': True}
+R007 PASS {'backend': 'mpmath 1.4.1, dps=50', 'ok': True}
+R008 PASS {'rows': 264, 'same_layouts': True, 'max_rel_diff': 1.4920849452688908e-15, 'counts': {'free': {'n': 132, 'positive': 107, 'above5': 85}, 'matched': {'n': 132, 'positive': 108, 'above5': 79}}, 'unit_checks_match': True, 'ok': True}
+ALL PASS 157s

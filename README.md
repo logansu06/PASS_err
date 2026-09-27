@@ -1,7 +1,11 @@
 # PASS 位置误差仿真验证
 
+> 当前进度与交接说明见 **`HANDOFF.md`**（ICC 2027 论文课题 A7 v2 / GCS）。
+
 ## 目录结构
 - `src/`：仿真与分析代码（入口 `src/main.py`）。
+- `experiments/a7/`：ICC 2027 论文实验（GCS 核心 `a7_core.py`、驱动脚本、`results/`），复现方式见 `HANDOFF.md` 第 9 节。
+- `idea-stage/`、`refine-logs/`：ARIS 选题、方案、实验计划/记录/结果（`refine-logs/EXPERIMENT_RESULTS.md`）。
 - `results/`：实验产出（CSV/NPZ/图表/日志），由 `src/main.py` 生成。
 - `fyp_report/`：毕设报告存档（`latex/` 为 LaTeX 工程、编译好的 PDF、毕设版 `PAPER_PLAN.md`、毕设阶段的 `review-stage/` 评审记录）。
 - `docs/`：参考论文 `2501.05657v2.pdf`、`fyp.pdf`、报告模板，以及 `Intro.md`、`THEORY_EXTENSIONS.md`。

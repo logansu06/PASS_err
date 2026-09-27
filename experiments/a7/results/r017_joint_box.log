@@ -1,0 +1,5 @@
+endpoints P=(0,1) eps=0.08 40dB same=0 | L 0.6326 -> 0.8386  U 1.0947 -> 1.0947  gap 0.730 -> 0.305 (closed 51%)  Gamma -0.415 -> -0.224  valid=True  300031 boxes 147s
+endpoints P=(0,2) eps=0.08 40dB same=0 | L 0.8222 -> 1.0899  U 1.3777 -> 1.3777  gap 0.676 -> 0.264 (closed 55%)  Gamma -0.380 -> -0.178  valid=True  300031 boxes 147s
+endpoints P=(0,4) eps=0.08 40dB same=0 | L 1.5807 -> 2.0922  U 2.4946 -> 2.4946  gap 0.578 -> 0.192 (closed 61%)  Gamma -0.312 -> -0.089  valid=True  300031 boxes 148s
+endpoints P=(0,1) eps=0.05 40dB same=0 | L 0.9031 -> 1.0003  U 1.1018 -> 1.1018  gap 0.220 -> 0.102 (closed 51%)  Gamma -0.174 -> -0.086  valid=True  300031 boxes 147s
+endpoints P=(0,2) eps=0.05 40dB same=0 | L 1.1738 -> 1.2998  U 1.4068 -> 1.4068  gap 0.199 -> 0.082 (closed 56%)  Gamma -0.147 -> -0.056  valid=True  300031 boxes 147s

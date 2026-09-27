@@ -147,3 +147,33 @@ Recomputed on 2026-09-25 directly from `results/` (no reruns of `src/main.py`):
   - v1 swap search reached only L = 53.42 (a selection gap).
 - **Not yet reproduced by Claude:** GPT-6 Pro's independent matched grid, 108/132 certified positive and 79/132 above 5%. Scheduled as R008.
 - **Retired:** the earlier 359/528 and 247/528 pilot counts (incomplete protocol).
+
+---
+
+# 2026-09-27 — /experiment-bridge: A7 v2 experiments R001–R017 complete
+
+- claim_supported: pending (`/result-to-claim` not yet run; the numbers below are paper-candidate results from the frozen drivers, not yet claim-gated)
+- **Where:** code in `experiments/a7/`; results in `experiments/a7/results/`; report in `refine-logs/EXPERIMENT_RESULTS.md`.
+- **Code review:** GPT-6 Astra (ultra), 2 rounds, 0 CRITICAL. Trace: `.aris/traces/experiment-bridge/2026-09-27_run01/`.
+  - Fixed: ε = 0 now uses one arithmetic path (Γ = 0 exactly); the selection gap is undefined when the screening cap is hit.
+- **M0 (8/8 PASS):** bound validity (0 violations in 120 × 4 × 100,256 evaluations); bank identity; ε = 0 exact; K sensitivity within sec²; guards; reproducibility; 50-digit featured margins (free 0.3209, endpoints 0.0466).
+  - GPT-6 Pro's 132-case grid is reproduced exactly: 108/132 positive, 79/132 above 5%. This closes the "not yet reproduced" item above.
+- **C1 (1,360 cases):** the pre-declared gate passes. Γ > 5% in 56.2% of endpoint cases (ε > 0, P ≠ D), threshold 20%.
+  - Certified Γ > 0: 87.5% free / 82.8% endpoints; medians 11.3% / 6.9%.
+  - The effect grows with SNR (leakage-limited regime) and is small at 10 dB.
+  - Mechanism at the witnesses: same desired power, 21% lower worst-case leakage.
+- **Negative region:** every x_P = 0 case (P directly behind D, co-aligned) is inconclusive, and every screening-cap hit is there too.
+  - Cause: Theorem 1 bounds desired power and leakage separately. D.6 joint-box refinement closes 51–61% of the log-gap there within the budget, but no case flips.
+  - The other 61 inconclusive cases are marginal (median Γ −0.19%).
+- **C2:**
+  - uniqueness certificate in 39% / 45% of cases, falling with ε;
+  - median global bracket U*/L − 1 = 0.5%;
+  - median survivors ≤ 0.02% of the family;
+  - the swap incumbent is strictly below the exact certificate optimum in 68% of exact cases (max 25.9%);
+  - M = 32 (10.5M subsets): 608 median survivors, 35 s per case.
+- **Baselines:**
+  - the corner-robust swap (B-CR) differs from Ŝ in 78–92% of cases; Ŝ certifiably beats it in 51–69%;
+  - the P-blind FYP-style layout is certifiably beaten in 100% of x_P ≠ 0 cases.
+- **C3:** leakage converse and achievability agree within 1% (Ī/F_end ≤ 1.01) on all tested geometries and ε. F_end grows about as ε². At (0,1), F_end ≈ 0.80.
+- **Non-ideal channel (0.08 and 1 dB/m, cos² directivity):** the Γ > 0 rate persists (82–89%); the median gain roughly halves.
+- **Monte Carlo average:** Ŝ costs about 0.4% of mean SLNR and improves the lower tail.
