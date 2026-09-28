@@ -1,6 +1,7 @@
 # HANDOFF — PASS 位置误差鲁棒性 → IEEE ICC 2027 论文
 
-> 更新：2026-09-28，在 Windows 机器上完成 M4（R018–R020）之后。上一版写于 2026-09-27，macOS，`/experiment-bridge` 完成后。
+> 更新：2026-09-28 傍晚，macOS。从 GitHub 同步了 Windows 上的 M4 工作并验证跨平台复现；论文改为在 Overleaf 编译，macOS 上已接好 Overleaf Git 桥接。
+> 之前的版本：2026-09-28 下午，Windows，M4（R018–R020）完成后；2026-09-27，macOS，`/experiment-bridge` 完成后。
 >
 > 接手的人（或新的 Claude/Codex 会话）请按顺序阅读：
 > 1. 本文件；
@@ -20,7 +21,9 @@
   - **R019 数值核对**：完成。`EXPERIMENT_RESULTS.md` 引用的 237 个数字全部能回溯到结果文件。
   - **R018 画图**：4 张图 + 2 张表，经过 3 轮 GPT-6 Astra ultra 审查，全部判定 Ready。
   - **定向查新**：结论是 PROCEED，但 Theorem 2 的定位需要调整，见第 3 节。
-- **下一步**：可选的消融和审计 → 有限轮次 `/auto-review-loop` → 重写 `NARRATIVE_REPORT.md` → `/paper-writing`。详见第 7 节。
+- **跨平台同步**：Windows 上的 M4 产物已在 macOS 上重跑验证，数字和表格一致，见第 9 节。
+- **论文编译改用 Overleaf**：两台机器都**不装 LaTeX**。macOS 已接好 Overleaf Git 桥接（`paper-overleaf/`），Windows 还没配置。见第 10 节。
+- **下一步**：决定仓库是否改私有 → 可选的消融和审计 → 有限轮次 `/auto-review-loop` → 重写 `NARRATIVE_REPORT.md` → `/paper-writing`。详见第 7 节。
 
 ## 2. 目标与约束
 
@@ -77,11 +80,13 @@
 | 定向查新（Theorem 2 渊源） | **完成**：PROCEED，需调整定位 | `idea-stage/NOVELTY_TARGETED_A7v2.md` | Windows |
 | R019 数值核对 | **完成**：237/237 一致 | `experiments/a7/summarize_r019.py`、`r019_numbers.py`、`results/r019_*` | Windows |
 | R018 画图（`/paper-figure`） | **完成**：3 轮审查后全部 Ready | `figures/` | Windows |
+| 跨平台同步验证 | **完成**：R019 数字和 R018 表格逐字节一致，图只有字体渲染差别 | — | macOS |
+| Overleaf 桥接（`/overleaf-sync setup`） | **完成**（仅 macOS），验证通过 | `paper-overleaf/`（已 gitignore） | macOS |
 | `/ablation-planner`（sector gap） | 可选，未做 | — | — |
 | `/experiment-audit` | 可选，未做（做了可去掉 provisional 标签） | — | — |
 | `/auto-review-loop` | 待做（有限轮次；旧评审已归档到 `fyp_report/review-stage/`） | `review-stage/`（运行时创建） | — |
 | 重写 `NARRATIVE_REPORT.md` | 待做（**当前内容还是毕设时期的叙事**） | `NARRATIVE_REPORT.md` | — |
-| `/paper-writing — venue: IEEE_CONF, human checkpoint: true` | 待做（**需要 LaTeX**，见第 9 节） | `paper/` | — |
+| `/paper-writing — venue: IEEE_CONF, human checkpoint: true` | 待做（编译在 Overleaf 上做，见第 10 节） | `paper/` | — |
 
 ## 5. 实验结果要点
 
@@ -138,12 +143,15 @@
 
 ## 7. 下一步（按顺序，对照截止日期）
 
+0. 用户决定：GitHub 仓库是否改成 private（见第 10 节）。
 1. 可选：`/ablation-planner`，补测 sector gap（同一子集上比较 pad、对称 sector+sec、非对称 sector+sec），CPU 几分钟即可。
 2. 可选：`/experiment-audit`，去掉 R020 的 provisional 标签。
 3. 有限轮次的 `/auto-review-loop`，顺带让 reviewer 审"893/899 最坏泄漏更低"这条新结论。
 4. 重写 `NARRATIVE_REPORT.md`（A7 v2）。图表直接用 `figures/latex_includes.tex`。
-5. `/paper-writing — venue: IEEE_CONF, human checkpoint: true`，之后跑 `/paper-claim-audit` 和 `/citation-audit`。
+5. `/paper-writing — venue: IEEE_CONF, human checkpoint: true`。它的编译步骤改走 Overleaf（见第 10 节“Overleaf 与论文编译”）。之后跑 `/paper-claim-audit` 和 `/citation-audit`。
 6. 时间线：9/29 做步骤 1–3，9/30–10/1 写作，**10/2 在 EDAS 提交**。
+
+时间不够时的取舍：先砍步骤 1，再砍步骤 2，步骤 3 可压缩到 1 轮；步骤 4、5 和两项审计不能砍。按天排的路线图页面（私有链接，只有用户本人能打开）：https://claude.ai/artifact/UonYnExi1W8pLUtxUKhf1o
 
 ## 8. 文件地图
 
@@ -160,6 +168,8 @@
   - `TABLE_I/II_*.tex`、`latex_includes.tex`（草拟图注）；
   - `fig1_values.json`（图注用到的数）；
   - 重生成方法见第 9 节。
+- `paper/`：ARIS 写论文的工作副本，进 git。由 `/paper-writing` 创建，目前还不存在。
+- `paper-overleaf/`：Overleaf 项目的 git clone，每台机器各一份，**已 gitignore**，见第 10 节。
 - `refine-logs/`：proposal、plan、tracker、results（带时间戳的是历史版本）。
 - `idea-stage/`：文献、idea 报告、research contract、pilots、GPT-6 Pro 交接材料（`handoff/`），以及 **`NOVELTY_TARGETED_A7v2.md`**。
 - `fyp_report/`：毕设 LaTeX、PDF、旧的 `PAPER_PLAN.md` 和旧评审存档。
@@ -170,9 +180,16 @@
 
 `.venv` 不进 git，每台机器各建一个，位置都是 `experiments/a7/.venv`。建议先设置 `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1`。不同平台或 BLAS 下，个别浮点数的最后一位（ulp）可能不同：R001 在 Windows 上重跑也是 PASS，只有 2 个字段差 1 ulp。**不要提交**在另一台机器上重跑后生成的 `r001_port_check.json`。
 
+**跨平台复现（2026-09-28，在 macOS 上重跑 Windows 生成的 R019 和 R018）：**
+- `r019_numbers.*`、`r019_derived.md`、`TABLE_I/II_*.tex` 逐字节一致，237/237 数字一致，50 位精度复核的符号全部不变。
+- `r019_derived.json` 只差时间戳、平台信息和 1 个 ulp；`fig1_values.json` 有两个值末位不同，四位小数取整后相同。
+- 四张图尺寸和嵌入字体（Times New Roman + STIX）相同，约 0.2% 的像素在文字边缘不同，是两个系统字体渲染的差别，数据标记完全一致。
+- 这些重跑产物同样**不要提交**，避免两台机器来回改动。
+
 ### macOS（R001–R017 的原始运行环境）
 
 - Python 3.13.4、NumPy 2.3.0、SciPy 1.15.3。项目路径 `/Users/logansu/Documents/PASS`。
+- **不装 LaTeX**，论文在 Overleaf 编译（见第 10 节）。
 
 ```bash
 cd experiments/a7
@@ -206,7 +223,7 @@ export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONUTF8=1
 cd ../../figures && for s in gen_fig*.py gen_tables.py; do ../experiments/a7/.venv/Scripts/python.exe "$s"; done
 ```
 
-- **本机没有 LaTeX。** `/paper-writing` 和 `/paper-compile` 之前需要先装 TeX Live 或 MiKTeX，或者改用 Overleaf（`/overleaf-sync`）。
+- **不装 LaTeX**（用户决定，2026-09-28）。论文在 Overleaf 编译，见第 10 节。
 - **本机没有 `gh` CLI。** Git 推送走 HTTPS 凭据。
 
 ## 10. 工具与约定
@@ -231,6 +248,21 @@ cd ../../figures && for s in gen_fig*.py gen_tables.py; do ../experiments/a7/.ve
   - v1 的 swap 搜索不是最优（53.42 对精确的 56.56）；
   - clearance 必须过滤；β_D 超过 π/2 时报错，不截断；
   - 2026-09-28 发现的过度表述，见第 6 节。
+
+### Overleaf 与论文编译
+
+- **论文在 Overleaf 编译，两台机器都不装 LaTeX。** MacTeX、BasicTeX、MiKTeX 都不要装，也不要建议用户装。
+- Overleaf 项目名 `PASS-ICC2027`，账号有 Git 集成。本地用 ARIS 的 `/overleaf-sync` 连接：
+  - `paper/`：ARIS 的工作副本，写作和审计都在这里做，进 git。
+  - `paper-overleaf/`：Overleaf 项目的 git clone，每台机器各一份，已 gitignore。分支叫 `main`，skill 文档里写的 `origin/master` 要换成 `origin/main`。
+  - 本地改完后用 `/overleaf-sync push`，推之前先给用户看 diff，等用户确认。
+  - 用户在 Overleaf 上改过后用 `/overleaf-sync pull`，按 skill 的逐块规则合并回 `paper/`。涉及数字的改动要重跑 `/paper-claim-audit`，涉及引用的要重跑 `/citation-audit`。
+  - 同一时间只在一边编辑。
+- **替代 `/paper-compile`：** `/paper-writing` 的编译步骤调用本地 latexmk，会失败。改为：push 到 Overleaf → 用户点 Recompile → 用户把 PDF 下载到 `paper/main.pdf` → 本地检查页数和排版。`/auto-paper-improvement-loop` 每轮重新编译时也这样做。
+- **第一次 push 会整体替换** Overleaf 上自动生成的默认 `main.tex`（push 用 `rsync --delete`）。在那之前不要在 Overleaf 上写内容。
+- **token 安全：** token 只存在系统钥匙串或凭据管理器里，不能出现在对话、文件或远程 URL 里。push/pull 报 401 时，让用户重跑 setup 脚本，不要向用户索要 token。
+- **macOS：** 2026-09-28 已配置并验证：远程 URL 不含 token，凭据在 `osxkeychain`，pre-commit 钩子已安装，`overleaf_audit.sh` 结果 clean。
+- **Windows：** 还没配置。用户要在项目根目录的 Git Bash 里**自己**运行（agent 运行会被脚本拒绝）：`bash /c/Users/89813/aris_repo/tools/overleaf_setup.sh <Overleaf 项目链接>`。项目链接从 Overleaf 项目页的地址栏复制；token 在 Overleaf → Account Settings → Git Integration 生成。
 
 ### 仅 macOS
 

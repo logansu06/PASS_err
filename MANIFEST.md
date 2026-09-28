@@ -49,3 +49,5 @@
 | 2026-09-28 14:10 | /paper-figure (R018) | figures/TABLE_I_protocol.tex, figures/TABLE_II_results.tex, figures/latex_includes.tex | writing | Tables and LaTeX includes with draft captions |
 | 2026-09-28 14:55 | /paper-figure (R018) | .aris/traces/paper-figure/2026-09-28_run01/ | review | Three GPT-6 Astra ultra figure-review rounds; final verdict: all 4 figures + 2 tables Ready (local only) |
 | 2026-09-28 15:20 | sync (Windows) | .gitattributes, CLAUDE.md, HANDOFF.md | handoff | Cross-platform sync: LF rules (CSV bytes preserved), two-platform ARIS block, HANDOFF §9–§10 split into macOS / Windows |
+| 2026-09-28 17:33 | /overleaf-sync setup | paper-overleaf/ (gitignored, local only) | writing | Overleaf git bridge to project PASS-ICC2027 on macOS; verified: token-free remote, osxkeychain helper, pre-commit hook, overleaf_audit.sh clean; branch main |
+| 2026-09-28 17:39 | sync (macOS) | HANDOFF.md, .gitignore | handoff | Pulled e957646; re-ran R019/R018 on macOS (numbers and tables byte-identical, figures differ only in glyph rasterization); no path or EOL issues; paper compiles in Overleaf, no local LaTeX |
