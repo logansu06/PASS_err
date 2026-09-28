@@ -1,0 +1,22 @@
+# Same line endings on macOS and Windows: store and check out text as LF.
+# (Windows clones have core.autocrlf=true; these rules override it for this repo.)
+* text=auto eol=lf
+
+# Shell scripts must stay LF to run on macOS/Linux bash; Windows-only scripts keep CRLF.
+*.sh  text eol=lf
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary artifacts: never convert.
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.zip  binary
+*.docx binary
+*.pptx binary
+*.xlsx binary
+
+# Raw result tables: Python's csv module writes CRLF on every platform; keep the driver's bytes unchanged.
+*.csv -text

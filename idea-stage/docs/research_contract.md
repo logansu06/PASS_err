@@ -83,9 +83,10 @@ These are pilot results only, **not paper evidence**. The paper uses `a7_main.py
 - [x] Experiment plan v1 written
 - [x] GPT-6 Pro deep verification. All statements [PROVEN]; corrections accepted; global screening reproduced locally (2026-09-27).
 - [x] Proposal and experiment plan upgraded to v2 (2026-09-27)
-- [ ] M0: port GCS into `a7_gcs.py` plus sanity checks and the cross-check — **on hold until user approval**
-- [ ] M1: main grid (1,360 cases; go/no-go)
-- [ ] M2: baselines (B-CR, B-GR), yield, M-scaling
-- [ ] M3: protection limits and the non-ideal control
-- [ ] `/result-to-claim` (GPT-6 Astra, ultra)
+- [x] M0: port GCS into `a7_gcs.py` (as `experiments/a7/a7_core.py`) plus sanity checks and the cross-check (2026-09-27, 8/8 PASS)
+- [x] M1: main grid (1,360 cases; go/no-go PASS, 56.25%) (2026-09-27)
+- [x] M2: baselines (B-CR, B-GR), yield, M-scaling (2026-09-27)
+- [x] M3: protection limits and the non-ideal control (2026-09-27)
+- [x] `/result-to-claim` (GPT-6 Astra, ultra) — 2026-09-28: partial / high; the working claims are in `CLAIMS_FROM_RESULTS.md`
+- [ ] M4 remainder: R018 figures, R019 number reconciliation
 - [ ] Paper draft (`/paper-writing`, IEEE_CONF)

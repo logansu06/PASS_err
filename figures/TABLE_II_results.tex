@@ -1,0 +1,38 @@
+\begin{table}[t]
+\centering
+\caption{Certified results. $\Gamma = L(\hat S)/U(S_{\rm N}) - 1$; $\Gamma > 0$ certifies a higher worst-case SLNR than the
+exhaustive nominal layout in the same family. Certificates are analytical; all inequalities are evaluated in float64.
+Rival margin: $L(\hat S) - \max_{S \neq \hat S} U_H(S)$. B-GR: desired-only, P-blind layout.
+$^\dagger$Same-start shared-template swap heuristic (budgets not matched). $^\ddagger$Waveguide attenuation plus
+$\cos^2\theta$ field directivity; both layouts redesigned under the model at a model-specific reference SNR.}
+\label{tab:results}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+ & Free & Endpoints \\
+\midrule
+\multicolumn{3}{@{}p{0.97\columnwidth}}{\emph{Main grid, $\epsilon > 0$, $P \neq D$ ($n = 528$ per family), vs.\ exhaustive nominal $S_{\rm N}$}} \\
+$\Gamma > 0$ (cert.\ dominance) & 87.50\% (462) & 82.77\% (437) \\
+$\Gamma > 5\%$ & 61.93\% (327) & 56.25\% (297) \\
+Median $\Gamma$ [IQR] & 11.3 [1.6, 27.6]\% & 6.9 [0.5, 19.4]\% \\
+Inconclusive ($\Gamma \le 0$) & 12.5\% & 17.2\% \\
+Median nominal sacrifice & 0.16\% & 0.32\% \\
+Unique robust optimum & 38.6\% & 45.3\% \\
+Median $U^\star/L(\hat S) - 1$ & 0.51\% & 0.49\% \\
+Median survivors / $|\mathcal{F}|$ & 70 / 735,471 & 15 / 74,613 \\
+Cap hit (bracket only) & 48 & 0 \\
+\midrule
+\multicolumn{3}{@{}p{0.97\columnwidth}}{\emph{Baseline slice: 20, 30 dB; $\epsilon/\lambda \in \{0.03, 0.05\}$; $n = 132$ per family}} \\
+$\Gamma > 0$ vs.\ $S_{\rm N}$ & 89.4\% & 85.6\% \\
+Cert.\ dominance vs.\ B-CR$^\dagger$ & 68.9\% & 50.8\% \\
+Cert.\ dominance vs.\ B-GR & 90.9\% & 90.9\% \\
+$\Gamma > 0$, 0.08 dB/m$^\ddagger$ & 88.6\% & 82.6\% \\
+$\Gamma > 0$, 1 dB/m$^\ddagger$ & 81.8\% & 84.8\% \\
+\midrule
+\multicolumn{3}{@{}p{0.97\columnwidth}}{\emph{Featured instance: $P = (3, 2)$ m, $\epsilon = 0.05\lambda$, 30 dB. Float64 family certificate; selected decisive quantities (winner, float-ranked top rivals, $U(S_{\rm N})$) re-evaluated at 50 digits}} \\
+$L(\hat S)$; rival margin & 56.559; 0.3209 & 55.574; 0.0466 \\
+Certified gain $\Gamma$ & 34.17\% & 2.79\% \\
+\bottomrule
+\end{tabular}
+\end{table}

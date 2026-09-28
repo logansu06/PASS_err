@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Simulation protocol (declared before the runs).}
+\label{tab:protocol}
+\footnotesize
+\begin{tabular}{@{}p{0.24\columnwidth}p{0.70\columnwidth}@{}}
+\toprule
+Carrier, wavelength & $f_c = 28$ GHz, $\lambda = 10.714$ mm \\
+Waveguide & $n_{\rm eff} = 1.44$, height $d = 3$ m, feed $x_f = -10$ m \\
+Candidate family & $M = 24$ D-aligned sites, select $N = 8$, $d_{\min} = 0.5\lambda$ \\
+Receivers & $D = (0,0)$; 33 positions $P$ ($x_P$: 11 values in $[-6, 6]$ m; $y_P \in \{1,2,4\}$ m) and the control $P = D$ \\
+Tolerance & $\epsilon/\lambda \in \{0, 0.01, 0.03, 0.05, 0.08\}$ \\
+Reference SNR & $\{10, 20, 30, 40\}$ dB, relative to the central 8-site block toward $D$; fixed physical noise per SNR \\
+Families & free; identical endpoints (sites 1 and $M$ forced) \\
+Certificates & $K = 1440$ with $\sec(\pi/K)$; $\beta_D \le \pi/2$ guard \\
+Witnesses & $\le 2M$ family-wide endpoint templates (screening); for $S_{\rm N}$ / $\hat S$: all $2^N$ corners + 4 / 8 L-BFGS-B starts \\
+Search & swap from $S_{\rm N}$ + 8 random starts (seed 2026); screening cap $2\times10^{5}$ evaluations \\
+Main grid & 1360 cases (2 families $\times$ 4 SNR $\times$ 5 $\epsilon$ $\times$ 34 positions) \\
+\bottomrule
+\end{tabular}
+\end{table}

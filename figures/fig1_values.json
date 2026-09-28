@@ -1,0 +1,40 @@
+{
+ "case": {
+  "family": "free",
+  "P": [
+   3.0,
+   2.0
+  ],
+  "eps_over_lambda": 0.05,
+  "snr_db": 30.0
+ },
+ "S_hat": [
+  0,
+  1,
+  4,
+  5,
+  6,
+  11,
+  14,
+  19
+ ],
+ "S_nom": [
+  1,
+  6,
+  7,
+  8,
+  16,
+  18,
+  19,
+  20
+ ],
+ "B_P_S_hat": 0.308059984158222,
+ "endpoint_max_abs_hP_S_nom": 0.35961972690931154,
+ "nominal_abs_hP_S_hat": 0.0428397320051319,
+ "nominal_abs_hP_S_nom": 0.00034330019442992317,
+ "site_n": 6,
+ "sector_radial_width_rel": 0.00014647248240300502,
+ "mc_draws_per_layout": 4000,
+ "caption_upper_bound_rounded_up_4dp": 0.3081,
+ "caption_witness_rounded_down_4dp": 0.3596
+}

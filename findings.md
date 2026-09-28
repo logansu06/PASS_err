@@ -177,3 +177,56 @@ Recomputed on 2026-09-25 directly from `results/` (no reruns of `src/main.py`):
 - **C3:** leakage converse and achievability agree within 1% (Ī/F_end ≤ 1.01) on all tested geometries and ε. F_end grows about as ε². At (0,1), F_end ≈ 0.80.
 - **Non-ideal channel (0.08 and 1 dB/m, cos² directivity):** the Γ > 0 rate persists (82–89%); the median gain roughly halves.
 - **Monte Carlo average:** Ŝ costs about 0.4% of mean SLNR and improves the lower tail.
+
+---
+
+# 2026-09-28 — /result-to-claim (R020): A7 v2 claim gate
+
+- **claim_supported: partial; confidence: high; integrity_status: unavailable** (provisional — no `/experiment-audit` run). Working claims: `CLAIMS_FROM_RESULTS.md`.
+- **Reviewers:** two independent GPT-6 Astra `ultra` threads, same neutral prompt, merged conservatively; they agreed on every verdict. Traces: `.aris/traces/result-to-claim/2026-09-28_run01/`.
+- **Per claim:** C1 yes; C2 yes (exact certificate optimum only when uncapped; uniqueness only when its test passes); C3 yes for the bracket and conditional feasibility; A1 baselines partial; A2 non-ideal yes, narrowly; A3 x_P = 0 partial; A4 Monte Carlo partial.
+- **Independently recomputed from the CSVs** (all match the persisted summaries):
+  - gate 297/528 = 56.25%;
+  - Γ > 0 462/528 (free) and 437/528 (endpoints);
+  - uniqueness 204/528 and 239/528;
+  - median global gap 0.508% / 0.489%.
+- **Definition audit:** no CRITICAL defect. The chain L ≤ W ≤ U is valid, D and P share the same witness, the family is exhaustive and matched, cap handling is correct, and F_end is a valid converse. Weakest positive margins preserved their signs at 50–60 digits.
+- **Corrections to the 2026-09-27 entry above** (it stays as history):
+  - "Ī/F_end ≤ 1.01" is false. The maximum is 1.0113 (free, P = (6,1), ε = 0.09λ; 2/54 rows > 1.01). Use "within 1.14%".
+  - "Same-budget" B-CR is not established. Rename it "same-start shared-template swap".
+  - The negative region is shown to be bound-conservative on 5 cases. It is **not** shown to be only a decoupling artifact.
+  - "Unprotectable at (0,1)" holds only as I_max < p·F_end within the family.
+  - "Costs about 0.4% of mean SLNR" is a median. Individual losses reach 22.9% / 15.0%.
+  - Non-ideal runs use model-specific reference SNR with model-aware redesign.
+  - Minor: gate 56.25%; 70.5% (not 71%) at ε = 0.05λ free; survivors "≈ 0.02%"; U* at (0,1) free = 1.11.
+- **Evidence gap (R019):** 25 numbers in `EXPERIMENT_RESULTS.md` were never persisted. They include the mechanism ratios (1.000 / 0.79), the x_P ≠ 0 subgroup, the sacrifice tail (13.5% / 88.5%), the inconclusive breakdown (157 / 96 / 61), the pooled swap gap (68%) and ×70 growth. They are `evidence_not_found` until a script persists them; otherwise drop them. The per-family swap gap (77.7% / 59.1%) is already persisted and can replace the pooled figure.
+- **No new broad simulation is required** for the narrowed claims. Stronger claims would need matched-budget B-CR, fixed-noise non-ideal runs, refinement of both layouts at x_P = 0, or MC seed uncertainty.
+- **Open plan item (executor note):** the sector-enclosure gap is still not measured separately (four-gap reporting; GPT-6 Pro D.2). This is the `/ablation-planner` candidate.
+- **Targeted novelty check (same day):** `idea-stage/NOVELTY_TARGETED_A7v2.md`.
+  - The "≤ 2M templates" per-subset fact is the known rank-2 binary quadratic maximization (Karystinos–Pados 2007; Karystinos–Liavas 2010; Allemand et al. 2001; Ferrez et al. 2005). Cite it; do not claim it.
+  - What is new: family-wide sharing across all subsets, templates used as common D/P feasible witnesses, and the resulting safe screening, exact certificate optimum, global bracket and uniqueness test.
+  - New must-cite neighbor: Jiang–Schotten, arXiv:2609.31088 (PASS position errors, TDMA/NOMA; statistical, no selection or certificate).
+  - Verdict: PROCEED with repositioning.
+
+---
+
+# 2026-09-28 — R019 number reconciliation (after R020)
+
+- All 25 `evidence_not_found` numbers were real but unpersisted: `summarize_r019.py` reproduces every one from the stored CSVs (→ `results/r019_derived.{json,md}`). The ×70 growth is ×67–71; the extreme-case Γ is +44.5%.
+- One more rounding error: F_end at endpoints, P = (6,1), ε = 0.01λ is 1.17e-4 (was 1.18e-4; double rounding through the 4-digit table).
+- **New certified mechanism (pending jury review):** in 893/899 Γ > 0 cases, Ī(Ŝ) < I_P(S_N) at S_N's SLNR witness. This proves Ŝ's worst-case leakage is lower; the median certified ratio is 0.80. It is stronger than the descriptive witness ratios (1.000 / 0.79).
+- **Weakest-margin audit at 50 digits** (independent code, residual misalignment included): smallest positive Γ 5.69686e-6 and uniqueness margins 4.74e-5 / 3.94e-5 keep their signs. The a7_core.py:135 residual-phase omission changes these by ~1e-6 relative.
+- **Inclusive per-case cost** is 3.9 s (free) / 0.55 s (endpoints) median, against 0.20 / 0.12 s for the selection stage alone.
+- `EXPERIMENT_RESULTS.md` revised; `r019_numbers.py` reports 237/237 quoted numbers consistent; ARIS pre-check 191/191.
+
+---
+
+# 2026-09-28 — R018 figures (/paper-figure)
+
+- Four figures and two tables are in `figures/`, one script each, reading only from `experiments/a7/results/`.
+  - Fig. 1 is a computed schematic, not hand-drawn. Featured case: S_N has nominal |h_P| = 3.4e-4 (deep null) but endpoint worst case ≥ 0.360; Ŝ is certified ≤ 0.308. The single-site sector is almost exact (radial width 1.5e-4 relative), so Theorem 1's conservatism comes from the Minkowski sum and the D/P decoupling, not from the per-site enclosure.
+  - Fig. 4 shows x_P = 0 separately. There screening prunes almost nothing: at least 99.998% of the family survives, and the cap is hit at free M ≥ 24 and endpoints M = 32. The median over all 12 cases would hide this.
+- GPT-6 Astra ultra review, round 1: 0 CRITICAL, 2 MAJOR, 12 MINOR, all fixed.
+  - Recurring overclaim pattern: an absolute word ("no pruning") written from a visual impression. The same class as R020's "≤ 1%". Test every absolute statement against every data row.
+- No TeX engine on this machine. LaTeX widths are estimated only (Table I fixed for padding; Table II labels shortened). Compile check deferred at the user's request.
+- R018 closed after three GPT-6 Astra ultra review rounds. All six artifacts are "Ready". Round 2 caught one more self-introduced overclaim: a certificate inequality in a caption was rounded to nearest, which breaks it. Caption bounds must be rounded outward (upper bounds up, witnesses down), and the rounded values are now persisted in `figures/fig1_values.json`.

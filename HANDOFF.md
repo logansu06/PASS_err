@@ -1,13 +1,26 @@
 # HANDOFF — PASS 位置误差鲁棒性 → IEEE ICC 2027 论文
 
-> 更新：2026-09-27（`/experiment-bridge` 完成后）。接手的人（或新的 Claude/Codex 会话）请先读本文件，再读 `refine-logs/EXPERIMENT_RESULTS.md` 和 `idea-stage/docs/research_contract.md`。
+> 更新：2026-09-28，在 Windows 机器上完成 M4（R018–R020）之后。上一版写于 2026-09-27，macOS，`/experiment-bridge` 完成后。
+>
+> 接手的人（或新的 Claude/Codex 会话）请按顺序阅读：
+> 1. 本文件；
+> 2. `CLAIMS_FROM_RESULTS.md`：论文可用的措辞和禁用措辞；
+> 3. `refine-logs/EXPERIMENT_RESULTS.md`：已按 R019 修订；
+> 4. `idea-stage/docs/research_contract.md`。
+>
+> 本项目在 **macOS 和 Windows 两台机器**上交替工作。第 9 节（环境与复现）和第 10 节（工具与约定）按平台分开写。
 
 ## 1. 现状
 
-- 毕设（FYP）已经升级成论文课题 **A7 v2：Certified Robust Site Selection for PASS — Global Screening Under Position Errors**（下文简称 GCS）。
-- ARIS 流程已经走完 idea discovery → refine → experiment plan → **experiment bridge**。R001–R017 全部实验跑完：
-  - 预先声明的 go/no-go 门槛**通过**（56.2%，门槛 20%）。
-  - 下一步是 `/result-to-claim`，然后画图 → 评审 → 重写叙事 → 写论文。
+- 毕设（FYP）已经升级为论文课题 **A7 v2：Certified Robust Site Selection for PASS — Global Screening Under Position Errors**，方法简称 GCS。
+- ARIS 流程已走完以下阶段：idea discovery → refine → experiment plan → experiment bridge（R001–R017）→ **M4**。
+  - **R020 `/result-to-claim`**：两个独立的 GPT-6 Astra ultra reviewer 给出的结论完全一致，都是 **partial / high**。标为 provisional，因为没跑 `/experiment-audit`。
+    - 核心结论 C1、C2、C3 成立；
+    - 几处附带表述写过头，已收窄。
+  - **R019 数值核对**：完成。`EXPERIMENT_RESULTS.md` 引用的 237 个数字全部能回溯到结果文件。
+  - **R018 画图**：4 张图 + 2 张表，经过 3 轮 GPT-6 Astra ultra 审查，全部判定 Ready。
+  - **定向查新**：结论是 PROCEED，但 Theorem 2 的定位需要调整，见第 3 节。
+- **下一步**：可选的消融和审计 → 有限轮次 `/auto-review-loop` → 重写 `NARRATIVE_REPORT.md` → `/paper-writing`。详见第 7 节。
 
 ## 2. 目标与约束
 
@@ -33,7 +46,14 @@
   - 泄漏用非对称扇区的 support-function 上界，乘 sec(π/K) 修正，K=1440；
   - ε=0 时取精确值；
   - 结果为 L ≤ W ≤ U。
-- **Theorem 2：** 至多 2M 个共享端点符号模板（zonotope），能**精确**覆盖每个子集的端点泄漏最大值。由此得到所有子集的 U_H，并可以做 safe screening。
+- **Theorem 2：** 至多 2M 个共享端点符号模板，能**精确**覆盖每个子集的端点泄漏最大值。由此得到所有子集的 U_H，并可以做 safe screening。
+  - **查新结论（2026-09-28）：** "单个子集的最优符号向量落在 O(n) 个辅助角候选里"是已知结果，即秩 2 二值二次型最大化。必须引用：
+    - Karystinos & Pados, IEEE TIT 2007；
+    - Karystinos & Liavas, ICASSP 2008 / TIT 2010；
+    - Allemand et al., Math. Program. 2001；
+    - Ferrez et al., EJOR 2005。
+  - **新颖点**在于：模板对整个 family 的所有子集**共享**，并作为 D/P 共用的可行 witness，用于 safe screening、全局 bracket 和唯一性证书。"safe screening"这个术语引用 El Ghaoui et al.。
+  - 详见 `idea-stage/NOVELTY_TARGETED_A7v2.md`。
 - **Corollary 1：** 全局 bracket L(Ŝ) ≤ W* ≤ U*。若 L(Ŝ) > max_{S≠Ŝ} U_H，则 Ŝ 是族内唯一的鲁棒最优布局。
 - **Corollary 2：**
   - 泄漏的 converse/achievability：F_end ≤ min_S max_δ I_P ≤ Ī(Ŝ)；
@@ -46,73 +66,84 @@
 
 ## 4. ARIS 流程进度
 
-| 阶段 | 状态 | 产物 |
-|---|---|---|
-| 文献与新颖性 | 完成（novelty 6/10 PROCEED） | `idea-stage/LIT_REVIEW.md`、`NOVELTY_REPORT.md` |
-| Idea discovery | 完成（选定 A7） | `idea-stage/IDEA_REPORT.md`、`idea-stage/docs/research_contract.md` |
-| Refine | 完成（7.40 → 7.70，之后并入 GPT-6 Pro 升级为 v2） | `refine-logs/FINAL_PROPOSAL.md`、`REVIEW_SUMMARY.md`、`REFINEMENT_REPORT.md` |
-| Experiment plan | 完成（v2） | `refine-logs/EXPERIMENT_PLAN.md`、`EXPERIMENT_TRACKER.md` |
-| **Experiment bridge** | **完成**：R001–R017 为 DONE；代码审查 2 轮，无 CRITICAL | `experiments/a7/`、`refine-logs/EXPERIMENT_RESULTS.md` |
-| M4：R018 图 / R019 数值核对 / R020 `/result-to-claim` | **待做** | — |
-| `/auto-review-loop` | 待做（有限轮次；旧评审已归档到 `fyp_report/review-stage/`） | `review-stage/`（运行时创建） |
-| 重写 `NARRATIVE_REPORT.md` | 待做（**当前内容还是毕设时期的叙事**） | `NARRATIVE_REPORT.md` |
-| `/paper-writing — venue: IEEE_CONF, human checkpoint: true` | 待做 | `paper/` |
+| 阶段 | 状态 | 产物 | 在哪台机器上做的 |
+|---|---|---|---|
+| 文献与新颖性 | 完成（novelty 6/10 PROCEED） | `idea-stage/LIT_REVIEW.md`、`NOVELTY_REPORT.md` | macOS |
+| Idea discovery | 完成（选定 A7） | `idea-stage/IDEA_REPORT.md`、`idea-stage/docs/research_contract.md` | macOS |
+| Refine | 完成（7.40 → 7.70，之后并入 GPT-6 Pro 升级为 v2） | `refine-logs/FINAL_PROPOSAL.md`、`REVIEW_SUMMARY.md`、`REFINEMENT_REPORT.md` | macOS |
+| Experiment plan | 完成（v2） | `refine-logs/EXPERIMENT_PLAN.md`、`EXPERIMENT_TRACKER.md` | macOS |
+| Experiment bridge | 完成：R001–R017 为 DONE；代码审查 2 轮，无 CRITICAL | `experiments/a7/`、`refine-logs/EXPERIMENT_RESULTS.md` | macOS |
+| R020 `/result-to-claim` | **完成**：partial / high（provisional） | `CLAIMS_FROM_RESULTS.md` | Windows |
+| 定向查新（Theorem 2 渊源） | **完成**：PROCEED，需调整定位 | `idea-stage/NOVELTY_TARGETED_A7v2.md` | Windows |
+| R019 数值核对 | **完成**：237/237 一致 | `experiments/a7/summarize_r019.py`、`r019_numbers.py`、`results/r019_*` | Windows |
+| R018 画图（`/paper-figure`） | **完成**：3 轮审查后全部 Ready | `figures/` | Windows |
+| `/ablation-planner`（sector gap） | 可选，未做 | — | — |
+| `/experiment-audit` | 可选，未做（做了可去掉 provisional 标签） | — | — |
+| `/auto-review-loop` | 待做（有限轮次；旧评审已归档到 `fyp_report/review-stage/`） | `review-stage/`（运行时创建） | — |
+| 重写 `NARRATIVE_REPORT.md` | 待做（**当前内容还是毕设时期的叙事**） | `NARRATIVE_REPORT.md` | — |
+| `/paper-writing — venue: IEEE_CONF, human checkpoint: true` | 待做（**需要 LaTeX**，见第 9 节） | `paper/` | — |
 
-## 5. 实验结果要点（详见 `refine-logs/EXPERIMENT_RESULTS.md`）
+## 5. 实验结果要点
+
+论文措辞以 `CLAIMS_FROM_RESULTS.md` 为准。数字来源见 `experiments/a7/results/r019_numbers.md`。
 
 - **M0（8/8 通过）：**
-  - 界的有效性检验 0 违反；
-  - bank identity 成立；
-  - ε=0 时 Γ 严格等于 0；
-  - K 的敏感度在 sec² 界内；
-  - 50 位精度复核的 margin：free 0.3209，endpoints 0.0466；
+  - 界的有效性检验 0 违反；bank identity 成立；ε=0 时 Γ 严格为 0；K 的敏感度在 sec² 界内。
+  - 50 位精度复核的 margin：free 0.3209，endpoints 0.0466。
   - GPT-6 Pro 的 132 例网格完全复现（108/132 为正，79/132 超过 5%）。
-- **C1（1,360 例；ε>0，P≠D）：** Γ>0 为 87.5% / 82.8%（free / endpoints），中位数 11.3% / 6.9%。
-  - 增益随 SNR 增大；10 dB 时很小。
-  - 机理：期望信号功率不变，最坏情况泄漏降低 21%。
+  - R019 补充：网格上最弱的正 Γ（5.7e-6）和最弱的唯一性 margin（3.9e-5、4.7e-5），在 50 位精度下符号都不变。
+- **C1（ε>0、P≠D，每个 family 528 例）：**
+  - Γ>0 的比例：462/528 = 87.5%（free），437/528 = 82.8%（endpoints）。
+  - Gate（Γ>5%）：297/528 = **56.25%**，门槛 20%。
+  - Γ 中位数 11.3% / 6.9%。
+  - 增益随 SNR 增大，10 dB 时很小。
+  - **新增（待审）：** Γ>0 的 899 例中有 893 例满足 Ī(Ŝ) 低于 S_N 在其 witness 处的泄漏，即 **Ŝ 的最坏泄漏被严格证明更低**，中位数比值 0.80。
 - **C2：**
-  - 唯一性证书 39% / 45%，随 ε 下降；
-  - 全局 bracket 中位数 0.5%；
-  - 筛选后幸存子集 ≤ 0.02%；
-  - swap 搜索有 68% 的用例达不到精确最优（最大差 25.9%）；
-  - M=32（1,050 万子集）每例约 35 s。
+  - 唯一性证书 38.6% / 45.3%，随 ε 增大而下降，0.08λ 时只有 9–15%。
+  - 全局 bracket 中位数约 0.5%。
+  - 筛选后幸存子集中位数约 0.01% / 0.02%。
+  - swap 搜索在 77.7%（free）/ 59.1%（endpoints）的精确用例里达不到精确最优。
+  - M=32（约 1,050 万子集）每例约 35 s。
 - **Baseline：**
-  - 同预算的角点鲁棒 swap（B-CR）只在 8–22% 的用例里选中 Ŝ，Ŝ 被证书确认胜出 51–69%；
-  - P-blind 布局（B-GR）在 x_P≠0 时 100% 被确认更差。
-- **C3：** Ī/F_end ≤ 1.01，即 converse 与 achievability 几乎重合。F_end 约按 ε² 增长。P=(0,1) 时 F_end≈0.80，无法保护。
-- **非理想信道（0.08 / 1 dB/m 损耗，cos² 方向性）：** Γ>0 保持 82–89%，增益中位数约减半。
-- **R017 额外项：**
-  - 蒙特卡洛平均 SLNR 只低约 0.4%，低尾更好；
-  - D.6 joint-box 细化在 x_P=0 的用例上把 log-gap 收窄 51–61%，但没有翻正。
+  - 同起点的 shared-template swap（B-CR）：Ŝ 被证书确认胜出 51–69%。注意**预算并不对等**，不能写"same budget"。
+  - P-blind 布局（B-GR）：在 x_P≠0 时 120/120 被确认更差。
+- **C3：**
+  - Ī/F_end 最大为 1.0113，即误差在 **1.14%** 以内。原先写的"≤1.01"是错的，已更正。
+  - F_end 从 0.01λ 到 0.09λ 增长约 ×67–71。
+  - P=(0,1) 时 F_end≈0.80。只能写成"I_max < p·F_end 时不可行"，不能写"fundamentally unprotectable"。
+- **非理想信道：** Γ>0 保持 82–89%，但这是在每个模型下**重新设计**、采用各自参考 SNR 的结果。
+- **蒙特卡洛：** 平均 SLNR 损失的中位数为 0.32% / 0.42%，个别用例最大损失达 22.9% / 15.0%。
 
 ## 6. 已知局限与风险（写论文时必须如实写）
 
 - **x_P = 0（P 在 D 正后方，共线同相）：**
   - 全部 inconclusive，全部 cap hit 也都在这里。
-  - 原因是 Theorem 1 把期望信号和泄漏解耦取界。
-  - 措辞用"certificate inconclusive"，不要写"robust is worse"。
-- **其余 61 个 inconclusive 用例是边缘情况：** Γ 中位数 −0.19%，其中 46% 的 Ŝ = S_N。
-- **唯一性证书在大 ε 时稀少**（ε=0.08λ 时只有 9–15%）。这些用例只能声称 bracket（性能比 ≥ L/U*）。
-- **名义性能牺牲：** 中位数约 0.3%，p90 13.5%，最大 88.5%（高 SNR 下名义最优的深零点很脆弱）。要写成显式 trade-off，不能说"no-cost"。
-- **数值：** 所有结论都是 float64 下对精确算术陈述的求值。只写"evaluated numerically"，不写"machine-verified"。
-- **过期文件：**
-  - `CLAIMS_FROM_RESULTS.md` 仍是旧的（verdict: REVIEW_UNAVAILABLE），要由 R020 替换；
-  - `NARRATIVE_REPORT.md` 仍是毕设叙事。
-- **反驳要点：** 相关工作里 Yang et al.（TVT 2026）用的是逐元素 box 误差；Chen 等人的 H-PASS（TWC 2026）已经仿真过多 PA 的位置误差。novelty 应强调 Theorem 2 / Corollary 1。
+  - 用 "certificate inconclusive" 的措辞，不要写 "robust is worse"。
+  - Joint-box 细化只说明界偏保守（log-gap 缩小 51–61%），**不能**说"只是界的问题"或"已修复"。
+- **唯一性证书在大 ε 时稀少。** 这些用例只能声称 bracket。
+- **名义性能牺牲：** 中位数约 0.2–0.3%，p90 13.5%，最大 88.5%。要写成显式的 trade-off，不能说 "no-cost"。
+- **数值：** 所有结论都是 float64 下对精确算术陈述的求值。只写 "evaluated numerically"，不写 "machine-verified"。
+- **过度表述的教训：** 2026-09-28 共抓到多处，包括：
+  - R020 发现的"≤1%""same-budget""0.4% cost""unprotectable"、负区域的因果归因；
+  - 画图时的"no pruning"、图注不等式的舍入方向。
+  - 规则一：任何绝对化的词都要对照**每一行**数据检验。
+  - 规则二：图注和正文里的证书界要**向外舍入**，上界向上取，witness 向下取。
+- **Sector enclosure gap 尚未单独量化。** proposal 要求把四类 gap 分开报告，这是 `/ablation-planner` 的候选项。
+- **代码 MINOR：** `a7_core.py:135` 没把残余名义相位失配算进 β_D。影响约为 1e-6（相对量），暂不修改。
+- **反驳要点：**
+  - Yang et al.（TVT 2026）用的是逐元素 box 误差；
+  - Chen 等人的 H-PASS（TWC 2026）已经仿真过多 PA 的位置误差；
+  - Jiang–Schotten（arXiv 2609.31088，2026-09-25）研究 PASS 位置误差下 TDMA/NOMA 的统计性能，**必须引用**。
+  - novelty 强调 family 共享的 witness bank、证书化选址和全局证书。
 
 ## 7. 下一步（按顺序，对照截止日期）
 
-1. **R020 `/result-to-claim`**：reviewer 用 GPT-6 Astra ultra，输入 `refine-logs/EXPERIMENT_RESULTS.md` 和 `idea-stage/docs/research_contract.md`。
-2. **R018 画图**（`/paper-figure`）：
-   - Fig. 1：几何示意与证书构造；
-   - Fig. 2：Γ 分布，数据来自 `main_grid.csv`；
-   - Fig. 3：容差 bracket，数据来自 `limits.csv`；
-   - Fig. 4：筛选效率，数据来自 `main_grid.csv` 和 `scaling.csv`。
-3. **R019 数值核对**：论文里的每个数都要能回溯到 CSV/JSON。
-4. 可选：`/ablation-planner`（非对称与对称扇区、sec 与加性 pad）。
-5. 有限轮次的 `/auto-review-loop`。
-6. 重写 `NARRATIVE_REPORT.md`（A7 v2），然后 `/paper-writing — venue: IEEE_CONF, human checkpoint: true`。
-7. 计划时间线：M4 在 9/28–9/29，写作 9/30–10/1，**10/2 在 EDAS 提交**。
+1. 可选：`/ablation-planner`，补测 sector gap（同一子集上比较 pad、对称 sector+sec、非对称 sector+sec），CPU 几分钟即可。
+2. 可选：`/experiment-audit`，去掉 R020 的 provisional 标签。
+3. 有限轮次的 `/auto-review-loop`，顺带让 reviewer 审"893/899 最坏泄漏更低"这条新结论。
+4. 重写 `NARRATIVE_REPORT.md`（A7 v2）。图表直接用 `figures/latex_includes.tex`。
+5. `/paper-writing — venue: IEEE_CONF, human checkpoint: true`，之后跑 `/paper-claim-audit` 和 `/citation-audit`。
+6. 时间线：9/29 做步骤 1–3，9/30–10/1 写作，**10/2 在 EDAS 提交**。
 
 ## 8. 文件地图
 
@@ -121,17 +152,27 @@
   - `a7_core.py`：GCS 核心（plan 里叫 `a7_gcs.py`）。
   - 驱动：`run_main.py`、`run_baselines.py`、`run_scaling.py`、`run_m2m3.sh`、`r017_*.py`。
   - 检查：`a7_checks.py`、`r001_port_check.py`。
-  - 汇总：`summarize_main.py`、`summarize_m2m3.py`。
-  - `results/`：全部 CSV/JSON/日志，以及 `crosscheck_bundle/`。
+  - 汇总：`summarize_main.py`、`summarize_m2m3.py`、**`summarize_r019.py`**（派生统计 + 50 位 margin 审计）、**`r019_numbers.py`**（数字清单）。
+  - `results/`：全部 CSV/JSON/日志，以及 `crosscheck_bundle/`、`r019_derived.*`、`r019_numbers.*`。
+- **`figures/`**：论文图表。
+  - `paper_plot_style.py`；`gen_fig1..4_*.py`、`gen_tables.py`；
+  - `fig*.pdf`（矢量）和 `.png`（预览）；
+  - `TABLE_I/II_*.tex`、`latex_includes.tex`（草拟图注）；
+  - `fig1_values.json`（图注用到的数）；
+  - 重生成方法见第 9 节。
 - `refine-logs/`：proposal、plan、tracker、results（带时间戳的是历史版本）。
-- `idea-stage/`：文献、idea 报告、research contract、pilots，以及 GPT-6 Pro 交接材料（`handoff/`，含 prompt、回复和验证代码包）。
+- `idea-stage/`：文献、idea 报告、research contract、pilots、GPT-6 Pro 交接材料（`handoff/`），以及 **`NOVELTY_TARGETED_A7v2.md`**。
 - `fyp_report/`：毕设 LaTeX、PDF、旧的 `PAPER_PLAN.md` 和旧评审存档。
 - `docs/`：参考论文、`fyp.pdf`、模板。
-- 根目录：`findings.md`（append-only 发现日志）、`MANIFEST.md`、`NARRATIVE_REPORT.md`、`CLAIMS_FROM_RESULTS.md`、`CLAUDE.md`、`AGENTS.md`。
+- 根目录：`CLAIMS_FROM_RESULTS.md`（R020 结论）、`findings.md`（只追加的发现日志）、`MANIFEST.md`、`NARRATIVE_REPORT.md`（旧）、`CLAUDE.md`、`AGENTS.md`、`.gitattributes`。
 
 ## 9. 环境与复现
 
-`.venv` 不在 git 里，新机器上需要重建：
+`.venv` 不进 git，每台机器各建一个，位置都是 `experiments/a7/.venv`。建议先设置 `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1`。不同平台或 BLAS 下，个别浮点数的最后一位（ulp）可能不同：R001 在 Windows 上重跑也是 PASS，只有 2 个字段差 1 ulp。**不要提交**在另一台机器上重跑后生成的 `r001_port_check.json`。
+
+### macOS（R001–R017 的原始运行环境）
+
+- Python 3.13.4、NumPy 2.3.0、SciPy 1.15.3。项目路径 `/Users/logansu/Documents/PASS`。
 
 ```bash
 cd experiments/a7
@@ -145,24 +186,68 @@ export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 ./run_m2m3.sh                                         # R011/R012/R014/R015/R016
 .venv/bin/python run_main.py --alpha-db 1.0 --q 2 --snr 20,30 --eps 0.03,0.05 --out results/nonideal_1dB.csv
 .venv/bin/python r017_mc_average.py && .venv/bin/python r017_joint_box.py && .venv/bin/python summarize_m2m3.py
+.venv/bin/python summarize_r019.py && .venv/bin/python r019_numbers.py      # R019
+cd ../../figures && for s in gen_fig*.py gen_tables.py; do ../experiments/a7/.venv/bin/python "$s"; done   # R018
 ```
+
+### Windows（R018–R020 的运行环境）
+
+- Python 3.12.10 位于 `C:\Users\89813\AppData\Local\Programs\Python\Python312\python.exe`。它**不在 PATH 上**：PATH 里的 `python` / `python3` 只是 Microsoft Store 的空壳。
+- venv 用 pip 安装：numpy 2.3.5、scipy 1.15.3、mpmath 1.4.1、pandas 3.0.6、matplotlib 3.11.2。项目路径 `D:\PASS_err`。
+- 在 Git Bash 里：
+
+```bash
+cd /d/PASS_err/experiments/a7
+/c/Users/89813/AppData/Local/Programs/Python/Python312/python.exe -m venv .venv
+.venv/Scripts/python.exe -m pip install "numpy~=2.3.0" "scipy~=1.15.0" mpmath pandas matplotlib
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONUTF8=1
+.venv/Scripts/python.exe r001_port_check.py
+.venv/Scripts/python.exe summarize_r019.py && .venv/Scripts/python.exe r019_numbers.py
+cd ../../figures && for s in gen_fig*.py gen_tables.py; do ../experiments/a7/.venv/Scripts/python.exe "$s"; done
+```
+
+- **本机没有 LaTeX。** `/paper-writing` 和 `/paper-compile` 之前需要先装 TeX Live 或 MiKTeX，或者改用 Overleaf（`/overleaf-sync`）。
+- **本机没有 `gh` CLI。** Git 推送走 HTTPS 凭据。
 
 ## 10. 工具与约定
 
+### 两台机器通用
+
+- **外部 reviewer / 生成器：** 一律用 Codex MCP，`model: gpt-6-astra`，`config: {"model_reasoning_effort": "ultra"}`，每个线程的第一次调用都要显式写明。
+  - 本机 `~/.codex/config.toml` 默认是 xhigh，不要依赖它。
+  - **不用 gpt-5.5**，也不用 skill 默认的 xhigh。Gemini 失败时改用 GPT-6 Astra。
+  - 用户允许更高的审查强度，可以开多个独立 reviewer 线程，每个 claim 取最保守的结论。
+- **Git 换行：** `.gitattributes` 规定文本统一用 LF，`.sh` 强制 LF，`*.csv` 设为 `-text`。
+  - Python `csv` 模块在所有平台都写 CRLF，所以原始结果 CSV 必须按字节原样保存，**不要做 renormalize**。
+  - Windows 上 `core.autocrlf=true`，这些规则会覆盖它。
+- **`CLAUDE.md` 的 ARIS 块写的是两套平台的路径。** 在任一台机器上重跑 ARIS installer 都会把它改写成单平台版本，**这种改动不要提交**。
+- **`.aris/` 和 `.claude/` 被 gitignore，只存在于各自的机器上。**
+  - macOS 上有：`experiment-bridge` 和 `oracle-gpt6pro-handoff` 等 trace、`.aris/oracle/` 脚本、`.aris/novelty/`。
+  - Windows 上有：`.aris/traces/result-to-claim/2026-09-28_run01/`、`.aris/traces/paper-figure/2026-09-28_run01/`、`.aris/claims*.json`、`.aris/evidence_precheck*.json`。
+- **GitHub 仓库 `logansu06/PASS_err` 是 public：** 未发表的 idea 和结果都是公开的。如果投稿前需要保密，要改成 private。
+- **历史教训：** 下面这些都已修正，别再犯。
+  - N0 镜像 bug；κ 阈值无效；split-gap bound 是错的；
+  - ε=0 的 "2.78%" 只是单个实例的数；
+  - v1 的 swap 搜索不是最优（53.42 对精确的 56.56）；
+  - clearance 必须过滤；β_D 超过 π/2 时报错，不截断；
+  - 2026-09-28 发现的过度表述，见第 6 节。
+
+### 仅 macOS
+
 - **ARIS：** skills 在 `.claude/skills/`，是指向 `/Users/logansu/aris_repo` 的 symlink，**不要修改**。更新用 `bash /Users/logansu/aris_repo/tools/install_aris.sh`。
-- **外部 reviewer / 生成器：** 一律用 Codex MCP，`model: gpt-6-astra`，`config: {"model_reasoning_effort": "ultra"}`。**不用 gpt-5.5**，也不用 skill 默认的 xhigh。Gemini 失败时改用 GPT-6 Astra 代替。
-- **GPT-6 Pro（网页端）：**
+- **GPT-6 Pro（网页端，只在 macOS 上配置过）：**
   - 必须用**本地打过补丁的 Oracle**（`~/tools/oracle`，0.21.3；Node v24.21.0；browser 引擎，`modelStrategy: current`）。GitHub 上的版本不支持 gpt-6-pro，不要 `npm i -g` 覆盖。
   - 在 Oracle profile 上手动启动 Chrome 时必须带 `--password-store=basic --use-mock-keychain`，否则会丢失 ChatGPT 登录（出过一次事故）。
   - Oracle 抓取答案失败时，可以用 CDP 或会话 API 只读恢复，脚本在 `.aris/oracle/`。
-- **Git：**
-  - `.aris/`（含 traces 和 oracle 脚本）与 `.claude/` 被 gitignore，**只存在本机**。审查 trace 在 `.aris/traces/experiment-bridge/2026-09-27_run01/`。
-  - GitHub 仓库 `logansu06/PASS_err` 是 **public**：未发表的 idea 和结果已经公开。如果要在投稿前保密，需要把仓库改成 private。
-- **历史教训：** 这些都已修正，别再犯。
-  - N0 镜像 bug；
-  - κ 阈值无效；
-  - split-gap bound 是错的；
-  - ε=0 的 "2.78%" 只是单个实例的数；
-  - v1 的 swap 搜索不是最优（53.42 对精确的 56.56）；
-  - clearance 必须过滤；
-  - β_D 超过 π/2 时报错，不截断。
+
+### 仅 Windows
+
+- **ARIS：** skills 是指向 `C:\Users\89813\aris_repo` 的 junction，不要修改。更新命令见 `CLAUDE.md`。
+- **`save_trace.sh`：**
+  - 必须先 `export PYTHONUTF8=1`，否则系统默认的 GBK 编码会导致写 JSON 失败；
+  - 要用 `python3() { /d/PASS_err/experiments/a7/.venv/Scripts/python.exe "$@"; }; export -f python3` 这个 shim。
+- **`evidence_check.py`：** 同样用 venv 里的 Python 和 `PYTHONUTF8=1`，只依赖标准库。
+- **`verify_papers.py` 在本机跑不通：**
+  - arXiv API 先是 SSL 证书链失败，用 certifi（`SSL_CERT_FILE`）解决后又返回 406；Semantic Scholar 一直是 pending。
+  - 按 Policy D1 标为 UNVERIFIED，改用 CrossRef（可以直接 curl）和 arXiv 摘要页核实。
+- **Oracle/GPT-6 Pro 没有在 Windows 上配置。**
