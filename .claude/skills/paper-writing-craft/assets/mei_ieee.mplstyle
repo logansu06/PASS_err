@@ -1,0 +1,66 @@
+# Curve-plot style distilled from the figure files of Weidong Mei's papers (MATLAB exports, 2019-2026).
+# Usage: plt.style.use("assets/mei_ieee.mplstyle")  or  scripts/mei_plot.py
+# Observed: boxed axes, light-grey major grid on both axes, inward ticks, no in-plot title,
+# line + hollow marker at every data point, legend inside the axes with a thin black frame,
+# proposed scheme black, benchmarks red / blue / magenta (classic MATLAB k r b m), sans-serif text.
+# Sizes are for IEEE single-column width (3.5 in) so text is ~8 pt in the final column.
+
+figure.figsize: 3.5, 2.63
+figure.dpi: 150
+figure.facecolor: white
+savefig.dpi: 300
+savefig.bbox: tight
+savefig.pad_inches: 0.02
+pdf.fonttype: 42
+ps.fonttype: 42
+
+font.family: sans-serif
+font.sans-serif: Arial, Helvetica, Liberation Sans, DejaVu Sans
+font.size: 8
+axes.labelsize: 8.5
+axes.titlesize: 8.5
+xtick.labelsize: 8
+ytick.labelsize: 8
+legend.fontsize: 7.5
+mathtext.default: regular
+
+axes.linewidth: 0.6
+axes.facecolor: white
+axes.edgecolor: black
+axes.grid: True
+axes.axisbelow: True
+axes.spines.top: True
+axes.spines.right: True
+grid.color: 0.86
+grid.linewidth: 0.5
+grid.linestyle: -
+
+xtick.direction: in
+ytick.direction: in
+xtick.top: True
+ytick.right: True
+xtick.major.size: 3
+ytick.major.size: 3
+xtick.major.width: 0.6
+ytick.major.width: 0.6
+xtick.minor.visible: False
+ytick.minor.visible: False
+
+lines.linewidth: 1.0
+lines.markersize: 4.5
+lines.markerfacecolor: none
+lines.markeredgewidth: 0.9
+lines.solid_joinstyle: round
+
+legend.frameon: True
+legend.fancybox: False
+legend.framealpha: 1.0
+legend.edgecolor: black
+legend.borderpad: 0.35
+legend.labelspacing: 0.3
+legend.handlelength: 2.4
+legend.handletextpad: 0.5
+legend.borderaxespad: 0.5
+
+# proposed = black first, then red, blue, magenta (classic MATLAB), then MATLAB default yellow / green / cyan
+axes.prop_cycle: cycler('color', ['black', 'red', 'blue', 'magenta', 'edb120', '77ac30', '4dbeee']) + cycler('marker', ['*', 'v', 'o', '^', '>', 's', 'd']) + cycler('linestyle', ['-', '-', '-', '-', '-', '-', '-'])

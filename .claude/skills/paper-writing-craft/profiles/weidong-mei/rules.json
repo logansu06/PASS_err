@@ -1,0 +1,365 @@
+{
+ "profile": "weidong-mei",
+ "version": 1,
+ "note": "Source of truth for scripts/style_gate.py. Human-readable rationale and corpus evidence: gate_mechanical.md. Severities: FAIL = fix before the text ships; WARN = fix or justify in the audit ledger; INFO = report only. 'max_hits' is the number of hits tolerated per document before the rule fires.",
+ "rules": [
+  {
+   "id": "MM01",
+   "name": "dash used as punctuation (---, em-dash, spaced --)",
+   "severity": "FAIL",
+   "scope": "prose",
+   "regex": "---|—|(?<=\\s)--(?=\\s)",
+   "max_hits": 0,
+   "fix": "use a comma, parentheses, a colon or a new sentence (98% of corpus papers contain no dash)"
+  },
+  {
+   "id": "MM02",
+   "name": "exclamation mark in prose",
+   "severity": "FAIL",
+   "scope": "prose",
+   "regex": "!",
+   "max_hits": 0,
+   "fix": "delete; state the fact",
+   "skip_if_near": "[=&^_]"
+  },
+  {
+   "id": "MM03",
+   "name": "conversational / hype word with zero corpus frequency",
+   "severity": "FAIL",
+   "scope": "prose",
+   "flags": "i",
+   "regex": "\\b(?:truly|really|genuinely|fairly|pretty much|we believe|we hope|shed(?:s|ding)? light|game-chang\\w*|breakthrough)\\b",
+   "max_hits": 0,
+   "fix": "delete, or replace by the measured fact (a number in the results section, a contrast with prior work in the intro)"
+  },
+  {
+   "id": "MM03b",
+   "name": "hype word used in <=3% of corpus papers",
+   "severity": "WARN",
+   "scope": "prose",
+   "flags": "i",
+   "regex": "\\b(?:indeed|state-of-the-art|cutting-edge|ground-?breaking|unprecedented|tremendous\\w*|revolutionar\\w+)\\b",
+   "max_hits": 1,
+   "fix": "delete, or state the measured fact"
+  },
+  {
+   "id": "MM04",
+   "name": "contraction",
+   "severity": "FAIL",
+   "scope": "prose",
+   "flags": "i",
+   "regex": "\\b\\w+n't\\b|\\b(?:it|that|there|here|let|who|what)'s\\b|\\b\\w+'(?:re|ve|ll)\\b",
+   "max_hits": 0,
+   "fix": "write the full form (possessive 's is fine)"
+  },
+  {
+   "id": "MM05",
+   "name": "'Figure' spelled out before a reference (corpus: always 'Fig.')",
+   "severity": "FAIL",
+   "scope": "raw",
+   "regex": "\\bFigures?\\b~?\\s*\\\\(?:ref|autoref)|\\bFigs?\\s*~?\\\\ref",
+   "max_hits": 0,
+   "fix": "write Fig.~\\ref{...} (plural Figs.~\\ref{..} and \\ref{..})"
+  },
+  {
+   "id": "MM06",
+   "name": "Eq./Equation before an equation reference (corpus: bare '(12)')",
+   "severity": "WARN",
+   "scope": "raw",
+   "regex": "\\b(?:Eqs?\\.|Equations?)\\s*~?\\(?\\s*\\\\(?:eq)?ref",
+   "max_hits": 1,
+   "fix": "cite equations as \\eqref{...} without the word 'Eq.'"
+  },
+  {
+   "id": "MM07",
+   "name": "i.e. / e.g. not followed by a comma",
+   "severity": "WARN",
+   "scope": "prose",
+   "regex": "\\b(?:i\\.e\\.|e\\.g\\.)(?!,)",
+   "max_hits": 0,
+   "fix": "write i.e., / e.g., (the comma is present in 99% of the corpus's uses; a few papers omit it)"
+  },
+  {
+   "id": "MM08",
+   "name": "Firstly / Secondly / Thirdly / Lastly",
+   "severity": "INFO",
+   "scope": "prose",
+   "flags": "i",
+   "regex": "\\b(?:firstly|secondly|thirdly|lastly)\\b",
+   "max_hits": 0,
+   "fix": "'First, / Second, / Finally,' is the majority style; Firstly/Lastly appear in ~20% of papers"
+  },
+  {
+   "id": "MM09",
+   "name": "duplicated function word (the the, is is ...)",
+   "severity": "FAIL",
+   "custom": "duplicate_word",
+   "max_hits": 0,
+   "fix": "delete the repeat"
+  },
+  {
+   "id": "MM10",
+   "name": "straight double quote in the source",
+   "severity": "WARN",
+   "scope": "raw",
+   "regex": "(?<![\\\\'])\"",
+   "max_hits": 0,
+   "fix": "use ``text'' in LaTeX"
+  },
+  {
+   "id": "MM11",
+   "name": "sentence longer than 100 words",
+   "severity": "WARN",
+   "custom": "sentence_length",
+   "words_gt": 100,
+   "max_hits": 0,
+   "fix": "split; the corpus p95 for >60-word sentences is 0.7 per 1k words"
+  },
+  {
+   "id": "MM12",
+   "name": "sentences longer than 60 words (rate cap)",
+   "severity": "WARN",
+   "custom": "sentence_length",
+   "words_gt": 60,
+   "max_hits": 1,
+   "fix": "split at the 'which' / 'where' / 'while' clause; cap = corpus p95 (0.8 per 1k words)",
+   "max_per_1k": 0.8
+  },
+  {
+   "id": "MM12b",
+   "name": "sentences longer than 45 words (rate cap)",
+   "severity": "WARN",
+   "custom": "sentence_length",
+   "words_gt": 45,
+   "max_hits": 2,
+   "max_per_1k": 3.0,
+   "fix": "corpus: p50 1.0 / p90 2.6 per 1k words; mean sentence length is 24 words, p90 37"
+  },
+  {
+   "id": "MM13",
+   "name": "section heading not in Title Case (89% of corpus papers use Title Case)",
+   "severity": "INFO",
+   "custom": "heading_case",
+   "level": "section",
+   "max_hits": 0,
+   "fix": "Title Case is the norm (89%); three 2025-26 papers use sentence case, so keep one style within a paper"
+  },
+  {
+   "id": "MM14",
+   "name": "separate Related Work / Background section",
+   "severity": "INFO",
+   "custom": "related_work_section",
+   "max_hits": 0,
+   "fix": "0/85 technical papers have one; the prior-art review sits in the Introduction"
+  },
+  {
+   "id": "MM20",
+   "name": "abstract length / content",
+   "severity": "WARN",
+   "custom": "abstract",
+   "range_by_register": {
+    "letter": [
+     130,
+     240
+    ],
+    "conference": [
+     140,
+     260
+    ],
+    "full": [
+     190,
+     340
+    ],
+    "tutorial": [
+     110,
+     260
+    ]
+   },
+   "max_hits": 0,
+   "fix": "keep the abstract inside the register range (letter ~180 words, conference ~195, full ~268, tutorial ~190); no citations, no display math"
+  },
+  {
+   "id": "MM21",
+   "name": "figure caption has more than one sentence",
+   "severity": "WARN",
+   "custom": "fig_caption",
+   "mode": "one_sentence",
+   "max_hits": 1,
+   "fix": "96% of corpus captions are one sentence; move interpretation into the running text"
+  },
+  {
+   "id": "MM22",
+   "name": "figure caption lacks final period",
+   "severity": "WARN",
+   "custom": "fig_caption",
+   "mode": "period",
+   "max_hits": 1,
+   "fix": "end figure captions with a period (94%)"
+  },
+  {
+   "id": "MM23",
+   "name": "figure caption longer than 25 words",
+   "severity": "WARN",
+   "custom": "fig_caption",
+   "mode": "length",
+   "words_gt": 25,
+   "max_hits": 1,
+   "fix": "median is 8 words, p75 12; state the quantity versus the swept variable and the fixed parameters"
+  },
+  {
+   "id": "MM24",
+   "name": "figure caption in Title Case",
+   "severity": "WARN",
+   "custom": "fig_caption",
+   "mode": "sentence_case",
+   "max_hits": 0,
+   "fix": "figure captions use sentence case (88%); acronyms and proper nouns may be capitalised"
+  },
+  {
+   "id": "MM25",
+   "name": "\\subfloat[] labels without (a), (b) in the caption",
+   "severity": "WARN",
+   "custom": "fig_caption",
+   "mode": "empty_subfloat",
+   "max_hits": 0,
+   "fix": "the group writes empty \\subfloat[] and enumerates '(a) ...; (b) ...' inside the main caption"
+  },
+  {
+   "id": "MM26",
+   "name": "table caption below the tabular",
+   "severity": "WARN",
+   "custom": "table_caption_position",
+   "max_hits": 0,
+   "fix": "IEEE tables: caption above"
+  },
+  {
+   "id": "MM27",
+   "name": "algorithm caption ends with a period",
+   "severity": "INFO",
+   "custom": "alg_caption",
+   "max_hits": 0,
+   "fix": "87% of algorithm captions have no final period (Title Case, e.g. 'Proposed Algorithm for Solving (P1)')"
+  },
+  {
+   "id": "MM28",
+   "name": "display equations without final , or .",
+   "severity": "WARN",
+   "custom": "display_punct",
+   "max_share_unpunctuated": 0.5,
+   "max_hits": 0,
+   "fix": "equations are part of sentences: end with a comma when 'where ...' follows, a period otherwise"
+  },
+  {
+   "id": "MM29",
+   "name": "contribution list form",
+   "severity": "INFO",
+   "custom": "contrib_list",
+   "max_hits": 0,
+   "fix": "3 plain-sentence items of ~110 words; see rhetorical_moves.md"
+  },
+  {
+   "id": "MM30",
+   "name": "agentless 'is proposed / was studied' in abstract or conclusion",
+   "severity": "INFO",
+   "custom": "passive_contribution",
+   "max_hits": 0,
+   "fix": "both 'we propose ...' and 'is proposed' occur (45% of papers use the agentless form in the abstract or conclusion); recent papers prefer 'we'"
+  },
+  {
+   "id": "MM40",
+   "name": "quality adjective used more than the corpus does",
+   "severity": "WARN",
+   "scope": "prose",
+   "flags": "i",
+   "regex": "\\b(?:novel|powerful|seamless\\w*|paradigm|comprehensive|remarkabl\\w+|revolutionar\\w+)\\b",
+   "max_hits": 2,
+   "fix": "corpus: 'novel' in 21% of papers at 0.06 per 1k words; claim novelty by contrast ('Unlike existing works ...')"
+  },
+  {
+   "id": "MM41",
+   "name": "weak qualifier",
+   "severity": "WARN",
+   "scope": "prose",
+   "flags": "i",
+   "regex": "\\b(?:very|quite|somewhat|basically|actually|simply|pretty)\\b",
+   "max_hits": 3,
+   "fix": "delete, or replace by the quantity"
+  },
+  {
+   "id": "MM42",
+   "name": "leverage / utilize",
+   "severity": "WARN",
+   "scope": "prose",
+   "flags": "i",
+   "regex": "\\b(?:leverag\\w+|utiliz\\w+)\\b",
+   "max_hits": 6,
+   "fix": "use / employ / apply (corpus: ~1.5 per paper)"
+  },
+  {
+   "id": "MM43",
+   "name": "wordy connective",
+   "severity": "WARN",
+   "scope": "prose",
+   "flags": "i",
+   "regex": "\\b(?:in order to|so as to|the fact that|owing to the fact|it is important to note|it should be noted that|it is interesting to note)\\b",
+   "max_hits": 4,
+   "fix": "to / because / delete"
+  },
+  {
+   "id": "MM44",
+   "name": "additive connectors stacked in one paragraph",
+   "severity": "WARN",
+   "custom": "connector_stacking",
+   "max_per_paragraph": 4,
+   "max_hits": 0,
+   "fix": "at most three of Moreover / Furthermore / Additionally / In addition / Besides per paragraph"
+  },
+  {
+   "id": "MM45",
+   "name": "three consecutive sentences start with 'We'",
+   "severity": "WARN",
+   "custom": "consecutive_we",
+   "run": 3,
+   "max_hits": 0,
+   "fix": "front-load a purpose or condition: 'To ..., we ...', 'Based on ..., we ...'"
+  },
+  {
+   "id": "MM46",
+   "name": "etc. / and so on",
+   "severity": "WARN",
+   "scope": "prose",
+   "flags": "i",
+   "regex": "\\betc\\.|\\band so on\\b",
+   "max_hits": 2,
+   "fix": "close lists with 'among others' or name the last item"
+  },
+  {
+   "id": "MM47",
+   "name": "priority claim",
+   "severity": "WARN",
+   "scope": "prose",
+   "flags": "i",
+   "regex": "\\bfor the first time\\b|\\bfirst-ever\\b|\\bthe first (?:work|study|paper|attempt|to)\\b",
+   "max_hits": 0,
+   "fix": "corpus: 'for the first time' in 1% of papers; contrast with named prior work instead"
+  },
+  {
+   "id": "MM48",
+   "name": "sentence starting with And / But / So",
+   "severity": "WARN",
+   "scope": "sentence_start",
+   "regex": "(?:And|But|So(?! far))\\b",
+   "max_hits": 0,
+   "fix": "However, / Moreover, / Hence,"
+  },
+  {
+   "id": "MM49",
+   "name": "first person singular",
+   "severity": "WARN",
+   "scope": "prose",
+   "regex": "(?<!Stage )(?<!Phase )(?<!Type )(?<!Case )(?<!Part )(?<!Scheme )(?<!Section )(?<!Step )(?<!Mode )(?<!Class )(?<!Mode )(?<!Table )(?<!Fig. )\\bI (?:think|believe|propose|show|consider|will|have|am|would)\\b|\\bmy (?:paper|work|method)\\b",
+   "max_hits": 0,
+   "fix": "the group writes 'we' even for single-author papers"
+  }
+ ]
+}

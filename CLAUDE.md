@@ -11,3 +11,6 @@ The skills link into the ARIS repo on whichever machine you are using. Do not ed
 Each installer rewrites this block for its own machine only. Do not commit that rewrite; keep this two-platform version.
 Machine-specific setup (Python, venv, helper quirks) is in `HANDOFF.md` §9–§10.
 <!-- ARIS:END -->
+
+## Project-local skills (not ARIS-managed)
+- `paper-writing-craft` — `.claude/skills/paper-writing-craft/`, a real directory tracked in this repo (`.gitignore` has an exception for it), so it arrives on macOS with `git pull`. The ARIS installers and `-Reconcile` never touch it, and it is deliberately not registered in the ARIS repo (`tools/skill-groups.tsv`). It layers an author voice on ARIS Workflow 3: default profile `weidong-mei` (distilled from the 102 arXiv papers carrying his name; sentence habits, section moves, figure / table / caption style, LaTeX idioms, a script-run style gate), plus the original `snl-default`. Invoke `/paper-writing-craft`. Precedence: ARIS wins on evidence, citations, audits, reviewer independence; the profile wins on voice and structure. Never pass the profile to scientific reviewers or auditors. Details: its `SKILL.md`, `profiles/weidong-mei/README.md`, `PROVENANCE.md`.

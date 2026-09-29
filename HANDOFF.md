@@ -263,6 +263,7 @@ cd ../../figures && for s in gen_fig*.py gen_tables.py; do ../experiments/a7/.ve
   - macOS 上有：`experiment-bridge`、`oracle-gpt6pro-handoff`、`ablation-planner/2026-09-29_run01` 等 trace，`.aris/oracle/` 脚本，`.aris/novelty/`。
   - Windows 上有：`.aris/traces/result-to-claim/2026-09-28_run01/`、`.aris/traces/paper-figure/2026-09-28_run01/`、`.aris/claims*.json`、`.aris/evidence_precheck*.json`。
 - **GitHub 仓库 `logansu06/PASS_err` 是 public：** 未发表的 idea 和结果都是公开的。如果投稿前需要保密，要改成 private。
+- **项目自有 skill `paper-writing-craft`：** 在 `.claude/skills/paper-writing-craft/`，是真实目录且进 git（`.gitignore` 对它有例外），macOS 上 `git pull` 就能用；它不归 ARIS installer 管，reconcile 不会动它，也不要注册进 ARIS 仓库。默认 profile `weidong-mei`（102 篇 arXiv 论文蒸馏出的写作风格，含图表和 caption 规范）；调用 `/paper-writing-craft`。风格检查是脚本：`python scripts/style_gate.py <main.tex>`（先 `export PYTHONUTF8=1`；Windows 用 `experiments/a7/.venv/Scripts/python.exe` 或 Python312，脚本只用标准库）。画图样式：`assets/mei_ieee.mplstyle` + `scripts/mei_plot.py`（需要 matplotlib，venv 里有）。审查规则：科学审稿类 skill 永远不要给它 profile。
 - **历史教训：** 下面这些都已修正，别再犯。
   - N0 镜像 bug；κ 阈值无效；split-gap bound 是错的；
   - ε=0 的 "2.78%" 只是单个实例的数；

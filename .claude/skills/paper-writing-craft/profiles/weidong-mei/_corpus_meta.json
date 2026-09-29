@@ -1,0 +1,1564 @@
+[
+ {
+  "id": "2607.10270v1",
+  "title": "Rotating ULA-Enabled Computed Tomography for Efficient 3D Spatial Power Spectrum Synthesis: Architecture and Principled Orientation Design",
+  "authors": [
+   "Haocheng Hua",
+   "Weidong Mei",
+   "Jie Xu",
+   "Rui Zhang"
+  ],
+  "pub": "2026-07-11",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "13 pages, submitted to journal for publication"
+ },
+ {
+  "id": "2607.06294v1",
+  "title": "Bending Beam for THz Wireless Networks: Fundamental, Design Issue, and Prototype",
+  "authors": [
+   "Aoran Liu",
+   "Xin Tong Hu",
+   "Weidong Mei",
+   "Ya Fei Wu",
+   "Ke Liu",
+   "Boyu Ning",
+   "Zhi Chen",
+   "Rui Zhang"
+  ],
+  "pub": "2026-07-07",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2606.17543v1",
+  "title": "Deep Learning-Empowered Movable-Antenna Position Optimization with Partial CSI",
+  "authors": [
+   "Lele Lu",
+   "Weidong Mei",
+   "Xin Wei",
+   "Ruixi Feng",
+   "Haocheng Hua",
+   "Zhi Chen",
+   "Boyu Ning",
+   "Emil Bj\u00f6rnson"
+  ],
+  "pub": "2026-06-16",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "13 pages, 10 figures"
+ },
+ {
+  "id": "2606.12024v1",
+  "title": "Unlocking the Potential of Movable Antennas: General and Practical Antenna Position Optimization",
+  "authors": [
+   "Weidong Mei",
+   "Changhao Liu",
+   "Dong Wang",
+   "Xin Wei",
+   "Yiming Wu",
+   "Boyu Ning",
+   "Zhi Chen",
+   "Jun Fang",
+   "Rui Zhang"
+  ],
+  "pub": "2026-06-10",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2606.03035v1",
+  "title": "Rotatable Antenna Meets Multiple Access: NOMA or OMA?",
+  "authors": [
+   "Qi Dai",
+   "Beixiong Zheng",
+   "Yanhua Tan",
+   "Weidong Mei",
+   "Jie Tang",
+   "Fangjiong Chen"
+  ],
+  "pub": "2026-06-02",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2605.03407v2",
+  "title": "Joint Communication and Trajectory Design for Movable Antenna Systems",
+  "authors": [
+   "Jiaxuan Li",
+   "Weidong Mei",
+   "Changhao Liu",
+   "Zhi Chen",
+   "Boyu Ning",
+   "Rui Zhang"
+  ],
+  "pub": "2026-05-05",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2604.10120v2",
+  "title": "Bistatic Integrated Sensing and Communication in the Presence of a Disco Reconfigurable Intelligent Surface: Disruption, Enhancement, or Both?",
+  "authors": [
+   "Huan Huang",
+   "Hongliang Zhang",
+   "Weidong Mei",
+   "Minghui Min",
+   "Zhu Han"
+  ],
+  "pub": "2026-04-11",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "This manuscript has been submitted for possible publication"
+ },
+ {
+  "id": "2604.09128v1",
+  "title": "Flexible Cylindrical Array-Aided Secure Wireless Communications",
+  "authors": [
+   "Xiangyu Dong",
+   "Ran Yang",
+   "Songjie Yang",
+   "Weidong Mei",
+   "Lipeng Zhu",
+   "Yue Xiu",
+   "Zhongpei Zhang"
+  ],
+  "pub": "2026-04-10",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2603.23859v1",
+  "title": "Terahertz Beam Squint Mitigation via Six-Dimensional Movable Antennas",
+  "authors": [
+   "Yike Xie",
+   "Weidong Mei",
+   "Dong Wang",
+   "Yingqi Wen",
+   "Zhi Chen",
+   "Jun Fang",
+   "Wei Guo",
+   "Boyu Ning"
+  ],
+  "pub": "2026-03-25",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2603.16275v3",
+  "title": "Rotatable Antenna-Enabled Mobile Edge Computing",
+  "authors": [
+   "Qiyao Wang",
+   "Beixiong Zheng",
+   "Xue Xiong",
+   "Weidong Mei",
+   "Changsheng You",
+   "Qingqing Wu",
+   "Jie Tang"
+  ],
+  "pub": "2026-03-17",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "Submitted to IEEE Wireless Communications Letters on February 5, 2026"
+ },
+ {
+  "id": "2603.11716v1",
+  "title": "Rotatable Antenna Enabled Covert Communication",
+  "authors": [
+   "Qi Dai",
+   "Beixiong Zheng",
+   "Yanhua Tan",
+   "Weidong Mei",
+   "Shiqi Gong",
+   "Jie Tang",
+   "Chengwen Xing"
+  ],
+  "pub": "2026-03-12",
+  "cat": "eess.SY",
+  "jref": "IEEE Wireless Communications Letters, 2026, Early Access",
+  "comment": ""
+ },
+ {
+  "id": "2602.09763v2",
+  "title": "Unsupervised Semi-Parametric Plug-in Likelihood-Ratio Detection for Covert Communications in the Presence of Disco Reconfigurable Intelligent Surfaces",
+  "authors": [
+   "Luyao Sun",
+   "Huan Huang",
+   "Yongxing Song",
+   "Zhongxing Tian",
+   "Hongliang Zhang",
+   "Weidong Mei",
+   "Dongdong Zou",
+   "Yi Cai"
+  ],
+  "pub": "2026-02-10",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2601.17825v1",
+  "title": "Movable Antenna-Enhanced Near-Field Flexible Beamforming: Performance Analysis and Optimization",
+  "authors": [
+   "Shun Yang",
+   "Xin Wei",
+   "Nianbing Su",
+   "Weidong Mei",
+   "Zhi Chen",
+   "Boyu Ning"
+  ],
+  "pub": "2026-01-25",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2601.14755v1",
+  "title": "Secure Communication in MIMOME Movable-Antenna Systems with Statistical Eavesdropper CSI",
+  "authors": [
+   "Lei Xie",
+   "Peilan Wang",
+   "Guanxiong Shen",
+   "Guyue Li",
+   "Weidong Mei",
+   "Liquan Chen"
+  ],
+  "pub": "2026-01-21",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2601.05092v1",
+  "title": "Precoding Matrix Indicator in the 5G NR Protocol: A Tutorial on 3GPP Beamforming Codebooks",
+  "authors": [
+   "Boyu Ning",
+   "Haifan Yin",
+   "Sixu Liu",
+   "Hao Deng",
+   "Songjie Yang",
+   "Yuchen Zhang",
+   "Weidong Mei",
+   "David Gesbert",
+   "Jaebum Park",
+   "Robert W. Heath",
+   "Emil Bj\u00f6rnson"
+  ],
+  "pub": "2026-01-08",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "This work has been accepted by IEEE COMST with manuscript number 00802-2025.R1"
+ },
+ {
+  "id": "2512.24090v1",
+  "title": "Movable Antenna Enhanced Multi-Region Beam Coverage: A Multi-Notch-Filter-Inspired Design",
+  "authors": [
+   "Dong Wang",
+   "Weidong Mei",
+   "Zhi Chen",
+   "Boyu Ning"
+  ],
+  "pub": "2025-12-30",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "5 pages, 5 figures"
+ },
+ {
+  "id": "2512.12204v1",
+  "title": "Rotatable Antenna Array-Enhanced Null Steering: Performance Analysis and Optimization",
+  "authors": [
+   "Yingqi Wen",
+   "Weidong Mei",
+   "Yike Xie",
+   "Beixiong Zheng",
+   "Zhi Chen",
+   "Boyu Ning"
+  ],
+  "pub": "2025-12-13",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "Submitted to IEEE ICC 2026 (Signal Processing for Communications)"
+ },
+ {
+  "id": "2512.00758v2",
+  "title": "Movable Antenna Empowered Near-Field Sensing via Antenna Position Optimization",
+  "authors": [
+   "Yushen Wang",
+   "Weidong Mei",
+   "Xin Wei",
+   "Ya Fei Wu",
+   "Zhi Chen",
+   "Boyu Ning"
+  ],
+  "pub": "2025-11-30",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2511.15108v1",
+  "title": "Position Optimization for Two-layer Movable Antenna Systems",
+  "authors": [
+   "Liujia Yao",
+   "Changsheng You",
+   "Chao Zhou",
+   "Beixiong Zheng",
+   "Weidong Mei"
+  ],
+  "pub": "2025-11-19",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2510.19209v3",
+  "title": "AI Signal Processing Paradigm for Movable Antenna: From Spatial Position Optimization to Electromagnetic Reconfigurability",
+  "authors": [
+   "Yining Li",
+   "Ziwei Wan",
+   "Chongjia Sun",
+   "Kaijun Feng",
+   "Keke Ying",
+   "Wenyan Ma",
+   "Lipeng Zhu",
+   "Xiaodan Shao",
+   "Weidong Mei",
+   "Wenqian Shen",
+   "Zhenyu Xiao",
+   "Zhen Gao",
+   "Rui Zhang"
+  ],
+  "pub": "2025-10-22",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2510.01789v1",
+  "title": "Performance Optimization for Movable Antenna Enhanced MISO-OFDM Systems",
+  "authors": [
+   "Ruixi Feng",
+   "Weidong Mei",
+   "Lele Lu",
+   "Xin Wei",
+   "Zhi Chen",
+   "Zhen Gao",
+   "Boyu Ning"
+  ],
+  "pub": "2025-10-02",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "Accepted to IEEE GLOBECOM 2025 Workshop"
+ },
+ {
+  "id": "2509.24433v2",
+  "title": "Energy-Efficient Movable Antennas: Mechanical Power Modeling and Performance Optimization",
+  "authors": [
+   "Xin Wei",
+   "Weidong Mei",
+   "Xuan Huang",
+   "Zhi Chen",
+   "Boyu Ning"
+  ],
+  "pub": "2025-09-29",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2509.20987v1",
+  "title": "A General Optimization Framework for Movable Antenna Systems via Discrete Sampling",
+  "authors": [
+   "Changhao Liu",
+   "Weidong Mei",
+   "Zhi Chen",
+   "Jun Fang",
+   "Boyu Ning"
+  ],
+  "pub": "2025-09-25",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2509.16854v1",
+  "title": "On the Secrecy Performance of Pinching-Antenna Systems",
+  "authors": [
+   "Nianzu Li",
+   "Weidong Mei",
+   "Lipeng Zhu",
+   "Peiran Wu",
+   "Boyu Ning"
+  ],
+  "pub": "2025-09-21",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2509.05639v2",
+  "title": "Power-Measurement-Based Channel Estimation for Beyond Diagonal RIS",
+  "authors": [
+   "Yijie Liu",
+   "Weidong Mei",
+   "He Sun",
+   "Dong Wang",
+   "Peilan Wang"
+  ],
+  "pub": "2025-09-06",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2507.15555v1",
+  "title": "Sum-Rate Maximization for Movable-Antenna Array Enhanced Downlink NOMA Systems",
+  "authors": [
+   "Nianzu Li",
+   "Peiran Wu",
+   "Lipeng Zhu",
+   "Weidong Mei",
+   "Boyu Ning",
+   "Derrick Wing Kwan Ng"
+  ],
+  "pub": "2025-07-21",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2507.03449v2",
+  "title": "Movable-Antenna-Enhanced Physical-Layer Service Integration: Performance Analysis and Optimization",
+  "authors": [
+   "Xuanlin Shen",
+   "Xin Wei",
+   "Weidong Mei",
+   "Zhi Chen",
+   "Jun Fang",
+   "Boyu Ning"
+  ],
+  "pub": "2025-07-04",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "Accepted to IEEE Wireless Communications Letters"
+ },
+ {
+  "id": "2507.01624v2",
+  "title": "Frequency-switching Array Enhanced Physical-Layer Security in Terahertz Bands: A Movable Antenna Perspective",
+  "authors": [
+   "Cong Zhou",
+   "Changsheng You",
+   "Chao Zhou",
+   "Weidong Mei",
+   "Zhi Chen",
+   "Chengwen Xing",
+   "Rui Zhang"
+  ],
+  "pub": "2025-07-02",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "In this paper, we propose to enhance physical-layer security by using a new frequency-switching array, which is equivalent to movable antennas"
+ },
+ {
+  "id": "2506.21375v2",
+  "title": "Integrating Movable Antennas and Intelligent Reflecting Surfaces for Coverage Enhancement",
+  "authors": [
+   "Ying Gao",
+   "Qingqing Wu",
+   "Weidong Mei",
+   "Guangji Chen",
+   "Wen Chen",
+   "Ziyuan Zheng"
+  ],
+  "pub": "2025-06-26",
+  "cat": "eess.SP",
+  "jref": "IEEE Transactions on Wireless Communications, 2025",
+  "comment": "13 pages, 8 figures, submitted to an IEEE journal for possible publication"
+ },
+ {
+  "id": "2506.14636v2",
+  "title": "Integrating Movable Antennas and Intelligent Reflecting Surfaces (MA-IRS): Fundamentals, Practical Solutions, and ISAC",
+  "authors": [
+   "Qingqing Wu",
+   "Ziyuan Zheng",
+   "Ying Gao",
+   "Weidong Mei",
+   "Xin Wei",
+   "Wen Chen",
+   "Boyu Ning"
+  ],
+  "pub": "2025-06-17",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "8 pages, 6 figures, publicated by an IEEE Magazine"
+ },
+ {
+  "id": "2505.21001v1",
+  "title": "CNN-Based Channel Map Estimation for Movable Antenna Systems",
+  "authors": [
+   "Yitai Huang",
+   "Weidong Mei",
+   "Xin Wei",
+   "Zhi Chen",
+   "Boyu Ning"
+  ],
+  "pub": "2025-05-27",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2505.19012v1",
+  "title": "A Derivative-Free Position Optimization Approach for Movable Antenna Multi-User Communication Systems",
+  "authors": [
+   "Xianlong Zeng",
+   "Jun Fang",
+   "Peilan Wang",
+   "Weidong Mei",
+   "Ying-Chang Liang"
+  ],
+  "pub": "2025-05-25",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "12 pages, 9 figures, submitted to IEEE TWC"
+ },
+ {
+  "id": "2505.10220v2",
+  "title": "UAV-Enabled Passive 6D Movable Antenna for ISAC: Joint Location, Orientation, and Reflection Optimization",
+  "authors": [
+   "Peilan Wang",
+   "Yu Xue",
+   "Weidong Mei",
+   "Jun Fang",
+   "Rui Zhang"
+  ],
+  "pub": "2025-05-15",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "5 pages"
+ },
+ {
+  "id": "2505.07035v1",
+  "title": "Robust Movable-Antenna Position Optimization with Imperfect CSI for MISO Systems",
+  "authors": [
+   "Haifeng Ma",
+   "Weidong Mei",
+   "Xin Wei",
+   "Boyu Ning",
+   "Zhi Chen"
+  ],
+  "pub": "2025-05-11",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "Accepted to IEEE Communications Letters"
+ },
+ {
+  "id": "2505.05914v1",
+  "title": "Mechanical Power Modeling and Energy Efficiency Maximization for Movable Antenna Systems",
+  "authors": [
+   "Xin Wei",
+   "Weidong Mei",
+   "Xuan Huang",
+   "Zhi Chen",
+   "Boyu Ning"
+  ],
+  "pub": "2025-05-09",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2505.03127v1",
+  "title": "Integrated Sensing, Computing, Communication, and Control for Time-Sequence-Based Semantic Communications",
+  "authors": [
+   "Qingliang Li",
+   "Bo Chang",
+   "Weidong Mei",
+   "Zhi Chen"
+  ],
+  "pub": "2025-05-06",
+  "cat": "eess.SY",
+  "jref": "",
+  "comment": "This version of the manuscript was submitted to IEEE Transactions on Communications for possible publication"
+ },
+ {
+  "id": "2503.20274v4",
+  "title": "Near-Field THz Bending Beamforming: A Convex Optimization Perspective",
+  "authors": [
+   "Aoran Liu",
+   "Weidong Mei",
+   "Peilan Wang",
+   "Dong Wang",
+   "Ya Fei Wu",
+   "Zhi Chen",
+   "Boyu Ning"
+  ],
+  "pub": "2025-03-26",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2503.18240v3",
+  "title": "A Tutorial on Six-Dimensional Movable Antenna for 6G Networks: Synergizing Positionable and Rotatable Antennas",
+  "authors": [
+   "Xiaodan Shao",
+   "Weidong Mei",
+   "Changsheng You",
+   "Qingqing Wu",
+   "Beixiong Zheng",
+   "Cheng-Xiang Wang",
+   "Junling Li",
+   "Rui Zhang",
+   "Robert Schober",
+   "Lipeng Zhu",
+   "Weihua Zhuang",
+   "Xuemin Shen"
+  ],
+  "pub": "2025-03-23",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "46 pages, submitted to IEEE for publication"
+ },
+ {
+  "id": "2503.11123v1",
+  "title": "Modeling and Optimization for Flexible Cylindrical Arrays-Enabled Wireless Communications",
+  "authors": [
+   "Songjie Yang",
+   "Jiahe Guo",
+   "Zilin He",
+   "Boyu Ning",
+   "Weidong Mei",
+   "Zhongpei Zhang",
+   "Chadi Assi",
+   "Chau Yuen"
+  ],
+  "pub": "2025-03-14",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2503.11112v1",
+  "title": "Flexible Intelligent Metasurface-Aided Wireless Communications: Architecture and Performance",
+  "authors": [
+   "Songjie Yang",
+   "Zihang Wan",
+   "Boyu Ning",
+   "Weidong Mei",
+   "Jiancheng An",
+   "Yonina C. Eldar",
+   "Chau Yuen"
+  ],
+  "pub": "2025-03-14",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2503.08134v1",
+  "title": "THz Beam Squint Mitigation via 3D Rotatable Antennas",
+  "authors": [
+   "Yike Xie",
+   "Weidong Mei",
+   "Dong Wang",
+   "Boyu Ning",
+   "Zhi Chen",
+   "Jun Fang",
+   "Wei Guo"
+  ],
+  "pub": "2025-03-11",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2503.01317v1",
+  "title": "Hierarchically Tunable 6DMA for Wireless Communication and Sensing: Modeling and Performance Optimization",
+  "authors": [
+   "Haocheng Hua",
+   "Yuyan Zhou",
+   "Weidong Mei",
+   "Jie Xu",
+   "Rui Zhang"
+  ],
+  "pub": "2025-03-03",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "13 pages, 30 figures, submitted for journal publication"
+ },
+ {
+  "id": "2502.17905v1",
+  "title": "A Tutorial on Movable Antennas for Wireless Networks",
+  "authors": [
+   "Lipeng Zhu",
+   "Wenyan Ma",
+   "Weidong Mei",
+   "Yong Zeng",
+   "Qingqing Wu",
+   "Boyu Ning",
+   "Zhenyu Xiao",
+   "Xiaodan Shao",
+   "Jun Zhang",
+   "Rui Zhang"
+  ],
+  "pub": "2025-02-25",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "Accepted for publiation in the IEEE Communications Surveys & Tutorials"
+ },
+ {
+  "id": "2502.11346v1",
+  "title": "Power-Measurement-Based Channel Autocorrelation Estimation for IRS-Assisted Wideband Communications",
+  "authors": [
+   "He Sun",
+   "Lipeng Zhu",
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2025-02-17",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "arXiv admin note: text overlap with arXiv:2411.00374"
+ },
+ {
+  "id": "2502.03169v4",
+  "title": "Antenna Position Optimization for Movable Antenna-Empowered Near-Field Sensing",
+  "authors": [
+   "Yushen Wang",
+   "Weidong Mei",
+   "Xin Wei",
+   "Boyu Ning",
+   "Zhi Chen"
+  ],
+  "pub": "2025-02-05",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2501.15880v2",
+  "title": "Movable Antennas Meet Intelligent Reflecting Surface: Friends or Foes?",
+  "authors": [
+   "Xin Wei",
+   "Weidong Mei",
+   "Qingqing Wu",
+   "Qiaoran Jia",
+   "Boyu Ning",
+   "Zhi Chen",
+   "Jun Fang"
+  ],
+  "pub": "2025-01-27",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2501.14234v3",
+  "title": "STAR-RIS-Enabled Multi-Path Beam Routing with Passive Beam Splitting",
+  "authors": [
+   "Bonan An",
+   "Weidong Mei",
+   "Yuanwei Liu",
+   "Dong Wang",
+   "Zhi Chen"
+  ],
+  "pub": "2025-01-24",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2501.07989v1",
+  "title": "Movable Antenna Enhanced DF and AF Relaying Systems: Performance Analysis and Optimization",
+  "authors": [
+   "Nianzu Li",
+   "Weidong Mei",
+   "Peiran Wu",
+   "Boyu Ning",
+   "Lipeng Zhu"
+  ],
+  "pub": "2025-01-14",
+  "cat": "eess.SP",
+  "jref": "IEEE Transactions on Communications, early access, 2025",
+  "comment": ""
+ },
+ {
+  "id": "2412.11150v1",
+  "title": "UAV-Enabled Passive 6D Movable Antennas: Joint Deployment and Beamforming Optimization",
+  "authors": [
+   "Changhao Liu",
+   "Weidong Mei",
+   "Peilan Wang",
+   "Yinuo Meng",
+   "Boyu Ning",
+   "Zhi Chen"
+  ],
+  "pub": "2024-12-15",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2411.13785v1",
+  "title": "Throughput Maximization for Movable Antenna Systems with Movement Delay Consideration",
+  "authors": [
+   "Honghao Wang",
+   "Qingqing Wu",
+   "Ying Gao",
+   "Wen Chen",
+   "Weidong Mei",
+   "Guojie Hu",
+   "Lexi Xu"
+  ],
+  "pub": "2024-11-21",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2411.12985v1",
+  "title": "Disco Intelligent Omni-Surfaces: 360-degree Fully-Passive Jamming Attacks",
+  "authors": [
+   "Huan Huang",
+   "Hongliang Zhang",
+   "Jide Yuan",
+   "Luyao Sun",
+   "Yitian Wang",
+   "Weidong Mei",
+   "Boya Di",
+   "Yi Cai",
+   "Zhu Han"
+  ],
+  "pub": "2024-11-20",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "This paper has been submitted to IEEE TWC for possible publication"
+ },
+ {
+  "id": "2411.00374v3",
+  "title": "RSRP Measurement Based Channel Autocorrelation Estimation for IRS-Aided Wideband Communication",
+  "authors": [
+   "He Sun",
+   "Lipeng Zhu",
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2024-11-01",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2410.16626v1",
+  "title": "Codebook Design and Performance Analysis for Wideband Beamforming in Terahertz Communications",
+  "authors": [
+   "Boyu Ning",
+   "Weidong Mei",
+   "Lipeng Zhu",
+   "Zhi Chen",
+   "Rui Zhang"
+  ],
+  "pub": "2024-10-22",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "14 pages, 8 figures. Accepted for publication by IEEE TWC"
+ },
+ {
+  "id": "2409.10351v1",
+  "title": "Over-the-Air Computation via 2D Movable Antenna Array",
+  "authors": [
+   "Nianzu Li",
+   "Peiran Wu",
+   "Boyu Ning",
+   "Lipeng Zhu",
+   "Weidong Mei"
+  ],
+  "pub": "2024-09-16",
+  "cat": "eess.SP",
+  "jref": "IEEE Wireless Communications Letters, vol. 14, no. 1, pp. 33-37, Jan. 2025",
+  "comment": ""
+ },
+ {
+  "id": "2408.15668v3",
+  "title": "Movable Antennas Meet Intelligent Reflecting Surface: When Do We Need Movable Antennas?",
+  "authors": [
+   "Xin Wei",
+   "Weidong Mei",
+   "Qingqing Wu",
+   "Boyu Ning",
+   "Zhi Chen"
+  ],
+  "pub": "2024-08-28",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "6 pages, 6 figures"
+ },
+ {
+  "id": "2408.12813v1",
+  "title": "Minimizing Movement Delay for Movable Antennas via Trajectory Optimization",
+  "authors": [
+   "Qingliang Li",
+   "Weidong Mei",
+   "Boyu Ning",
+   "Rui Zhang"
+  ],
+  "pub": "2024-08-23",
+  "cat": "eess.SY",
+  "jref": "Proc. IEEE 2024 Globecom Workshops, Cape Town, South Africa, Dec. 2024, pp.213-218",
+  "comment": "6 pages,6 figures, submit to GLOBECOM 2024 Workshop - IRAFWCC"
+ },
+ {
+  "id": "2408.05746v1",
+  "title": "Movable Antenna Enhanced AF Relaying: Two-Stage Antenna Position Optimization",
+  "authors": [
+   "Nianzu Li",
+   "Weidong Mei",
+   "Boyu Ning",
+   "Peiran Wu"
+  ],
+  "pub": "2024-08-11",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2408.00434v2",
+  "title": "Flexible Beam Coverage Optimization for Movable-Antenna Array",
+  "authors": [
+   "Dong Wang",
+   "Weidong Mei",
+   "Boyu Ning",
+   "Zhi Chen"
+  ],
+  "pub": "2024-08-01",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2408.08322v1",
+  "title": "Movable-Antenna Position Optimization for Physical-Layer Security via Discrete Sampling",
+  "authors": [
+   "Weidong Mei",
+   "Xin Wei",
+   "Yijie Liu",
+   "Boyu Ning",
+   "Zhi Chen"
+  ],
+  "pub": "2024-08-01",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "This paper is accepted by IEEE Globecom 2024. arXiv admin note: substantial text overlap with arXiv:2403.16886"
+ },
+ {
+  "id": "2407.15448v2",
+  "title": "Movable Antenna-Enhanced Wireless Communications: General Architectures and Implementation Methods",
+  "authors": [
+   "Boyu Ning",
+   "Songjie Yang",
+   "Yafei Wu",
+   "Peilan Wang",
+   "Weidong Mei",
+   "Chau Yuen",
+   "Emil Bj\u00f6rnson"
+  ],
+  "pub": "2024-07-22",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2407.01006v1",
+  "title": "Multi-Functional Beamforming Design for Integrated Sensing, Communication, and Computation",
+  "authors": [
+   "Yapeng Zhao",
+   "Qingqing Wu",
+   "Wen Chen",
+   "Yong Zeng",
+   "Ruiqi Liu",
+   "Weidong Mei",
+   "Fen Hou",
+   "Shaodan Ma"
+  ],
+  "pub": "2024-07-01",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2406.19590v2",
+  "title": "Joint Beamforming and Antenna Position Optimization for Movable Antenna-Assisted Spectrum Sharing",
+  "authors": [
+   "Xin Wei",
+   "Weidong Mei",
+   "Dong Wang",
+   "Boyu Ning",
+   "Zhi Chen"
+  ],
+  "pub": "2024-06-28",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "Accepted to IEEE Wireless Communications Letters"
+ },
+ {
+  "id": "2405.18844v1",
+  "title": "Optical IRS for Visible Light Communication: Modeling, Design, and Open Issues",
+  "authors": [
+   "Shiyuan Sun",
+   "Fang Yang",
+   "Weidong Mei",
+   "Jian Song",
+   "Zhu Han",
+   "Rui Zhang"
+  ],
+  "pub": "2024-05-29",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2405.12432v1",
+  "title": "Power Measurement Based Channel Estimation for IRS-Enhanced Wireless Coverage",
+  "authors": [
+   "He Sun",
+   "Lipeng Zhu",
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2024-05-21",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "arXiv admin note: text overlap with arXiv:2309.08275"
+ },
+ {
+  "id": "2404.14778v1",
+  "title": "Channel Estimation for Optical Intelligent Reflecting Surface-Assisted VLC System: A Joint Space-Time Sampling Approach",
+  "authors": [
+   "Shiyuan Sun",
+   "Fang Yang",
+   "Weidong Mei",
+   "Jian Song",
+   "Zhu Han",
+   "Rui Zhang"
+  ],
+  "pub": "2024-04-23",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2404.14706v1",
+  "title": "Channel Estimation for Optical IRS-Assisted VLC System via Spatial Coherence",
+  "authors": [
+   "Shiyuan Sun",
+   "Fang Yang",
+   "Weidong Mei",
+   "Jian Song",
+   "Zhu Han",
+   "Rui Zhang"
+  ],
+  "pub": "2024-04-23",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2404.07477v2",
+  "title": "Integrated Sensing and Communication Under DISCO Physical-Layer Jamming Attacks",
+  "authors": [
+   "Huan Huang",
+   "Hongliang Zhang",
+   "Weidong Mei",
+   "Jun Li",
+   "Yi Cai",
+   "A. Lee Swindlehurst",
+   "Zhu Han"
+  ],
+  "pub": "2024-04-11",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "This paper has been submitted for possible publication. For the code of the DISCO RIS is available on Github (https://github.com/huanhuan1799/Disco-Intelligent-Reflecting-Surfaces-Active-Channel-Aging-for-Fully-Passive-Jamming-Attacks)"
+ },
+ {
+  "id": "2403.16886v1",
+  "title": "Movable-Antenna Position Optimization: A Graph-based Approach",
+  "authors": [
+   "Weidong Mei",
+   "Xin Wei",
+   "Boyu Ning",
+   "Zhi Chen",
+   "Rui Zhang"
+  ],
+  "pub": "2024-03-25",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "5 pages, 6 figures. We propose a graph-based algorithm that is able to optimally solve the fluid-/movable-antenna position optimization problem in polynomial time"
+ },
+ {
+  "id": "2312.16918v3",
+  "title": "Intelligent Surfaces Empowered Wireless Network: Recent Advances and The Road to 6G",
+  "authors": [
+   "Qingqing Wu",
+   "Beixiong Zheng",
+   "Changsheng You",
+   "Lipeng Zhu",
+   "Kaiming Shen",
+   "Xiaodan Shao",
+   "Weidong Mei",
+   "Boya Di",
+   "Hongliang Zhang",
+   "Ertugrul Basar",
+   "Lingyang Song",
+   "Marco Di Renzo",
+   "Zhi-Quan Luo",
+   "Rui Zhang"
+  ],
+  "pub": "2023-12-28",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2309.11918v1",
+  "title": "Multi-Passive/Active-IRS Enhanced Wireless Coverage: Deployment Optimization and Cost-Performance Trade-off",
+  "authors": [
+   "Min Fu",
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2023-09-21",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "12 pages"
+ },
+ {
+  "id": "2309.08275v1",
+  "title": "User Power Measurement Based IRS Channel Estimation via Single-Layer Neural Network",
+  "authors": [
+   "He Sun",
+   "Weidong Mei",
+   "Lipeng Zhu",
+   "Rui Zhang"
+  ],
+  "pub": "2023-09-15",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": ""
+ },
+ {
+  "id": "2307.08548v1",
+  "title": "Joint Beam Routing and Resource Allocation Optimization for Multi-IRS-Reflection Wireless Power Transfer",
+  "authors": [
+   "Weidong Mei",
+   "Zhi Chen",
+   "Rui Zhang"
+  ],
+  "pub": "2023-07-17",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "13 pages, 9 figures. Our other works on multi-IRS-reflection aided wireless network: single-user single-path routing (arXiv:2010.13589), single-user multi-path routing (arXiv:2110.11104), multi-user single-path routing (arXiv:2101.00217), distributed beam training (arXiv:2106.11896), multi-IRS deployment (arXiv:2209.09828) and a tutorial paper (arXiv:2109.13641)"
+ },
+ {
+  "id": "2302.03893v1",
+  "title": "Optical Intelligent Reflecting Surface Assisted MIMO VLC: Channel Modeling and Capacity Characterization",
+  "authors": [
+   "Shiyuan Sun",
+   "Weidong Mei",
+   "Fang Yang",
+   "Nan An",
+   "Jian Song",
+   "Rui Zhang"
+  ],
+  "pub": "2023-02-08",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "30 pages, 7 figures, 3 tables"
+ },
+ {
+  "id": "2301.09248v1",
+  "title": "Target-Mounted Intelligent Reflecting Surface for Joint Location and Orientation Estimation",
+  "authors": [
+   "Peilan Wang",
+   "Weidong Mei",
+   "Jun Fang",
+   "Rui Zhang"
+  ],
+  "pub": "2023-01-23",
+  "cat": "eess.SP",
+  "jref": "",
+  "comment": "30pages"
+ },
+ {
+  "id": "2301.05469v2",
+  "title": "Multi-Active/Passive-IRS Enabled Wireless Information and Power Transfer: Active IRS Deployment and Performance Analysis",
+  "authors": [
+   "Min Fu",
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2023-01-13",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "Accepted by IEEE Communication Letter"
+ },
+ {
+  "id": "2209.09828v2",
+  "title": "Joint Base Station and IRS Deployment for Enhancing Network Coverage: A Graph-Based Modeling and Optimization Approach",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2022-09-20",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "14 pages. Accepted for publication by IEEE TWC. Our other works on multi-IRS aided wireless network: IRS-user associations (arXiv:2009.02551), single-path multi-hop routing (arXiv:2010.13589), multi-path multi-hop routing (arXiv:2110.11104), multi-beam multi-hop routing (arXiv:2101.00217), distributed beam training (arXiv:2106.11896), and a tutorial paper (arXiv:2109.13641)"
+ },
+ {
+  "id": "2112.14135v2",
+  "title": "Empowering Base Stations with Co-Site Intelligent Reflecting Surfaces: User Association, Channel Estimation and Reflection Optimization",
+  "authors": [
+   "Yuwei Huang",
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2021-12-28",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "Accepted by IEEE Transactions on Communications"
+ },
+ {
+  "id": "2110.11104v2",
+  "title": "Intelligent Reflecting Surface for Multi-Path Beam Routing with Active/Passive Beam Splitting and Combining",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2021-10-21",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "6 pages, 4 figures. Accepted for publication by IEEE Communications Letters. Our other works on multi-IRS aided wireless network: IRS-user associations (arXiv:2009.02551), single-beam multi-hop routing (arXiv:2010.13589), multi-beam multi-hop routing (arXiv:2101.00217), distributed beam training (arXiv:2106.11896), and a tutorial paper (arXiv:2109.13641)"
+ },
+ {
+  "id": "2110.01292v3",
+  "title": "A Survey on Channel Estimation and Practical Passive Beamforming Design for Intelligent Reflecting Surface Aided Wireless Communications",
+  "authors": [
+   "Beixiong Zheng",
+   "Changsheng You",
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2021-10-04",
+  "cat": "cs.IT",
+  "jref": "IEEE Communications Surveys and Tutorials, 2022",
+  "comment": "Accepted by IEEE Communications Surveys and Tutorials (76 pages, 17 figures, and 10 tables). In this paper, we provide a comprehensive survey on the up-to-date research in IRS-aided wireless communications, with an emphasis on the promising solutions to tackle practical design issues"
+ },
+ {
+  "id": "2109.13641v2",
+  "title": "Intelligent Reflecting Surface Aided Wireless Networks: From Single-Reflection to Multi-Reflection Design and Optimization",
+  "authors": [
+   "Weidong Mei",
+   "Beixiong Zheng",
+   "Changsheng You",
+   "Rui Zhang"
+  ],
+  "pub": "2021-09-28",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "Invited paper. Accepted for publication in the Proceedings of the IEEE"
+ },
+ {
+  "id": "2107.03032v6",
+  "title": "Beamforming Technologies for Ultra-Massive MIMO in Terahertz Communications",
+  "authors": [
+   "Boyu Ning",
+   "Zhongbao Tian",
+   "Weidong Mei",
+   "Zhi Chen",
+   "Chong Han",
+   "Shaoqian Li",
+   "Jinhong Yuan",
+   "Rui Zhang"
+  ],
+  "pub": "2021-07-07",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "This paper has been published: B. Ning et al., \"Beamforming Technologies for Ultra-Massive MIMO in Terahertz Communications,\" in IEEE Open Journal of the Communications Society, vol. 4, pp. 614-658, 2023, doi: 10.1109/OJCOMS.2023.3245669. URL:https://ieeexplore.ieee.org/document/10045774"
+ },
+ {
+  "id": "2106.11896v2",
+  "title": "Distributed Beam Training for Intelligent Reflecting Surface Enabled Multi-Hop Routing",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2021-06-22",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "6 pages, 5 figures. Accepted for publication by IEEE Wireless Communications Letters. Our other works on multi-IRS aided wireless network: IRS-user associations (arXiv:2009.02551), single-beam multi-hop routing (arXiv:2010.13589), and multi-beam multi-hop routing (arXiv:2101.00217)"
+ },
+ {
+  "id": "2101.01859v1",
+  "title": "Aerial-Ground Interference Mitigation for Cellular-Connected UAV",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2021-01-06",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "This paper gives an overview of our proposed techniques for mitigating the UAV-ground interference. More details can be found in our technical papers: uplink UAV-ground ICIC (arXiv:1807.08218), uplink cooperative NOMA (arXiv:1809.03657), uplink QF-based CIC (arXiv:2006.01007), sensing aided ICIC (arXiv:2001.01253), downlink CIC (arXiv:1906.00220), and downlink cooperative NOMA (arXiv:2002.05852)"
+ },
+ {
+  "id": "2101.00217v2",
+  "title": "Multi-Beam Multi-Hop Routing for Intelligent Reflecting Surfaces Aided Massive MIMO",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2021-01-01",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "30 pages, 10 figures. Accepted for publication by IEEE TWC. Conference version (arXiv:2011.02354). Special case of single-beam multi-hop routing (arXiv:2010.13589)"
+ },
+ {
+  "id": "2012.03403v3",
+  "title": "How to Deploy Intelligent Reflecting Surfaces in Wireless Network: BS-side, User-side, or Both Sides?",
+  "authors": [
+   "Changsheng You",
+   "Beixiong Zheng",
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2020-12-07",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "This article addresses the important issue of how to deploy IRSs in a wireless network to achieve its optimum performance"
+ },
+ {
+  "id": "2011.02354v2",
+  "title": "Cooperative Multi-Beam Routing for Multi-IRS Aided Massive MIMO",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2020-11-04",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "7 pages, 4 figures, accepted by IEEE International Conference on Communications (ICC) 2021"
+ },
+ {
+  "id": "2010.13589v1",
+  "title": "Cooperative Beam Routing for Multi-IRS Aided Communication",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2020-10-26",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "five pages, 3 figures. Accepted for publication by IEEE Wireless Communications Letters"
+ },
+ {
+  "id": "2009.02551v3",
+  "title": "Performance Analysis and User Association Optimization for Wireless Network Aided by Multiple Intelligent Reflecting Surfaces",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2020-09-05",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "16 pages, 10 figures. Accepted for publication by IEEE Transactions on Communications"
+ },
+ {
+  "id": "2006.01007v1",
+  "title": "Uplink Cooperative Interference Cancellation for Cellular-Connected UAV: A Quantize-and-Forward Approach",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2020-06-01",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "6 pages, 4 figures, accepted for publication by IEEE Wireless Communications Letters"
+ },
+ {
+  "id": "2002.05852v1",
+  "title": "Cooperative NOMA for Downlink Asymmetric Interference Cancellation",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2020-02-14",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "5 pages, 3 figures. Accepted by IEEE Wireless Communications Letters for publication"
+ },
+ {
+  "id": "2001.01257v1",
+  "title": "A New Store-then-Amplify-and-Forward Protocol for UAV Mobile Relaying",
+  "authors": [
+   "Xiaochen Lin",
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2020-01-05",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "6 pages, 4 figures, to be published by IEEE Wireless Communications Letters"
+ },
+ {
+  "id": "2001.01253v2",
+  "title": "UAV-Sensing-Assisted Cellular Interference Coordination: A Cognitive Radio Approach",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2020-01-05",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "6 pages, 5 figures, accepted by IEEE Wireless Communications Letters"
+ },
+ {
+  "id": "1906.00220v2",
+  "title": "Cooperative Downlink Interference Transmission and Cancellation for Cellular-Connected UAV: A Divide-and-Conquer Approach",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2019-06-01",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "14 pages, 9 figures, accepted by IEEE Transactions on Communications"
+ },
+ {
+  "id": "1902.02472v2",
+  "title": "Safeguarding Wireless Network with UAVs: A Physical Layer Security Perspective",
+  "authors": [
+   "Qingqing Wu",
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2019-02-07",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "Accepted by IEEE Wireless Communications. In this article, we focus on addressing two new and challenging security issues arising from the LoS-dominant UAV-ground channels in future wireless networks, from a PHY design perspective"
+ },
+ {
+  "id": "1901.02804v2",
+  "title": "Cognitive UAV Communication via Joint Maneuver and Power Control",
+  "authors": [
+   "Yuwei Huang",
+   "Weidong Mei",
+   "Jie Xu",
+   "Ling Qiu",
+   "Rui Zhang"
+  ],
+  "pub": "2019-01-09",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "16 pages,11 figures, accepted by IEEE Transactions on Communications"
+ },
+ {
+  "id": "1809.03657v3",
+  "title": "Uplink Cooperative NOMA for Cellular-Connected UAV",
+  "authors": [
+   "Weidong Mei",
+   "Rui Zhang"
+  ],
+  "pub": "2018-09-11",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "13 pages, 6 figures. Accepted for publication in IEEE JSTSP. arXiv admin note: text overlap with arXiv:1807.08218"
+ },
+ {
+  "id": "1807.08218v2",
+  "title": "Cellular-Connected UAV: Uplink Association, Power Control and Interference Coordination",
+  "authors": [
+   "Weidong Mei",
+   "Qingqing Wu",
+   "Rui Zhang"
+  ],
+  "pub": "2018-07-22",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "This paper has been accepted by IEEE Transactions on Wireless Communications for publication (13 pages, 9 figures)"
+ },
+ {
+  "id": "1707.01064v2",
+  "title": "Physical Layer Service Integration in 5G: Potentials and Challenges",
+  "authors": [
+   "Weidong Mei",
+   "Zhi Chen",
+   "Jun Fang",
+   "Shaoqian Li"
+  ],
+  "pub": "2017-07-04",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "12 pages, 7 figures"
+ },
+ {
+  "id": "1703.00696v2",
+  "title": "Artificial Noise-Aided Biobjective Transmitter Optimization for Service Integration in Multi-User MIMO Gaussian Broadcast Channel",
+  "authors": [
+   "Weidong Mei",
+   "Zhi Chen",
+   "Jun Fang",
+   "Shaoqian Li"
+  ],
+  "pub": "2017-03-02",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "14 pages, 5 figures"
+ },
+ {
+  "id": "1611.09501v1",
+  "title": "Transmit design for MIMO wiretap channel with a malicious jammer",
+  "authors": [
+   "Duo Zhang",
+   "Weidong Mei",
+   "Lingxiang Li",
+   "Zhi Chen"
+  ],
+  "pub": "2016-11-29",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "2015 IEEE 81st Vehicular Technology Conference (VTC Spring)"
+ },
+ {
+  "id": "1611.08690v1",
+  "title": "GSVD-Based Precoding in MIMO Systems With Integrated Services",
+  "authors": [
+   "Weidong Mei",
+   "Zhi Chen",
+   "Jun Fang"
+  ],
+  "pub": "2016-11-26",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "IEEE Signal Processing Letters (Volume: 23, Issue: 11, Nov. 2016)"
+ },
+ {
+  "id": "1607.00942v3",
+  "title": "On Artificial-Noise Aided Transmit Design for Multi-User MISO Systems with Integrated Services",
+  "authors": [
+   "Weidong Mei",
+   "Zhi Chen",
+   "Lingxiang Li",
+   "Jun Fang",
+   "Shaoqian Li"
+  ],
+  "pub": "2016-07-04",
+  "cat": "cs.IT",
+  "jref": "",
+  "comment": "Part of this work has been presented in IEEE GlobalSIP 2015 and in IEEE ICASSP 2016"
+ }
+]
