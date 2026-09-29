@@ -1,7 +1,7 @@
 ---
 name: paper-writing-craft
 description: "Author-voice paper writing layered on ARIS: five-stage pipeline (brainstorm, architecture, section drafts, integration, compression), a script-run style gate, an independent red-team, figure / table / caption style, and swappable author profiles. Ships profile `weidong-mei` (distilled from 102 arXiv papers; IEEE wireless-communication optimization papers) and the original `snl-default` (systems/networking). Use when user says \"按 Mei 的风格写\", \"Weidong Mei 写作风格\", \"润色论文\", \"论文风格审查\", \"style audit\", \"paper style gate\", \"写 introduction / system model / simulation 部分\", \"图表和 caption 的风格\", \"蒸馏写作风格\", or wants to write, polish, compress or audit a paper in a specific author's voice."
-argument-hint: "[file-or-section] [— profile: weidong-mei|snl-default] [— register: letter|full|tutorial] [— mode: draft|audit|polish|compress|figures|distill]"
+argument-hint: "[file-or-section] [— profile: weidong-mei|snl-default] [— register: letter|conference|full|tutorial] [— mode: draft|audit|polish|compress|figures|distill]"
 allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, Skill, mcp__codex__codex
 ---
 
