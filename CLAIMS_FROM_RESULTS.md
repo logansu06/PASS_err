@@ -95,7 +95,7 @@ State once, near the theorems: *"Certificates are analytical statements; all ine
   - Reconciliation found one more rounding error: F_end at endpoints, P = (6,1), ε = 0.01λ is 1.17e-4, not 1.18e-4.
 - **Numbers table:** `experiments/a7/r019_numbers.py` → `results/r019_numbers.{md,json}`. All 237 quoted numbers in the revised `EXPERIMENT_RESULTS.md` are consistent with their source keys. The ARIS evidence pre-check re-verified 191/191 direct-key values (`.aris/evidence_precheck_r019.json`).
 - **Weakest-margin audit persisted:** `r019_derived.json` → `margin_audit`. All signs are preserved at 50 digits for the smallest positive Γ and the two smallest uniqueness margins.
-- **New evidence, not yet reviewed by a jury.** Treat as pending until the next review round (`/auto-review-loop`):
+- **New evidence, not yet reviewed by a jury.** Treat as pending until the next review round (`/auto-review-loop`). *(The certified leakage comparison was validated in auto-review round 1, 2026-09-29: see the update below.)*
   - Certified leakage comparison: in 893/899 Γ > 0 cases (99.3%), Ī(Ŝ) is below S_N's leakage at its SLNR witness. This proves max_δ I_P(Ŝ) < max_δ I_P(S_N); the median certified ratio is 0.80.
   - This is a stronger, certificate-based version of the mechanism statement. The witness-ratio version (1.000 / 0.79) stays descriptive: "at the SLNR witnesses".
   - Inclusive per-case runtime: 3.9 s / 0.55 s median (free / endpoints).
@@ -120,6 +120,22 @@ Source: `experiments/a7/results/ablation_summary.md` (bound endpoints rounded ou
 - "screening delivers 38× speedup" (the M = 16 audit is a correctness check only);
 - "the negative region is repaired";
 - "dependency losses are at most 28%" (28.3% is a lower endpoint).
+
+## Auto-Review Round 1 Update (2026-09-29): 7/10, "almost"
+
+Reviewer: GPT-6 Astra (ultra), `/auto-review-loop` round 1; raw response in `review-stage/REVIEWER_MEMORY.md` and `.aris/traces/auto-review-loop/2026-09-29_run01/`. The reviewer recomputed the headline statistics and independently reconstructed all 899 positive-Γ leakage comparisons. It found no fatal mathematical or computational flaw in C1–C3. R020 stays provisional.
+
+**Certified leakage comparison (R019): validated.** The chain is max_δ I_P(Ŝ, δ) ≤ Ī(Ŝ) < I_P(S_N, δ̃_N) ≤ max_δ I_P(S_N, δ), where δ̃_N is S_N's feasible best-found SLNR witness. Feasibility of the witness is enough; it need not maximize leakage. Counts: 893/899 pooled (457/462 free, 436/437 endpoints). The smallest successful relative separation is 3.67e-4. Licensed sentence:
+- "Among the 899 declared-grid cases with certified SLNR improvement, 893 (99.3%) also certify strictly lower worst-case leakage than exhaustive nominal selection. Across these 899 cases, the median certified upper bound on the worst-case leakage ratio is at most 0.800."
+
+**Required in the paper (reviewer's minimum fixes):**
+- **Novelty positioning.** Credit rank-2 binary quadratic maximization (auxiliary-angle enumeration) and sector/support-function bounds as tools. Centre the contribution on family-wide exact endpoint-leakage coverage by one shared bank, the protection limits, and the measured certification yield. Cite Jiang–Schotten (arXiv 2609.31088).
+- **Baselines.** Always "same-start shared-template swap heuristic; budgets unmatched". Report inclusive runtime and cap hits; claim tractability only on the tested families.
+- **Operating cost.** Show one substantial-loss example next to the median sacrifice. Verified example (endpoints, 30 dB, ε = 0.03λ, P = (−3.6, 2)): certified worst-case gain +7.85%, nominal SLNR −39.17%, estimated mean SLNR −14.95%, estimated 5th percentile −12.53% (`results/main_grid.csv`, `results/r017_mc_average.csv`). Monte Carlo results stay descriptive.
+- **Model scope.** Keep visible: one desired/protected pair, a single aligned candidate aperture, equal site power, separable channels; the attenuation controls use model-aware redesign at model-specific reference SNR.
+- **Witness wording.** "Best-found SLNR witnesses", never "SLNR-minimizing witnesses".
+
+**Known code–proof inconsistency (not fixed; no effect observed).** `a7_core.py:135` omits the tiny nominal D-phase residual from β_D. Replaying all 1,056 stored winners with the residual included lowers L by at most about 2.7e-12 relative and changes no dominance or uniqueness sign (the reviewer's replay; the R021 ablation code already includes the correction). Fixing it would mean regenerating every A7 output.
 
 ## Evidence Not Found at R020 Time (resolved by R019; kept for the record)
 

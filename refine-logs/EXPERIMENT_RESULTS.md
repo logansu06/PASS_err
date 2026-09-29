@@ -78,7 +78,7 @@
 - **ε = 0:** Γ = 0 and U\*/L − 1 = 0 exactly. Uniqueness holds in 272/272 cases.
 
 **Mechanism** (Γ > 0 cases, n = 899, both families pooled):
-- At the two SLNR witnesses, the median desired-power ratio Ŝ/S_N is 1.000 and the median leakage ratio is 0.79. These are exact values at the SLNR-minimizing witnesses, not independent worst cases.
+- At the two SLNR witnesses, the median desired-power ratio Ŝ/S_N is 1.000 and the median leakage ratio is 0.79. These are exact values at the best-found SLNR witnesses (all corners plus local refinement; not certified global minimizers), not independent worst cases.
 - **Certified version:**
   - Ī(Ŝ) is a certified upper bound on Ŝ's worst-case leakage, and S_N's leakage at its witness is a lower bound on S_N's worst-case leakage.
   - Ī(Ŝ) is below that witness leakage in 893/899 cases (99.3%). In those cases Ŝ's **worst-case leakage is provably lower** than S_N's.

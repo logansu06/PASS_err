@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Review — A7 v2 GCS (ICC 2027)</title>
+
+<meta name="generator" content="ARIS render-html (academic, v1)">
+<meta name="aris:source-path" content="review-stage/AUTO_REVIEW.md">
+<meta name="aris:source-sha256" content="37f60eec4e0b3229d27de570e87c27b98bfbf05f0fbf38009617c0eec631d7a1">
+<meta name="aris:generated-at" content="2026-09-29 09:05 UTC">
+
+<!-- MathJax 3 -->
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+<!-- highlight.js -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/atom-one-light.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<script>document.addEventListener('DOMContentLoaded', () => hljs.highlightAll());</script>
+
+
+<style>
+:root {
+  --bg: #fdfcf7;
+  --bg-soft: #f4f1ea;
+  --bg-code: #f8f5ec;
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --ink-muted: #6b6b6b;
+  --primary: #1a4a8c;
+  --primary-soft: #2d6cb8;
+  --accent: #b8390e;
+  --warn: #b45309;
+  --warn-bg: #fef3c7;
+  --info-bg: #dbeafe;
+  --good-bg: #d1fae5;
+  --good: #065f46;
+  --bad-bg: #fee2e2;
+  --bad: #991b1b;
+  --border: #d6d0c0;
+  --border-soft: #e8e3d5;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Source Serif Pro", "Source Serif 4", "Crimson Pro", "Georgia", "Songti SC", "STSong", serif;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  padding: 40px 32px;
+}
+
+nav.toc {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  font-size: 13px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  border-right: 1px solid var(--border-soft);
+  padding-right: 16px;
+}
+nav.toc h3 {
+  margin: 0 0 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+nav.toc ol li { margin: 5px 0; counter-increment: toc; }
+nav.toc ol li::before { content: counter(toc) ". "; color: var(--ink-muted); margin-right: 4px; }
+nav.toc a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+}
+nav.toc a:hover { color: var(--primary); border-bottom-color: var(--primary); }
+nav.toc ul { list-style: none; padding-left: 14px; margin: 3px 0; font-size: 12px; }
+nav.toc ul li::before { content: "→ "; color: var(--border); }
+
+main { min-width: 0; }
+
+header.hero {
+  border-bottom: 3px double var(--primary);
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+header.hero .eyebrow {
+  color: var(--accent);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+body.aris-blog header.hero .eyebrow {
+  font-family: inherit;
+  color: var(--ink-muted);
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+header.hero h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+header.hero .subtitle {
+  font-size: 16px;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+  font-style: italic;
+}
+header.hero .byline {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+}
+header.hero .byline strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+header.hero .meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--border-soft);
+  padding-top: 14px;
+}
+header.hero .meta span strong { color: var(--ink-soft); }
+header.hero .meta code {
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 11px;
+  background: var(--bg-soft);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid var(--border-soft);
+}
+
+h2 {
+  font-size: 24px;
+  margin: 44px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink);
+  font-weight: 700;
+}
+h2 .num { color: var(--primary); font-weight: 600; margin-right: 8px; }
+h3 { font-size: 19px; margin: 28px 0 10px; color: var(--primary); font-weight: 600; }
+h4 { font-size: 16px; margin: 20px 0 8px; color: var(--ink); font-weight: 600; }
+
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 10px 0; }
+ul li, ol li { margin: 4px 0; }
+ul li::marker { color: var(--primary); }
+
+strong { color: var(--accent); font-weight: 600; }
+em { color: var(--ink-soft); }
+
+a { color: var(--primary); }
+a:hover { color: var(--accent); }
+
+code:not(.hljs) {
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.86em;
+  background: var(--bg-code);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid var(--border-soft);
+  color: var(--accent);
+}
+
+pre {
+  background: #fafaf6;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  padding: 0;
+  overflow-x: auto;
+  border-radius: 4px;
+  margin: 14px 0;
+}
+pre code, pre code.hljs {
+  background: transparent !important;
+  display: block;
+  padding: 14px 18px !important;
+  font-size: 13px;
+  line-height: 1.55;
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", monospace;
+  color: var(--ink);
+}
+pre.diagram {
+  background: #f9f6ed;
+  border-left: 4px solid var(--accent);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.callout {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border-left: 4px solid;
+  font-size: 15px;
+}
+.callout-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.callout-info { background: var(--info-bg); border-left-color: var(--primary); }
+.callout-info .callout-title { color: var(--primary); }
+.callout-warn { background: var(--warn-bg); border-left-color: var(--warn); }
+.callout-warn .callout-title { color: var(--warn); }
+.callout-good { background: var(--good-bg); border-left-color: var(--good); }
+.callout-good .callout-title { color: var(--good); }
+.callout-bad { background: var(--bad-bg); border-left-color: var(--bad); }
+.callout-bad .callout-title { color: var(--bad); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+thead { background: var(--primary); color: white; }
+th, td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-soft);
+  vertical-align: top;
+}
+th { font-weight: 600; font-size: 13px; letter-spacing: 0.02em; }
+tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) { background: var(--bg-soft); }
+
+details.qa, details {
+  background: white;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  margin: 10px 0;
+  padding: 0;
+}
+details summary {
+  cursor: pointer;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--primary);
+  list-style: none;
+  user-select: none;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before {
+  content: "▸ ";
+  margin-right: 4px;
+  display: inline-block;
+  transition: transform 0.15s;
+}
+details[open] summary::before { transform: rotate(90deg); }
+details[open] summary { border-bottom: 1px solid var(--border-soft); }
+details > :not(summary) { padding: 10px 14px; }
+details p:first-of-type { margin-top: 8px; }
+
+mjx-container[display="true"] { margin: 12px 0 !important; }
+
+footer.aris-footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+footer.aris-footer a { color: var(--ink-muted); border-bottom: 1px dotted var(--border); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 20px; padding: 20px 16px; }
+  nav.toc {
+    position: static;
+    max-height: none;
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+    padding-right: 0;
+    padding-bottom: 14px;
+  }
+  header.hero h1 { font-size: 24px; }
+  h2 { font-size: 20px; }
+}
+@media print {
+  nav.toc { display: none; }
+  .layout { grid-template-columns: 1fr; padding: 0; }
+  body { background: white; }
+  header.hero { border-bottom-color: var(--ink); }
+  #cite-pop, dialog.lightbox { display: none !important; }
+}
+
+/* --- P0 polish: TOC scrollspy active state ---------------------------- */
+nav.toc a.active {
+  color: var(--accent);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
+}
+
+/* --- P0 polish: Long-code auto-collapse ------------------------------- */
+details.code-card {
+  margin: 14px 0;
+  background: #fafaf6;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 4px;
+}
+details.code-card > summary {
+  cursor: pointer;
+  padding: 8px 14px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-family: "JetBrains Mono", "SF Mono", monospace;
+  list-style: none;
+  user-select: none;
+}
+details.code-card > summary::-webkit-details-marker { display: none; }
+details.code-card > summary::before { content: none; }
+details.code-card > pre {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-left: none;
+  border-radius: 0;
+}
+@media print {
+  details.code-card { border: 1px solid #ccc; background: white; }
+  details.code-card > summary { display: none !important; }
+  details.code-card > pre { border: 1px solid #ddd; border-radius: 4px; background: white; }
+}
+
+/* --- P0 polish: Paper popover ([[ref]] popups) ------------------------ */
+[data-ref] {
+  color: var(--primary);
+  border-bottom: 1px dotted var(--primary);
+  cursor: pointer;
+  white-space: nowrap;
+}
+[data-ref]:hover { background: rgba(26, 74, 140, 0.08); }
+#cite-pop {
+  position: fixed;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  font-size: 13px;
+  line-height: 1.5;
+  z-index: 1000;
+}
+#cite-pop[hidden] { display: none; }
+#cite-pop .cp-title {
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+  padding-right: 24px;
+}
+#cite-pop .cp-meta {
+  color: var(--ink-muted);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+#cite-pop .cp-key {
+  color: var(--accent);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+#cite-pop .cp-link {
+  display: inline-block;
+  color: var(--primary);
+  font-weight: 500;
+}
+#cite-pop .cp-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--ink-muted);
+}
+
+/* --- P0 polish: Figure lightbox (native <dialog>) --------------------- */
+dialog.lightbox {
+  border: none;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.92);
+  width: 96vw;
+  height: 96vh;
+  max-width: 96vw;
+  max-height: 96vh;
+}
+dialog.lightbox::backdrop { background: rgba(0, 0, 0, 0.92); }
+dialog.lightbox .lb-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+  position: relative;
+}
+dialog.lightbox img {
+  max-width: 90vw;
+  max-height: 84vh;
+  object-fit: contain;
+  cursor: zoom-out;
+}
+dialog.lightbox figcaption {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  text-align: center;
+  max-width: 700px;
+}
+dialog.lightbox .lb-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* --- P0 polish: blog/talk mode active-H2 highlight (opt-in) ----------- */
+body.aris-blog h2 { scroll-margin-top: 24px; }
+body.aris-blog h2.aris-active-h2 {
+  background: linear-gradient(to right, rgba(26, 74, 140, 0.06), transparent);
+  border-radius: 4px;
+  padding-left: 12px;
+  margin-left: -12px;
+}
+</style>
+</head>
+<body class="">
+<div class="layout">
+
+<nav class="toc">
+  <h3>Contents</h3>
+  <ol>
+<li><a href="#round-1-2026-09-29-1704">Round 1 (2026-09-29 17:04)</a>
+<ul>
+<li><a href="#assessment-summary">Assessment (Summary)</a></li>
+<li><a href="#reviewer-raw-response">Reviewer Raw Response</a></li>
+<li><a href="#actions-taken">Actions Taken</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#status">Status</a></li>
+</ul>
+</li>
+<li><a href="#final-summary">Final Summary</a>
+</li>
+<li><a href="#method-description">Method Description</a>
+</li>
+</ol>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="eyebrow">Workflow 2</div>
+  <h1>Auto Review — A7 v2 GCS (ICC 2027)</h1>
+  
+  
+  <div class="meta">
+    <span><strong>Source:</strong> <code>review-stage/AUTO_REVIEW.md</code></span>
+    <span><strong>SHA256:</strong> <code>37f60eec4e0b</code></span>
+    <span><strong>Rendered:</strong> 2026-09-29 09:05 UTC</span>
+    
+  </div>
+</header>
+
+<h1 id="auto-review-loop--a7-v2-gcs-ieee-icc-2027">Auto Review Loop — A7 v2 GCS (IEEE ICC 2027)</h1>
+<ul><li>Run ID: run_20260929_ac8029ec</li><li>Started: 2026-09-29 16:55 (macOS)</li><li>Reviewer: Codex MCP, gpt-6-astra, reasoning effort ultra (explicit user directive; no backend probe)</li><li>Difficulty: medium; MAX_ROUNDS = 2 (user asked for limited rounds; deadline 2026-10-02)</li><li>Scope: the research as it will appear in the 6-page paper (claims, evidence, figures). The paper is not written yet. <code>NARRATIVE_REPORT.md</code> is the stale graduation-project narrative and is out of scope.</li><li><code>/experiment-audit</code> skipped by user decision; R020 stays provisional.</li><li>The earlier graduation-project review loop is archived in <code>fyp_report/review-stage/</code>.</li></ul>
+<h2 id="round-1-2026-09-29-1704">Round 1 (2026-09-29 17:04)</h2>
+<h3 id="assessment-summary">Assessment (Summary)</h3>
+<ul><li>Score: 7/10</li><li>Verdict: almost</li><li>Reviewer backend: codex (gpt-6-astra, ultra); threadId 01a0ec61-047e-7c03-ac6a-1737bf392e79; trace <code>.aris/traces/auto-review-loop/2026-09-29_run01/001-round-1-review</code></li><li><p>Key criticisms:</p>
+<ul><li>Novelty is credible but narrow: auxiliary-angle enumeration for rank-2 binary optimization and sector/support-function bounds are established tools. The distinctive part is one shared bank that gives exact endpoint-leakage coverage for every subset of the family.</li><li>Baseline and cost claims: B-CR is a same-start shared-template swap with unmatched budgets; screening still needs the family-wide bank pass (M = 32 free: about 35 s per case), and co-aligned cases keep almost the whole family.</li><li>Worst-case gains can carry large operating costs; the model scope is narrow (one D/P pair, one aligned aperture, equal site power, separable channels).</li><li>Code–proof inconsistency: <code>a7_core.py:135</code> omits the tiny nominal D-phase residual (effect ≤ about 2.7e-12 relative, no sign change).</li><li>Stale source wording: "SLNR-minimizing witnesses", "same-budget".</li></ul></li><li>Verified by the reviewer: C1 counts 462/528 and 437/528; uniqueness 204/528 and 239/528; Ī/F_end max 1.011322; the R021 enclosure bounds and 4/16 co-aligned flips; the pending 893/899 certified leakage comparison (valid; median certified ratio ≤ 0.800 over all 899).</li></ul>
+<h3 id="reviewer-raw-response">Reviewer Raw Response</h3>
+<details>
+<summary>Click to expand full reviewer response</summary>
+<p><strong>7/10 for IEEE ICC. Almost ready.</strong> The narrowed research story survives an adversarial review. I found no fatal mathematical or computational flaw in C1–C3. The main acceptance risk is modest novelty; the strongest evidence is the family-wide certification and its measured yield.</p>
+<p>I read the artifacts and code, checked the figures, recomputed headline statistics, and independently reconstructed all 899 positive-Γ leakage comparisons. I did not read <code>NARRATIVE_REPORT.md</code>, modify files, or rerun the complete experiment suite. <strong>R020 remains provisional.</strong></p>
+<p>The main results check out:</p>
+<ul><li>Certified SLNR dominance: <strong>462/528 free</strong>, <strong>437/528 endpoints</strong>.</li><li>Unique robust-optimality certificates: <strong>204/528</strong>, <strong>239/528</strong>, within the stated finite families.</li><li>Protection bracket: maximum \(\bar I/F_{\rm end}=1.011322\), supporting <strong>within 1.14%</strong>.</li><li>R021: the reported enclosure bounds and <strong>4/16</strong> newly certified co-aligned stress pairs reproduce.</li><li>I found no certified reverse ordering in the stored main-grid or stress-panel comparisons. That does not establish universal superiority.</li></ul>
+<p><strong>The pending leakage claim is valid.</strong></p>
+<p>Let \(\tilde\delta_N\) be the feasible, best-found SLNR witness for \(S_N\). Then</p>
+<p>\[ \max_\delta I_P(\hat S,\delta) \le \bar I(\hat S) &lt; I_P(S_N,\tilde\delta_N) \le \max_\delta I_P(S_N,\delta). \]</p>
+<p>The witness need neither maximize leakage nor globally minimize SLNR. Its feasibility is sufficient.</p>
+<p>Reconstructing the bounds and nominal witnesses reproduced <strong>893/899</strong>, comprising <strong>457/462 free</strong> and <strong>436/437 endpoints</strong>. Every reconstructed witness satisfied the error-box constraint. The smallest successful relative separation was \(3.67\times10^{-4}\), comfortably above numerical noise.</p>
+<p>The pooled median of \[ r_{\rm cert}=\frac{\bar I(\hat S)} {I_P(S_N,\tilde\delta_N)} \] is <strong>0.799830779 across all 899 positive-Γ cases</strong>, including the six unsuccessful leakage comparisons. It bounds the true worst-case leakage ratio from above.</p>
+<p>Safe paper wording:</p>
+<blockquote><p>“Among the 899 declared-grid cases with certified SLNR improvement, 893 (99.3%) also certify strictly lower worst-case leakage than exhaustive nominal selection. Across these 899 cases, the median certified upper bound on the worst-case leakage ratio is at most 0.800.”</p></blockquote>
+<p>Retain the analytical-certificate/float64 qualification. This specific claim can pass review without changing R020’s overall provisional status. See <a href="/Users/logansu/Documents/PASS/experiments/a7/summarize_r019.py:55">the calculation</a>.</p>
+<p><strong>Remaining weaknesses, ranked by severity</strong></p>
+<ol><li><p><strong>Novelty is credible but narrow. This is the largest rejection risk.</strong></p>
+<p> Auxiliary-angle enumeration for rank-2 binary optimization is established mathematics. Sector/support-function uncertainty bounds also have substantial precedent. Generic feasible witnesses already imply screening, brackets, and sufficient uniqueness tests. The distinctive observation is that one arrangement built from all candidate sites supplies exact endpoint-leakage coverage for every subset, enabling the integrated PASS certificate framework. The <a href="https://www.telecom.tuc.gr/~liavas/publications/Efficient%20Computation%20of%20the%20Binary%20Vector%20that%20Maximizes%20a%20Rank-deficient%20Quadratic%20Form.pdf">Karystinos–Liavas paper</a> makes the prior-art boundary clear.</p>
+<p> <strong>Minimum fix:</strong> explicitly credit these tools and center the contribution on family-wide coverage, protection limits, and demonstrated certification yield. Cite the recent <a href="https://arxiv.org/abs/2609.31088">Jiang–Schotten position-error paper</a>; actuator errors in PASS are already being studied. No additional experiment is required for this framing.</p></li><li><p><strong>The comparison establishes improvement over particular baselines, with limited evidence about computational superiority.</strong></p>
+<p> B-CR uses fewer resources and optimizes the shared-template witness objective. GCS adds global enumeration and certificate evaluation. Its certified wins are valid, but cannot establish equal-compute superiority over robust optimization generally. The present table correctly acknowledges this; <a href="/Users/logansu/Documents/PASS/refine-logs/FINAL_PROPOSAL.md:64">the proposal</a> still says “same-budget.”</p>
+<p> Likewise, screening still requires the family-wide bank pass. At \(M=32\), the free-family median total time is about 35 seconds; co-aligned cases retain essentially the entire family.</p>
+<p> <strong>Minimum fix:</strong> consistently say “same-start shared-template swap heuristic; budgets unmatched.” Report inclusive runtime and cap hits. Claim tractability on the tested families. A matched-budget or random-bank experiment is unnecessary unless stronger comparative claims are retained.</p></li><li><p><strong>Worst-case improvement can carry substantial operating costs, and the model scope is narrow.</strong></p>
+<p> A concrete case deserves attention: endpoints, \(30\) dB, \(\epsilon=0.03\lambda\), \(P=(-3.6,2)\). It has <strong>7.85% certified worst-case improvement</strong>, while its estimated mean SLNR falls <strong>14.95%</strong>, estimated fifth percentile falls <strong>12.53%</strong>, and nominal SLNR falls <strong>39.17%</strong>. These values are in the <a href="/Users/logansu/Documents/PASS/experiments/a7/results/r017_mc_average.csv">raw Monte Carlo results</a> and main grid.</p>
+<p> The experiment uses one desired/protected receiver pair, a roughly 17.1 cm aligned candidate aperture, equal site power, and separable channels. The attenuation controls involve model-aware redesign and model-specific noise normalization.</p>
+<p> <strong>Minimum fix:</strong> include one explicit substantial-loss example alongside the median sacrifice, and keep these model restrictions visible. Treat Monte Carlo results as descriptive. Hardware, depletion, and broader geometry experiments are unnecessary for the licensed claims.</p></li><li><p><strong>A small, genuine implementation-to-proof inconsistency remains.</strong></p>
+<p> <a href="/Users/logansu/Documents/PASS/experiments/a7/a7_core.py:135">Production code</a> accepts tiny nominal phase residuals but omits them from \(\beta_D\). The <a href="/Users/logansu/Documents/PASS/experiments/a7/ablation_gaps.py:100">ablation implementation</a> already includes the correction.</p>
+<p> Replaying all 1,056 stored winners with residual enlargement reduces \(L\) by at most approximately \(2.7\times10^{-12}\) relatively and changes no dominance or uniqueness signs. This is a real cleanup item, with no observed effect on the conclusions.</p>
+<p> <strong>Minimum fix:</strong> use the existing corrected coefficients in production and regenerate affected A7 outputs and summaries. No interval-arithmetic framework is needed.</p></li><li><p><strong>Some source wording can still contaminate the manuscript.</strong></p>
+<p> <a href="/Users/logansu/Documents/PASS/refine-logs/EXPERIMENT_RESULTS.md:81">The results report</a> calls the numerical points “SLNR-minimizing witnesses.” Corner enumeration plus local refinement does not certify global minimization.</p>
+<p> <strong>Minimum fix:</strong> write “best-found SLNR witnesses.” Preserve the float64 qualification, family restriction, six leakage exceptions, and inconclusive cases. Include a compact R021 ablation block; it provides more scientific value than repeating featured-instance numbers already illustrated elsewhere.</p></li></ol>
+<p><strong>Submission readiness: Almost.</strong> The research is sufficient for a credible ICC submission after these focused fixes. I would not spend the remaining three days on a broad new simulation campaign. Prioritize contribution positioning, the small bound correction, and a six-page presentation that preserves the qualifications. The manuscript itself still needs review once written.</p>
+<p>Score: 7/10 Verdict: almost</p>
+<h2 id="memory-update">Memory update</h2>
+<ul><li><strong>Resolved:</strong> 893/899 leakage ordering is valid; 0.800 is a median certified ratio upper bound over all 899 positive-Γ cases.</li><li><strong>Resolved:</strong> core screening, uniqueness, leakage-converse mathematics, and reported R021 results survived inspection.</li><li><strong>Track:</strong> production desired-phase residual correction and regenerated certificate decisions.</li><li><strong>Track:</strong> novelty attribution; stale “same-budget” and “SLNR-minimizing” wording.</li><li><strong>Track:</strong> substantial nominal/mean/tail losses must remain visible.</li><li><strong>Track:</strong> final manuscript must distinguish completed certificate optimization, conditional uniqueness, and capped cases.</li><li><strong>Unchanged:</strong> R020 is provisional; no formal experiment audit was performed.</li></ul>
+</details>
+<h3 id="actions-taken">Actions Taken</h3>
+<ul><li>Stop gate (<code>review_gate.py</code>): <code>decision: stop</code> (codex backend, score 7 ≥ 6, verdict "almost").</li><li><code>CLAIMS_FROM_RESULTS.md</code>: new "Auto-Review Round 1 Update": licensed 893/899 leakage sentence; required paper items (novelty positioning, baseline wording, one substantial-loss example, model scope, witness wording); the known code–proof inconsistency.</li><li>Verified the reviewer's loss example from raw files: endpoints, 30 dB, ε = 0.03λ, P = (−3.6, 2): Γ = +7.85%, nominal sacrifice 39.17%, MC mean ratio 0.8505, 5th-percentile ratio 0.8747.</li><li><code>refine-logs/EXPERIMENT_RESULTS.md</code>: "SLNR-minimizing witnesses" → "best-found SLNR witnesses".</li><li><code>refine-logs/FINAL_PROPOSAL.md</code>: "same-budget corner-robust heuristic" → "same-start shared-template swap heuristic (budgets unmatched)".</li><li>Not done: fixing <code>a7_core.py:135</code> and regenerating every A7 output. The reviewer's replay shows no sign change, and regeneration would touch every result file three days before the deadline. Recorded as a known inconsistency in <code>CLAIMS_FROM_RESULTS.md</code> and <code>HANDOFF.md</code>.</li></ul>
+<h3 id="results">Results</h3>
+<ul><li>No new experiments.</li></ul>
+<h3 id="status">Status</h3>
+<ul><li>Stopping after round 1: positive assessment (7/10, almost).</li><li>Difficulty: medium</li></ul>
+<h2 id="final-summary">Final Summary</h2>
+<ul><li>Rounds: 1 of 2. Score 7/10, verdict "almost". The narrowed research story (C1–C3 with R021) held up under an adversarial read of the claims, code and raw results. No broad new simulation is needed.</li><li>The remaining work is presentation: novelty positioning, baseline and cost wording, one substantial-loss example, model scope, and keeping the qualifications (float64 evaluation, finite family, capped cases, inconclusive cases, the six leakage exceptions). These are inputs to the <code>NARRATIVE_REPORT.md</code> rewrite and <code>/paper-writing</code>.</li><li>The manuscript itself still needs review once written (<code>/paper-writing</code> runs its own improvement loop, then <code>/paper-claim-audit</code> and <code>/citation-audit</code>).</li><li><code>/result-to-claim</code> was not re-run at termination. <code>CLAIMS_FROM_RESULTS.md</code> already carries the R020 jury verdict plus the R019, R021 and round-1 updates; a fresh run would overwrite those curated updates without new evidence.</li></ul>
+<h2 id="method-description">Method Description</h2>
+<p>GCS (Global Certified Selection) chooses N = 8 of M = 24 desired-phase-aligned pinching sites on one dielectric waveguide that serves a desired user D and protects a user P, when every activated site's actuator position is off by at most ε. Theorem 1 gives, for any subset, a certified SLNR lower bound L (a projection bound on the desired power, and an asymmetric-sector support-function bound on the leakage with a sec(π/K) angular correction) and an exact value at ε = 0. Theorem 2 builds one shared bank of at most 2M endpoint sign templates from all candidate sites. Evaluated on any subset, the bank gives that subset's exact endpoint-leakage maximum and feasible SLNR witnesses U_H.</p>
+<p>The pipeline is: build the robust-clearance family; compute per-site tables and the bank; evaluate U_H for every subset in one batched pass; run a swap search for an incumbent L; then scan only the subsets whose U_H exceeds the incumbent (safe screening). This returns the exact certificate optimum Ŝ when the scan completes within the cap, a global bracket L(Ŝ) ≤ W* ≤ max U_H, and a uniqueness certificate when L(Ŝ) exceeds every rival's U_H. Protection limits follow from the endpoint converse F_end and the achievability bound Ī(Ŝ). Evaluation compares Ŝ with the exhaustive nominal optimum S_N through certified dominance L(Ŝ) &gt; U(S_N).</p>
+<h2 id="sidecar-state">Sidecar — <code>REVIEW_STATE.json</code></h2>
+<details><summary>Sidecar JSON: <code>/Users/logansu/Documents/PASS/review-stage/REVIEW_STATE.json</code></summary><pre><code class="language-json">{
+  &quot;run_id&quot;: &quot;run_20260929_ac8029ec&quot;,
+  &quot;round&quot;: 1,
+  &quot;threadId&quot;: &quot;01a0ec61-047e-7c03-ac6a-1737bf392e79&quot;,
+  &quot;reviewer_backend&quot;: &quot;codex&quot;,
+  &quot;executor_model&quot;: &quot;claude-opus-5-5&quot;,
+  &quot;executor_model_source&quot;: &quot;caller-declared&quot;,
+  &quot;requested_reviewer_model&quot;: &quot;gpt-6-astra&quot;,
+  &quot;reported_reviewer_model&quot;: &quot;gpt-6-astra&quot;,
+  &quot;reviewer_effort&quot;: &quot;ultra&quot;,
+  &quot;requires_external_acquittal&quot;: false,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;difficulty&quot;: &quot;medium&quot;,
+  &quot;last_score&quot;: 7.0,
+  &quot;last_verdict&quot;: &quot;almost&quot;,
+  &quot;pending_experiments&quot;: [],
+  &quot;timestamp&quot;: &quot;2026-09-29T17:04:28&quot;
+}</code></pre></details>
+
+<footer class="aris-footer">
+  Generated by <a href="https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/main/skills/render-html/SKILL.md">ARIS <code>/render-html</code></a> ·
+  source path <code>review-stage/AUTO_REVIEW.md</code> ·
+  SHA256 <code>37f60eec4e0b</code> ·
+  generated at 2026-09-29 09:05 UTC.
+  This is a generated view — edit the source Markdown, then re-render.
+</footer>
+</main>
+
+</div>
+
+<!-- P0 polish: paper popover host (populated by IIFE below) -->
+<div id="cite-pop" hidden role="dialog" aria-labelledby="cite-pop-title">
+  <button class="cp-close" type="button" aria-label="Close">×</button>
+  <div class="cp-content"></div>
+</div>
+
+<!-- P0 polish: figure lightbox (native <dialog>, graceful fallback) -->
+<dialog class="lightbox" id="figure-lightbox" aria-label="Figure detail">
+  <div class="lb-inner">
+    <button class="lb-close" type="button" aria-label="Close">×</button>
+    <img alt="" />
+    <figcaption></figcaption>
+  </div>
+</dialog>
+
+<!-- P0 polish: paper registry sidecar, embedded by render_html.py (--papers) -->
+<script>window.PAPER_REGISTRY = {};</script>
+
+<!-- P0 polish: interactive enhancements (TOC scrollspy, code-card auto-collapse,
+     paper popovers, figure lightbox, print-restore for <details>, blog-mode H2). -->
+<script>
+(function () {
+  "use strict";
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[c];
+    });
+  }
+
+  // --- Feature 5: Print degradation fix ---------------------------------
+  // Force every <details> open during print, restore the pre-print state after.
+  var _stashOpen = [];
+  var _printing = false;
+  window.addEventListener("beforeprint", function () {
+    if (_printing) return;  // guard against multi-fire (Chrome print preview)
+    _printing = true;
+    _stashOpen = [];
+    document.querySelectorAll("details:not([open])").forEach(function (d) {
+      _stashOpen.push(d);
+      d.open = true;
+    });
+  });
+  window.addEventListener("afterprint", function () {
+    _stashOpen.forEach(function (d) { if (d.isConnected) d.open = false; });
+    _stashOpen = [];
+    _printing = false;
+  });
+
+  // --- Feature 3: TOC scrollspy -----------------------------------------
+  var tocLinks = [].slice.call(document.querySelectorAll("nav.toc a"));
+  var headings = tocLinks.map(function (a) {
+    var id = a.getAttribute("href").replace(/^#/, "");
+    return document.getElementById(id);
+  }).filter(Boolean);
+  if (headings.length && typeof IntersectionObserver !== "undefined") {
+    var linkById = new Map();
+    headings.forEach(function (h, i) { linkById.set(h.id, tocLinks[i]); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        tocLinks.forEach(function (l) { l.classList.remove("active"); });
+        var lk = linkById.get(en.target.id);
+        if (lk) lk.classList.add("active");
+      });
+    }, { rootMargin: "-15% 0px -75% 0px" });
+    headings.forEach(function (h) { io.observe(h); });
+  }
+
+  // --- Feature 1: Long-code auto-collapse -------------------------------
+  var COLLAPSE_THRESHOLD = 30;
+
+  function wrapCodeCard(pre, openByDefault) {
+    if (!pre || pre.closest("details.code-card")) return;
+    var code = pre.querySelector("code");
+    if (!code) return;
+    var lines = code.textContent.replace(/\n+$/, "").split("\n").length;
+    var det = document.createElement("details");
+    det.className = "code-card";
+    det.open = openByDefault;
+    var sum = document.createElement("summary");
+    function updateSummary() {
+      sum.textContent = (det.open ? "▾ Collapse code · " : "▸ Expand code · ") + lines + " lines";
+    }
+    updateSummary();
+    det.addEventListener("toggle", updateSummary);
+    pre.parentNode.insertBefore(det, pre);
+    det.appendChild(sum);
+    det.appendChild(pre);
+  }
+
+  // Honor explicit per-block flags first.
+  document.querySelectorAll("pre[data-collapse]").forEach(function (pre) {
+    var flag = pre.getAttribute("data-collapse");
+    if (flag === "collapsed") wrapCodeCard(pre, false);
+    // "open" → leave fully expanded, do not wrap.
+  });
+  // Then auto-wrap long unflagged blocks.
+  document.querySelectorAll("pre > code").forEach(function (code) {
+    var pre = code.closest("pre");
+    if (!pre || pre.closest("details") || pre.hasAttribute("data-collapse")) return;
+    var lines = code.textContent.replace(/\n+$/, "").split("\n").length;
+    if (lines >= COLLAPSE_THRESHOLD) wrapCodeCard(pre, false);
+  });
+
+  // --- Feature 10: Figure lightbox --------------------------------------
+  var lightbox = document.getElementById("figure-lightbox");
+  if (lightbox) {
+    var lbImg = lightbox.querySelector("img");
+    var lbCap = lightbox.querySelector("figcaption");
+    var lbClose = lightbox.querySelector(".lb-close");
+    function openLightbox(srcImg) {
+      lbImg.src = srcImg.src;
+      lbImg.alt = srcImg.alt || "";
+      var cap = srcImg.closest("figure") ? srcImg.closest("figure").querySelector("figcaption") : null;
+      lbCap.textContent = cap ? cap.textContent : "";
+      lbCap.hidden = !cap;
+      if (typeof lightbox.showModal === "function") lightbox.showModal();
+      else lightbox.hidden = false;
+    }
+    function closeLightbox() {
+      if (typeof lightbox.close === "function") lightbox.close();
+      else lightbox.hidden = true;
+    }
+    document.querySelectorAll("main figure img, main > p > img").forEach(function (img) {
+      if (img.closest("dialog")) return;
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", function () { openLightbox(img); });
+    });
+    if (lbClose) lbClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", function (e) {
+      // Backdrop click closes; clicks inside .lb-inner do not bubble here.
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+
+  // --- Feature 2: Paper popover -----------------------------------------
+  var PAPERS = window.PAPER_REGISTRY || {};
+  var pop = document.getElementById("cite-pop");
+  var popContent = pop ? pop.querySelector(".cp-content") : null;
+  var popClose = pop ? pop.querySelector(".cp-close") : null;
+  var popTrigger = null;
+
+  function showPopover(el) {
+    var key = el.dataset.ref;
+    var info = PAPERS[key];
+    if (!info || !pop || !popContent) return;
+    popContent.innerHTML =
+      '<div class="cp-title" id="cite-pop-title">' + escapeHtml(info.title || key) + '</div>' +
+      (info.authors
+        ? '<div class="cp-meta">' + escapeHtml(info.authors) +
+            (info.date ? ' · ' + escapeHtml(info.date) : '') +
+            (info.inst ? ' · ' + escapeHtml(info.inst) : '') + '</div>'
+        : '') +
+      (info.key ? '<div class="cp-key">' + escapeHtml(info.key) + '</div>' : '') +
+      (info.arxiv
+        ? '<a class="cp-link" href="https://arxiv.org/abs/' + encodeURIComponent(info.arxiv) +
+          '" target="_blank" rel="noopener">arXiv ' + escapeHtml(info.arxiv) + ' ↗</a>'
+        : '');
+    var r = el.getBoundingClientRect();
+    pop.hidden = false;  // unhide first so offsetHeight is measurable
+    var margin = 16;
+    var popWidth = Math.min(360, Math.max(0, window.innerWidth - margin * 2));
+    var popHeight = Math.min(pop.offsetHeight || 200, Math.max(0, window.innerHeight - margin * 2));
+    pop.style.left = Math.max(margin, Math.min(r.left, window.innerWidth - popWidth - margin)) + "px";
+    pop.style.top = Math.max(margin, Math.min(r.bottom + 8, window.innerHeight - popHeight - margin)) + "px";
+    popTrigger = el;
+    if (popClose) popClose.focus();
+  }
+  function hidePopover() {
+    if (pop) pop.hidden = true;
+    if (popTrigger) popTrigger.focus();
+    popTrigger = null;
+  }
+  document.querySelectorAll("[data-ref]").forEach(function (el) {
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("role", "button");
+    el.addEventListener("click", function (e) { e.stopPropagation(); showPopover(el); });
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); showPopover(el); }
+    });
+  });
+  if (popClose) popClose.addEventListener("click", hidePopover);
+  document.addEventListener("click", function (e) {
+    if (pop && !pop.hidden && !pop.contains(e.target) && !e.target.matches("[data-ref]")) hidePopover();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && pop && !pop.hidden) hidePopover();
+  });
+
+  // --- Feature 7: Blog-mode active-H2 highlight (opt-in) ----------------
+  if (document.body.classList.contains("aris-blog")) {
+    var h2s = [].slice.call(document.querySelectorAll("main h2"));
+    if (h2s.length && typeof IntersectionObserver !== "undefined") {
+      var io2 = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            h2s.forEach(function (h) { h.classList.remove("aris-active-h2"); });
+            en.target.classList.add("aris-active-h2");
+          }
+        });
+      }, { rootMargin: "-15% 0px -75% 0px" });
+      h2s.forEach(function (h) { io2.observe(h); });
+    }
+  }
+})();
+</script>
+</body>
+</html>

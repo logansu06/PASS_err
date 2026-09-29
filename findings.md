@@ -256,3 +256,14 @@ Recomputed on 2026-09-25 directly from `results/` (no reruns of `src/main.py`):
   - A wall-clock refinement budget made the stress panel machine-dependent (co-aligned bounds moved by up to 0.6% between runs). The budget is now a box count (deterministic).
   - The first M = 16 timing compared paths with different batch sizes, so it is not a screening speedup. It was dropped.
 - **Deferred (priority 2/4):** random vs geometric bank, equal-CPU B-CR, fixed-noise transfer. A1 keeps the "same-start shared-template heuristic" wording.
+
+---
+
+# 2026-09-29 — /auto-review-loop round 1: 7/10, "almost" (stopped)
+
+- **Reviewer:** GPT-6 Astra (ultra), read-only on the repo. Trace `.aris/traces/auto-review-loop/2026-09-29_run01/`; log `review-stage/AUTO_REVIEW.md`. The loop stopped after round 1 (`review_gate.py`: stop).
+- **Held up:** C1–C3 and R021 under an adversarial read; the reviewer recomputed the headline counts and found no fatal mathematical or computational flaw.
+- **Validated:** the R019 certified leakage comparison. 893/899 positive-Γ cases certify strictly lower worst-case leakage than S_N (457/462 free, 436/437 endpoints); the median certified leakage-ratio bound over all 899 is ≤ 0.800. Only the witness's feasibility is needed.
+- **Main risk:** narrow novelty. Credit rank-2 binary quadratic maximization and sector/support-function bounds as tools; centre the paper on family-wide exact endpoint-leakage coverage by one shared bank, protection limits, and measured certification yield.
+- **Presentation fixes for the paper:** budgets-unmatched baseline wording; inclusive runtime and cap hits; one substantial-loss example (endpoints, 30 dB, 0.03λ, P = (−3.6, 2): Γ +7.85% but nominal −39.17%, MC mean −14.95%, 5th percentile −12.53%); visible model scope; "best-found SLNR witnesses".
+- **Known, unfixed:** `a7_core.py:135` omits the nominal D-phase residual (≤ about 2.7e-12 relative on L, no sign change). Not regenerated before the deadline.

@@ -61,7 +61,7 @@ Within a robust-clearance, finite, D-aligned PASS family:
 - **Contribution 3 — Protection limits (Corollary 2).**
   - An exact endpoint converse $F_{\rm end} \le \min_S \max_\delta I_P \le \bar I(\hat S)$.
   - An interference-temperature feasibility corollary: which leakage ceilings no layout can guarantee under tolerance ε.
-- **Experimental contribution.** Matched-endpoint comparison against the **exhaustive** nominal optimum and a same-budget corner-robust heuristic, with nominal sacrifice, certification gaps, screening efficiency, and CPU cost.
+- **Experimental contribution.** Matched-endpoint comparison against the **exhaustive** nominal optimum and a same-start shared-template swap heuristic (budgets unmatched; the earlier "same-budget" wording was withdrawn at R020, see `CLAIMS_FROM_RESULTS.md` A1), with nominal sacrifice, certification gaps, screening efficiency, and CPU cost.
 - **Explicitly rejected complexity:**
   - learning;
   - A2 calibration;

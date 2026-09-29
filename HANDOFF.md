@@ -1,6 +1,6 @@
 # HANDOFF — PASS 位置误差鲁棒性 → IEEE ICC 2027 论文
 
-> 更新：2026-09-29，macOS。完成 R021 消融（`/ablation-planner`），证书的各类差距已分开量化。
+> 更新：2026-09-29 傍晚，macOS。完成 R021 消融和 `/auto-review-loop`（第 1 轮 7/10，almost，已停止）。
 > 之前的版本：2026-09-28 傍晚，macOS，跨平台同步和 Overleaf 桥接之后；2026-09-28 下午，Windows，M4（R018–R020）完成后；2026-09-27，macOS，`/experiment-bridge` 完成后。
 >
 > 接手的人（或新的 Claude/Codex 会话）请按顺序阅读：
@@ -24,7 +24,8 @@
 - **跨平台同步**：Windows 上的 M4 产物已在 macOS 上重跑验证，数字和表格一致，见第 9 节。
 - **论文编译改用 Overleaf**：两台机器都**不装 LaTeX**。macOS 已接好 Overleaf Git 桥接（`paper-overleaf/`），Windows 还没配置。见第 10 节。
 - **R021 消融**：完成（2026-09-29）。角度离散、扇区包络、期望信号投影三项合计的损失 ≤ 0.0934%。从 v1 证书换到现在的证书，被确认的场景从 437 增加到 462（free）、从 403 增加到 437（endpoints）。x_P = 0 的压力测试里，联合细化后 16 对中有 4 对被证书确认。见第 5、6 节。
-- **下一步**：决定仓库是否改私有 → 有限轮次 `/auto-review-loop`（`/experiment-audit` 按用户决定跳过） → 重写 `NARRATIVE_REPORT.md` → `/paper-writing`。详见第 7 节。
+- **`/auto-review-loop`**：第 1 轮得分 7/10，结论 almost，满足停止条件。C1–C3 和 R021 经得起对抗性审查；"893/899 最坏泄漏更低"已被验证。最大风险是新意偏窄，写作时要按审稿意见定位。见第 6、7 节和 `review-stage/AUTO_REVIEW.md`。
+- **下一步**：决定仓库是否改私有 → 重写 `NARRATIVE_REPORT.md`（按审稿意见定位） → `/paper-writing`。`/experiment-audit` 按用户决定跳过。详见第 7 节。
 
 ## 2. 目标与约束
 
@@ -85,7 +86,7 @@
 | Overleaf 桥接（`/overleaf-sync setup`） | **完成**（仅 macOS），验证通过 | `paper-overleaf/`（已 gitignore） | macOS |
 | `/ablation-planner`（R021） | **完成**：四类差距分开量化；GPT-6 Astra ultra 设计并审核 | `experiments/a7/ablation_gaps.py`、`results/ablation_*` | macOS |
 | `/experiment-audit` | 可选，未做（做了可去掉 provisional 标签） | — | — |
-| `/auto-review-loop` | 待做（有限轮次；旧评审已归档到 `fyp_report/review-stage/`） | `review-stage/`（运行时创建） | — |
+| `/auto-review-loop` | **完成**：第 1 轮 7/10，almost，已停止 | `review-stage/`（旧的毕设评审在 `fyp_report/review-stage/`） | macOS |
 | 重写 `NARRATIVE_REPORT.md` | 待做（**当前内容还是毕设时期的叙事**） | `NARRATIVE_REPORT.md` | — |
 | `/paper-writing — venue: IEEE_CONF, human checkpoint: true` | 待做（编译在 Overleaf 上做，见第 10 节） | `paper/` | — |
 
@@ -103,7 +104,7 @@
   - Gate（Γ>5%）：297/528 = **56.25%**，门槛 20%。
   - Γ 中位数 11.3% / 6.9%。
   - 增益随 SNR 增大，10 dB 时很小。
-  - **新增（待审）：** Γ>0 的 899 例中有 893 例满足 Ī(Ŝ) 低于 S_N 在其 witness 处的泄漏，即 **Ŝ 的最坏泄漏被严格证明更低**，中位数比值 0.80。
+  - **已验证（auto-review 第 1 轮）：** Γ>0 的 899 例中有 893 例（free 457/462，endpoints 436/437）满足 Ī(Ŝ) 低于 S_N 在其 best-found witness 处的泄漏，即 **Ŝ 的最坏泄漏被严格证明更低**。899 例上证书泄漏比的中位数 ≤ 0.800。可用措辞见 `CLAIMS_FROM_RESULTS.md`。
 - **C2：**
   - 唯一性证书 38.6% / 45.3%，随 ε 增大而下降，0.08λ 时只有 9–15%。
   - 全局 bracket 中位数约 0.5%。
@@ -145,7 +146,13 @@
 - **四类 gap 已分开量化（R021）。** 角度、扇区包络、期望信号投影三项合计 ≤ 0.0934%。
   - 全网格上剩下的部分是 D/P 依赖和未解决的 witness 差距混在一起，**不能**说"依赖主导了全网格的 gap"。只有压力测试把两者分开了。
   - 对独立误差，Minkowski 求和是精确的。R018 时"保守性来自 Minkowski 和"的说法是错的，已在 `findings.md` 更正。
-- **代码 MINOR：** `a7_core.py:135` 没把残余名义相位失配算进 β_D。影响约为 1e-6（相对量），暂不修改。
+- **代码 MINOR：** `a7_core.py:135` 没把残余名义相位失配算进 β_D。审稿人重放全部 1,056 个 Ŝ：L 最多降低约 2.7e-12（相对），没有任何结论翻转。投稿前不修改，否则要重新生成全部结果。
+- **审稿意见（auto-review 第 1 轮），写论文时必须处理：**
+  - 新意偏窄是最大风险。秩 2 二值二次型最大化和扇区 support function 界要作为工具明确致谢；贡献放在"一个共享模板库对整个族给出精确的端点泄漏覆盖"、保护极限和实测的认证率上。
+  - 基线一律写 "same-start shared-template swap heuristic; budgets unmatched"；报告含全部步骤的运行时间和 cap hit；只在测试过的族上声称可行。
+  - 除了中位数牺牲，还要给一个代价很大的例子：endpoints、30 dB、ε=0.03λ、P=(−3.6,2)，证书增益 +7.85%，但名义 SLNR −39.17%，蒙特卡洛平均 −14.95%，第 5 百分位 −12.53%。
+  - 模型范围要写明：一对 D/P、一段对齐孔径、各站点等功率、可分离信道。
+  - witness 写 "best-found SLNR witnesses"，不写 "SLNR-minimizing"。
 - **反驳要点：**
   - Yang et al.（TVT 2026）用的是逐元素 box 误差；
   - Chen 等人的 H-PASS（TWC 2026）已经仿真过多 PA 的位置误差；
@@ -157,8 +164,8 @@
 0. 用户决定：GitHub 仓库是否改成 private（见第 10 节）。
 1. `/ablation-planner`：**已完成**（R021，2026-09-29）。推迟的三项消融是随机与几何模板库对比、等 CPU 的 B-CR、固定物理噪声下的迁移，只有论文需要更强的说法时才做。
 2. `/experiment-audit`：**不做**（用户决定，2026-09-29）。R020 的结论保持 provisional 标签。
-3. 有限轮次的 `/auto-review-loop`，顺带让 reviewer 审"893/899 最坏泄漏更低"这条新结论。
-4. 重写 `NARRATIVE_REPORT.md`（A7 v2）。图表直接用 `figures/latex_includes.tex`。
+3. `/auto-review-loop`：**已完成**（第 1 轮 7/10，almost）。"893/899"已验证。
+4. 重写 `NARRATIVE_REPORT.md`（A7 v2）。图表直接用 `figures/latex_includes.tex`；按第 6 节的审稿意见定位新意，并放一张 R021 消融的小表。
 5. `/paper-writing — venue: IEEE_CONF, human checkpoint: true`。它的编译步骤改走 Overleaf（见第 10 节“Overleaf 与论文编译”）。之后跑 `/paper-claim-audit` 和 `/citation-audit`。
 6. 时间线：9/29 做步骤 1–3，9/30–10/1 写作，**10/2 在 EDAS 提交**。
 
