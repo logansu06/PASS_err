@@ -3,11 +3,7 @@
 __pycache__/
 *.py[cod]
 .DS_Store
-# .claude/ is machine-local (ARIS junctions, settings) except the user-owned skill below
-.claude/*
-!.claude/skills/
-.claude/skills/*
-!.claude/skills/paper-writing-craft/
+.claude/
 
 # Overleaf git-bridge clone (per machine; see /overleaf-sync)
 paper-overleaf/

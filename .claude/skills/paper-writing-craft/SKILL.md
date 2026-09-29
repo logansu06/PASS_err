@@ -203,3 +203,4 @@ when every section is `CLEAN`). **Do not** wrap `/auto-paper-improvement-loop` i
 | `scripts/selftest.py` | assertions for the gate, `fact_guard.py`, `rules.json` <-> `gate_mechanical.md`; run it after any change to a rule or script (`"$PY" scripts/selftest.py`) |
 | `assets/mei_ieee.mplstyle` | matplotlib style reproducing the curve plots |
 | `PROVENANCE.md`, `LICENSE`, `UPSTREAM_DESIGN.md` | origin, MIT licence of the upstream skill, upstream rationale |
+| `MACOS_ADOPTION.md` | steps for the Claude Code on the macOS machine: import, adapt the ARIS mapping to the local ARIS, dry-run the red-team, what is verified and what is not |
