@@ -1,0 +1,40 @@
+gaps: 10/170 groups, 160 layout-rows, 4s
+gaps: 20/170 groups, 320 layout-rows, 6s
+gaps: 30/170 groups, 480 layout-rows, 9s
+gaps: 40/170 groups, 640 layout-rows, 11s
+gaps: 50/170 groups, 800 layout-rows, 14s
+gaps: 60/170 groups, 960 layout-rows, 16s
+gaps: 70/170 groups, 1120 layout-rows, 18s
+gaps: 80/170 groups, 1280 layout-rows, 21s
+gaps: 90/170 groups, 1440 layout-rows, 23s
+gaps: 100/170 groups, 1600 layout-rows, 25s
+gaps: 110/170 groups, 1760 layout-rows, 28s
+gaps: 120/170 groups, 1920 layout-rows, 30s
+gaps: 130/170 groups, 2080 layout-rows, 32s
+gaps: 140/170 groups, 2240 layout-rows, 32s
+gaps: 150/170 groups, 2400 layout-rows, 32s
+gaps: 160/170 groups, 2560 layout-rows, 32s
+gaps: 170/170 groups, 2720 layout-rows, 33s
+stress: 8/64 layouts, 118s
+stress: 16/64 layouts, 183s
+stress: 24/64 layouts, 259s
+stress: 32/64 layouts, 339s
+stress: 40/64 layouts, 417s
+stress: 48/64 layouts, 491s
+stress: 56/64 layouts, 562s
+stress: 64/64 layouts, 657s
+{
+ "checks_failed": {
+  "check_sector_contains_curve": 0,
+  "check_curve_contains_corners": 0,
+  "check_production_ge_sector": 0,
+  "check_nested_witness": 0,
+  "check_Q_le_U": 0
+ },
+ "production_reproduced_max_rel": 2.531308496145357e-14,
+ "v1_literal_max_rel_diff": 4.3298697960381105e-15,
+ "resid_D_phase_max": 2.1109080616243898e-12,
+ "D0_correction_max_rel": 2.1189716647995738e-12
+}
+saved ablation_gaps.csv 692s
+exit 0

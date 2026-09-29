@@ -230,3 +230,29 @@ Recomputed on 2026-09-25 directly from `results/` (no reruns of `src/main.py`):
   - Recurring overclaim pattern: an absolute word ("no pruning") written from a visual impression. The same class as R020's "≤ 1%". Test every absolute statement against every data row.
 - No TeX engine on this machine. LaTeX widths are estimated only (Table I fixed for padding; Table II labels shortened). Compile check deferred at the user's request.
 - R018 closed after three GPT-6 Astra ultra review rounds. All six artifacts are "Ready". Round 2 caught one more self-introduced overclaim: a certificate inequality in a caption was rounded to nearest, which breaks it. Caption bounds must be rounded outward (upper bounds up, witnesses down), and the rounded values are now persisted in `figures/fig1_values.json`.
+
+---
+
+# 2026-09-29 — R021 ablation: certificate-gap accounting on fixed layouts (/ablation-planner)
+
+- **Design and audit:** GPT-6 Astra (ultra), one thread for design, feasibility and result audit. Traces: `.aris/traces/ablation-planner/2026-09-29_run01/` (001–003).
+- **Where:** code `experiments/a7/ablation_gaps.py`; results `experiments/a7/results/ablation_*`. Every number below is in `ablation_summary.md`, with bound endpoints rounded outward. No layout is re-selected: every row uses the stored Ŝ / S_N.
+- **Validity:** all 2,720 layout-rows pass. Production L reproduces the stored values; the symmetric sector + additive pad equals the literal v1 certificate; sector ⊇ true curve ⊇ corners; witnesses are nested.
+- **Certificate refinements (GPT-6 Pro D.2), primary Ŝ:**
+  - pad → sec: median +0.936%, p95 +4.86%, max ≤ +11.76%;
+  - symmetric → asymmetric: ≤ +0.0183%;
+  - certified-positive Ŝ against the stored U(S_N): 437 → 462 (free) and 403 → 437 (endpoints) from literal v1 to production.
+- **Enclosure losses are small** (both layouts, 2,112 primary rows, upper endpoints): angular ≤ 0.000476%, P-side sector ≤ 0.0797%, desired projection ≤ 0.0141%, combined ≤ 0.0934%. This closes the "sector gap not measured" item from R020.
+- **Dependency (stress panel, joint refinement of both layouts, 100,351 boxes each):**
+  - off-axis: W is pinned; the median dependency factor lies in [0.0359%, 0.0436%];
+  - co-aligned (x_P = 0): median in [13.71%, 21.11%]; certified lower endpoints 1.82%–28.3%, which are lower bounds, not the losses;
+  - 4/16 co-aligned pairs become certified dominance (all P = (0,4), ε = 0.03λ, both families, 10/40 dB; gain in [0.887%, 0.972%]). The other 12 stay inconclusive. R020's A3 statement (5 other cases, none flips) stays correct.
+  - On the full grid, the remainder after the enclosure factors mixes dependency with unresolved witness slack. "Dependency dominates the full-grid gap" is **not** licensed.
+- **Witness ladder:** the shared bank reaches the all-corner minimum on every fixed primary layout (|U_H/U_C − 1| ≤ 2.44e-15); refinement lowers it by up to 13%; 56 extra starts on the stress panel give no numerically resolved improvement.
+- **Selection:** swap → completed GCS improves the certificate objective in 373/480 exact free and 312/528 endpoint cases. On the M = 16 slice, GCS returns the exhaustive certificate maximum and layout in 24/24 (correctness only; no speedup claim).
+- **Literal v1 at ε = 0:** artificial penalty median 0.1635%, max ≤ 8.53% (544 layout-rows). Production uses the exact branch.
+- **Correction to the 2026-09-28 R018 entry** ("Theorem 1's conservatism comes from the Minkowski sum and the D/P decoupling"): For independent actuator errors, Minkowski addition introduces no relaxation; the ablations bound the combined angular, sector-enclosure and desired-projection loss by 0.0934% on the primary fixed-layout grid and establish positive D/P-dependency losses on the audited co-aligned stress layouts.
+- **Process lessons:**
+  - A wall-clock refinement budget made the stress panel machine-dependent (co-aligned bounds moved by up to 0.6% between runs). The budget is now a box count (deterministic).
+  - The first M = 16 timing compared paths with different batch sizes, so it is not a screening speedup. It was dropped.
+- **Deferred (priority 2/4):** random vs geometric bank, equal-CPU B-CR, fixed-noise transfer. A1 keeps the "same-start shared-template heuristic" wording.

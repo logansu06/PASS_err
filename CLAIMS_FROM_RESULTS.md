@@ -100,6 +100,27 @@ State once, near the theorems: *"Certificates are analytical statements; all ine
   - This is a stronger, certificate-based version of the mechanism statement. The witness-ratio version (1.000 / 0.79) stays descriptive: "at the SLNR witnesses".
   - Inclusive per-case runtime: 3.9 s / 0.55 s median (free / endpoints).
 
+## R021 Update (2026-09-29): Ablation, Audited by GPT-6 Astra (ultra)
+
+Source: `experiments/a7/results/ablation_summary.md` (bound endpoints rounded outward), from `experiments/a7/ablation_gaps.py`. Traces: `.aris/traces/ablation-planner/2026-09-29_run01/` (001 design, 002 feasibility, 003 result audit). This is a reviewer audit of the ablation, not a new jury verdict on C1–C3. The main-grid certification rates above are unchanged.
+
+**Licensed sentences (at most one compact table block plus these):**
+- "All bounds are analytical statements evaluated numerically in float64, with displayed endpoints rounded outward."
+- "On fixed primary GCS layouts, replacing the literal-v1 certificate with the production certificate increases certified-positive counts from 437 to 462 of 528 free cases and from 403 to 437 of 528 identical-endpoint cases."
+- "Additional joint-box verification certifies dominance in four of sixteen co-aligned stress pairs, all at P = (0,4), ε = 0.03λ, both families and 10/40 dB, with gains of at least 0.88%; the other twelve remain inconclusive."
+- Table rows (percent): pad → sec gain median 0.936 / p95 4.86 / max ≤ 11.76; symmetric → asymmetric ≤ 0.0183; angular / P-sector / desired loss ≤ 0.000476 / ≤ 0.0797 / ≤ 0.0141; combined ≤ 0.0934; median dependency off-axis [0.0359, 0.0436], co-aligned [13.71, 21.11] (stress panel, 32 layout-rows each); swap → completed GCS 373/480 (free), 312/528 (endpoints).
+
+**A3 update (x_P = 0):** R020's statement stays correct for its 5 cases. Add the scoped stress-panel evidence: 4/16 co-aligned pairs certified after joint refinement of both layouts; certified dependency lower endpoints 1.82%–28.3% on co-aligned layouts.
+
+**Must not appear (in addition to the list above):**
+- "dependency dominates the full-grid gap" (on the full grid the remainder mixes dependency with unresolved witness slack);
+- "Minkowski-sum relaxation" (Minkowski addition is exact for independent errors);
+- "exact continuous worst case";
+- "sampling validates the bounds";
+- "screening delivers 38× speedup" (the M = 16 audit is a correctness check only);
+- "the negative region is repaired";
+- "dependency losses are at most 28%" (28.3% is a lower endpoint).
+
 ## Evidence Not Found at R020 Time (resolved by R019; kept for the record)
 
 Numbers reported in `EXPERIMENT_RESULTS.md` but present in no result file at R020 time. Per the skill they were `claim_supported: no`, `integrity_status: evidence_not_found`, and were not re-litigated by the juries.
@@ -129,11 +150,11 @@ None is needed for the sentences above; each is needed only to keep a stronger c
 
 - Matched-budget B-CR comparison (evaluations or wall time) — to keep "same-budget".
 - Fixed-physical-noise non-ideal rerun, and model-mismatch transfer — to claim physical-link robustness.
-- Joint-box refinement of **both** Ŝ and S_N on representative co-aligned cases — to attribute the negative region.
+- Joint-box refinement of **both** Ŝ and S_N on representative co-aligned cases — to attribute the negative region. *(Done on the R021 stress panel: see the R021 update.)*
 - Repeated-seed MC with quantile uncertainty — to make inferential tail claims.
 - An interference-temperature operating-point panel computed from the existing C3 bounds (no new simulation).
 - Persist the weakest-margin numerical audit (smallest positive Γ = 5.697e-6 and smallest positive uniqueness margin preserved their signs at 50–60 digits in the juries' read-only checks; not yet in a result file).
 
 ## Executor Note (not a jury verdict)
 
-The v2 proposal (success condition 4), the plan (reviewer concern 3) and GPT-6 Pro (§7.2) require the four gaps — angular, sector enclosure, D/P dependency, selection — to be reported separately. Angular (R004), selection (swap gap) and D/P dependency (joint-box) have evidence; the **sector-enclosure gap has no separate measurement**. GPT-6 Pro's D.2 minimal experiment (same subset: additive pad vs symmetric-sector sec vs asymmetric-sector sec) was not run. This is the natural `/ablation-planner` item.
+The v2 proposal (success condition 4), the plan (reviewer concern 3) and GPT-6 Pro (§7.2) require the four gaps — angular, sector enclosure, D/P dependency, selection — to be reported separately. Angular (R004), selection (swap gap) and D/P dependency (joint-box) have evidence; the **sector-enclosure gap has no separate measurement**. GPT-6 Pro's D.2 minimal experiment (same subset: additive pad vs symmetric-sector sec vs asymmetric-sector sec) was not run. This is the natural `/ablation-planner` item. *(Done in R021, 2026-09-29: sector-enclosure loss ≤ 0.0797% on every primary fixed layout.)*

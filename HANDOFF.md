@@ -1,7 +1,7 @@
 # HANDOFF — PASS 位置误差鲁棒性 → IEEE ICC 2027 论文
 
-> 更新：2026-09-28 傍晚，macOS。从 GitHub 同步了 Windows 上的 M4 工作并验证跨平台复现；论文改为在 Overleaf 编译，macOS 上已接好 Overleaf Git 桥接。
-> 之前的版本：2026-09-28 下午，Windows，M4（R018–R020）完成后；2026-09-27，macOS，`/experiment-bridge` 完成后。
+> 更新：2026-09-29，macOS。完成 R021 消融（`/ablation-planner`），证书的各类差距已分开量化。
+> 之前的版本：2026-09-28 傍晚，macOS，跨平台同步和 Overleaf 桥接之后；2026-09-28 下午，Windows，M4（R018–R020）完成后；2026-09-27，macOS，`/experiment-bridge` 完成后。
 >
 > 接手的人（或新的 Claude/Codex 会话）请按顺序阅读：
 > 1. 本文件；
@@ -23,7 +23,8 @@
   - **定向查新**：结论是 PROCEED，但 Theorem 2 的定位需要调整，见第 3 节。
 - **跨平台同步**：Windows 上的 M4 产物已在 macOS 上重跑验证，数字和表格一致，见第 9 节。
 - **论文编译改用 Overleaf**：两台机器都**不装 LaTeX**。macOS 已接好 Overleaf Git 桥接（`paper-overleaf/`），Windows 还没配置。见第 10 节。
-- **下一步**：决定仓库是否改私有 → 可选的消融和审计 → 有限轮次 `/auto-review-loop` → 重写 `NARRATIVE_REPORT.md` → `/paper-writing`。详见第 7 节。
+- **R021 消融**：完成（2026-09-29）。角度离散、扇区包络、期望信号投影三项合计的损失 ≤ 0.0934%。从 v1 证书换到现在的证书，被确认的场景从 437 增加到 462（free）、从 403 增加到 437（endpoints）。x_P = 0 的压力测试里，联合细化后 16 对中有 4 对被证书确认。见第 5、6 节。
+- **下一步**：决定仓库是否改私有 → 有限轮次 `/auto-review-loop`（`/experiment-audit` 按用户决定跳过） → 重写 `NARRATIVE_REPORT.md` → `/paper-writing`。详见第 7 节。
 
 ## 2. 目标与约束
 
@@ -82,7 +83,7 @@
 | R018 画图（`/paper-figure`） | **完成**：3 轮审查后全部 Ready | `figures/` | Windows |
 | 跨平台同步验证 | **完成**：R019 数字和 R018 表格逐字节一致，图只有字体渲染差别 | — | macOS |
 | Overleaf 桥接（`/overleaf-sync setup`） | **完成**（仅 macOS），验证通过 | `paper-overleaf/`（已 gitignore） | macOS |
-| `/ablation-planner`（sector gap） | 可选，未做 | — | — |
+| `/ablation-planner`（R021） | **完成**：四类差距分开量化；GPT-6 Astra ultra 设计并审核 | `experiments/a7/ablation_gaps.py`、`results/ablation_*` | macOS |
 | `/experiment-audit` | 可选，未做（做了可去掉 provisional 标签） | — | — |
 | `/auto-review-loop` | 待做（有限轮次；旧评审已归档到 `fyp_report/review-stage/`） | `review-stage/`（运行时创建） | — |
 | 重写 `NARRATIVE_REPORT.md` | 待做（**当前内容还是毕设时期的叙事**） | `NARRATIVE_REPORT.md` | — |
@@ -118,6 +119,12 @@
   - P=(0,1) 时 F_end≈0.80。只能写成"I_max < p·F_end 时不可行"，不能写"fundamentally unprotectable"。
 - **非理想信道：** Γ>0 保持 82–89%，但这是在每个模型下**重新设计**、采用各自参考 SNR 的结果。
 - **蒙特卡洛：** 平均 SLNR 损失的中位数为 0.32% / 0.42%，个别用例最大损失达 22.9% / 15.0%。
+- **消融（R021）：** 数字以 `experiments/a7/results/ablation_summary.md` 为准（界已向外取整），可用措辞见 `CLAIMS_FROM_RESULTS.md` 的 R021 一节。
+  - 在固定的 Ŝ 上，pad → sec 让证书提高：中位数 0.936%，最大 ≤ 11.76%；对称 → 非对称扇区只增加 ≤ 0.0183%。
+  - 2,112 个主网格布局上的最大损失：角度 ≤ 0.000476%，P 侧扇区 ≤ 0.0797%，期望信号投影 ≤ 0.0141%，合计 ≤ 0.0934%。
+  - 压力测试（32 个场景 × 两个布局，联合细化）：离轴时依赖项中位数在 [0.0359%, 0.0436%]；x_P = 0 时中位数在 [13.71%, 21.11%]。
+  - 共享模板库在每个固定布局上都达到全部 256 个角点的最小值（差 ≤ 2.44e-15）。
+  - M = 16 时 GCS 与穷举的证书最优在 24/24 中完全一致。这只是正确性检查，不是加速比。
 
 ## 6. 已知局限与风险（写论文时必须如实写）
 
@@ -125,6 +132,8 @@
   - 全部 inconclusive，全部 cap hit 也都在这里。
   - 用 "certificate inconclusive" 的措辞，不要写 "robust is worse"。
   - Joint-box 细化只说明界偏保守（log-gap 缩小 51–61%），**不能**说"只是界的问题"或"已修复"。
+  - R021 压力测试：两个布局都做联合细化后，16 对中有 4 对被证书确认，都是 P = (0,4)、ε = 0.03λ，增益在 [0.887%, 0.972%]；其余 12 对仍无结论。可以作为补充验证写进论文，但不能说"负区域已修复"。
+  - x_P = 0 布局上，D/P 依赖造成的损失有被证书确认的下界 1.82%–28.3%。这是下界，不能写成"依赖损失最多 28%"。
 - **唯一性证书在大 ε 时稀少。** 这些用例只能声称 bracket。
 - **名义性能牺牲：** 中位数约 0.2–0.3%，p90 13.5%，最大 88.5%。要写成显式的 trade-off，不能说 "no-cost"。
 - **数值：** 所有结论都是 float64 下对精确算术陈述的求值。只写 "evaluated numerically"，不写 "machine-verified"。
@@ -133,7 +142,9 @@
   - 画图时的"no pruning"、图注不等式的舍入方向。
   - 规则一：任何绝对化的词都要对照**每一行**数据检验。
   - 规则二：图注和正文里的证书界要**向外舍入**，上界向上取，witness 向下取。
-- **Sector enclosure gap 尚未单独量化。** proposal 要求把四类 gap 分开报告，这是 `/ablation-planner` 的候选项。
+- **四类 gap 已分开量化（R021）。** 角度、扇区包络、期望信号投影三项合计 ≤ 0.0934%。
+  - 全网格上剩下的部分是 D/P 依赖和未解决的 witness 差距混在一起，**不能**说"依赖主导了全网格的 gap"。只有压力测试把两者分开了。
+  - 对独立误差，Minkowski 求和是精确的。R018 时"保守性来自 Minkowski 和"的说法是错的，已在 `findings.md` 更正。
 - **代码 MINOR：** `a7_core.py:135` 没把残余名义相位失配算进 β_D。影响约为 1e-6（相对量），暂不修改。
 - **反驳要点：**
   - Yang et al.（TVT 2026）用的是逐元素 box 误差；
@@ -144,14 +155,14 @@
 ## 7. 下一步（按顺序，对照截止日期）
 
 0. 用户决定：GitHub 仓库是否改成 private（见第 10 节）。
-1. 可选：`/ablation-planner`，补测 sector gap（同一子集上比较 pad、对称 sector+sec、非对称 sector+sec），CPU 几分钟即可。
-2. 可选：`/experiment-audit`，去掉 R020 的 provisional 标签。
+1. `/ablation-planner`：**已完成**（R021，2026-09-29）。推迟的三项消融是随机与几何模板库对比、等 CPU 的 B-CR、固定物理噪声下的迁移，只有论文需要更强的说法时才做。
+2. `/experiment-audit`：**不做**（用户决定，2026-09-29）。R020 的结论保持 provisional 标签。
 3. 有限轮次的 `/auto-review-loop`，顺带让 reviewer 审"893/899 最坏泄漏更低"这条新结论。
 4. 重写 `NARRATIVE_REPORT.md`（A7 v2）。图表直接用 `figures/latex_includes.tex`。
 5. `/paper-writing — venue: IEEE_CONF, human checkpoint: true`。它的编译步骤改走 Overleaf（见第 10 节“Overleaf 与论文编译”）。之后跑 `/paper-claim-audit` 和 `/citation-audit`。
 6. 时间线：9/29 做步骤 1–3，9/30–10/1 写作，**10/2 在 EDAS 提交**。
 
-时间不够时的取舍：先砍步骤 1，再砍步骤 2，步骤 3 可压缩到 1 轮；步骤 4、5 和两项审计不能砍。按天排的路线图页面（私有链接，只有用户本人能打开）：https://claude.ai/artifact/UonYnExi1W8pLUtxUKhf1o
+时间不够时的取舍：步骤 2 可以砍，步骤 3 可压缩到 1 轮；步骤 4、5 和两项审计不能砍。按天排的路线图页面（私有链接，只有用户本人能打开）：https://claude.ai/artifact/UonYnExi1W8pLUtxUKhf1o
 
 ## 8. 文件地图
 
@@ -161,7 +172,8 @@
   - 驱动：`run_main.py`、`run_baselines.py`、`run_scaling.py`、`run_m2m3.sh`、`r017_*.py`。
   - 检查：`a7_checks.py`、`r001_port_check.py`。
   - 汇总：`summarize_main.py`、`summarize_m2m3.py`、**`summarize_r019.py`**（派生统计 + 50 位 margin 审计）、**`r019_numbers.py`**（数字清单）。
-  - `results/`：全部 CSV/JSON/日志，以及 `crosscheck_bundle/`、`r019_derived.*`、`r019_numbers.*`。
+  - 消融：**`ablation_gaps.py`**（R021：固定布局上的证书差距分解、压力测试、M = 16 穷举对照）。
+  - `results/`：全部 CSV/JSON/日志，以及 `crosscheck_bundle/`、`r019_derived.*`、`r019_numbers.*`、`ablation_*`。
 - **`figures/`**：论文图表。
   - `paper_plot_style.py`；`gen_fig1..4_*.py`、`gen_tables.py`；
   - `fig*.pdf`（矢量）和 `.png`（预览）；
@@ -204,6 +216,7 @@ export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 .venv/bin/python run_main.py --alpha-db 1.0 --q 2 --snr 20,30 --eps 0.03,0.05 --out results/nonideal_1dB.csv
 .venv/bin/python r017_mc_average.py && .venv/bin/python r017_joint_box.py && .venv/bin/python summarize_m2m3.py
 .venv/bin/python summarize_r019.py && .venv/bin/python r019_numbers.py      # R019
+.venv/bin/python ablation_gaps.py --workers 7         # R021，约 11 分钟（压力测试按固定盒子数，结果可复现）
 cd ../../figures && for s in gen_fig*.py gen_tables.py; do ../experiments/a7/.venv/bin/python "$s"; done   # R018
 ```
 
@@ -239,7 +252,7 @@ cd ../../figures && for s in gen_fig*.py gen_tables.py; do ../experiments/a7/.ve
   - Windows 上 `core.autocrlf=true`，这些规则会覆盖它。
 - **`CLAUDE.md` 的 ARIS 块写的是两套平台的路径。** 在任一台机器上重跑 ARIS installer 都会把它改写成单平台版本，**这种改动不要提交**。
 - **`.aris/` 和 `.claude/` 被 gitignore，只存在于各自的机器上。**
-  - macOS 上有：`experiment-bridge` 和 `oracle-gpt6pro-handoff` 等 trace、`.aris/oracle/` 脚本、`.aris/novelty/`。
+  - macOS 上有：`experiment-bridge`、`oracle-gpt6pro-handoff`、`ablation-planner/2026-09-29_run01` 等 trace，`.aris/oracle/` 脚本，`.aris/novelty/`。
   - Windows 上有：`.aris/traces/result-to-claim/2026-09-28_run01/`、`.aris/traces/paper-figure/2026-09-28_run01/`、`.aris/claims*.json`、`.aris/evidence_precheck*.json`。
 - **GitHub 仓库 `logansu06/PASS_err` 是 public：** 未发表的 idea 和结果都是公开的。如果投稿前需要保密，要改成 private。
 - **历史教训：** 下面这些都已修正，别再犯。
