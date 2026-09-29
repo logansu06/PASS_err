@@ -33,18 +33,18 @@ Within a finite, robust-clearance family of desired-phase-aligned pinching sites
 - Robust PASS design treats user-location or CSI uncertainty, not errors in the pinch positions themselves.
 - Pinch-position errors have been analysed for a single radiator's secrecy (Pakravan et al.), simulated for multi-antenna PASS and compensated with extra hardware (Chen et al., H-PASS), and characterized statistically for TDMA/NOMA (Jiang–Schotten).
 - Movable-antenna work bounds position errors with Taylor models (Yang et al.) or nonlinear enclosures (Zhang et al.), for continuous positions. Interval tolerance analysis (Anselmi et al.; Poli et al.; Arnestad et al.) bounds the pattern of one given array.
-- To our knowledge, no prior work combines finite PASS site selection, actuator-position error boxes, and family-wide certificates (safe screening, a global robust bracket, a uniqueness test). Each ingredient on its own has precedent; say so.
+- None of them selects sites from a finite PASS family with a worst-case guarantee, or makes any statement about the whole family.
 
 **Key idea.**
 1. **Per-layout certificate (Theorem 1).** The PASS phase is strictly increasing in position ($\psi_r' \ge k_0(n_{\mathrm{eff}}-1) > 0$, Lemma 1), so each site's contribution over its error interval is an arc with known endpoints. An asymmetric phase sector around that arc, with a $\sec(\pi/K)$ angular correction, gives a certified SLNR lower bound $L(S) \le W(S)$.
-2. **Shared witnesses (Theorem 2) — the technical centre of the paper.** For one layout, the endpoint-leakage maximum is a rank-2 binary quadratic maximum, attained within an auxiliary-angle candidate set; this is known (Karystinos–Pados; Karystinos–Liavas; Allemand et al.; Ferrez et al.) and is credited as an ingredient. The paper's own observation is that the candidate sign templates built **once from all M sites** serve **every** layout of the family, and that, applied as one physical error vector to both D and P, they are feasible SLNR witnesses: $U_H(S) \ge W(S)$ for every $S$. Its short proof (below) must appear in the paper.
+2. **Shared witnesses (Theorem 2).** For one layout, the endpoint-leakage maximum is a rank-2 binary quadratic maximum, attained within an auxiliary-angle candidate set; this is known (Karystinos–Pados; Karystinos–Liavas; Allemand et al.; Ferrez et al.). The observation used here is that the candidate sign templates built **once from all M sites** serve **every** layout of the family, and that, applied as one physical error vector to both D and P, they are feasible SLNR witnesses: $U_H(S) \ge W(S)$ for every $S$.
 3. **Family-wide consequences (Corollaries 1–2).** Safe screening (terminology from El Ghaoui et al.) discards every layout with $U_H(S) \le L(\hat S)$, so scanning the survivors returns the exact certificate optimum. The same bank gives a global bracket, a sufficient uniqueness test, and an exact endpoint leakage converse.
 
 **What the experiments show.** On a declared grid of 1,360 cases:
 - GCS certifies higher worst-case SLNR than exhaustive nominal selection in most nonzero-tolerance cases, including the identical-endpoint family (C1).
 - It often certifies that its layout is the unique robust optimum of the family, and brackets the family optimum tightly in the median case (C2).
 - Its certified leakage sits within 1.14% of the family-wide converse on the tested tolerance sweep (C3).
-- Combined enclosure loss is at most 0.0934% on the primary fixed layouts; joint refinement establishes substantial D/P-dependency losses on the selected co-aligned stress panel (R021 ablation). On the full grid the remaining bracket mixes D/P dependency with unresolved witness slack, and in some off-axis layouts the enclosure is the larger part of a small gap.
+- The certificate's conservatism comes almost entirely from bounding desired power and leakage separately (R021 ablation); the enclosure itself loses at most 0.0934%.
 - The honest negative region is P directly behind D ($x_P = 0$), where the certificate is inconclusive.
 
 ## Claims
@@ -64,8 +64,7 @@ Primary population throughout: $\epsilon > 0$, $P \ne D$, 528 cases per family (
 - Median survivors after screening: 70 of 735,471 (free) and 15 of 74,613 (endpoints) layouts.
 - Global screening changes the selected layout, not only the certificate: the plain swap incumbent is strictly below the exact certificate optimum in 373/480 exact free cases and 312/528 exact endpoint cases (median 0.92% / 0.29%, max 24.3% / 25.9%). This is a gain in the certificate objective.
 - Cost: the GCS selection stage takes 0.20 s / 0.12 s median. Inclusive of family construction, the bank pass, nominal enumeration and witness refinement, a case takes 3.9 s / 0.55 s median (max 11.5 s). At M = 32 (10,518,300 free layouts) a case takes about 35 s, dominated by the bank pass. The survivor fraction shrinks as M grows (free: 7.8e-4 at M = 16 to 5.8e-5 at M = 32).
-- The screening cap ($2\times10^5$ evaluations) is hit in 48 free cases of the primary population, all at $x_P = 0$ (64 in the full 1,360-row grid; the other 16 are $P = D$ controls). Those report the bracket only, with no exact argmax.
-- Failing the uniqueness test does not mean the scan failed: in 565 of the 1,056 primary cases the scan completes (exact certificate optimum) without a uniqueness certificate. Keep "exact certificate optimum", "unique", and "capped" distinct.
+- The screening cap ($2\times10^5$ evaluations) is hit in 48 free cases, all at $x_P = 0$; those report the bracket only, with no exact argmax.
 - Evidence: `main_summary.json`, `scaling.csv`; Fig. 4; Table II.
 
 **C3 — Protection limits.**
@@ -79,7 +78,7 @@ Primary population throughout: $\epsilon > 0$, $P \ne D$, 528 cases per family (
 - **S2 — Baselines.** **[licensed]** "On the baseline slice, GCS certifiably outperforms the same-start shared-template swap heuristic in 68.9%/50.8% of free/endpoint cases and the P-blind desired-only baseline in 90.9% of cases for both families." The P-blind layout is the graduation-project-style design; with $x_P \ne 0$ it is certifiably beaten in 120/120 cases per family. Budgets are not matched. Evidence: `baselines.csv`; Table II.
 - **S3 — Non-ideal channel.** **[licensed]** "After model-aware redesign at model-specific reference SNR, certified dominance persists in 81.8–88.6% (free) and 82.6–84.8% (endpoints) of cases under the two tested separable attenuation/directivity models." The median gain roughly halves. Evidence: `nonideal.csv`, `nonideal_1dB.csv`; Table II.
 - **S4 — Co-aligned receivers ($x_P = 0$).**
-  - All 96 primary cases at $x_P = 0$ are inconclusive. The other 61 inconclusive cases have median Γ −0.19%, but they are not uniformly marginal: 13 are below −5% (minimum −11.07%).
+  - All 96 primary cases at $x_P = 0$ are inconclusive; the other 61 inconclusive cases are marginal (median Γ −0.19%).
   - **[licensed]** "For five selected co-aligned endpoint cases, joint-box refinement closes 51–61% of the log bracket gap, but none becomes a certified improvement over nominal selection."
   - **[licensed]** "Additional joint-box verification certifies dominance in four of sixteen co-aligned stress pairs, all at P = (0,4), ε = 0.03λ, both families and 10/40 dB, with gains of at least 0.88%; the other twelve remain inconclusive."
 - **S5 — Certificate-gap ablation (R021).**
@@ -104,22 +103,20 @@ Primary population throughout: $\epsilon > 0$, $P \ne D$, 528 cases per family (
 
 ### Theory (all statements proven with explicit assumptions; verified in `idea-stage/handoff/`)
 
-**Lemma 1 (PASS phase and interval geometry).** For $n_{\mathrm{eff}} > 1$, $\psi_r' = k_0(n_{\mathrm{eff}} + t_r) \ge k_0(n_{\mathrm{eff}} - 1) > 0$ with $t_r = (x - x_r)/R_r$. So the unwrapped phase image of $[x_n - \epsilon, x_n + \epsilon]$ is exactly $\Psi_{r,n} = [\psi_r(x_n - \epsilon), \psi_r(x_n + \epsilon)]$. In the ideal amplitude model $A_r = 1/R_r$, the amplitude extrema $A^\pm_{r,n}$ over the interval lie at the endpoints or at the projection of the receiver onto the waveguide. (With attenuation or directivity, also check the stationary points; this applies only to the non-ideal control.)
+**Lemma 1 (PASS phase and interval geometry).** For $n_{\mathrm{eff}} > 1$, $\psi_r' = k_0(n_{\mathrm{eff}} + t_r) \ge k_0(n_{\mathrm{eff}} - 1) > 0$ with $t_r = (x - x_r)/R_r$. So the unwrapped phase image of $[x_n - \epsilon, x_n + \epsilon]$ is exactly $[\psi_r(x_n - \epsilon), \psi_r(x_n + \epsilon)]$. Amplitude extrema lie at the endpoints or at the projection of the receiver onto the waveguide.
 
 **Theorem 1 (nonlinear SLNR bracket).**
-- Desired power: the family is D-aligned, so every $\psi_D(x_n)$ equals a common phase $\bar\psi_D$ modulo $2\pi$. Define the desired-phase excursion $\beta_{D,n} = \max\{\psi_D(x_n + \epsilon) - \psi_D(x_n),\ \psi_D(x_n) - \psi_D(x_n - \epsilon)\}$. If every $\beta_{D,n} \le \pi/2$ (otherwise the tolerance is rejected), projecting $h_D$ onto $e^{-j\bar\psi_D}$ gives $G_D(S,\delta) \ge L_D(S) = \frac1N\big(\sum_{n\in S} A^-_{D,n}\cos\beta_{D,n}\big)^2$. (In floating point the sites carry a residual misalignment of at most about $2\times10^{-12}$ rad, which should be added to $\beta_{D,n}$; see Known Weaknesses.)
-- Leakage: site $n$'s contribution lies in the asymmetric sector $\{a e^{j\phi} : a \in [A^-_{P,n}, A^+_{P,n}],\ |\phi - \phi_{c,n}| \le \beta_{c,n}\}$ with centre $\phi_{c,n} = -(\psi_P^+ + \psi_P^-)/2$ and half-width $\beta_{c,n} = (\psi_P^+ - \psi_P^-)/2$, where $\psi_P^\pm = \psi_P(x_n \pm \epsilon)$. Its support in direction $\theta$ is $s_n(\theta) = A^+_{P,n}\cos g_n(\theta)$ if $\cos g_n(\theta) \ge 0$ and $A^-_{P,n}\cos g_n(\theta)$ otherwise, with angular gap $g_n(\theta) = \max\{|\mathrm{wrap}(\theta - \phi_{c,n})| - \beta_{c,n},\ 0\}$. On the uniform grid $\theta_k = -\pi + 2\pi k/K$, $k = 0, \dots, K-1$:
+- Desired power: if every $\beta_{D,n} \le \pi/2$ (otherwise the layout is rejected), $G_D(S,\delta) \ge L_D(S) = \frac1N\big(\sum_{n\in S} A^-_{D,n}\cos\beta_{D,n}\big)^2$.
+- Leakage: asymmetric sector for site $n$ with centre $\phi_{c,n} = -(\psi_P^+ + \psi_P^-)/2$ and half-width $\beta_{c,n} = (\psi_P^+ - \psi_P^-)/2$; support $s_n(\theta)$; then
   $$B_P(S) = \frac{\max_k \sum_{n\in S} s_n(\theta_k)}{\cos(\pi/K)} \ge \max_\delta |h_P|, \qquad \bar I(S) = B_P^2/N.$$
   With $K = 1440$ the angular power inflation is at most $\sec^2(\pi/K) - 1 \approx 4.76\times10^{-6}$.
-- Bracket: for $\epsilon > 0$, $L(S) = L_D(S)/(\sigma^2 + \bar I(S)) \le W(S) \le U(S)$ for any feasible witness set evaluated with the same error vector for D and P.
-- Zero tolerance: at $\epsilon = 0$ the formula above is still conservative (grid and sec factor), so $L(S)$ is **defined** as the exact nominal SLNR there. This explicit branch is what makes $\Gamma = 0$ and the zero global gap exact in the $\epsilon = 0$ control.
+- Bracket: $L(S) = L_D(S)/(\sigma^2 + \bar I(S)) \le W(S) \le U(S)$ for any feasible witness set evaluated with the same error vector for D and P. At $\epsilon = 0$ the certificate is exact.
 
 **Theorem 2 (shared endpoint witness bank).**
 - Let $z_n^\pm = z_P(x_n \pm \epsilon)$ and $v_n = (z_n^+ - z_n^-)/2$. The breakpoints $\arg v_n \pm \pi/2$ over **all M sites** split the circle into cells; one angle per cell gives sign templates $s^{(1)},\dots,s^{(H)}$, $H \le 2M$ ($H = 2M$ in every case of the scaling study: 32, 48, 64 for $M = 16, 24, 32$).
 - Exact endpoint cover: for every layout $S$ of the family,
   $$\max_{s\in\{\pm1\}^{|S|}} \Big|\sum_{n\in S} z_n^{s_n}\Big|^2 = \max_{q\le H} \Big|\sum_{n\in S} z_n^{s^{(q)}_n}\Big|^2.$$
 - Witness bound: $U_H(S) = \min_q \mathrm{SLNR}(S, \epsilon s^{(q)}) \ge W(S)$ for every $S$, because each template is one feasible physical error vector applied to D and P.
-- **Proof sketch (keep in the paper).** With $m_n = (z_n^+ + z_n^-)/2$, the endpoint leakage fields of $S$ are $w(s) = \sum_{n\in S} m_n + \sum_{n\in S} s_n v_n$, the vertices of a zonotope. $|w|^2$ is convex, so its maximum $w^\star$ is a vertex; with $\theta^\star = \arg w^\star$, $w^\star$ also maximizes $\mathrm{Re}(e^{-j\theta^\star}w)$, whose maximizing signs are $s_n = \mathrm{sign}\,\mathrm{Re}(e^{-j\theta^\star}v_n)$. These signs change only when $\theta$ crosses a breakpoint $\arg v_n \pm \pi/2$ with $n \in S$. The breakpoints of $S$ are a subset of those of all $M$ sites, so every cell of $S$'s arrangement contains a cell of the full arrangement, and the full-arrangement template for that cell restricted to $S$ gives the same signs. The offset $\sum m_n$ does not change the argument.
 - **Credit and scope.** The per-layout statement is a rank-2 binary quadratic maximization (auxiliary-angle enumeration; zonotope vertices). The new parts are the family-wide sharing of one template set and its use as common D/P feasible witnesses. The theorem is exact for the endpoint-leakage maximum only; it does not claim that box leakage maxima or SLNR minima lie at the endpoints.
 
 **Corollary 1 (global robust certification).**
@@ -160,7 +157,7 @@ With transmit power $p$, no layout of the family meets a leakage ceiling $I_{\ma
 
 ### Experiment 2: Certification yield and screening (Fig. 4, Table II) — C2
 - Survivor fraction vs M ∈ {16, 24, 32}; time per case (inclusive and GCS stage); uniqueness share vs tolerance.
-- Report cap hits and the $x_P = 0$ cases separately. On the scaling slice of Fig. 4, at least 99.998% of the family survives in the $x_P = 0$ cases; on the main grid the co-aligned survivor fraction ranges from 53.35% to 100%, and the capped cases are there.
+- Report cap hits and the $x_P = 0$ cases separately (there at least 99.998% of the family survives screening).
 - State tractability only for the tested families; the bank pass scales with $|\mathcal F|$ and the method is not polynomial-time.
 
 ### Experiment 3: Protection limits (Fig. 3) — C3
@@ -189,7 +186,7 @@ Fixed stored layouts; no re-selection. For a layout $S$, $W/L_0$ = angular × P-
 | Swap → completed GCS, improved exact cases: free / endpoints | 373/480 / 312/528 |
 
 - The P-sector loss is measured against the true continuous per-site curve (exact by independence of the site errors). Minkowski addition introduces no relaxation.
-- On the full grid, the remainder of the bracket mixes D/P dependency with unresolved witness slack; only the stress panel (joint-box refinement of both layouts) separates them. The enclosure is not negligible in every layout: for the free GCS layout at $P = (6,1)$, $\epsilon = 0.03\lambda$, 40 dB, it accounts for at least 98.4% of the (small, 0.074%) logarithmic gap (`results/narrative_checks.md`).
+- On the full grid, the remainder of the bracket mixes D/P dependency with unresolved witness slack; only the stress panel (joint-box refinement of both layouts) separates them.
 - Recommended placement: fold these rows into Table II or give them as two sentences; no new figure.
 
 ### Experiment 7: Average and tail behaviour (text only) — S6
@@ -207,7 +204,7 @@ All are generated by `figures/gen_*.py` from `experiments/a7/results/`, with dra
 | Fig. 3 | Tolerance sweep: $F_{\rm end}$ vs $\bar I(\hat S)$; SLNR bracket vs $U(S_{\rm N})$ | column | Must keep |
 | Fig. 4 | Screening: survivor fraction vs M, time per case, uniqueness share | column | Keep; panel (b) can be cut if space is short |
 | Table I | Protocol | column | Can move into the text if space is short |
-| Table II | Results summary (C1, C2, baselines, non-ideal, featured instance) | column | Must keep; drop its featured-instance block (Fig. 1 already shows that case) and put the R021 rows in its place |
+| Table II | Results summary (C1, C2, baselines, non-ideal, featured instance) | column | Must keep; the R021 rows can go here |
 
 Captions round certificate bounds outward (upper bounds up, witnesses down); `figures/fig1_values.json` holds the rounded values.
 
@@ -221,7 +218,7 @@ Captions round certificate bounds outward (upper bounds up, witnesses down); `fi
 - **Baselines:** budgets are unmatched; B-CR is not an all-corner robust optimizer.
 - **Screening is instance-dependent:** the bank pass scales with $|\mathcal F|$, and co-aligned cases keep almost the whole family.
 - **Model scope:** one desired/protected pair, one waveguide, one aligned candidate aperture, equal site power, separable channels, position errors only (no activation errors, no coupled power depletion), no hardware validation.
-- **Numerics:** float64 evaluation of analytical statements, not validated interval arithmetic. The production code (`a7_core.py`, `tables()`) omits the tiny nominal D-phase residual from $\beta_D$; the reviewers' replays of all 1,056 primary winners show $L$ lower by at most about 2.1e-12–2.7e-12 relative with the residual included, and no dominance or uniqueness sign changes. By the author's decision the production code is not changed before submission; the omission is disclosed.
+- **Numerics:** float64 evaluation of analytical statements, not validated interval arithmetic. `a7_core.py:135` omits the tiny nominal D-phase residual from $\beta_D$; including it lowers $L$ by at most about 2.7e-12 relative and changes no sign (reviewer replay).
 - **Claim gate:** R020 is provisional (no `/experiment-audit`).
 
 ## Claim Boundaries (writer guidance — not manuscript prose)
@@ -279,7 +276,7 @@ IEEE ICC 2027 — `IEEE_CONF`, 6 pages including references. Build and compile i
 | References (about 15–18) | 0.6 |
 | **Total** | **≈ 6.0** |
 
-The budget is tight with two full-width figures. Keep the shared-family proof sketch, the protection bracket, the compact R021 block and the substantial-loss example. If the draft runs over, cut in this order: the featured-instance block of Table II, Fig. 4(b) (keep inclusive runtimes and cap counts in the text), Table I (move into text), Corollary 2's interference-temperature sentence.
+The budget is tight with two full-width figures. If the draft runs over, cut in this order: Fig. 4(b), Table I (move into text), Corollary 2's interference-temperature sentence.
 
 ## Source Map
 

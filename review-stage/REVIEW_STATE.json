@@ -1,7 +1,7 @@
 {
-  "run_id": "run_20260929_ac8029ec",
+  "run_id": "run_20260929_449a523d",
   "round": 1,
-  "threadId": "01a0ec61-047e-7c03-ac6a-1737bf392e79",
+  "threadId": "01a0ecc5-b028-7d22-b60e-0092be88a1d9",
   "reviewer_backend": "codex",
   "executor_model": "claude-opus-5-5",
   "executor_model_source": "caller-declared",
@@ -10,9 +10,9 @@
   "reviewer_effort": "ultra",
   "requires_external_acquittal": false,
   "status": "completed",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "last_score": 7.0,
   "last_verdict": "almost",
   "pending_experiments": [],
-  "timestamp": "2026-09-29T17:04:28"
+  "timestamp": "2026-09-29T18:56:19"
 }

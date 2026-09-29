@@ -137,6 +137,16 @@ Reviewer: GPT-6 Astra (ultra), `/auto-review-loop` round 1; raw response in `rev
 
 **Known code–proof inconsistency (not fixed; no effect observed).** `a7_core.py:135` omits the tiny nominal D-phase residual from β_D. Replaying all 1,056 stored winners with the residual included lowers L by at most about 2.7e-12 relative and changes no dominance or uniqueness sign (the reviewer's replay; the R021 ablation code already includes the correction). Fixing it would mean regenerating every A7 output.
 
+## Auto-Review Run 2 Update (2026-09-29, hard): 7/10, "almost"
+
+Reviewer: GPT-6 Astra (ultra), fresh thread with the run-1 memory; review of the rewritten `NARRATIVE_REPORT.md`. Raw response in `review-stage/REVIEWER_MEMORY.md`. No new fatal flaw; headline numbers re-verified.
+
+- **R021 wording (replaces any "almost entirely D/P dependency" phrasing):** "Combined enclosure loss is at most 0.0934% on the primary fixed layouts; joint refinement establishes substantial D/P-dependency losses on the selected co-aligned stress panel." The enclosure can dominate a small gap in an off-axis layout (free, P = (6,1), 0.03λ, 40 dB: ≥ 98.4% of a 0.074% log gap; `results/narrative_checks.md`).
+- **Theorem 1 at ε = 0:** exactness comes from the explicit nominal branch (L defined as the nominal SLNR), not from the sector formula.
+- **Scope qualifiers:** 48 cap hits in the primary population (64 in the full grid); 565 of 1,056 primary cases are exact but not unique; "at least 99.998% surviving" applies only to the scaling slice (main-grid co-aligned 53.35%–100%); 13 of the 61 off-axis inconclusive cases are below −5% (minimum −11.07%).
+- **Must not appear:** "almost entirely due to D/P dependency"; "none of the prior work …" without "to our knowledge"; "all other inconclusive cases are marginal".
+- **Not repaired by user decision (2026-09-29):** the production phase-residual correction. It stays disclosed; no A7 output is regenerated before submission.
+
 ## Evidence Not Found at R020 Time (resolved by R019; kept for the record)
 
 Numbers reported in `EXPERIMENT_RESULTS.md` but present in no result file at R020 time. Per the skill they were `claim_supported: no`, `integrity_status: evidence_not_found`, and were not re-litigated by the juries.

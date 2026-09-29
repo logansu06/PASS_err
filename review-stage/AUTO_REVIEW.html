@@ -7,8 +7,8 @@
 
 <meta name="generator" content="ARIS render-html (academic, v1)">
 <meta name="aris:source-path" content="review-stage/AUTO_REVIEW.md">
-<meta name="aris:source-sha256" content="37f60eec4e0b3229d27de570e87c27b98bfbf05f0fbf38009617c0eec631d7a1">
-<meta name="aris:generated-at" content="2026-09-29 09:05 UTC">
+<meta name="aris:source-sha256" content="d18ee3f686a5c759d3ef6e97ac51aaeb799af245a28e960571ed8a6405227d3b">
+<meta name="aris:generated-at" content="2026-09-29 10:56 UTC">
 
 <!-- MathJax 3 -->
 <script>
@@ -489,6 +489,17 @@ body.aris-blog h2.aris-active-h2 {
 </li>
 <li><a href="#method-description">Method Description</a>
 </li>
+<li><a href="#run-2-round-1--hard-2026-09-29-1856">Run 2, Round 1 — hard (2026-09-29 18:56)</a>
+<ul>
+<li><a href="#assessment-summary-1">Assessment (Summary)</a></li>
+<li><a href="#reviewer-raw-response-1">Reviewer Raw Response</a></li>
+<li><a href="#debate-transcript-hard">Debate Transcript (hard)</a></li>
+<li><a href="#actions-taken-1">Actions Taken</a></li>
+<li><a href="#status-1">Status</a></li>
+</ul>
+</li>
+<li><a href="#final-summary-run-2">Final Summary (run 2)</a>
+</li>
 </ol>
 </nav>
 
@@ -500,8 +511,8 @@ body.aris-blog h2.aris-active-h2 {
   
   <div class="meta">
     <span><strong>Source:</strong> <code>review-stage/AUTO_REVIEW.md</code></span>
-    <span><strong>SHA256:</strong> <code>37f60eec4e0b</code></span>
-    <span><strong>Rendered:</strong> 2026-09-29 09:05 UTC</span>
+    <span><strong>SHA256:</strong> <code>d18ee3f686a5</code></span>
+    <span><strong>Rendered:</strong> 2026-09-29 10:56 UTC</span>
     
   </div>
 </header>
@@ -559,11 +570,63 @@ body.aris-blog h2.aris-active-h2 {
 <h2 id="method-description">Method Description</h2>
 <p>GCS (Global Certified Selection) chooses N = 8 of M = 24 desired-phase-aligned pinching sites on one dielectric waveguide that serves a desired user D and protects a user P, when every activated site's actuator position is off by at most ε. Theorem 1 gives, for any subset, a certified SLNR lower bound L (a projection bound on the desired power, and an asymmetric-sector support-function bound on the leakage with a sec(π/K) angular correction) and an exact value at ε = 0. Theorem 2 builds one shared bank of at most 2M endpoint sign templates from all candidate sites. Evaluated on any subset, the bank gives that subset's exact endpoint-leakage maximum and feasible SLNR witnesses U_H.</p>
 <p>The pipeline is: build the robust-clearance family; compute per-site tables and the bank; evaluate U_H for every subset in one batched pass; run a swap search for an incumbent L; then scan only the subsets whose U_H exceeds the incumbent (safe screening). This returns the exact certificate optimum Ŝ when the scan completes within the cap, a global bracket L(Ŝ) ≤ W* ≤ max U_H, and a uniqueness certificate when L(Ŝ) exceeds every rival's U_H. Protection limits follow from the endpoint converse F_end and the achievability bound Ī(Ŝ). Evaluation compares Ŝ with the exhaustive nominal optimum S_N through certified dominance L(Ŝ) &gt; U(S_N).</p>
+<hr />
+<h1 id="run-2--hard-difficulty-run20260929449a523d">Run 2 — hard difficulty (run_20260929_449a523d)</h1>
+<ul><li>Started: 2026-09-29 18:45 (macOS). User request: another <code>/auto-review-loop</code> at difficulty <strong>hard</strong> (reviewer memory + debate protocol).</li><li>Reviewer: Codex MCP, gpt-6-astra, reasoning effort ultra; fresh thread with the full <code>review-stage/REVIEWER_MEMORY.md</code> prepended.</li><li>MAX_ROUNDS = 2. Paper story under review: the rewritten <code>NARRATIVE_REPORT.md</code> (A7 v2).</li><li><code>/experiment-audit</code> skipped by user decision; R020 stays provisional.</li></ul>
+<h2 id="run-2-round-1--hard-2026-09-29-1856">Run 2, Round 1 — hard (2026-09-29 18:56)</h2>
+<h3 id="assessment-summary-1">Assessment (Summary)</h3>
+<ul><li>Score: 7/10</li><li>Verdict: almost</li><li>Reviewer backend: codex (gpt-6-astra, ultra); threadId 01a0ecc5-b028-7d22-b60e-0092be88a1d9; memory hash recorded in trace <code>.aris/traces/auto-review-loop/2026-09-29_run01/002-run2-round-1-review-hard</code></li><li>Verified by the reviewer: 462/528 and 437/528; 204/528 and 239/528; 893/899; median certified leakage ratio 0.799830779; max bracket ratio 1.011321939; inclusive runtime 3.939 s / 0.551 s; the substantial-loss example.</li><li><p>Key criticisms:</p>
+<ol><li>Novelty still narrow; make the shared-family property the technical centre with its proof visible; replace the blanket "none of them" literature exclusion with a scoped "to our knowledge".</li><li>The narrative's opening R021 conclusion ("almost entirely" D/P dependency) is overbroad; counterexample: free GCS layout, P = (6,1), 0.03λ, 40 dB, where the enclosure is ≥ 98.4% of a 0.074% log gap.</li><li>The production phase-residual correction is disclosed but not done; Theorem 1 needs complete definitions (β_D, sector support with the negative-cosine branch, uniform grid, explicit ε = 0 branch; ideal-model amplitude extrema).</li><li>Six-page prioritization and scope qualifiers (48 vs 64 caps; 99.998% only on the scaling slice; 13 of the 61 other inconclusive cases below −5%; non-unique ≠ not exact).</li></ol></li></ul>
+<h3 id="reviewer-raw-response-1">Reviewer Raw Response</h3>
+<details>
+<summary>Click to expand full reviewer response</summary>
+<p><strong>7/10 for IEEE ICC. Almost ready.</strong> The revised narrative is substantially better, and the core C1–C3 results remain credible. However, one round-1 repair was disclosed instead of completed, and the new opening contains an unsupported—and demonstrably overbroad—ablation conclusion.</p>
+<p>I read the complete narrative and requested diff, checked the code, figures and tables, recomputed headline statistics from raw files, and replayed the phase-residual correction. No files were changed. I did not rerun the full experiment suite or perform <code>/experiment-audit</code>; <strong>R020 remains provisional</strong>.</p>
+<p>The principal numbers reproduce:</p>
+<table><thead><tr><th>Result</th><th style="text-align:right">Verified</th></tr></thead><tbody><tr><td>Certified SLNR dominance, free / endpoints</td><td style="text-align:right">462/528 / 437/528</td></tr><tr><td>Unique robust-optimality certificates</td><td style="text-align:right">204/528 / 239/528</td></tr><tr><td>Certified lower worst-case leakage</td><td style="text-align:right">893/899</td></tr><tr><td>Median certified leakage-ratio upper bound</td><td style="text-align:right">0.799830779</td></tr><tr><td>Maximum protection-bracket ratio</td><td style="text-align:right">1.011321939</td></tr><tr><td>Median inclusive runtime, free / endpoints</td><td style="text-align:right">3.939 s / 0.551 s</td></tr></tbody></table>
+<p>The substantial-loss example also checks out: <strong>+7.85% certified worst-case gain, −39.17% nominal SLNR, −14.95% estimated mean, and −12.53% estimated fifth percentile</strong>.</p>
+<p>The unmatched-budget wording, “best-found” witnesses, non-ideal model qualifications, operating-cost example, and mathematical attribution are genuine improvements. I found no new fatal flaw in the shared-bank, screening, uniqueness, or protection-converse arguments.</p>
+<p>Remaining weaknesses, ranked by severity:</p>
+<ol><li><p><strong>Novelty remains narrow—the largest acceptance risk.</strong></p>
+<p> Attribution is now substantially correct. Auxiliary-angle enumeration and low-rank binary optimization are established; the <a href="https://www.telecom.tuc.gr/~liavas/publications/Efficient%20Computation%20of%20the%20Binary%20Vector%20that%20Maximizes%20a%20Rank-deficient%20Quadratic%20Form.pdf">Karystinos–Liavas paper</a> directly establishes that lineage. The added <a href="https://arxiv.org/abs/2609.31088">Jiang–Schotten citation</a> also correctly acknowledges existing PASS position-error analysis.</p>
+<p> What remains distinctive is the <strong>reuse of one full-site arrangement across every subset</strong>, its integration with feasible common D/P witnesses, and the resulting measured family-wide certification yield. Generic witness bounds and sufficient uniqueness inequalities alone are not substantial novelty.</p>
+<p> <strong>Minimum fix:</strong> make that shared-family property the technical center, with its short proof visible in the paper. Present sector bounds and rank-2 enumeration as credited ingredients. Replace the blanket “[None of them …]( /Users/logansu/Documents/PASS/NARRATIVE_REPORT.md:36)” literature exclusion with a carefully scoped “to our knowledge” statement about the combined framework. No additional simulation is needed.</p></li><li><p><strong>The opening ablation conclusion exceeds the evidence and has a concrete counterexample.</strong></p>
+<p> <a href="/Users/logansu/Documents/PASS/NARRATIVE_REPORT.md:47">Narrative line 47</a> says conservatism comes “almost entirely” from separately bounding desired power and leakage. Later, <a href="/Users/logansu/Documents/PASS/NARRATIVE_REPORT.md:189">line 189</a> correctly acknowledges that the full-grid remainder mixes dependency with unresolved witness slack.</p>
+<p> This is more than missing qualification. For the stored <strong>free GCS layout, \(P=(6,1)\), \(\epsilon=0.03\lambda\), 40 dB</strong>, the enclosure accounts for <strong>at least 98.4% of the logarithmic certificate gap</strong>. The total gap is small, approximately <strong>0.07394%</strong>, and dependency loss is bounded above by <strong>0.001113%</strong>. See the <a href="/Users/logansu/Documents/PASS/experiments/a7/results/ablation_stress.csv:60">raw stress row</a>.</p>
+<p> <strong>Minimum fix:</strong> replace the opening conclusion with:</p>
+<p> &gt; “Combined enclosure loss is at most 0.0934% on the primary fixed layouts; joint refinement establishes substantial D/P-dependency losses on the selected co-aligned stress panel.”</p>
+<p> Preserve the full-grid witness-slack qualification. No new experiment is required.</p></li><li><p><strong>The requested code–proof correction remains unfixed, and the theorem handoff needs completion.</strong></p>
+<p> <a href="/Users/logansu/Documents/PASS/experiments/a7/a7_core.py:143">Production code</a> still omits the accepted nominal phase residual from \(\beta_D\). The <a href="/Users/logansu/Documents/PASS/experiments/a7/ablation_gaps.py:100">corrected implementation already exists</a>. Recording this under “Known Weaknesses” is transparent, but it does not satisfy the previous minimum fix.</p>
+<p> The new read-only replay covers all <strong>1,056 primary stored winners</strong>: the correction reduces \(L\) by at most approximately <strong>\(2.12\times10^{-12}\)</strong> relatively, with <strong>no dominance or uniqueness sign changes</strong>. That confirms negligible observed scientific impact; it does not replace a corrected selection run.</p>
+<p> There is also a real statement mismatch in <a href="/Users/logansu/Documents/PASS/NARRATIVE_REPORT.md:108">Theorem 1</a>: the displayed secant/grid formula is generally conservative even at \(\epsilon=0\). Exactness comes from the code’s <a href="/Users/logansu/Documents/PASS/experiments/a7/a7_core.py:165">explicit nominal branch</a>. The narrative also leaves \(\beta_D\) and the sector support insufficiently defined.</p>
+<p> <strong>Minimum fix:</strong> apply the existing residual enlargement in production and regenerate affected A7 outputs and summaries. In the theorem, explicitly define the desired-phase excursion, sector support—including the negative-cosine amplitude branch—the uniform angular grid, and the exact zero-tolerance branch. Restrict the simple amplitude-extrema statement to the ideal amplitude model. These are focused repairs; an interval-arithmetic framework is unnecessary.</p></li><li><p><strong>The six-page plan needs prioritization, and a few population qualifiers could still disappear during writing.</strong></p>
+<p> The <a href="/Users/logansu/Documents/PASS/NARRATIVE_REPORT.md:267">page budget</a> allocates space to two full-width figures, two additional figures, two tables, several formal statements, seven experimental blocks and references. It is possible to make this fit, but preserving everything risks compressing the actual contribution into an unreadable proof sketch.</p>
+<p> <strong>Minimum fix:</strong> remove the repeated featured-instance block from Table II before cutting essential evidence. Keep the shared-family proof, protection bracket, compact R021 block and substantial-loss example. If Fig. 4(b) is removed, retain inclusive runtimes and cap counts in text.</p>
+<p> Also make these small scope corrections:</p>
+<ul><li><strong>48 cap hits</strong> applies to the primary population; the full 1,360-row grid has <strong>64</strong>.</li><li><strong>At least 99.998% surviving</strong> applies to the scaling slice. A main-grid co-aligned case retains only <strong>392,384/735,471 = 53.35%</strong>, though it still hits the cap. <a href="/Users/logansu/Documents/PASS/experiments/a7/results/main_grid.csv:1254">Raw row</a></li><li>The other 61 inconclusive cases have median \(\Gamma\approx-0.19\%\), but are not uniformly marginal: <strong>13 have \(\Gamma&lt;-5\%\)</strong>, with a minimum near <strong>−11.07%</strong>. Report the median without implying every case is close to certification.</li><li>Failure to certify uniqueness does <strong>not</strong> imply failure to complete certificate optimization. Preserve that distinction alongside capped cases.</li></ul></li></ol>
+<p><strong>Submission readiness: Almost.</strong> The research can support a credible ICC submission without a broad new campaign. The narrative is close to a usable writing handoff, but the code correction, ablation wording and theorem definitions should be fixed first. The resulting six-page manuscript still requires review.</p>
+<p>Score: 7/10 Verdict: almost</p>
+<h2 id="memory-update">Memory update</h2>
+<ul><li><strong>Resolved:</strong> most round-1 presentation fixes are genuinely implemented; headline numbers and substantial-loss example reproduce.</li><li><strong>Unresolved:</strong> production phase-residual correction and regenerated outputs. Disclosure has substituted for repair.</li><li><strong>New finding:</strong> opening R021 attribution is overbroad; a stored off-axis stress case is enclosure-dominated.</li><li><strong>Track:</strong> zero-tolerance exactness requires the explicit nominal branch; theorem definitions must survive manuscript compression.</li><li><strong>Track:</strong> population scope for 48 versus 64 caps, scaling-only survivor claims, and the nontrivial tail of inconclusive cases.</li><li><strong>Pattern:</strong> detailed sections contain qualifications that the executive summary drops.</li><li><strong>Unchanged:</strong> novelty is credible but narrow; R020 remains provisional; the manuscript itself has not been reviewed.</li></ul>
+</details>
+<h3 id="debate-transcript-hard">Debate Transcript (hard)</h3>
+<details>
+<summary>Click to expand debate</summary>
+<p><strong>Executor response:</strong> Accept all four weaknesses. The scope numbers were re-derived from the raw files before editing (<code>experiments/a7/narrative_checks.py</code> → <code>results/narrative_checks.{json,md}</code>) and agree with the reviewer. No rebuttal was submitted, so no ruling was requested.</p>
+<p><strong>Score adjustment:</strong> none (7/10 stands).</p>
+</details>
+<h3 id="actions-taken-1">Actions Taken</h3>
+<ul><li>Stop gate (<code>review_gate.py</code>): <code>decision: stop</code> (codex, 7 ≥ 6, "almost").</li><li><p><code>NARRATIVE_REPORT.md</code> (+ <code>NARRATIVE_REPORT_20260929_185548.md</code>):</p>
+<ul><li>Theorem 2 is now "the technical centre", with a proof sketch of the shared-family property; the literature exclusion is scoped ("to our knowledge … each ingredient has precedent").</li><li>The opening ablation sentence uses the reviewer's wording; the Experiment 6 block adds the enclosure-dominated counterexample.</li><li>Lemma 1 restricts the amplitude-extrema statement to the ideal model; Theorem 1 defines β_D (with the float64 residual note), the sector, its support with the negative-cosine branch, the uniform angular grid, and the explicit ε = 0 branch.</li><li>Scope: 48 primary / 64 full-grid cap hits; 565 of 1,056 primary cases are exact but not unique; 99.998% only on the scaling slice (main grid 53.35%–100%); 13 of the 61 other inconclusive cases below −5% (min −11.07%).</li><li>Page plan: drop Table II's featured-instance block first; keep the proof sketch, protection bracket, R021 block and loss example.</li></ul></li><li>New: <code>experiments/a7/narrative_checks.py</code> → <code>results/narrative_checks.{json,md}</code> (persists the new scope numbers). All numeric tokens in the narrative now trace to source files except the reviewer-replay bound 2.1e-12 (attributed to the replay) and a citation year.</li><li>Not done (user decision pending): correcting <code>a7_core.py</code> <code>tables()</code> to include the residual and regenerating every A7 output.</li></ul>
+<h3 id="status-1">Status</h3>
+<ul><li>Stopping after run 2, round 1: positive assessment (7/10, almost).</li><li>Difficulty: hard</li></ul>
+<h2 id="final-summary-run-2">Final Summary (run 2)</h2>
+<ul><li>Hard review of the rewritten narrative: 7/10, "almost", unchanged from run 1. The reviewer confirmed that most run-1 fixes are genuinely implemented and found no new fatal flaw.</li><li>New problems it found were in the narrative (overbroad opening ablation sentence, incomplete theorem definitions, missing scope qualifiers); all are fixed.</li><li>The one tracked item still open is the production phase-residual correction. It has no observed effect (≤ about 2.1e-12 relative on L, no sign changes) but the reviewer counts disclosure as not a repair.</li><li><code>/result-to-claim</code> was not re-run (same reason as run 1); <code>CLAIMS_FROM_RESULTS.md</code> gets a run-2 update instead.</li><li>Method description: unchanged from run 1 (see "Method Description" above).</li></ul>
 <h2 id="sidecar-state">Sidecar — <code>REVIEW_STATE.json</code></h2>
 <details><summary>Sidecar JSON: <code>/Users/logansu/Documents/PASS/review-stage/REVIEW_STATE.json</code></summary><pre><code class="language-json">{
-  &quot;run_id&quot;: &quot;run_20260929_ac8029ec&quot;,
+  &quot;run_id&quot;: &quot;run_20260929_449a523d&quot;,
   &quot;round&quot;: 1,
-  &quot;threadId&quot;: &quot;01a0ec61-047e-7c03-ac6a-1737bf392e79&quot;,
+  &quot;threadId&quot;: &quot;01a0ecc5-b028-7d22-b60e-0092be88a1d9&quot;,
   &quot;reviewer_backend&quot;: &quot;codex&quot;,
   &quot;executor_model&quot;: &quot;claude-opus-5-5&quot;,
   &quot;executor_model_source&quot;: &quot;caller-declared&quot;,
@@ -572,18 +635,18 @@ body.aris-blog h2.aris-active-h2 {
   &quot;reviewer_effort&quot;: &quot;ultra&quot;,
   &quot;requires_external_acquittal&quot;: false,
   &quot;status&quot;: &quot;completed&quot;,
-  &quot;difficulty&quot;: &quot;medium&quot;,
+  &quot;difficulty&quot;: &quot;hard&quot;,
   &quot;last_score&quot;: 7.0,
   &quot;last_verdict&quot;: &quot;almost&quot;,
   &quot;pending_experiments&quot;: [],
-  &quot;timestamp&quot;: &quot;2026-09-29T17:04:28&quot;
+  &quot;timestamp&quot;: &quot;2026-09-29T18:56:19&quot;
 }</code></pre></details>
 
 <footer class="aris-footer">
   Generated by <a href="https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/main/skills/render-html/SKILL.md">ARIS <code>/render-html</code></a> ·
   source path <code>review-stage/AUTO_REVIEW.md</code> ·
-  SHA256 <code>37f60eec4e0b</code> ·
-  generated at 2026-09-29 09:05 UTC.
+  SHA256 <code>d18ee3f686a5</code> ·
+  generated at 2026-09-29 10:56 UTC.
   This is a generated view — edit the source Markdown, then re-render.
 </footer>
 </main>

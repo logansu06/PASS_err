@@ -267,3 +267,16 @@ Recomputed on 2026-09-25 directly from `results/` (no reruns of `src/main.py`):
 - **Main risk:** narrow novelty. Credit rank-2 binary quadratic maximization and sector/support-function bounds as tools; centre the paper on family-wide exact endpoint-leakage coverage by one shared bank, protection limits, and measured certification yield.
 - **Presentation fixes for the paper:** budgets-unmatched baseline wording; inclusive runtime and cap hits; one substantial-loss example (endpoints, 30 dB, 0.03λ, P = (−3.6, 2): Γ +7.85% but nominal −39.17%, MC mean −14.95%, 5th percentile −12.53%); visible model scope; "best-found SLNR witnesses".
 - **Known, unfixed:** `a7_core.py:135` omits the nominal D-phase residual (≤ about 2.7e-12 relative on L, no sign change). Not regenerated before the deadline.
+
+---
+
+# 2026-09-29 — /auto-review-loop run 2 (hard): 7/10, "almost" (stopped)
+
+- **Scope:** hard difficulty (reviewer memory carried from run 1), reviewing the rewritten `NARRATIVE_REPORT.md`. Log `review-stage/AUTO_REVIEW.md`; trace `.aris/traces/auto-review-loop/2026-09-29_run01/002-run2-round-1-review-hard`.
+- **Held up:** headline numbers re-verified from raw files; most run-1 fixes confirmed as genuinely implemented; no new fatal flaw.
+- **Caught in the narrative (all fixed):**
+  - The opening R021 sentence overclaimed ("almost entirely D/P dependency"). An off-axis stress layout is enclosure-dominated (≥ 98.4% of a 0.074% log gap). Same pattern as R018/R020: the summary dropped a qualifier that the detailed section kept.
+  - Theorem 1 was stated as exact at ε = 0; exactness comes from the explicit nominal branch. β_D, the sector support and the angular grid are now defined.
+  - Scope qualifiers were missing: 48 vs 64 cap hits, 565 exact-but-not-unique cases, 99.998% only on the scaling slice, and 13 of the 61 off-axis inconclusive cases below −5%.
+- **Still open:** production phase-residual correction in `a7_core.py` (no observed effect; the reviewer counts disclosure as not a repair).
+- **Lesson:** re-check the executive summary against the detailed sections before any review; qualifiers get lost in summaries.

@@ -1,6 +1,6 @@
 # HANDOFF — PASS 位置误差鲁棒性 → IEEE ICC 2027 论文
 
-> 更新：2026-09-29 傍晚，macOS。完成 R021 消融和 `/auto-review-loop`（第 1 轮 7/10，almost，已停止）。
+> 更新：2026-09-29 晚，macOS。完成 R021 消融、两次 `/auto-review-loop`（medium 与 hard，都是 7/10、almost）和 `NARRATIVE_REPORT.md` 的重写。
 > 之前的版本：2026-09-28 傍晚，macOS，跨平台同步和 Overleaf 桥接之后；2026-09-28 下午，Windows，M4（R018–R020）完成后；2026-09-27，macOS，`/experiment-bridge` 完成后。
 >
 > 接手的人（或新的 Claude/Codex 会话）请按顺序阅读：
@@ -86,8 +86,8 @@
 | Overleaf 桥接（`/overleaf-sync setup`） | **完成**（仅 macOS），验证通过 | `paper-overleaf/`（已 gitignore） | macOS |
 | `/ablation-planner`（R021） | **完成**：四类差距分开量化；GPT-6 Astra ultra 设计并审核 | `experiments/a7/ablation_gaps.py`、`results/ablation_*` | macOS |
 | `/experiment-audit` | 可选，未做（做了可去掉 provisional 标签） | — | — |
-| `/auto-review-loop` | **完成**：第 1 轮 7/10，almost，已停止 | `review-stage/`（旧的毕设评审在 `fyp_report/review-stage/`） | macOS |
-| 重写 `NARRATIVE_REPORT.md` | 待做（**当前内容还是毕设时期的叙事**） | `NARRATIVE_REPORT.md` | — |
+| `/auto-review-loop` | **完成**：run 1（medium）7/10 almost；run 2（hard，审新叙事）7/10 almost | `review-stage/`（旧的毕设评审在 `fyp_report/review-stage/`） | macOS |
+| 重写 `NARRATIVE_REPORT.md` | **完成**（2026-09-29，A7 v2；旧的毕设叙事归档到 `fyp_report/NARRATIVE_REPORT_FYP.md`） | `NARRATIVE_REPORT.md`（+ 带时间戳副本） | macOS |
 | `/paper-writing — venue: IEEE_CONF, human checkpoint: true` | 待做（编译在 Overleaf 上做，见第 10 节） | `paper/` | — |
 
 ## 5. 实验结果要点
@@ -165,7 +165,8 @@
 1. `/ablation-planner`：**已完成**（R021，2026-09-29）。推迟的三项消融是随机与几何模板库对比、等 CPU 的 B-CR、固定物理噪声下的迁移，只有论文需要更强的说法时才做。
 2. `/experiment-audit`：**不做**（用户决定，2026-09-29）。R020 的结论保持 provisional 标签。
 3. `/auto-review-loop`：**已完成**（第 1 轮 7/10，almost）。"893/899"已验证。
-4. 重写 `NARRATIVE_REPORT.md`（A7 v2）。图表直接用 `figures/latex_includes.tex`；按第 6 节的审稿意见定位新意，并放一张 R021 消融的小表。
+4. 重写 `NARRATIVE_REPORT.md`：**已完成**，并按 hard 审稿意见修正（Theorem 2 作为技术核心并给出证明思路、消融结论改为审稿人给的措辞、Theorem 1 的定义补全、范围限定补齐）。新增数字由 `experiments/a7/narrative_checks.py` 持久化。
+   - **已决定不修（用户，2026-09-29）：** `a7_core.py` 的相位残差不修正，不重新生成结果。审稿人两次提出；影响 ≤ 约 2.1e-12，结论不变。论文里按 Known Weaknesses 如实说明。
 5. `/paper-writing — venue: IEEE_CONF, human checkpoint: true`。它的编译步骤改走 Overleaf（见第 10 节“Overleaf 与论文编译”）。之后跑 `/paper-claim-audit` 和 `/citation-audit`。
 6. 时间线：9/29 做步骤 1–3，9/30–10/1 写作，**10/2 在 EDAS 提交**。
 
@@ -193,7 +194,7 @@
 - `idea-stage/`：文献、idea 报告、research contract、pilots、GPT-6 Pro 交接材料（`handoff/`），以及 **`NOVELTY_TARGETED_A7v2.md`**。
 - `fyp_report/`：毕设 LaTeX、PDF、旧的 `PAPER_PLAN.md` 和旧评审存档。
 - `docs/`：参考论文、`fyp.pdf`、模板。
-- 根目录：`CLAIMS_FROM_RESULTS.md`（R020 结论）、`findings.md`（只追加的发现日志）、`MANIFEST.md`、`NARRATIVE_REPORT.md`（旧）、`CLAUDE.md`、`AGENTS.md`、`.gitattributes`。
+- 根目录：`CLAIMS_FROM_RESULTS.md`（R020 结论）、`findings.md`（只追加的发现日志）、`MANIFEST.md`、`NARRATIVE_REPORT.md`（A7 v2，`/paper-writing` 的输入）、`CLAUDE.md`、`AGENTS.md`、`.gitattributes`。
 
 ## 9. 环境与复现
 

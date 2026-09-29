@@ -1,0 +1,26 @@
+{
+ "inconclusive_off_axis": {
+  "n": 61,
+  "median_gamma": -0.0019367590318121,
+  "below_minus_5pct": 13,
+  "min_gamma": -0.1106609616755118
+ },
+ "cap_hits": {
+  "primary": 48,
+  "full_grid": 64,
+  "full_grid_P_eq_D": 16
+ },
+ "coaligned_main_grid_survivor_fraction": {
+  "min": 0.533513897896722,
+  "median": 1.0,
+  "max": 1.0
+ },
+ "exact_not_unique_primary": 565,
+ "primary_cases": 1056,
+ "stress_enclosure_example": {
+  "case": "free, P=(6,1), eps=0.03 lambda, 40 dB, S_hat",
+  "total_gap": 0.0007393624563925005,
+  "dependency_upper": 1.1122720959599874e-05,
+  "enclosure_share_of_log_gap_lower": 0.9849508582182238
+ }
+}
